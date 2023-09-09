@@ -1,0 +1,1396 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Enumerating allosteric parameters &#8212; Receptors</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'enumerating';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="My Tools" href="MyTools.html" />
+    <link rel="prev" title="Receptor Modeling" href="receptors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Doodle.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Doodle.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Receptors
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor models and binding curves</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptors.html">Receptor Modeling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Enumerating allosteric parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyToolsExamples.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Enumerating allosteric parameters in receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-order oligomers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReducedFromCartesianPower.html">Reduced Power Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and helps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fenumerating.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/enumerating.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enumerating allosteric parameters</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-path-graph-p-n">The path graph $P_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-and-plot-a-graph-the-vertices-are-integers-the-edge-labels-are-none">Make and plot a graph. The vertices are integers.  The edge labels are ‘None’</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-graphs">Simple graphs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The path graph $P_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cycle-graph-c-n">The cycle graph $C_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-complete-graph-k-n">The complete graph $K_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hypercube-graph-q-n">The hypercube graph $Q_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bipartite-graph-k-n-m">The bipartite graph $K_{n,m}$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="enumerating-allosteric-parameters">
+<h1>Enumerating allosteric parameters<a class="headerlink" href="#enumerating-allosteric-parameters" title="Permalink to this heading">#</a></h1>
+<p>We are enumerating allosteric parameters. MATH IS NOT WORKING!</p>
+<div class="math notranslate nohighlight">
+\[x+x = 0 \quad \mbox{and} \quad x\cdot x = 0 \]</div>
+<section id="the-path-graph-p-n">
+<h2>The path graph $P_n$<a class="headerlink" href="#the-path-graph-p-n" title="Permalink to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">path</span> <span class="pre">graph</span></code> is a graph whose $n$ vertices can be listed in the order $0, 1, \ldots , n-1$ such that the edges are $(i, i+1)$ for $i = 0, 1 \ldots , n-2$.  For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]:</span>
+    <span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;P</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8ebf6ac354fafdb13ead7d7efa1f429de6a25f70f1c8c8ea237795966dfb94b9.png" src="_images/8ebf6ac354fafdb13ead7d7efa1f429de6a25f70f1c8c8ea237795966dfb94b9.png" />
+<img alt="_images/457a31b8cca5b023362a1f64b4758cabf5d61d0c8c7069399616fa4a522249a3.png" src="_images/457a31b8cca5b023362a1f64b4758cabf5d61d0c8c7069399616fa4a522249a3.png" />
+<img alt="_images/5350d8b0381dd68c5e5bf5e3549ad42129ebfda3a8de313ae08e5ae8886d8e88.png" src="_images/5350d8b0381dd68c5e5bf5e3549ad42129ebfda3a8de313ae08e5ae8886d8e88.png" />
+</div>
+</div>
+<p>We will enumerate allosteric parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> MyTools.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="make-and-plot-a-graph-the-vertices-are-integers-the-edge-labels-are-none">
+<h2>Make and plot a graph. The vertices are integers.  The edge labels are ‘None’<a class="headerlink" href="#make-and-plot-a-graph-the-vertices-are-integers-the-edge-labels-are-none" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/be22e0654d548a9089f02d284aa00d5c36c32e5ba78c8cc6d7b255709625fb93.png" src="_images/be22e0654d548a9089f02d284aa00d5c36c32e5ba78c8cc6d7b255709625fb93.png" />
+<img alt="_images/15f547bebcb4f214ebd219c93f09d5ed1a017c72c9548646b1dade169f0e8835.png" src="_images/15f547bebcb4f214ebd219c93f09d5ed1a017c72c9548646b1dade169f0e8835.png" />
+</div>
+</div>
+<section id="simple-graphs">
+<h3>Simple graphs<a class="headerlink" href="#simple-graphs" title="Permalink to this heading">#</a></h3>
+<p>For a simple graph $G=(V,E)$, we will sometimes write $|V(G)|$ and $|E(G)|$
+for the number of vertices and edges of $G$.  We assume the graph $G$ is connected, so the Betti number is given by $\beta(G)=|E(G)|-|V(G)|+1$.   When the graph G   is understood from context, we will often use $v(G)$ and $e(G)$, or simply $v$ and $e$, for the number of vertices and edges of G.</p>
+<p>The number of vertices in the reduced graph power $G^{(k)}$ is</p>
+<div class="math notranslate nohighlight">
+\[|V(G^{(k)})|=\binom{v+k-1}{k} \]</div>
+<p>where $v=|V(G)|$.
+The number of edges in the reduced graph power $G^{(k)}$ is</p>
+<div class="math notranslate nohighlight" id="equation-number-of-edges">
+<span class="eqno">(3)<a class="headerlink" href="#equation-number-of-edges" title="Permalink to this equation">#</a></span>\[|E(G^{(k)})|=e\binom{v+k-2}{k-1}   \]</div>
+<p>where $e=|E(G)|$.
+When the graph $G$ is understood, will sometimes abbreviate the number of vertices and edges in its reduced graph power by $v^{(k)} = |V(G^{(k)})|$ and $e^{(k)} = |E(G^{(k)})|$.</p>
+</section>
+</section>
+<section id="id1">
+<h2>The path graph $P_n$<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">path</span> <span class="pre">graph</span></code> is a graph whose $n$ vertices can be listed in the order $0, 1, \ldots , n-1$ such that the edges are $(i, i+1)$ for $i = 0, 1 \ldots , n-2$.  For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]:</span>
+    <span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;P</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/443c1fe9ddbd383ba108f95a9fa33964819f8ca9eaf9098a2becf708596da359.png" src="_images/443c1fe9ddbd383ba108f95a9fa33964819f8ca9eaf9098a2becf708596da359.png" />
+<img alt="_images/7b54120673ddea1eaff374e8a49d4e63d492cfeb19923a71d699f0ddf4b4bff9.png" src="_images/7b54120673ddea1eaff374e8a49d4e63d492cfeb19923a71d699f0ddf4b4bff9.png" />
+<img alt="_images/1bfbf99b897209fec8589595dc039d9ac31d76bcc3f0362359540384c5c54968.png" src="_images/1bfbf99b897209fec8589595dc039d9ac31d76bcc3f0362359540384c5c54968.png" />
+</div>
+</div>
+<p>Evidently, $|V(P_n)|=n$, $|E(P_n)|=n-1$, and $\beta(P_n)=0$.
+The number of vertices of the reduced graph power $P_n^{(k)}$ is $|V(P_n^{(k)})|=\binom{n+k-1}{k}$. The number of edges is $|E(P_n^{(k)})|=(n-1)\binom{n+k-2}{k-1}$. Consequently, the Betti number of the path graph on $n$ vertices is</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\beta(P_n^{(k)}) = (n-1)\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, . 
+\end{equation}\]</div>
+<p>Specializing to the case of a dimer ($k=2$), we have $|V(P_n^{(2)})|=\binom{n+1}{2}$,  $|E(P_n^{(2)})|=n(n-1)$, and $\beta(P_n^{(2)}) = \binom{n-1}{2}$.</p>
+<div class="math notranslate nohighlight" id="equation-beta-for-path-graph">
+<span class="eqno">(4)<a class="headerlink" href="#equation-beta-for-path-graph" title="Permalink to this equation">#</a></span>\[\beta(P_n^{(k)}) = (n-1)\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, . \]</div>
+</section>
+<section id="the-cycle-graph-c-n">
+<h2>The cycle graph $C_n$<a class="headerlink" href="#the-cycle-graph-c-n" title="Permalink to this heading">#</a></h2>
+<p>The  <code class="docutils literal notranslate"><span class="pre">cycle</span> <span class="pre">graph</span></code> $C_n$ is a graph whose $n$ vertices can be listed in the order $0, 1, \ldots , n$ such that the edges are $(i, i+1)$ for $i = 0, 1, \ldots , n-2$,
+and also $(0,n-1)$.  For example, $C_5$ is</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">12</span><span class="p">]:</span>
+    <span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;K</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/8146ec85b8eb14b1d8b723fde15f22625679372f7ad27ed2baf41abffb776b4c.png" src="_images/8146ec85b8eb14b1d8b723fde15f22625679372f7ad27ed2baf41abffb776b4c.png" />
+<img alt="_images/acf3c18c64943becb99ac88aeb76699b0c1154802011b5b7ad89f5eb582b43e0.png" src="_images/acf3c18c64943becb99ac88aeb76699b0c1154802011b5b7ad89f5eb582b43e0.png" />
+<img alt="_images/d8d50b618ed35d0f60ae891a7683214f575f8b79159460f3b3a4743a08efde02.png" src="_images/d8d50b618ed35d0f60ae891a7683214f575f8b79159460f3b3a4743a08efde02.png" />
+</div>
+</div>
+<p>For the cycle graph $|E(C_n)|=n$ and $\beta(C_n)=1$.</p>
+<p>The number of vertices of the reduced graph power $C_n^{(k)}$ is $|V(C_n^{(k)})|=\binom{n+k-1}{k}$. The number of edges is $|E(C_n^{(k)})|=n\binom{n+k-2}{k-1}$. The Betti number is</p>
+<div class="math notranslate nohighlight">
+\[\beta(C_n^{(k)}) = n\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, . \]</div>
+<p>Specializing to the case of a dimer ($k=2$), we have $v^{(2)}=\binom{n+1}{2}$,  $e^{(2)}=n^2$, and</p>
+<div class="math notranslate nohighlight">
+\[\beta(C_n^{(2)}) =  \binom{n}{2}+1 
+= n(n-1)/2+1 \,.\]</div>
+</section>
+<section id="the-complete-graph-k-n">
+<h2>The complete graph $K_n$<a class="headerlink" href="#the-complete-graph-k-n" title="Permalink to this heading">#</a></h2>
+<p>The   <code class="docutils literal notranslate"><span class="pre">complete</span> <span class="pre">graph</span></code> $K_n$ is a graph with $n$ vertices and $|E(K_n)|=\binom{n}{2}$ edges.<br />
+For example, $K_5$ is</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]:</span>
+    <span class="n">graphs</span><span class="o">.</span><span class="n">CompleteGraph</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;C</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/2bb3aec8c6e3048fe97d479a1cd77705a7a188742285fa87ea4f43bb82fe584b.png" src="_images/2bb3aec8c6e3048fe97d479a1cd77705a7a188742285fa87ea4f43bb82fe584b.png" />
+<img alt="_images/6a034e48ed5a4b81fdb75ce2f7bfc3d6f06bee171bb03ee29415efaa3568165c.png" src="_images/6a034e48ed5a4b81fdb75ce2f7bfc3d6f06bee171bb03ee29415efaa3568165c.png" />
+<img alt="_images/f4a317f9b0feb8c55b1c17d579c2ee287704d3c67ef238a6761d1bb940169d89.png" src="_images/f4a317f9b0feb8c55b1c17d579c2ee287704d3c67ef238a6761d1bb940169d89.png" />
+</div>
+</div>
+<p>For the complete graph, $\beta(K_n)=\binom{n-1}{2}=(n-1)(n-2)/2$.</p>
+<p>The number of vertices of the reduced graph power $K_n^{(k)}$ is $|V(K_n^{(k)})|=\binom{n+k-1}{k}$, the number of edges is $|E(K_n^{(k)})|=\binom{n}{2}\binom{n+k-2}{k-1}$, and the Betti number is</p>
+<div class="math notranslate nohighlight">
+\[\beta(K_n^{(k)}) = \binom{n}{2}\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, . \]</div>
+<p>For a dimer ($k=2$), we have $v^{(2)}=\binom{n+1}{2}$,  $e^{(2)}=\binom{n}{2} n = n^2(n-1)/2$, and</p>
+<div class="math notranslate nohighlight">
+\[\beta(K_n^{(2)}) = (n+1)(n-1)(n-2)/2 \, . \]</div>
+</section>
+<section id="the-hypercube-graph-q-n">
+<h2>The hypercube graph $Q_n$<a class="headerlink" href="#the-hypercube-graph-q-n" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">hypercube</span> <span class="pre">graph</span></code>  $Q_n$ has $|V(Q_n)|=2^n$ vertices and $|E(Q_n)|=2^{n-1}n $ edges.  For example, $Q_4$ is</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">:</span>
+        <span class="n">graphs</span><span class="o">.</span><span class="n">CubeGraph</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">vertex_labels</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Q</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">graphs</span><span class="o">.</span><span class="n">CubeGraph</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Q</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/bdb28f8b102a48c0c28aa65d647e33b1af4f25f2e75fed1997249bac3809f11f.png" src="_images/bdb28f8b102a48c0c28aa65d647e33b1af4f25f2e75fed1997249bac3809f11f.png" />
+<img alt="_images/b878a4a19e190ad10e8cf867f4589039e781f918f91644e7547baf96802be3a9.png" src="_images/b878a4a19e190ad10e8cf867f4589039e781f918f91644e7547baf96802be3a9.png" />
+<img alt="_images/75672ce17ffebbb202d0630b65888a37c54c0f1979629e6177c2d7b6a3b60bb0.png" src="_images/75672ce17ffebbb202d0630b65888a37c54c0f1979629e6177c2d7b6a3b60bb0.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">graphs</span><span class="o">.</span><span class="n">CubeGraph</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">show3d</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Q</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset=&quot;utf-8&quot;>
+<meta name=viewport content=&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;>
+<style>
+
+    body { margin: 0px; overflow: hidden; }
+
+    #menu-container { position: absolute; bottom: 30px; right: 40px; cursor: default; }
+
+    #menu-message { position: absolute; bottom: 0px; right: 0px; white-space: nowrap;
+                    display: none; background-color: #F5F5F5; padding: 10px; }
+
+    #menu-content { position: absolute; bottom: 0px; right: 0px;
+                    display: none; background-color: #F5F5F5; border-bottom: 1px solid black;
+                    border-right: 1px solid black; border-left: 1px solid black; }
+
+    #menu-content div { border-top: 1px solid black; padding: 10px; white-space: nowrap; }
+
+    #menu-content div:hover { background-color: #FEFEFE; }
+
+    .dark-theme #menu-container { color: white; }
+
+    .dark-theme #menu-message { background-color: #181818; }
+
+    .dark-theme #menu-content { background-color: #181818; border-color: white; }
+
+    .dark-theme #menu-content div { border-color: white; }
+
+    .dark-theme #menu-content div:hover { background-color: #303030; }
+
+</style>
+
+</head>
+
+<body>
+
+<script src=&quot;/nbextensions/threejs-sage/r122/three.min.js&quot;></script>
+<script>
+  if ( !window.THREE ) document.write(' \
+<script src=&quot;https://cdn.jsdelivr.net/gh/sagemath/threejs-sage@r122/build/three.min.js&quot;><\/script> \
+            ');
+</script>
+        
+<script>
+
+    var options = {&quot;animate&quot;: false, &quot;animationControls&quot;: true, &quot;aspectRatio&quot;: [1.0, 1.0, 1.0], &quot;autoScaling&quot;: [false, false, false], &quot;autoPlay&quot;: true, &quot;axes&quot;: false, &quot;axesLabels&quot;: false, &quot;axesLabelsStyle&quot;: null, &quot;decimals&quot;: 2, &quot;delay&quot;: 20, &quot;frame&quot;: false, &quot;loop&quot;: true, &quot;projection&quot;: &quot;perspective&quot;, &quot;theme&quot;: &quot;light&quot;, &quot;viewpoint&quot;: false};
+    var animate = options.animate;
+
+    if ( options.theme === 'dark' )
+        document.body.className = 'dark-theme';
+
+    var scene = new THREE.Scene();
+
+    var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( options.theme === 'dark' ? 0 : 0xffffff, 1 );
+    document.body.appendChild( renderer.domElement );
+
+    var b = [{&quot;x&quot;:0.94, &quot;y&quot;:-0.9456191132475824, &quot;z&quot;:-0.8872622438415825}, {&quot;x&quot;:2.823476241097661, &quot;y&quot;:0.9734530775529602, &quot;z&quot;:0.9200127300194629}]; // bounds
+
+    if ( b[0].x === b[1].x ) {
+        b[0].x -= 1;
+        b[1].x += 1;
+    }
+    if ( b[0].y === b[1].y ) {
+        b[0].y -= 1;
+        b[1].y += 1;
+    }
+    if ( b[0].z === b[1].z ) {
+        b[0].z -= 1;
+        b[1].z += 1;
+    }
+
+    var rxRange = Math.sqrt( Math.pow( b[1].z - b[0].z, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var ryRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].z - b[0].z, 2 ) );
+    var rzRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var xRange = b[1].x - b[0].x;
+    var yRange = b[1].y - b[0].y;
+    var zRange = b[1].z - b[0].z;
+
+    var ar = options.aspectRatio;
+    var a = [ ar[0], ar[1], ar[2] ]; // aspect multipliers
+
+    var autoScaling = options.autoScaling;
+    var autoAspect = 2.5;
+    if ( xRange > autoAspect * rxRange && autoScaling[0] ) a[0] = autoAspect * rxRange / xRange;
+    if ( yRange > autoAspect * ryRange && autoScaling[1] ) a[1] = autoAspect * ryRange / yRange;
+    if ( zRange > autoAspect * rzRange && autoScaling[2] ) a[2] = autoAspect * rzRange / zRange;
+
+    // Distance from (xMid,yMid,zMid) to any corner of the bounding box, after applying aspectRatio
+    var midToCorner = Math.sqrt( a[0]*a[0]*xRange*xRange + a[1]*a[1]*yRange*yRange + a[2]*a[2]*zRange*zRange ) / 2;
+
+    var xMid = ( b[0].x + b[1].x ) / 2;
+    var yMid = ( b[0].y + b[1].y ) / 2;
+    var zMid = ( b[0].z + b[1].z ) / 2;
+
+    var box = new THREE.Geometry();
+    box.vertices.push( new THREE.Vector3( a[0]*b[0].x, a[1]*b[0].y, a[2]*b[0].z ) );
+    box.vertices.push( new THREE.Vector3( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) );
+    var boxMesh = new THREE.Line( box );
+    var boxColor = options.theme === 'dark' ? 'white' : 'black';
+    if ( options.frame ) scene.add( new THREE.BoxHelper( boxMesh, boxColor ) );
+
+    if ( options.axesLabels ) {
+
+        var d = options.decimals; // decimals
+        var offsetRatio = 0.1;
+        var al = options.axesLabels;
+        var als = options.axesLabelsStyle || [{}, {}, {}];
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var xm = xMid.toFixed(d);
+        if ( /^-0.?0*$/.test(xm) ) xm = xm.substr(1);
+        addLabel( al[0] + '=' + xm, a[0]*xMid, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[0].x ).toFixed(d), a[0]*b[0].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[1].x ).toFixed(d), a[0]*b[1].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+
+        var offset = offsetRatio * a[0]*( b[1].x - b[0].x );
+        var ym = yMid.toFixed(d);
+        if ( /^-0.?0*$/.test(ym) ) ym = ym.substr(1);
+        addLabel( al[1] + '=' + ym, a[0]*b[1].x+offset, a[1]*yMid, a[2]*b[0].z, als[1] );
+        addLabel( ( b[0].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[0].y, a[2]*b[0].z, als[1] );
+        addLabel( ( b[1].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[1].y, a[2]*b[0].z, als[1] );
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var zm = zMid.toFixed(d);
+        if ( /^-0.?0*$/.test(zm) ) zm = zm.substr(1);
+        addLabel( al[2] + '=' + zm, a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*zMid, als[2] );
+        addLabel( ( b[0].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[0].z, als[2] );
+        addLabel( ( b[1].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[1].z, als[2] );
+
+    }
+
+    function addLabel( text, x, y, z, style ) {
+
+        var color = style.color || 'black';
+        var fontSize = style.fontSize || 14;
+        var fontFamily = style.fontFamily || 'monospace';
+        var fontStyle = style.fontStyle || 'normal';
+        var fontWeight = style.fontWeight || 'normal';
+        var opacity = style.opacity || 1;
+
+        if ( options.theme === 'dark' )
+            if ( color === 'black' || color === '#000000' )
+                color = 'white';
+
+        if ( Array.isArray( fontStyle ) ) {
+            fontFamily = fontFamily.map( function( f ) {
+                // Need to put quotes around fonts that have whitespace in their names.
+                return /\s/.test( f ) ? '&quot;' + f + '&quot;' : f;
+            }).join(', ');
+        }
+
+        var canvas = document.createElement( 'canvas' );
+        var context = canvas.getContext( '2d' );
+        var pixelRatio = Math.round( window.devicePixelRatio );
+
+        // For example: italic bold 20px &quot;Times New Roman&quot;, Georgia, serif
+        var font = [fontStyle, fontWeight, fontSize + 'px', fontFamily].join(' ');
+
+        context.font = font;
+        var width = context.measureText( text ).width;
+        var height = fontSize;
+
+        // The dimensions of the canvas's underlying image data need to be powers
+        // of two in order for the resulting texture to support mipmapping.
+        canvas.width = THREE.MathUtils.ceilPowerOfTwo( width * pixelRatio );
+        canvas.height = THREE.MathUtils.ceilPowerOfTwo( height * pixelRatio );
+
+        // Re-compute the unscaled dimensions after the power of two conversion.
+        width = canvas.width / pixelRatio;
+        height = canvas.height / pixelRatio;
+
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+
+        context.scale( pixelRatio, pixelRatio );
+        context.fillStyle = color;
+        context.font = font; // Must be set again after measureText.
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText( text, width/2, height/2 );
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var materialOptions = { map: texture, sizeAttenuation: false, depthWrite: false };
+        if ( opacity < 1 ) {
+            // Setting opacity=1 would cause the texture's alpha component to be
+            // discarded, giving the text a black background instead of the
+            // background being transparent.
+            materialOptions.opacity = opacity;
+        }
+        var sprite = new THREE.Sprite( new THREE.SpriteMaterial( materialOptions ) );
+        sprite.position.set( x, y, z );
+
+        // Scaling factor, chosen somewhat arbitrarily so that the size of the text
+        // is consistent with previously generated plots.
+        var scale = 1/625;
+        if ( options.projection === 'orthographic' ) {
+            scale = midToCorner/256; // Needs to scale along with the plot itself.
+        }
+        sprite.scale.set( scale * width, scale * height, 1 );
+
+        scene.add( sprite );
+
+        return sprite;
+
+    }
+
+    if ( options.axes ) scene.add( new THREE.AxesHelper( Math.min( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) ) );
+
+    var camera = createCamera();
+    camera.up.set( 0, 0, 1 );
+    camera.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+
+    // camera is positioned so that the line from the camera to the center
+    // of the bounding sphere of the objects makes an angle of 60 degrees with x-axis
+    // and an angle of 30 degrees with z-axis and the field of view of the camera looking
+    // at the center has an angle of 45 degrees.
+    const sin8 = Math.sin(Math.PI / 8);
+    const sin5 = Math.sin(Math.PI / 5);
+    const cos5 = Math.cos(Math.PI / 5);
+    const sin3 = Math.sin(Math.PI / 3);
+    const cos3 = Math.cos(Math.PI / 3);
+    var r = midToCorner / sin8;
+    var offset = new THREE.Vector3( r * sin3 * cos5, r * sin3 * sin5, r * cos3 );
+
+    if ( options.viewpoint ) {
+
+        var aa = options.viewpoint;
+        var axis = new THREE.Vector3( aa[0][0], aa[0][1], aa[0][2] ).normalize();
+        var angle = aa[1] * Math.PI / 180;
+        var q = new THREE.Quaternion().setFromAxisAngle( axis, angle ).inverse();
+
+        offset.set( 0, 0, offset.length() );
+        offset.applyQuaternion( q );
+
+    }
+
+    camera.position.add( offset );
+
+    function createCamera() {
+
+        var aspect = window.innerWidth / window.innerHeight;
+
+        // Scale the near and far clipping planes along with the overall plot size.
+        var nearClip = 0.01 * midToCorner;
+        var farClip = 100 * midToCorner;
+
+        if ( options.projection === 'orthographic' ) {
+            var camera = new THREE.OrthographicCamera( -1, 1, 1, -1, -farClip, farClip );
+            updateCameraAspect( camera, aspect );
+            return camera;
+        }
+
+        return new THREE.PerspectiveCamera( 45, aspect, nearClip, farClip );
+
+    }
+
+    function updateCameraAspect( camera, aspect ) {
+
+        if ( camera.isPerspectiveCamera ) {
+            camera.aspect = aspect;
+        } else if ( camera.isOrthographicCamera ) {
+            // Fit the camera frustum to the bounding box's diagonal so that the entire plot fits
+            // within at the default zoom level and camera position.
+            if ( aspect > 1 ) { // Wide window
+                camera.top = midToCorner;
+                camera.right = midToCorner * aspect;
+            } else { // Tall or square window
+                camera.top = midToCorner / aspect;
+                camera.right = midToCorner;
+            }
+            camera.bottom = -camera.top;
+            camera.left = -camera.right;
+        }
+
+        camera.updateProjectionMatrix();
+
+    }
+
+    var lights = [{&quot;x&quot;:-5, &quot;y&quot;:3, &quot;z&quot;:0, &quot;color&quot;:&quot;#7f7f7f&quot;, &quot;parent&quot;:&quot;camera&quot;}];
+    for ( var i=0 ; i < lights.length ; i++ ) {
+        var light = new THREE.DirectionalLight( lights[i].color, 1 );
+        light.position.set( a[0]*lights[i].x, a[1]*lights[i].y, a[2]*lights[i].z );
+        if ( lights[i].parent === 'camera' ) {
+            light.target.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+            scene.add( light.target );
+            camera.add( light );
+        } else scene.add( light );
+    }
+    scene.add( camera );
+
+    var ambient = {&quot;color&quot;:&quot;#7f7f7f&quot;};
+    scene.add( new THREE.AmbientLight( ambient.color, 1 ) );
+
+    var controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls.target.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+    controls.addEventListener( 'change', function() { if ( !animate ) render(); } );
+
+    window.addEventListener( 'resize', function() {
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        updateCameraAspect( camera, window.innerWidth / window.innerHeight );
+        if ( window.rescaleFatLines ) rescaleFatLines();
+        if ( !animate ) render();
+
+    } );
+
+    var texts = [];
+    for ( var i=0 ; i < texts.length ; i++ ) addText( texts[i] );
+
+    function addText( json ) {
+        var sprite = addLabel( json.text, a[0]*json.x, a[1]*json.y, a[2]*json.z, json );
+        sprite.userData = json;
+    }
+
+    var points = [];
+    for ( var i=0 ; i < points.length ; i++ ) addPoint( points[i] );
+
+    function addPoint( json ) {
+
+        var geometry = new THREE.Geometry();
+        var v = json.point;
+        geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+
+        var canvas = document.createElement( 'canvas' );
+        canvas.width = 128;
+        canvas.height = 128;
+
+        var context = canvas.getContext( '2d' );
+        context.arc( 64, 64, 64, 0, 2 * Math.PI );
+        context.fillStyle = json.color;
+        context.fill();
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var transparent = json.opacity < 1 ? true : false;
+        var size = camera.isOrthographicCamera ? json.size : json.size/100;
+        var material = new THREE.PointsMaterial( { size: size, map: texture,
+                                                   transparent: transparent, opacity: json.opacity,
+                                                   alphaTest: .1 } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Points( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var lines = [];
+    for ( var i=0 ; i < lines.length ; i++ ) addLine( lines[i] );
+
+    function addLine( json ) {
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i < json.points.length ; i++ ) {
+            var v = json.points[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var transparent = json.opacity < 1 ? true : false;
+        var materialOptions = { color: json.color, linewidth: json.linewidth,
+                                transparent: transparent, opacity: json.opacity };
+
+        var mesh;
+        if ( json.linewidth > 1 && window.createFatLineStrip ) {
+            mesh = createFatLineStrip( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.Line( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var surfaces = [{&quot;vertices&quot;: [{&quot;x&quot;: 1.862773509607399, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.8872622438415825}, {&quot;x&quot;: 1.8777735096073989, &quot;y&quot;: 0.4315062429382165, &quot;z&quot;: -0.8792237680686489}, {&quot;x&quot;: 1.892773509607399, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.8792237680686489}, {&quot;x&quot;: 1.847773509607399, &quot;y&quot;: 0.4315062429382165, &quot;z&quot;: -0.8792237680686489}, {&quot;x&quot;: 1.832773509607399, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.8792237680686489}, {&quot;x&quot;: 1.847773509607399, &quot;y&quot;: 0.3795447187111502, &quot;z&quot;: -0.8792237680686489}, {&quot;x&quot;: 1.8777735096073989, &quot;y&quot;: 0.37954471871115014, &quot;z&quot;: -0.8792237680686489}, {&quot;x&quot;: 1.888754271720932, &quot;y&quot;: 0.4505254808246833, &quot;z&quot;: -0.8572622438415826}, {&quot;x&quot;: 1.9147350338344653, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.8572622438415826}, {&quot;x&quot;: 1.836792747493866, &quot;y&quot;: 0.4505254808246833, &quot;z&quot;: -0.8572622438415826}, {&quot;x&quot;: 1.8108119853803326, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.8572622438415826}, {&quot;x&quot;: 1.8367927474938657, &quot;y&quot;: 0.36052548082468333, &quot;z&quot;: -0.8572622438415826}, {&quot;x&quot;: 1.888754271720932, &quot;y&quot;: 0.36052548082468333, &quot;z&quot;: -0.8572622438415826}, {&quot;x&quot;: 1.892773509607399, &quot;y&quot;: 0.4574870050517496, &quot;z&quot;: -0.8272622438415825}, {&quot;x&quot;: 1.922773509607399, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.8272622438415825}, {&quot;x&quot;: 1.832773509607399, &quot;y&quot;: 0.45748700505174966, &quot;z&quot;: -0.8272622438415825}, {&quot;x&quot;: 1.802773509607399, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.8272622438415825}, {&quot;x&quot;: 1.832773509607399, &quot;y&quot;: 0.353563956597617, &quot;z&quot;: -0.8272622438415825}, {&quot;x&quot;: 1.892773509607399, &quot;y&quot;: 0.353563956597617, &quot;z&quot;: -0.8272622438415825}, {&quot;x&quot;: 1.888754271720932, &quot;y&quot;: 0.4505254808246833, &quot;z&quot;: -0.7972622438415825}, {&quot;x&quot;: 1.9147350338344653, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.7972622438415825}, {&quot;x&quot;: 1.836792747493866, &quot;y&quot;: 0.4505254808246833, &quot;z&quot;: -0.7972622438415825}, {&quot;x&quot;: 1.8108119853803326, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.7972622438415825}, {&quot;x&quot;: 1.8367927474938657, &quot;y&quot;: 0.36052548082468333, &quot;z&quot;: -0.7972622438415825}, {&quot;x&quot;: 1.888754271720932, &quot;y&quot;: 0.36052548082468333, &quot;z&quot;: -0.7972622438415825}, {&quot;x&quot;: 1.8777735096073989, &quot;y&quot;: 0.4315062429382165, &quot;z&quot;: -0.7753007196145162}, {&quot;x&quot;: 1.892773509607399, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.7753007196145162}, {&quot;x&quot;: 1.847773509607399, &quot;y&quot;: 0.4315062429382165, &quot;z&quot;: -0.7753007196145162}, {&quot;x&quot;: 1.832773509607399, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.7753007196145162}, {&quot;x&quot;: 1.847773509607399, &quot;y&quot;: 0.3795447187111502, &quot;z&quot;: -0.7753007196145162}, {&quot;x&quot;: 1.8777735096073989, &quot;y&quot;: 0.37954471871115014, &quot;z&quot;: -0.7753007196145162}, {&quot;x&quot;: 1.862773509607399, &quot;y&quot;: 0.4055254808246833, &quot;z&quot;: -0.7672622438415826}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 2, 6], [2, 1, 7, 8], [1, 3, 9, 7], [3, 4, 10, 9], [4, 5, 11, 10], [5, 6, 12, 11], [6, 2, 8, 12], [8, 7, 13, 14], [7, 9, 15, 13], [9, 10, 16, 15], [10, 11, 17, 16], [11, 12, 18, 17], [12, 8, 14, 18], [14, 13, 19, 20], [13, 15, 21, 19], [15, 16, 22, 21], [16, 17, 23, 22], [17, 18, 24, 23], [18, 14, 20, 24], [20, 19, 25, 26], [19, 21, 27, 25], [21, 22, 28, 27], [22, 23, 29, 28], [23, 24, 30, 29], [24, 20, 26, 30], [26, 25, 31], [25, 27, 31], [27, 28, 31], [28, 29, 31], [29, 30, 31], [30, 26, 31]], &quot;color&quot;: &quot;#ff0000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.6398796434682454, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.07701549197185434}, {&quot;x&quot;: 1.6548796434682453, &quot;y&quot;: 0.9394338396664933, &quot;z&quot;: 0.08505396774478802}, {&quot;x&quot;: 1.6698796434682455, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.08505396774478802}, {&quot;x&quot;: 1.6248796434682455, &quot;y&quot;: 0.9394338396664933, &quot;z&quot;: 0.08505396774478802}, {&quot;x&quot;: 1.6098796434682454, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.08505396774478802}, {&quot;x&quot;: 1.6248796434682455, &quot;y&quot;: 0.887472315439427, &quot;z&quot;: 0.08505396774478802}, {&quot;x&quot;: 1.6548796434682453, &quot;y&quot;: 0.887472315439427, &quot;z&quot;: 0.08505396774478802}, {&quot;x&quot;: 1.6658604055817785, &quot;y&quot;: 0.9584530775529602, &quot;z&quot;: 0.10701549197185434}, {&quot;x&quot;: 1.6918411676953118, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.10701549197185434}, {&quot;x&quot;: 1.6138988813547124, &quot;y&quot;: 0.9584530775529602, &quot;z&quot;: 0.10701549197185434}, {&quot;x&quot;: 1.587918119241179, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.10701549197185434}, {&quot;x&quot;: 1.6138988813547122, &quot;y&quot;: 0.8684530775529602, &quot;z&quot;: 0.10701549197185434}, {&quot;x&quot;: 1.6658604055817785, &quot;y&quot;: 0.8684530775529601, &quot;z&quot;: 0.10701549197185434}, {&quot;x&quot;: 1.6698796434682455, &quot;y&quot;: 0.9654146017800265, &quot;z&quot;: 0.13701549197185434}, {&quot;x&quot;: 1.6998796434682455, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.13701549197185434}, {&quot;x&quot;: 1.6098796434682454, &quot;y&quot;: 0.9654146017800265, &quot;z&quot;: 0.13701549197185434}, {&quot;x&quot;: 1.5798796434682454, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.13701549197185434}, {&quot;x&quot;: 1.6098796434682454, &quot;y&quot;: 0.8614915533258938, &quot;z&quot;: 0.13701549197185434}, {&quot;x&quot;: 1.6698796434682455, &quot;y&quot;: 0.8614915533258938, &quot;z&quot;: 0.13701549197185434}, {&quot;x&quot;: 1.6658604055817785, &quot;y&quot;: 0.9584530775529602, &quot;z&quot;: 0.16701549197185434}, {&quot;x&quot;: 1.6918411676953118, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.16701549197185434}, {&quot;x&quot;: 1.6138988813547124, &quot;y&quot;: 0.9584530775529602, &quot;z&quot;: 0.16701549197185434}, {&quot;x&quot;: 1.587918119241179, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.16701549197185434}, {&quot;x&quot;: 1.6138988813547122, &quot;y&quot;: 0.8684530775529602, &quot;z&quot;: 0.16701549197185434}, {&quot;x&quot;: 1.6658604055817785, &quot;y&quot;: 0.8684530775529601, &quot;z&quot;: 0.16701549197185434}, {&quot;x&quot;: 1.6548796434682453, &quot;y&quot;: 0.9394338396664933, &quot;z&quot;: 0.18897701619892066}, {&quot;x&quot;: 1.6698796434682455, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.18897701619892066}, {&quot;x&quot;: 1.6248796434682455, &quot;y&quot;: 0.9394338396664933, &quot;z&quot;: 0.18897701619892066}, {&quot;x&quot;: 1.6098796434682454, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.18897701619892066}, {&quot;x&quot;: 1.6248796434682455, &quot;y&quot;: 0.887472315439427, &quot;z&quot;: 0.18897701619892066}, {&quot;x&quot;: 1.6548796434682453, &quot;y&quot;: 0.887472315439427, &quot;z&quot;: 0.18897701619892066}, {&quot;x&quot;: 1.6398796434682454, &quot;y&quot;: 0.9134530775529601, &quot;z&quot;: 0.19701549197185433}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 2, 6], [2, 1, 7, 8], [1, 3, 9, 7], [3, 4, 10, 9], [4, 5, 11, 10], [5, 6, 12, 11], [6, 2, 8, 12], [8, 7, 13, 14], [7, 9, 15, 13], [9, 10, 16, 15], [10, 11, 17, 16], [11, 12, 18, 17], [12, 8, 14, 18], [14, 13, 19, 20], [13, 15, 21, 19], [15, 16, 22, 21], [16, 17, 23, 22], [17, 18, 24, 23], [18, 14, 20, 24], [20, 19, 25, 26], [19, 21, 27, 25], [21, 22, 28, 27], [22, 23, 29, 28], [23, 24, 30, 29], [24, 20, 26, 30], [26, 25, 31], [25, 27, 31], [27, 28, 31], [28, 29, 31], [29, 30, 31], [30, 26, 31]], &quot;color&quot;: &quot;#ff0000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.0, &quot;y&quot;: 0.03170836579356789, &quot;z&quot;: 0.2863721209814372}, {&quot;x&quot;: 1.015, &quot;y&quot;: 0.05768912790710104, &quot;z&quot;: 0.29441059675437087}, {&quot;x&quot;: 1.03, &quot;y&quot;: 0.03170836579356789, &quot;z&quot;: 0.29441059675437087}, {&quot;x&quot;: 0.985, &quot;y&quot;: 0.05768912790710104, &quot;z&quot;: 0.29441059675437087}, {&quot;x&quot;: 0.97, &quot;y&quot;: 0.031708365793567894, &quot;z&quot;: 0.29441059675437087}, {&quot;x&quot;: 0.985, &quot;y&quot;: 0.005727603680034745, &quot;z&quot;: 0.29441059675437087}, {&quot;x&quot;: 1.015, &quot;y&quot;: 0.005727603680034738, &quot;z&quot;: 0.29441059675437087}, {&quot;x&quot;: 1.025980762113533, &quot;y&quot;: 0.07670836579356788, &quot;z&quot;: 0.3163721209814372}, {&quot;x&quot;: 1.0519615242270663, &quot;y&quot;: 0.03170836579356789, &quot;z&quot;: 0.3163721209814372}, {&quot;x&quot;: 0.9740192378864668, &quot;y&quot;: 0.07670836579356788, &quot;z&quot;: 0.3163721209814372}, {&quot;x&quot;: 0.9480384757729337, &quot;y&quot;: 0.031708365793567894, &quot;z&quot;: 0.3163721209814372}, {&quot;x&quot;: 0.9740192378864668, &quot;y&quot;: -0.01329163420643209, &quot;z&quot;: 0.3163721209814372}, {&quot;x&quot;: 1.025980762113533, &quot;y&quot;: -0.013291634206432104, &quot;z&quot;: 0.3163721209814372}, {&quot;x&quot;: 1.03, &quot;y&quot;: 0.0836698900206342, &quot;z&quot;: 0.3463721209814372}, {&quot;x&quot;: 1.06, &quot;y&quot;: 0.03170836579356789, &quot;z&quot;: 0.3463721209814372}, {&quot;x&quot;: 0.97, &quot;y&quot;: 0.08366989002063421, &quot;z&quot;: 0.3463721209814372}, {&quot;x&quot;: 0.94, &quot;y&quot;: 0.031708365793567894, &quot;z&quot;: 0.3463721209814372}, {&quot;x&quot;: 0.97, &quot;y&quot;: -0.02025315843349841, &quot;z&quot;: 0.3463721209814372}, {&quot;x&quot;: 1.03, &quot;y&quot;: -0.020253158433498425, &quot;z&quot;: 0.3463721209814372}, {&quot;x&quot;: 1.025980762113533, &quot;y&quot;: 0.07670836579356788, &quot;z&quot;: 0.3763721209814372}, {&quot;x&quot;: 1.0519615242270663, &quot;y&quot;: 0.03170836579356789, &quot;z&quot;: 0.3763721209814372}, {&quot;x&quot;: 0.9740192378864668, &quot;y&quot;: 0.07670836579356789, &quot;z&quot;: 0.3763721209814372}, {&quot;x&quot;: 0.9480384757729337, &quot;y&quot;: 0.031708365793567894, &quot;z&quot;: 0.3763721209814372}, {&quot;x&quot;: 0.9740192378864668, &quot;y&quot;: -0.013291634206432097, &quot;z&quot;: 0.3763721209814372}, {&quot;x&quot;: 1.025980762113533, &quot;y&quot;: -0.013291634206432111, &quot;z&quot;: 0.3763721209814372}, {&quot;x&quot;: 1.015, &quot;y&quot;: 0.05768912790710104, &quot;z&quot;: 0.39833364520850356}, {&quot;x&quot;: 1.03, &quot;y&quot;: 0.03170836579356789, &quot;z&quot;: 0.39833364520850356}, {&quot;x&quot;: 0.985, &quot;y&quot;: 0.05768912790710104, &quot;z&quot;: 0.39833364520850356}, {&quot;x&quot;: 0.97, &quot;y&quot;: 0.031708365793567894, &quot;z&quot;: 0.39833364520850356}, {&quot;x&quot;: 0.985, &quot;y&quot;: 0.005727603680034745, &quot;z&quot;: 0.39833364520850356}, {&quot;x&quot;: 1.015, &quot;y&quot;: 0.005727603680034738, &quot;z&quot;: 0.39833364520850356}, {&quot;x&quot;: 1.0, &quot;y&quot;: 0.03170836579356789, &quot;z&quot;: 0.4063721209814372}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 2, 6], [2, 1, 7, 8], [1, 3, 9, 7], [3, 4, 10, 9], [4, 5, 11, 10], [5, 6, 12, 11], [6, 2, 8, 12], [8, 7, 13, 14], [7, 9, 15, 13], [9, 10, 16, 15], [10, 11, 17, 16], [11, 12, 18, 17], [12, 8, 14, 18], [14, 13, 19, 20], [13, 15, 21, 19], [15, 16, 22, 21], [16, 17, 23, 22], [17, 18, 24, 23], [18, 14, 20, 24], [20, 19, 25, 26], [19, 21, 27, 25], [21, 22, 28, 27], [22, 23, 29, 28], [23, 24, 30, 29], [24, 20, 26, 30], [26, 25, 31], [25, 27, 31], [27, 28, 31], [28, 29, 31], [29, 30, 31], [30, 26, 31]], &quot;color&quot;: &quot;#ff0000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.2284946357961013, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.6727980102065432}, {&quot;x&quot;: 1.2434946357961012, &quot;y&quot;: -0.44337515440311054, &quot;z&quot;: -0.6647595344336096}, {&quot;x&quot;: 1.2584946357961013, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.6647595344336096}, {&quot;x&quot;: 1.2134946357961014, &quot;y&quot;: -0.44337515440311054, &quot;z&quot;: -0.6647595344336096}, {&quot;x&quot;: 1.1984946357961013, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.6647595344336096}, {&quot;x&quot;: 1.2134946357961014, &quot;y&quot;: -0.49533667863017683, &quot;z&quot;: -0.6647595344336096}, {&quot;x&quot;: 1.2434946357961012, &quot;y&quot;: -0.4953366786301769, &quot;z&quot;: -0.6647595344336096}, {&quot;x&quot;: 1.2544753979096344, &quot;y&quot;: -0.4243559165166437, &quot;z&quot;: -0.6427980102065433}, {&quot;x&quot;: 1.2804561600231676, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.6427980102065433}, {&quot;x&quot;: 1.2025138736825682, &quot;y&quot;: -0.4243559165166437, &quot;z&quot;: -0.6427980102065433}, {&quot;x&quot;: 1.176533111569035, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.6427980102065433}, {&quot;x&quot;: 1.202513873682568, &quot;y&quot;: -0.5143559165166437, &quot;z&quot;: -0.6427980102065433}, {&quot;x&quot;: 1.2544753979096344, &quot;y&quot;: -0.5143559165166437, &quot;z&quot;: -0.6427980102065433}, {&quot;x&quot;: 1.2584946357961013, &quot;y&quot;: -0.4173943922895774, &quot;z&quot;: -0.6127980102065432}, {&quot;x&quot;: 1.2884946357961014, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.6127980102065432}, {&quot;x&quot;: 1.1984946357961013, &quot;y&quot;: -0.4173943922895774, &quot;z&quot;: -0.6127980102065432}, {&quot;x&quot;: 1.1684946357961012, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.6127980102065432}, {&quot;x&quot;: 1.1984946357961013, &quot;y&quot;: -0.52131744074371, &quot;z&quot;: -0.6127980102065432}, {&quot;x&quot;: 1.2584946357961013, &quot;y&quot;: -0.52131744074371, &quot;z&quot;: -0.6127980102065432}, {&quot;x&quot;: 1.2544753979096344, &quot;y&quot;: -0.4243559165166437, &quot;z&quot;: -0.5827980102065432}, {&quot;x&quot;: 1.2804561600231676, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.5827980102065432}, {&quot;x&quot;: 1.2025138736825682, &quot;y&quot;: -0.4243559165166437, &quot;z&quot;: -0.5827980102065432}, {&quot;x&quot;: 1.176533111569035, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.5827980102065432}, {&quot;x&quot;: 1.202513873682568, &quot;y&quot;: -0.5143559165166437, &quot;z&quot;: -0.5827980102065432}, {&quot;x&quot;: 1.2544753979096344, &quot;y&quot;: -0.5143559165166437, &quot;z&quot;: -0.5827980102065432}, {&quot;x&quot;: 1.2434946357961012, &quot;y&quot;: -0.44337515440311054, &quot;z&quot;: -0.5608364859794769}, {&quot;x&quot;: 1.2584946357961013, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.5608364859794769}, {&quot;x&quot;: 1.2134946357961014, &quot;y&quot;: -0.44337515440311054, &quot;z&quot;: -0.5608364859794769}, {&quot;x&quot;: 1.1984946357961013, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.5608364859794769}, {&quot;x&quot;: 1.2134946357961014, &quot;y&quot;: -0.49533667863017683, &quot;z&quot;: -0.5608364859794769}, {&quot;x&quot;: 1.2434946357961012, &quot;y&quot;: -0.4953366786301769, &quot;z&quot;: -0.5608364859794769}, {&quot;x&quot;: 1.2284946357961013, &quot;y&quot;: -0.4693559165166437, &quot;z&quot;: -0.5527980102065433}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 2, 6], [2, 1, 7, 8], [1, 3, 9, 7], [3, 4, 10, 9], [4, 5, 11, 10], [5, 6, 12, 11], [6, 2, 8, 12], [8, 7, 13, 14], [7, 9, 15, 13], [9, 10, 16, 15], [10, 11, 17, 16], [11, 12, 18, 17], [12, 8, 14, 18], [14, 13, 19, 20], [13, 15, 21, 19], [15, 16, 22, 21], [16, 17, 23, 22], [17, 18, 24, 23], [18, 14, 20, 24], [20, 19, 25, 26], [19, 21, 27, 25], [21, 22, 28, 27], [22, 23, 29, 28], [23, 24, 30, 29], [24, 20, 26, 30], [26, 25, 31], [25, 27, 31], [27, 28, 31], [28, 29, 31], [29, 30, 31], [30, 26, 31]], &quot;color&quot;: &quot;#ff0000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.8378141980025067, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8000127300194628}, {&quot;x&quot;: 1.8528141980025066, &quot;y&quot;: -0.3776364835468707, &quot;z&quot;: 0.8080512057923965}, {&quot;x&quot;: 1.8678141980025067, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8080512057923965}, {&quot;x&quot;: 1.8228141980025068, &quot;y&quot;: -0.3776364835468707, &quot;z&quot;: 0.8080512057923965}, {&quot;x&quot;: 1.8078141980025066, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8080512057923965}, {&quot;x&quot;: 1.8228141980025068, &quot;y&quot;: -0.429598007773937, &quot;z&quot;: 0.8080512057923965}, {&quot;x&quot;: 1.8528141980025066, &quot;y&quot;: -0.42959800777393703, &quot;z&quot;: 0.8080512057923965}, {&quot;x&quot;: 1.8637949601160397, &quot;y&quot;: -0.35861724566040387, &quot;z&quot;: 0.8300127300194629}, {&quot;x&quot;: 1.889775722229573, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8300127300194629}, {&quot;x&quot;: 1.8118334358889736, &quot;y&quot;: -0.35861724566040387, &quot;z&quot;: 0.8300127300194629}, {&quot;x&quot;: 1.7858526737754403, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8300127300194629}, {&quot;x&quot;: 1.8118334358889734, &quot;y&quot;: -0.44861724566040384, &quot;z&quot;: 0.8300127300194629}, {&quot;x&quot;: 1.8637949601160397, &quot;y&quot;: -0.44861724566040384, &quot;z&quot;: 0.8300127300194629}, {&quot;x&quot;: 1.8678141980025067, &quot;y&quot;: -0.35165572143333756, &quot;z&quot;: 0.8600127300194629}, {&quot;x&quot;: 1.8978141980025067, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8600127300194629}, {&quot;x&quot;: 1.8078141980025066, &quot;y&quot;: -0.35165572143333756, &quot;z&quot;: 0.8600127300194629}, {&quot;x&quot;: 1.7778141980025066, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8600127300194629}, {&quot;x&quot;: 1.8078141980025066, &quot;y&quot;: -0.45557876988747015, &quot;z&quot;: 0.8600127300194629}, {&quot;x&quot;: 1.8678141980025067, &quot;y&quot;: -0.45557876988747015, &quot;z&quot;: 0.8600127300194629}, {&quot;x&quot;: 1.8637949601160397, &quot;y&quot;: -0.35861724566040387, &quot;z&quot;: 0.8900127300194629}, {&quot;x&quot;: 1.889775722229573, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8900127300194629}, {&quot;x&quot;: 1.8118334358889736, &quot;y&quot;: -0.35861724566040387, &quot;z&quot;: 0.8900127300194629}, {&quot;x&quot;: 1.7858526737754403, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.8900127300194629}, {&quot;x&quot;: 1.8118334358889734, &quot;y&quot;: -0.44861724566040384, &quot;z&quot;: 0.8900127300194629}, {&quot;x&quot;: 1.8637949601160397, &quot;y&quot;: -0.44861724566040384, &quot;z&quot;: 0.8900127300194629}, {&quot;x&quot;: 1.8528141980025066, &quot;y&quot;: -0.3776364835468707, &quot;z&quot;: 0.9119742542465292}, {&quot;x&quot;: 1.8678141980025067, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.9119742542465292}, {&quot;x&quot;: 1.8228141980025068, &quot;y&quot;: -0.3776364835468707, &quot;z&quot;: 0.9119742542465292}, {&quot;x&quot;: 1.8078141980025066, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.9119742542465292}, {&quot;x&quot;: 1.8228141980025068, &quot;y&quot;: -0.429598007773937, &quot;z&quot;: 0.9119742542465292}, {&quot;x&quot;: 1.8528141980025066, &quot;y&quot;: -0.42959800777393703, &quot;z&quot;: 0.9119742542465292}, {&quot;x&quot;: 1.8378141980025067, &quot;y&quot;: -0.40361724566040386, &quot;z&quot;: 0.9200127300194629}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 2, 6], [2, 1, 7, 8], [1, 3, 9, 7], [3, 4, 10, 9], [4, 5, 11, 10], [5, 6, 12, 11], [6, 2, 8, 12], [8, 7, 13, 14], [7, 9, 15, 13], [9, 10, 16, 15], [10, 11, 17, 16], [11, 12, 18, 17], [12, 8, 14, 18], [14, 13, 19, 20], [13, 15, 21, 19], [15, 16, 22, 21], [16, 17, 23, 22], [17, 18, 24, 23], [18, 14, 20, 24], [20, 19, 25, 26], [19, 21, 27, 25], [21, 22, 28, 27], [22, 23, 29, 28], [23, 24, 30, 29], [24, 20, 26, 30], [26, 25, 31], [25, 27, 31], [27, 28, 31], [28, 29, 31], [29, 30, 31], [30, 26, 31]], &quot;color&quot;: &quot;#ff0000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 2.104158243446774, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.1808745021797808}, {&quot;x&quot;: 2.119158243446774, &quot;y&quot;: -0.8596383511340492, &quot;z&quot;: -0.1728360264068471}, {&quot;x&quot;: 2.1341582434467736, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.1728360264068471}, {&quot;x&quot;: 2.0891582434467737, &quot;y&quot;: -0.8596383511340492, &quot;z&quot;: -0.1728360264068471}, {&quot;x&quot;: 2.074158243446774, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.1728360264068471}, {&quot;x&quot;: 2.0891582434467737, &quot;y&quot;: -0.9115998753611155, &quot;z&quot;: -0.1728360264068471}, {&quot;x&quot;: 2.119158243446774, &quot;y&quot;: -0.9115998753611155, &quot;z&quot;: -0.1728360264068471}, {&quot;x&quot;: 2.130139005560307, &quot;y&quot;: -0.8406191132475823, &quot;z&quot;: -0.15087450217978077}, {&quot;x&quot;: 2.15611976767384, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.15087450217978077}, {&quot;x&quot;: 2.0781774813332405, &quot;y&quot;: -0.8406191132475823, &quot;z&quot;: -0.15087450217978077}, {&quot;x&quot;: 2.0521967192197077, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.15087450217978077}, {&quot;x&quot;: 2.0781774813332405, &quot;y&quot;: -0.9306191132475823, &quot;z&quot;: -0.15087450217978077}, {&quot;x&quot;: 2.130139005560307, &quot;y&quot;: -0.9306191132475824, &quot;z&quot;: -0.15087450217978077}, {&quot;x&quot;: 2.1341582434467736, &quot;y&quot;: -0.833657589020516, &quot;z&quot;: -0.12087450217978078}, {&quot;x&quot;: 2.164158243446774, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.12087450217978078}, {&quot;x&quot;: 2.074158243446774, &quot;y&quot;: -0.833657589020516, &quot;z&quot;: -0.12087450217978078}, {&quot;x&quot;: 2.0441582434467738, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.12087450217978078}, {&quot;x&quot;: 2.0741582434467736, &quot;y&quot;: -0.9375806374746487, &quot;z&quot;: -0.12087450217978078}, {&quot;x&quot;: 2.1341582434467736, &quot;y&quot;: -0.9375806374746487, &quot;z&quot;: -0.12087450217978078}, {&quot;x&quot;: 2.130139005560307, &quot;y&quot;: -0.8406191132475823, &quot;z&quot;: -0.0908745021797808}, {&quot;x&quot;: 2.15611976767384, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.0908745021797808}, {&quot;x&quot;: 2.0781774813332405, &quot;y&quot;: -0.8406191132475823, &quot;z&quot;: -0.0908745021797808}, {&quot;x&quot;: 2.0521967192197077, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.0908745021797808}, {&quot;x&quot;: 2.0781774813332405, &quot;y&quot;: -0.9306191132475823, &quot;z&quot;: -0.0908745021797808}, {&quot;x&quot;: 2.130139005560307, &quot;y&quot;: -0.9306191132475824, &quot;z&quot;: -0.0908745021797808}, {&quot;x&quot;: 2.119158243446774, &quot;y&quot;: -0.8596383511340492, &quot;z&quot;: -0.06891297795271446}, {&quot;x&quot;: 2.1341582434467736, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.06891297795271446}, {&quot;x&quot;: 2.0891582434467737, &quot;y&quot;: -0.8596383511340492, &quot;z&quot;: -0.06891297795271446}, {&quot;x&quot;: 2.074158243446774, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.06891297795271446}, {&quot;x&quot;: 2.0891582434467737, &quot;y&quot;: -0.9115998753611155, &quot;z&quot;: -0.06891297795271446}, {&quot;x&quot;: 2.119158243446774, &quot;y&quot;: -0.9115998753611155, &quot;z&quot;: -0.06891297795271446}, {&quot;x&quot;: 2.104158243446774, &quot;y&quot;: -0.8856191132475824, &quot;z&quot;: -0.060874502179780784}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 2, 6], [2, 1, 7, 8], [1, 3, 9, 7], [3, 4, 10, 9], [4, 5, 11, 10], [5, 6, 12, 11], [6, 2, 8, 12], [8, 7, 13, 14], [7, 9, 15, 13], [9, 10, 16, 15], [10, 11, 17, 16], [11, 12, 18, 17], [12, 8, 14, 18], [14, 13, 19, 20], [13, 15, 21, 19], [15, 16, 22, 21], [16, 17, 23, 22], [17, 18, 24, 23], [18, 14, 20, 24], [20, 19, 25, 26], [19, 21, 27, 25], [21, 22, 28, 27], [22, 23, 29, 28], [23, 24, 30, 29], [24, 20, 26, 30], [26, 25, 31], [25, 27, 31], [27, 28, 31], [28, 29, 31], [29, 30, 31], [30, 26, 31]], &quot;color&quot;: &quot;#ff0000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 2.4773955959873413, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.521760714556778}, {&quot;x&quot;: 2.4923955959873414, &quot;y&quot;: 0.4420956788930795, &quot;z&quot;: 0.5297991903297116}, {&quot;x&quot;: 2.507395595987341, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.5297991903297116}, {&quot;x&quot;: 2.462395595987341, &quot;y&quot;: 0.4420956788930795, &quot;z&quot;: 0.5297991903297116}, {&quot;x&quot;: 2.4473955959873415, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.5297991903297116}, {&quot;x&quot;: 2.462395595987341, &quot;y&quot;: 0.3901341546660132, &quot;z&quot;: 0.5297991903297116}, {&quot;x&quot;: 2.4923955959873414, &quot;y&quot;: 0.39013415466601314, &quot;z&quot;: 0.5297991903297116}, {&quot;x&quot;: 2.5033763581008746, &quot;y&quot;: 0.4611149167795463, &quot;z&quot;: 0.5517607145567779}, {&quot;x&quot;: 2.5293571202144074, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.5517607145567779}, {&quot;x&quot;: 2.451414833873808, &quot;y&quot;: 0.4611149167795463, &quot;z&quot;: 0.5517607145567779}, {&quot;x&quot;: 2.425434071760275, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.5517607145567779}, {&quot;x&quot;: 2.451414833873808, &quot;y&quot;: 0.37111491677954633, &quot;z&quot;: 0.5517607145567779}, {&quot;x&quot;: 2.5033763581008746, &quot;y&quot;: 0.37111491677954633, &quot;z&quot;: 0.5517607145567779}, {&quot;x&quot;: 2.507395595987341, &quot;y&quot;: 0.4680764410066126, &quot;z&quot;: 0.5817607145567779}, {&quot;x&quot;: 2.5373955959873413, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.5817607145567779}, {&quot;x&quot;: 2.4473955959873415, &quot;y&quot;: 0.4680764410066126, &quot;z&quot;: 0.5817607145567779}, {&quot;x&quot;: 2.417395595987341, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.5817607145567779}, {&quot;x&quot;: 2.4473955959873415, &quot;y&quot;: 0.36415339255248, &quot;z&quot;: 0.5817607145567779}, {&quot;x&quot;: 2.507395595987341, &quot;y&quot;: 0.36415339255248, &quot;z&quot;: 0.5817607145567779}, {&quot;x&quot;: 2.5033763581008746, &quot;y&quot;: 0.4611149167795463, &quot;z&quot;: 0.6117607145567779}, {&quot;x&quot;: 2.5293571202144074, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.6117607145567779}, {&quot;x&quot;: 2.451414833873808, &quot;y&quot;: 0.4611149167795463, &quot;z&quot;: 0.6117607145567779}, {&quot;x&quot;: 2.425434071760275, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.6117607145567779}, {&quot;x&quot;: 2.451414833873808, &quot;y&quot;: 0.37111491677954633, &quot;z&quot;: 0.6117607145567779}, {&quot;x&quot;: 2.5033763581008746, &quot;y&quot;: 0.37111491677954633, &quot;z&quot;: 0.6117607145567779}, {&quot;x&quot;: 2.4923955959873414, &quot;y&quot;: 0.4420956788930795, &quot;z&quot;: 0.6337222387838443}, {&quot;x&quot;: 2.507395595987341, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.6337222387838443}, {&quot;x&quot;: 2.462395595987341, &quot;y&quot;: 0.4420956788930795, &quot;z&quot;: 0.6337222387838443}, {&quot;x&quot;: 2.4473955959873415, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.6337222387838443}, {&quot;x&quot;: 2.462395595987341, &quot;y&quot;: 0.3901341546660132, &quot;z&quot;: 0.6337222387838443}, {&quot;x&quot;: 2.4923955959873414, &quot;y&quot;: 0.39013415466601314, &quot;z&quot;: 0.6337222387838443}, {&quot;x&quot;: 2.4773955959873413, &quot;y&quot;: 0.4161149167795463, &quot;z&quot;: 0.6417607145567779}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 2, 6], [2, 1, 7, 8], [1, 3, 9, 7], [3, 4, 10, 9], [4, 5, 11, 10], [5, 6, 12, 11], [6, 2, 8, 12], [8, 7, 13, 14], [7, 9, 15, 13], [9, 10, 16, 15], [10, 11, 17, 16], [11, 12, 18, 17], [12, 8, 14, 18], [14, 13, 19, 20], [13, 15, 21, 19], [15, 16, 22, 21], [16, 17, 23, 22], [17, 18, 24, 23], [18, 14, 20, 24], [20, 19, 25, 26], [19, 21, 27, 25], [21, 22, 28, 27], [22, 23, 29, 28], [23, 24, 30, 29], [24, 20, 26, 30], [26, 25, 31], [25, 27, 31], [27, 28, 31], [28, 29, 31], [29, 30, 31], [30, 26, 31]], &quot;color&quot;: &quot;#ff0000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 2.7634762410976608, &quot;y&quot;: -0.008209565526126807, &quot;z&quot;: -0.4242263013016267}, {&quot;x&quot;: 2.778476241097661, &quot;y&quot;: 0.017771196587406342, &quot;z&quot;: -0.41618782552869305}, {&quot;x&quot;: 2.7934762410976606, &quot;y&quot;: -0.008209565526126807, &quot;z&quot;: -0.41618782552869305}, {&quot;x&quot;: 2.7484762410976606, &quot;y&quot;: 0.017771196587406345, &quot;z&quot;: -0.41618782552869305}, {&quot;x&quot;: 2.733476241097661, &quot;y&quot;: -0.008209565526126804, &quot;z&quot;: -0.41618782552869305}, {&quot;x&quot;: 2.7484762410976606, &quot;y&quot;: -0.03419032763965995, &quot;z&quot;: -0.41618782552869305}, {&quot;x&quot;: 2.778476241097661, &quot;y&quot;: -0.034190327639659956, &quot;z&quot;: -0.41618782552869305}, {&quot;x&quot;: 2.789457003211194, &quot;y&quot;: 0.03679043447387319, &quot;z&quot;: -0.3942263013016267}, {&quot;x&quot;: 2.815437765324727, &quot;y&quot;: -0.008209565526126807, &quot;z&quot;: -0.3942263013016267}, {&quot;x&quot;: 2.7374954789841275, &quot;y&quot;: 0.03679043447387319, &quot;z&quot;: -0.3942263013016267}, {&quot;x&quot;: 2.7115147168705946, &quot;y&quot;: -0.0082095655261268, &quot;z&quot;: -0.3942263013016267}, {&quot;x&quot;: 2.7374954789841275, &quot;y&quot;: -0.05320956552612678, &quot;z&quot;: -0.3942263013016267}, {&quot;x&quot;: 2.789457003211194, &quot;y&quot;: -0.053209565526126795, &quot;z&quot;: -0.3942263013016267}, {&quot;x&quot;: 2.7934762410976606, &quot;y&quot;: 0.04375195870093951, &quot;z&quot;: -0.3642263013016267}, {&quot;x&quot;: 2.823476241097661, &quot;y&quot;: -0.008209565526126807, &quot;z&quot;: -0.3642263013016267}, {&quot;x&quot;: 2.733476241097661, &quot;y&quot;: 0.04375195870093951, &quot;z&quot;: -0.3642263013016267}, {&quot;x&quot;: 2.7034762410976607, &quot;y&quot;: -0.0082095655261268, &quot;z&quot;: -0.3642263013016267}, {&quot;x&quot;: 2.7334762410976605, &quot;y&quot;: -0.0601710897531931, &quot;z&quot;: -0.3642263013016267}, {&quot;x&quot;: 2.7934762410976606, &quot;y&quot;: -0.060171089753193116, &quot;z&quot;: -0.3642263013016267}, {&quot;x&quot;: 2.789457003211194, &quot;y&quot;: 0.03679043447387319, &quot;z&quot;: -0.3342263013016267}, {&quot;x&quot;: 2.815437765324727, &quot;y&quot;: -0.008209565526126807, &quot;z&quot;: -0.3342263013016267}, {&quot;x&quot;: 2.7374954789841275, &quot;y&quot;: 0.0367904344738732, &quot;z&quot;: -0.3342263013016267}, {&quot;x&quot;: 2.7115147168705946, &quot;y&quot;: -0.0082095655261268, &quot;z&quot;: -0.3342263013016267}, {&quot;x&quot;: 2.7374954789841275, &quot;y&quot;: -0.053209565526126795, &quot;z&quot;: -0.3342263013016267}, {&quot;x&quot;: 2.789457003211194, &quot;y&quot;: -0.05320956552612681, &quot;z&quot;: -0.3342263013016267}, {&quot;x&quot;: 2.778476241097661, &quot;y&quot;: 0.017771196587406342, &quot;z&quot;: -0.31226477707456035}, {&quot;x&quot;: 2.7934762410976606, &quot;y&quot;: -0.008209565526126807, &quot;z&quot;: -0.31226477707456035}, {&quot;x&quot;: 2.7484762410976606, &quot;y&quot;: 0.017771196587406345, &quot;z&quot;: -0.31226477707456035}, {&quot;x&quot;: 2.733476241097661, &quot;y&quot;: -0.008209565526126804, &quot;z&quot;: -0.31226477707456035}, {&quot;x&quot;: 2.7484762410976606, &quot;y&quot;: -0.03419032763965995, &quot;z&quot;: -0.31226477707456035}, {&quot;x&quot;: 2.778476241097661, &quot;y&quot;: -0.034190327639659956, &quot;z&quot;: -0.31226477707456035}, {&quot;x&quot;: 2.7634762410976608, &quot;y&quot;: -0.008209565526126807, &quot;z&quot;: -0.3042263013016267}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 2, 6], [2, 1, 7, 8], [1, 3, 9, 7], [3, 4, 10, 9], [4, 5, 11, 10], [5, 6, 12, 11], [6, 2, 8, 12], [8, 7, 13, 14], [7, 9, 15, 13], [9, 10, 16, 15], [10, 11, 17, 16], [11, 12, 18, 17], [12, 8, 14, 18], [14, 13, 19, 20], [13, 15, 21, 19], [15, 16, 22, 21], [16, 17, 23, 22], [17, 18, 24, 23], [18, 14, 20, 24], [20, 19, 25, 26], [19, 21, 27, 25], [21, 22, 28, 27], [22, 23, 29, 28], [23, 24, 30, 29], [24, 20, 26, 30], [26, 25, 31], [25, 27, 31], [27, 28, 31], [28, 29, 31], [29, 30, 31], [30, 26, 31]], &quot;color&quot;: &quot;#ff0000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.6408597674061365, &quot;y&quot;: 0.9312195840751357, &quot;z&quot;: 0.12788364642651906}, {&quot;x&quot;: 1.6587945919354623, &quot;y&quot;: 0.9198753832568938, &quot;z&quot;: 0.13800479168769053}, {&quot;x&quot;: 1.8816884580746158, &quot;y&quot;: 0.4119477865286171, &quot;z&quot;: -0.8262729441257464}, {&quot;x&quot;: 1.86375363354529, &quot;y&quot;: 0.4232919873468591, &quot;z&quot;: -0.8363940893869178}, {&quot;x&quot;: 1.6505896005785472, &quot;y&quot;: 0.8996557742419576, &quot;z&quot;: 0.146758758366637}, {&quot;x&quot;: 1.8734834667177007, &quot;y&quot;: 0.39172817751368094, &quot;z&quot;: -0.8175189774467999}, {&quot;x&quot;: 1.6275838125132487, &quot;y&quot;: 0.8985035694497353, &quot;z&quot;: 0.14204786204943853}, {&quot;x&quot;: 1.8504776786524022, &quot;y&quot;: 0.3905759727214586, &quot;z&quot;: -0.8222298737639984}, {&quot;x&quot;: 1.6215704449078328, &quot;y&quot;: 0.9180110767410775, &quot;z&quot;: 0.1303824013289866}, {&quot;x&quot;: 1.8444643110469863, &quot;y&quot;: 0.41008348001280087, &quot;z&quot;: -0.8338953344844503}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.2208405586145483, &quot;y&quot;: -0.4599134331176895, &quot;z&quot;: -0.5969154849111342}, {&quot;x&quot;: 1.2398730020751645, &quot;y&quot;: -0.47371748865700547, &quot;z&quot;: -0.5969389601314631}, {&quot;x&quot;: 1.8741518758864621, &quot;y&quot;: 0.4011639086843214, &quot;z&quot;: -0.8114031937665025}, {&quot;x&quot;: 1.855119432425846, &quot;y&quot;: 0.4149679642236374, &quot;z&quot;: -0.8113797185461735}, {&quot;x&quot;: 1.243180930074561, &quot;y&quot;: -0.4814939997427259, &quot;z&quot;: -0.6188791035262661}, {&quot;x&quot;: 1.8774598038858588, &quot;y&quot;: 0.3933873975986009, &quot;z&quot;: -0.8333433371613055}, {&quot;x&quot;: 1.2261928985499093, &quot;y&quot;: -0.4724960923682755, &quot;z&quot;: -0.632415382641972}, {&quot;x&quot;: 1.860471772361207, &quot;y&quot;: 0.40238530497305136, &quot;z&quot;: -0.8468796162770114}, {&quot;x&quot;: 1.2123857896663233, &quot;y&quot;: -0.45915856869752136, &quot;z&quot;: -0.6188411198218806}, {&quot;x&quot;: 1.8466646634776211, &quot;y&quot;: 0.4157228286438055, &quot;z&quot;: -0.8333053534569199}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.8735706235627343, &quot;y&quot;: 0.42056585953501047, &quot;z&quot;: -0.8348259293510047}, {&quot;x&quot;: 1.8627762085461343, &quot;y&quot;: 0.4204418790324125, &quot;z&quot;: -0.8139392915702508}, {&quot;x&quot;: 2.763478940036396, &quot;y&quot;: 0.0067068326816023364, &quot;z&quot;: -0.3509033490302949}, {&quot;x&quot;: 2.774273355052996, &quot;y&quot;: 0.0068308131842003406, &quot;z&quot;: -0.3717899868110489}, {&quot;x&quot;: 1.8519780636879357, &quot;y&quot;: 0.3997039431964608, &quot;z&quot;: -0.8114645209979847}, {&quot;x&quot;: 2.7526807951781973, &quot;y&quot;: -0.014031103154349328, &quot;z&quot;: -0.3484285784580288}, {&quot;x&quot;: 1.8560988581667242, &quot;y&quot;: 0.3870111744959262, &quot;z&quot;: -0.8308216664507202}, {&quot;x&quot;: 2.7568015896569857, &quot;y&quot;: -0.02672387185488392, &quot;z&quot;: -0.36778572391076436}, {&quot;x&quot;: 1.8694437940734665, &quot;y&quot;: 0.39990454786360663, &quot;z&quot;: -0.8452598108379523}, {&quot;x&quot;: 2.7701465255637285, &quot;y&quot;: -0.013830498487203465, &quot;z&quot;: -0.3822238682979965}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.9922869821685695, &quot;y&quot;: 0.041079940973381746, &quot;z&quot;: 0.36226812471134157}, {&quot;x&quot;: 1.0113143136192067, &quot;y&quot;: 0.027268825919310125, &quot;z&quot;: 0.3622553446161756}, {&quot;x&quot;: 1.651193957087452, &quot;y&quot;: 0.9090135376787024, &quot;z&quot;: 0.15289871560659268}, {&quot;x&quot;: 1.632166625636815, &quot;y&quot;: 0.922824652732774, &quot;z&quot;: 0.15291149570175863}, {&quot;x&quot;: 1.0147056482074759, &quot;y&quot;: 0.019593004077052223, &quot;z&quot;: 0.3402924893087169}, {&quot;x&quot;: 1.6545852916757215, &quot;y&quot;: 0.9013377158364445, &quot;z&quot;: 0.13093586029913398}, {&quot;x&quot;: 0.9977742767996125, &quot;y&quot;: 0.02866020034101968, &quot;z&quot;: 0.3267314783338774}, {&quot;x&quot;: 1.637653920267858, &quot;y&quot;: 0.910404912100412, &quot;z&quot;: 0.11737484932429444}, {&quot;x&quot;: 0.9839187792051353, &quot;y&quot;: 0.04193985765707542, &quot;z&quot;: 0.3403131679370749}, {&quot;x&quot;: 1.6237984226733808, &quot;y&quot;: 0.9236845694164677, &quot;z&quot;: 0.13095653892749196}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.6523068268397574, &quot;y&quot;: 0.9260735016738479, &quot;z&quot;: 0.12772625042801822}, {&quot;x&quot;: 1.6428379024653972, &quot;y&quot;: 0.9291719568072052, &quot;z&quot;: 0.14902238743638807}, {&quot;x&quot;: 2.480353854984493, &quot;y&quot;: 0.43183379603379135, &quot;z&quot;: 0.5937676100213115}, {&quot;x&quot;: 2.489822779358853, &quot;y&quot;: 0.428735340900434, &quot;z&quot;: 0.5724714730129417}, {&quot;x&quot;: 1.6292807647044985, &quot;y&quot;: 0.9105474550762516, &quot;z&quot;: 0.15372540301213944}, {&quot;x&quot;: 2.4667967172235943, &quot;y&quot;: 0.41320929430283765, &quot;z&quot;: 0.5984706255970629}, {&quot;x&quot;: 1.6303709171524585, &quot;y&quot;: 0.8959384248496336, &quot;z&quot;: 0.1353358894792041}, {&quot;x&quot;: 2.4678868696715544, &quot;y&quot;: 0.39860026407621973, &quot;z&quot;: 0.5800811120641276}, {&quot;x&quot;: 1.6446018061791157, &quot;y&quot;: 0.9055340493578627, &quot;z&quot;: 0.11926752950352254}, {&quot;x&quot;: 2.4821177586982115, &quot;y&quot;: 0.4081958885844489, &quot;z&quot;: 0.5640127520884459}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.0010024801876594, &quot;y&quot;: 0.04951003402963122, &quot;z&quot;: 0.33731145646461}, {&quot;x&quot;: 1.0188961386170645, &quot;y&quot;: 0.03816279912166659, &quot;z&quot;: 0.34750182703958354}, {&quot;x&quot;: 1.2473907744131658, &quot;y&quot;: -0.46290148318854524, &quot;z&quot;: -0.6116683041483969}, {&quot;x&quot;: 1.2294971159837607, &quot;y&quot;: -0.4515542482805806, &quot;z&quot;: -0.6218586747233704}, {&quot;x&quot;: 1.010675975733816, &quot;y&quot;: 0.01789575673238991, &quot;z&quot;: 0.35613098223949546}, {&quot;x&quot;: 1.2391706115299173, &quot;y&quot;: -0.4831685255778219, &quot;z&quot;: -0.603039148948485}, {&quot;x&quot;: 0.9877019772495027, &quot;y&quot;: 0.01671727059234679, &quot;z&quot;: 0.35127372287226544}, {&quot;x&quot;: 1.2161966130456041, &quot;y&quot;: -0.48434701171786504, &quot;z&quot;: -0.607896408315715}, {&quot;x&quot;: 0.9817234282119571, &quot;y&quot;: 0.03625596849180607, &quot;z&quot;: 0.3396426162912315}, {&quot;x&quot;: 1.2102180640080586, &quot;y&quot;: -0.46480831381840576, &quot;z&quot;: -0.619527514896749}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.0120931161536437, &quot;y&quot;: 0.04542482083035254, &quot;z&quot;: 0.33827178747482556}, {&quot;x&quot;: 1.0006231841314495, &quot;y&quot;: 0.0474482204227516, &quot;z&quot;: 0.35869561958331486}, {&quot;x&quot;: 1.8384373821339564, &quot;y&quot;: -0.3878773910312202, &quot;z&quot;: 0.8723362286213403}, {&quot;x&quot;: 1.8499073141561506, &quot;y&quot;: -0.38990079062361926, &quot;z&quot;: 0.851912396512851}, {&quot;x&quot;: 0.9882920328208412, &quot;y&quot;: 0.027719675895601203, &quot;z&quot;: 0.36208879548432144}, {&quot;x&quot;: 1.8261062308233482, &quot;y&quot;: -0.4076059355583706, &quot;z&quot;: 0.8757294045223469}, {&quot;x&quot;: 0.9921408942126618, &quot;y&quot;: 0.013503365236857523, &quot;z&quot;: 0.34376206141246113}, {&quot;x&quot;: 1.8299550922151688, &quot;y&quot;: -0.4218222462171143, &quot;z&quot;: 0.8574026704504866}, {&quot;x&quot;: 1.0068507726814024, &quot;y&quot;: 0.024445746582276884, &quot;z&quot;: 0.32904234095226415}, {&quot;x&quot;: 1.8446649706839093, &quot;y&quot;: -0.4108798648716949, &quot;z&quot;: 0.8426829499902896}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.239758382815201, &quot;y&quot;: -0.4547103509140241, &quot;z&quot;: -0.6204553864718896}, {&quot;x&quot;: 1.2284614067663129, &quot;y&quot;: -0.4541177278527864, &quot;z&quot;: -0.5998443812912057}, {&quot;x&quot;: 2.104125014416985, &quot;y&quot;: -0.870380924583725, &quot;z&quot;: -0.10792087326444326}, {&quot;x&quot;: 2.1154219904658733, &quot;y&quot;: -0.8709735476449627, &quot;z&quot;: -0.12853187844512723}, {&quot;x&quot;: 1.2172103521071795, &quot;y&quot;: -0.4745837635980162, &quot;z&quot;: -0.5971348509938647}, {&quot;x&quot;: 2.092873959757852, &quot;y&quot;: -0.8908469603289548, &quot;z&quot;: -0.10521134296710231}, {&quot;x&quot;: 1.22155379396744, &quot;y&quot;: -0.4878250923647762, &quot;z&quot;: -0.6160712743572443}, {&quot;x&quot;: 2.0972174016181127, &quot;y&quot;: -0.9040882890957148, &quot;z&quot;: -0.12414776633048197}, {&quot;x&quot;: 1.2354892433243738, &quot;y&quot;: -0.4755426478536159, &quot;z&quot;: -0.6304841579185115}, {&quot;x&quot;: 2.111152850975046, &quot;y&quot;: -0.8918058445845545, &quot;z&quot;: -0.13856064989174915}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.8388981051131772, &quot;y&quot;: -0.38557878848657356, &quot;z&quot;: 0.8514430621050494}, {&quot;x&quot;: 1.856600644297611, &quot;y&quot;: -0.39701219892072376, &quot;z&quot;: 0.861868206553348}, {&quot;x&quot;: 2.122944689741878, &quot;y&quot;: -0.8790140665079023, &quot;z&quot;: -0.11901902564589573}, {&quot;x&quot;: 2.1052421505574443, &quot;y&quot;: -0.8675806560737521, &quot;z&quot;: -0.1294441700941943}, {&quot;x&quot;: 1.8483409532300352, &quot;y&quot;: -0.41757355945183017, &quot;z&quot;: 0.8697291454971452}, {&quot;x&quot;: 2.1146849986743024, &quot;y&quot;: -0.8995754270390086, &quot;z&quot;: -0.11115808670209845}, {&quot;x&quot;: 1.8255336442292656, &quot;y&quot;: -0.41884776868084433, &quot;z&quot;: 0.8641623284996011}, {&quot;x&quot;: 2.0918776896735327, &quot;y&quot;: -0.9008496362680228, &quot;z&quot;: -0.11672490369964261}, {&quot;x&quot;: 1.8196976431424443, &quot;y&quot;: -0.39907391276204746, &quot;z&quot;: 0.8528609074421708}, {&quot;x&quot;: 2.0860416885867115, &quot;y&quot;: -0.881075780349226, &quot;z&quot;: -0.12802632475707282}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 1.8306220360650074, &quot;y&quot;: -0.3928352224124175, &quot;z&quot;: 0.8752449583969745}, {&quot;x&quot;: 1.849275921102756, &quot;y&quot;: -0.4071255697199389, &quot;z&quot;: 0.876022744568691}, {&quot;x&quot;: 2.4888573190875904, &quot;y&quot;: 0.41260659272001116, &quot;z&quot;: 0.5977707291060061}, {&quot;x&quot;: 2.470203434049842, &quot;y&quot;: 0.42689694002753265, &quot;z&quot;: 0.5969929429342895}, {&quot;x&quot;: 1.8520900943856, &quot;y&quot;: -0.4165675324207318, &quot;z&quot;: 0.8546752347937547}, {&quot;x&quot;: 2.4916714923704344, &quot;y&quot;: 0.40316463001921826, &quot;z&quot;: 0.5764232193310697}, {&quot;x&quot;: 1.835175464086881, &quot;y&quot;: -0.4081126389828091, &quot;z&quot;: 0.8407039620059567}, {&quot;x&quot;: 2.474756862071715, &quot;y&quot;: 0.411619523457141, &quot;z&quot;: 0.5624519465432718}, {&quot;x&quot;: 1.8219074743722896, &quot;y&quot;: -0.39344526476612146, &quot;z&quot;: 0.8534167503319375}, {&quot;x&quot;: 2.461488872357124, &quot;y&quot;: 0.42628689767382855, &quot;z&quot;: 0.5751647348692526}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 2.096632350896594, &quot;y&quot;: -0.8756344472778694, &quot;z&quot;: -0.1052646531479548}, {&quot;x&quot;: 2.115475297820999, &quot;y&quot;: -0.8896912309305696, &quot;z&quot;: -0.10489507359591915}, {&quot;x&quot;: 2.774793295471886, &quot;y&quot;: -0.012281683209114068, &quot;z&quot;: -0.34824687271776494}, {&quot;x&quot;: 2.755950348547481, &quot;y&quot;: 0.0017751004435861417, &quot;z&quot;: -0.3486164522698006}, {&quot;x&quot;: 2.1186784602527555, &quot;y&quot;: -0.8981204863515709, &quot;z&quot;: -0.12660852122597885}, {&quot;x&quot;: 2.7779964579036425, &quot;y&quot;: -0.020710938630115354, &quot;z&quot;: -0.3699603203478246}, {&quot;x&quot;: 2.101815176582663, &quot;y&quot;: -0.8892732690489038, &quot;z&quot;: -0.14039774942633226}, {&quot;x&quot;: 2.76113317423355, &quot;y&quot;: -0.011863721327448243, &quot;z&quot;: -0.38374954854817805}, {&quot;x&quot;: 2.088189931680858, &quot;y&quot;: -0.875376132628998, &quot;z&quot;: -0.1272065135027195}, {&quot;x&quot;: 2.747507929331745, &quot;y&quot;: 0.002033415092457483, &quot;z&quot;: -0.3705583126245653}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 2.478512230031088, &quot;y&quot;: 0.434458687423817, &quot;z&quot;: 0.5738702641917652}, {&quot;x&quot;: 2.4960457941876544, &quot;y&quot;: 0.4228454357331641, &quot;z&quot;: 0.5843818253335346}, {&quot;x&quot;: 2.782126439297974, &quot;y&quot;: -0.001479046572508724, &quot;z&quot;: -0.36160519052487006}, {&quot;x&quot;: 2.7645928751414073, &quot;y&quot;: 0.010134205118144193, &quot;z&quot;: -0.3721167516666393}, {&quot;x&quot;: 2.4878054183283105, &quot;y&quot;: 0.40193083561053633, &quot;z&quot;: 0.5912711004701048}, {&quot;x&quot;: 2.77388606343863, &quot;y&quot;: -0.02239364669513645, &quot;z&quot;: -0.35471591538829983}, {&quot;x&quot;: 2.465179021810595, &quot;y&quot;: 0.4006181535642926, &quot;z&quot;: 0.5850173455205855}, {&quot;x&quot;: 2.7512596669209146, &quot;y&quot;: -0.023706328741380196, &quot;z&quot;: -0.3609696703378191}, {&quot;x&quot;: 2.459435515579059, &quot;y&quot;: 0.42072147156591994, &quot;z&quot;: 0.5742630372678994}, {&quot;x&quot;: 2.7455161606893785, &quot;y&quot;: -0.00360301073975286, &quot;z&quot;: -0.3717239785905052}], &quot;faces&quot;: [[0, 1, 2, 3], [1, 4, 5, 2], [4, 6, 7, 5], [6, 8, 9, 7], [8, 0, 3, 9]], &quot;color&quot;: &quot;#000000&quot;, &quot;opacity&quot;: 1.0}];
+    for ( var i=0 ; i < surfaces.length ; i++ ) addSurface( surfaces[i] );
+
+    function addSurface( json ) {
+
+        var useFaceColors = 'faceColors' in json ? true : false;
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i < json.vertices.length ; i++ ) {
+            var v = json.vertices[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v.x, a[1]*v.y, a[2]*v.z ) );
+        }
+        for ( var i=0 ; i < json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j < f.length - 2 ; j++ ) {
+                var face = new THREE.Face3( f[0], f[j+1], f[j+2] );
+                if ( useFaceColors ) face.color.set( json.faceColors[i] );
+                geometry.faces.push( face );
+            }
+        }
+        geometry.computeVertexNormals();
+
+        var side = json.singleSide ? THREE.FrontSide : THREE.DoubleSide;
+        var transparent = json.opacity < 1 ? true : false;
+        var depthWrite = 'depthWrite' in json ? json.depthWrite : !transparent;
+        var flatShading = json.useFlatShading ? json.useFlatShading : false;
+
+        var material = new THREE.MeshPhongMaterial( { side: side,
+                                     color: useFaceColors ? 'white' : json.color,
+                                     vertexColors: useFaceColors ? THREE.FaceColors : THREE.NoColors,
+                                     transparent: transparent, opacity: json.opacity,
+                                     shininess: 20, flatShading: flatShading,
+                                     depthWrite: depthWrite } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        if ( transparent && json.renderOrder ) mesh.renderOrder = json.renderOrder;
+        mesh.userData = json;
+        scene.add( mesh );
+
+        if ( json.showMeshGrid ) addSurfaceMeshGrid( json );
+
+    }
+
+    function addSurfaceMeshGrid( json ) {
+
+        var geometry = new THREE.Geometry();
+
+        for ( var i=0 ; i < json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j < f.length ; j++ ) {
+                var k = j === f.length-1 ? 0 : j+1;
+                var v1 = json.vertices[f[j]];
+                var v2 = json.vertices[f[k]];
+                // vertices in opposite directions on neighboring faces
+                var nudge = f[j] < f[k] ? .0005*zRange : -.0005*zRange;
+                geometry.vertices.push( new THREE.Vector3( a[0]*v1.x, a[1]*v1.y, a[2]*(v1.z+nudge) ) );
+                geometry.vertices.push( new THREE.Vector3( a[0]*v2.x, a[1]*v2.y, a[2]*(v2.z+nudge) ) );
+            }
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var gridColor = options.theme === 'dark' ? 'white' : 'black';
+        var linewidth = json.linewidth || 1;
+        var materialOptions = { color: gridColor, linewidth: linewidth };
+
+        var mesh;
+        if ( linewidth > 1 && window.createFatLineSegments ) {
+            mesh = createFatLineSegments( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.LineSegments( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    function render() {
+
+        if ( window.updateAnimation ) animate = updateAnimation();
+        if ( animate ) requestAnimationFrame( render );
+
+        renderer.render( scene, camera );
+
+    }
+
+    render();
+    controls.update();
+    if ( !animate ) render();
+
+
+    // menu functions
+
+    function toggleMenu() {
+
+        var m = document.getElementById( 'menu-content' );
+        if ( m.style.display === 'block' ) m.style.display = 'none'
+        else m.style.display = 'block';
+
+    }
+
+
+    function saveAsPNG() {
+
+        var a = document.body.appendChild( document.createElement( 'a' ) );
+        a.href = renderer.domElement.toDataURL( 'image/png' );
+        a.download = 'screenshot';
+        a.click();
+
+    }
+
+    function saveAsHTML() {
+
+        toggleMenu(); // otherwise visible in output
+        event.stopPropagation();
+
+        var blob = new Blob( [ '<!DOCTYPE html>\n' + document.documentElement.outerHTML ] );
+        var a = document.body.appendChild( document.createElement( 'a' ) );
+        a.href = window.URL.createObjectURL( blob );
+        a.download = suggestFilename();
+        a.click();
+
+        function suggestFilename() {
+            if ( !document.title ) {
+                return 'graphic.html';
+            } else if ( /\.html?$/i.test( document.title ) ) {
+                return document.title; // already ends in .htm or .html
+            } else {
+                return document.title + '.html';
+            }
+        }
+
+    }
+
+    function getViewpoint() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var v = camera.quaternion.inverse();
+        var r = Math.sqrt( v.x*v.x + v.y*v.y + v.z*v.z );
+        var axis = [ roundTo( v.x / r, 4 ), roundTo( v.y / r, 4 ), roundTo( v.z / r, 4 ) ];
+        var angle = roundTo( 2 * Math.atan2( r, v.w ) * 180 / Math.PI, 2 );
+
+        var textArea = document.createElement( 'textarea' );
+        textArea.textContent = JSON.stringify( axis ) + ',' + angle;
+        textArea.style.csstext = 'position: absolute; top: -100%';
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( 'copy' );
+
+        var m = document.getElementById( 'menu-message' );
+        m.innerHTML = 'Viewpoint copied to clipboard';
+        m.style.display = 'block';
+        setTimeout( function() { m.style.display = 'none'; }, 2000 );
+
+    }
+
+    function getCamera() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var pos = camera.position;
+        var pos_r = [ roundTo( pos.x, 4 ), roundTo( pos.y, 4 ), roundTo( pos.z, 4 ) ];
+   //     var up = camera.up; // up is always (0,0,1)
+        var textArea = document.createElement('textarea');
+        var cam_position = JSON.stringify(pos_r);
+        textArea.textContent = ',camera_position=' + cam_position;
+        textArea.style.csstext = 'position: absolute; top: -100%';
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( 'copy' );
+
+        var m = document.getElementById( 'menu-message' );
+        m.innerHTML = 'Camera position '+ cam_position+' copied to clipboard';
+        m.style.display = 'block';
+        setTimeout( function() { m.style.display = 'none'; }, 2000 );
+
+    }
+
+</script>
+
+<div id=&quot;menu-container&quot; onclick=&quot;toggleMenu()&quot;>&#x24d8;
+<div id=&quot;menu-message&quot;></div>
+<div id=&quot;menu-content&quot;>
+<div onclick=&quot;saveAsPNG()&quot;>Save as PNG</div>
+<div onclick=&quot;saveAsHTML()&quot;>Save as HTML</div>
+<div onclick=&quot;getCamera()&quot;>Get camera</div>
+<div onclick=&quot;getViewpoint()&quot;>Get viewpoint</div>
+<div>Close Menu</div>
+</div></div>
+
+
+</body>
+</html>
+"
+        width="100%"
+        height="400"
+        style="border: 0;">
+</iframe>
+</div></div>
+</div>
+<p>For the hypercube graph, $\beta(Q_n)= 2^{n-1} (n-2)+1$.</p>
+<p>The number of vertices of the reduced graph power $Q_n^{(k)}$ is $|V(Q_n^{(k)})|=\binom{2^n+k-1}{k}$.  The number of edges is $|E(Q_n^{(k)})|=2^{n-1} n \binom{2^n+k-2}{k-1}$. The Betti number is</p>
+<div class="math notranslate nohighlight">
+\[\beta(Q_n^{(k)}) =2^{n-1} n \binom{2^n+k-2}{k-1}-\binom{2^n+k-1}{k}+1 \, .\]</div>
+<p>The reduced graph product of two hypercube graphs, has $|V(Q_n^{(2)})|=2^{n-1} (2^n+1)$ vertices,  $|E(Q_n^{(2)})| = 2^{2n-1} n$ edges, and Betti number</p>
+<div class="math notranslate nohighlight">
+\[\beta(Q_n^{(2)}) =  2^{2n-1} (n-1) - 2^{n-1}+1 \, . \]</div>
+<p>In particular, $\beta(Q_2^{(2)}) = 7$ and  $\beta(Q_3^{(2)}) = 61$.</p>
+<p>An excellent resourse on hypergraphs is <span id="id2">[<a class="reference internal" href="#id6" title="Frank Harary, John P Hayes, and Horng-Jyh Wu. A survey of the theory of hypercube graphs. Computers &amp; Mathematics with Applications, 15(4):277–289, 1988.">HHW88</a>]</span>
+<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/0898122188902131">{PDF}</a>.</p>
+</section>
+<section id="the-bipartite-graph-k-n-m">
+<h2>The bipartite graph $K_{n,m}$<a class="headerlink" href="#the-bipartite-graph-k-n-m" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">complete</span> <span class="pre">bipartite</span> <span class="pre">graph</span></code> or <code class="docutils literal notranslate"><span class="pre">biclique</span></code>, denoted by $K_{n,m}$,
+is a bipartite graph where the vertices are partitioned into two sets.  Every vertex of the first set, ${0, 1, \ldots, n-1}$, is connected to every vertex of the second set, ${n, n+1, \ldots, n+m-1}$.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graphs</span><span class="o">.</span><span class="n">CompleteBipartiteGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;K</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">graphs</span><span class="o">.</span><span class="n">CompleteBipartiteGraph</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;K</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/2f01bf0e9562ca3e9f0fe695a4d3736cfd2c5dd8176484703c2361654113520b.png" src="_images/2f01bf0e9562ca3e9f0fe695a4d3736cfd2c5dd8176484703c2361654113520b.png" />
+<img alt="_images/ed700162afd607b3c3a9f560778b288c9a4b225dee7c90f690bf0d04e23f5f2c.png" src="_images/ed700162afd607b3c3a9f560778b288c9a4b225dee7c90f690bf0d04e23f5f2c.png" />
+</div>
+</div>
+<p>The complete bipartite graph has
+has $|V(K_{n,m})|=n+m$ vertices,  $|E(K_{n,m})|=nm $ edges, and Betti number</p>
+<div class="math notranslate nohighlight">
+\[\beta(K_{n,m})= nm-(n+m)+1 =  (n-1)(m-1) \, . \]</div>
+<p>The number of vertices of the reduced graph power $K_{n,m}^{(k)}$ is $|V(K_{n,m}^{(k)})|=\binom{n+m+k-1}{k}$. The number of edges is $|E(K_{n,m}^{(k)})|=nm\binom{n+m+k-2}{k-1}$.  This gives the Betti number</p>
+<div class="math notranslate nohighlight">
+\[\beta(K_{n,m}^{(k)}) = nm\binom{n+m+k-2}{k-1} - \binom{n+m+k-1}{k} +1 \, . \]</div>
+<p>Specializing to the case of a dimer ($k=2$), we have $v^{(2)}= \binom{n+m+1}{2}$,  $e^{(2)}=nm (n+m)$, and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}
+\beta(K_{n,m}^{(2)}) &amp; = &amp;nm (n+m) - (n+m+1)(n+m)/2  +1 \\
+&amp; = &amp; 
+(n+m)[nm+(n-1)(m-1)]/2+1 \, . 
+\end{eqnarray}\end{split}\]</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<div class="docutils container" id="id3">
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">HHW88</a><span class="fn-bracket">]</span></span>
+<p>Frank Harary, John P Hayes, and Horng-Jyh Wu. A survey of the theory of hypercube graphs. <em>Computers &amp; Mathematics with Applications</em>, 15(4):277–289, 1988.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "sage-10.0"
+        },
+        kernelOptions: {
+            name: "sage-10.0",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'sage-10.0'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="receptors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Receptor Modeling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="MyTools.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">My Tools</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-path-graph-p-n">The path graph $P_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-and-plot-a-graph-the-vertices-are-integers-the-edge-labels-are-none">Make and plot a graph. The vertices are integers.  The edge labels are ‘None’</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-graphs">Simple graphs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The path graph $P_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cycle-graph-c-n">The cycle graph $C_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-complete-graph-k-n">The complete graph $K_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hypercube-graph-q-n">The hypercube graph $Q_n$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bipartite-graph-k-n-m">The bipartite graph $K_{n,m}$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Greg Conradi Smith
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

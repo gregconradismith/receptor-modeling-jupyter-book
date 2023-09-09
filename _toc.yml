@@ -1,0 +1,35 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Receptor models and binding curves
+    chapters:
+    - file: overview
+    - file: receptor_modeling
+    - file: reduced_graph_powers
+    - file: MyTools
+    - file: MyToolsExamplesVertexAndEdgeLabels
+    - file: MyToolsExamplesEnumerateAllostericParameters
+    - file: EnumerateAllostericParameters
+    - file: PlotBindingCurves
+    - file: markov_chains
+    - file: example_graphs
+  - caption: Receptor dimers
+    chapters:
+    - file: 2023-08-20-example-lmfit
+    - file: 2023-08-24-example-minimize-linear-regression
+    - file: 2023-08-25-plotting-hypercubes
+    - file: 2023-08-24-example-minimize-receptor-model-pade
+    - file: 2023-08-21-practicing-python
+  - caption: Higher-order oligomers
+    chapters:
+    - file: example_reduced_graph_powers.md
+    - file: ReducedFromCartesianPower
+    - file: wang_algebra.md
+  - caption: Scraps and helps
+    chapters:
+    - file: markdown
+    - file: markdown-notebooks
+

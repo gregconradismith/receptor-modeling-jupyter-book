@@ -1,0 +1,606 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Wang algebra &#8212; Receptors</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'wang_algebra';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Markdown Files" href="markdown.html" />
+    <link rel="prev" title="Reduced Power Graph" href="ReducedFromCartesianPower.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Doodle.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Doodle.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Receptors
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor models and binding curves</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling.html">Receptor modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-order oligomers</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReducedFromCartesianPower.html">Reduced Power Graph</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wang algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and helps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fwang_algebra.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/wang_algebra.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wang algebra</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#co-spanning-trees-from-cycle-basis">Co-spanning trees from cycle basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-co-spanning-trees-of-k-4">Example: Co-spanning trees of $K_4$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="wang-algebra">
+<h1>Wang algebra<a class="headerlink" href="#wang-algebra" title="Permalink to this heading">#</a></h1>
+<p>In classical electrical network theory, algebraic approaches to enumerating spanning trees of graphs were popular.  This chapter of notes focuses on connections between one technique for enumerating tree and cotrees—referred to in the 1960s as a <code class="docutils literal notranslate"><span class="pre">Wang</span> <span class="pre">algebra</span></code> by Richard Duffin
+<span id="id1">[<a class="reference internal" href="#id14" title="R J Duffin. An analysis of the Wang algebra of networks. Transactions of the American Mathematical Society, 93(1):114–131, 1959.">Duf59</a>]</span> <a class="reference external" href="https://www.ams.org/journals/tran/1959-093-01/S0002-9947-1959-0109161-6/S0002-9947-1959-0109161-6.pdf">(pdf)</a>
+and Wai-Kai Chen <span id="id2">[<a class="reference internal" href="#id15" title="Wai-Kai Chen. On directed trees and directed k-trees of a digraph and their generation. SIAM Journal on Applied Mathematics, 14(3):550–560, 1966.">Che66</a>]</span> <a class="reference external" href="https://epubs.siam.org/doi/pdf/10.1137/0114048">(pdf)</a>—and my research interest in the biophysical theory of receptor oligomers <span id="id3">[<a class="reference internal" href="#id12" title="Gregory Douglas Conradi Smith. Allostery in oligomeric receptor models. Mathematical Medicine and Biology: A Journal of the IMA, dqz016:1–20, 2019.">CS19</a>, <a class="reference internal" href="#id11" title="RH Hammack and GD Smith. Cycle bases of reduced powers of graphs. ARS Mathematica Contemporanea, 12(1):183–203, 2017.">HS17</a>]</span> <a class="reference external" href="https://amc-journal.eu/index.php/amc/article/view/856">(pdf)</a>.</p>
+<section id="co-spanning-trees-from-cycle-basis">
+<h2>Co-spanning trees from cycle basis<a class="headerlink" href="#co-spanning-trees-from-cycle-basis" title="Permalink to this heading">#</a></h2>
+<p>In ref. <span id="id4">[<a class="reference internal" href="#id14" title="R J Duffin. An analysis of the Wang algebra of networks. Transactions of the American Mathematical Society, 93(1):114–131, 1959.">Duf59</a>]</span>,
+Richard Duffin  states that a commutative algebra with the property that</p>
+<div class="math notranslate nohighlight">
+\[x+x = 0 \quad \mbox{and} \quad x\cdot x = 0 \]</div>
+<p>for each element $x$ is termed a <code class="docutils literal notranslate"><span class="pre">Wang</span> <span class="pre">algebra</span></code>.
+Classical electrical network theory discusses using Wang algebra’s to obtain co-spanning trees of an undirected simple  graph G from a cycle basis <span id="id5">[<a class="reference internal" href="#id14" title="R J Duffin. An analysis of the Wang algebra of networks. Transactions of the American Mathematical Society, 93(1):114–131, 1959.">Duf59</a>, <a class="reference internal" href="#id16" title="RJ Duffin. Some problems of mathematics and science. Bulletin of the American Mathematical Society, 80(6):1053–1070, 1974.">Duf74</a>]</span>.  A similar method involves obtaining directed spanning trees from the stars of G centered on each vertex save an arbitrary root <span id="id6">[<a class="reference internal" href="#id15" title="Wai-Kai Chen. On directed trees and directed k-trees of a digraph and their generation. SIAM Journal on Applied Mathematics, 14(3):550–560, 1966.">Che66</a>]</span>.    I will focus on the undirected case, because I wish to use the minimal cycle basis construction for reduced graph powers <span id="id7">[<a class="reference internal" href="#id11" title="RH Hammack and GD Smith. Cycle bases of reduced powers of graphs. ARS Mathematica Contemporanea, 12(1):183–203, 2017.">HS17</a>]</span>.</p>
+<p>Let $G = (V,E)$ be an undirected simple graph of  order $|V|=m$ and size $|E|=n$  with $V(G)= { v_1, v_2, \ldots, v_m } $ and $E(G) = { e_1 , e_2, \ldots , e_n}$.
+For $1\leq i \leq n$ let $x_i$ be an indeterminant corresponding to edge $e_i$ of $G$.
+Let $R=\mathbb{F}_2[x_1, x_2, \ldots, x_n]$ be a polynomial ring over the field $\mathbb{F}_2$.  Define $S$ to be the quotient ring</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">R</span><span class="o">/</span><span class="n">I</span> \<span class="n">quad</span> \<span class="n">mbox</span><span class="p">{</span><span class="n">where</span> <span class="n">the</span> <span class="n">ideal</span><span class="p">}</span> \<span class="n">quad</span>  <span class="n">I</span> <span class="o">=</span> \<span class="n">langle</span> <span class="n">x_1</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">x_2</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> \<span class="n">ldots</span><span class="p">,</span> <span class="n">x_n</span><span class="o">^</span><span class="mi">2</span> \<span class="n">rangle</span> 
+</pre></div>
+</div>
+<p>is generated by squares of  indeterminants.</p>
+<p>If $C_1,C_2,\ldots,C_\beta$ are $\beta$ independent circuits of $G$,
+and $h_{i} = \sum_{j: e_j \in C_i} x_j$  are polynomials in $S$ corresponding to these circuits,
+then the co-trees (spanning tree complements) of $G$ correspond to the surviving monomials of the product $\Phi^*<em>G(x_1, \ldots, x_n) = h</em>{C_1} h_{C_2} \cdots h_{C_\beta}$, which is dual to<br />
+the Kirchhoff polynomial $\Phi_G$.
+This fact is
+attributed to Wang and Ting in <span id="id8">[<a class="reference internal" href="#id15" title="Wai-Kai Chen. On directed trees and directed k-trees of a digraph and their generation. SIAM Journal on Applied Mathematics, 14(3):550–560, 1966.">Che66</a>]</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Wang algebra is isomorphic to a Grassmann (exterior) algebra over the field $\mathbb{F}2$.</p>
+</div>
+</section>
+<section id="example-co-spanning-trees-of-k-4">
+<h2>Example: Co-spanning trees of $K_4$<a class="headerlink" href="#example-co-spanning-trees-of-k-4" title="Permalink to this heading">#</a></h2>
+<p>Consider $K_4$, the complete graph of four vertices.
+The polynomials in the Wang algebra corresponding to the cycle basis $\mathcal{C}(K_4)$ are {adf, bde, cef}. Thus,</p>
+<div class="math notranslate nohighlight">
+\[h_1 = a + d +f \quad h_2 = b+d+e \quad h_3 = c+e+f \, . \]</div>
+<p>The product $h_1h_2$ is</p>
+<div class="math notranslate nohighlight">
+\[h_1 h_2 = \mathrm{ab}+ad+ae+bd+0+de+bf+df+\mathrm{ef} \, .\]</div>
+<p>Multiplying by $h_3$ gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} 
+h_1 h_2 h_3 &amp;=&amp; abc + acd + ace+bcd+cde+bcf+cdf+cef  \nonumber \\
+&amp;+ &amp;abe + ade + 0+bde+0+bef+[def]+0  \nonumber \\
+&amp;+&amp;  abf + adf + aef+bdf+[def]+0+0+0 \, , \nonumber
+\end{eqnarray}\end{split}\]</div>
+<p>which is $18-2=16$ terms because $def+def=0$.  Each surviving term of $h_1 h_2 h_3$ corresponds to a co-tree of $K_4$ (e.g., the co-tree $abc$ corresponds to the spanning tree $def$).  Note that $\binom{abcdef}{3}$ corresponds total of 20 possible triples, all of which are co-trees of $K_4$ except $abd$, $acf$, $bce$ and $de!f$.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I haven’t been able to get latex definitions such as
+<code class="docutils literal notranslate"><span class="pre">\def\a{\mathsf{a}}</span></code> to work.  That is why I am experimenting with <code class="docutils literal notranslate"><span class="pre">\mathrm</span></code> and <code class="docutils literal notranslate"><span class="pre">\!f</span></code> above.</p>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<div class="docutils container" id="id9">
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Che66<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id8">3</a>)</span>
+<p>Wai-Kai Chen. On directed trees and directed k-trees of a digraph and their generation. <em>SIAM Journal on Applied Mathematics</em>, 14(3):550–560, 1966.</p>
+</div>
+<div class="citation" id="id12" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">CS19</a><span class="fn-bracket">]</span></span>
+<p>Gregory Douglas Conradi Smith. Allostery in oligomeric receptor models. <em>Mathematical Medicine and Biology: A Journal of the IMA</em>, dqz016:1–20, 2019.</p>
+</div>
+<div class="citation" id="id14" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Duf59<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id5">3</a>)</span>
+<p>R J Duffin. An analysis of the Wang algebra of networks. <em>Transactions of the American Mathematical Society</em>, 93(1):114–131, 1959.</p>
+</div>
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Duf74</a><span class="fn-bracket">]</span></span>
+<p>RJ Duffin. Some problems of mathematics and science. <em>Bulletin of the American Mathematical Society</em>, 80(6):1053–1070, 1974.</p>
+</div>
+<div class="citation" id="id11" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>HS17<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
+<p>RH Hammack and GD Smith. Cycle bases of reduced powers of graphs. <em>ARS Mathematica Contemporanea</em>, 12(1):183–203, 2017.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "sage-10.0"
+        },
+        kernelOptions: {
+            name: "sage-10.0",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'sage-10.0'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ReducedFromCartesianPower.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reduced Power Graph</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="markdown.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Markdown Files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#co-spanning-trees-from-cycle-basis">Co-spanning trees from cycle basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-co-spanning-trees-of-k-4">Example: Co-spanning trees of $K_4$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Greg Conradi Smith
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

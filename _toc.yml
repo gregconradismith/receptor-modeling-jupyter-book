@@ -6,7 +6,6 @@ root: intro
 parts:
   - caption: Receptor models and binding curves
     chapters:
-    - file: overview
     - file: receptor_modeling
     - file: reduced_graph_powers
     - file: MyTools
@@ -18,6 +17,7 @@ parts:
     - file: example_graphs
   - caption: Receptor dimers
     chapters:
+    - file: overview
     - file: 2023-08-20-example-lmfit
     - file: 2023-08-24-example-minimize-linear-regression
     - file: 2023-08-25-plotting-hypercubes

@@ -13,7 +13,8 @@ kernelspec:
   name: sage-10.0
 ---
 
-# Receptor modeling
+
+# Receptor models
 
 ```{math}
 \def\b{\mathsf{b}}
@@ -24,10 +25,31 @@ kernelspec:
 \def\kappacstar{\hat{\kappa}_{\c}}
 ```
 
-(receptors:three_state_model)=
-## Three-state receptor model
+Quantitative pharmacologists construct models of relationship between ligand concentration and the fraction of cell surface receptors in each of several molecular conformations. These models give insight into the action of natural ligands and drugs on receptor-mediated cell responses.
 
-As a simple example, consider a three-state receptor model.  When both forward and reverse transitions are explicit, the state-transition diagram has the topology of a symmetric directed version of the [path graph](example_graphs:path_graph) with 3 vertices.
+The modeling process begings by specifying the molecular conformations (states) to be considered and the transitions between these states.
+
+(receptors:three_state_model)=
+## A three-state receptor model
+
+As a simple example, consider a receptor model with three states arranged as follows.
+
+```{code-cell}
+G = DiGraph({0: {1:'a01'}, 1: {0:'a10', 2:'a12'}, 2: {1:'a21'}})
+pos = {0: (0, 0), 1: (1, 0), 2: (2, 0)}
+G.plot(figsize=4,edge_labels=True,pos=pos,graph_border=True)
+```
+
+```{code-cell}
+G = DiGraph({'R': {'RL':'kap*L'}, 'RL': {'R':'kam', 'RLL':'kbp*L'}, 'RLL': {'RL':'kbm'}})
+pos = {'R': (0, 0), 'RL': (1, 0), 'RLL': (2, 0)}
+G.plot(figsize=4,edge_labels=True,pos=pos,graph_border=True,vertex_size=1000)
+```
+
+
+    
+    
+When both forward and reverse transitions are explicit, the state-transition diagram has the topology of a symmetric directed version of the [path graph](example_graphs:path_graph) with 3 vertices.
 
 Here is the (undirected) path graph {math}`P_3`:
 

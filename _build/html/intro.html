@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="overview.html" />
+    <link rel="next" title="Receptor models" href="receptor_modeling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,8 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor models and binding curves</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling.html">Receptor modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling.html">Receptor models</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
@@ -171,6 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
@@ -396,11 +396,9 @@ document.write(`
                   
   <section id="welcome-to-receptors">
 <h1>Welcome to <strong>Receptors</strong><a class="headerlink" href="#welcome-to-receptors" title="Permalink to this heading">#</a></h1>
-<p>This <a class="reference external" href="https://jupyterbook.org">Jupyter Book</a> is an introduction to mathematical modeling of cell surface receptors.</p>
-<p>This <em>Jupyter Book</em> titled <strong>Receptors</strong> gives examples of receptor modeling using <a class="reference external" href="https://www.sagemath.org">Sagemath</a>, a free open-source mathematics software system (see <a class="reference external" href="https://www.sagemath.org">https://www.sagemath.org</a>). The focus of <strong>Receptors</strong> is enumerating allosteric parameters in receptor dimers and higher order oligomers.</p>
-<p>The focus is Markov chain models (discrete state, continuous time) and symbolic calculations (using <a class="reference external" href="https://www.sagemath.org/">Sagemath</a>) of equilibrium and steady-state kinetic occupancy measures (i.e., the probability of each state), as opposed to numerical methods to calculate steady states or time-dependent dynamics.</p>
-<p>After introductory remarks, our emphasis is a particular approach to modeling of <strong>conformational coupling of receptor dimers and higher-order oligomers</strong>.  The concepts and notation follow the following articles.</p>
-<p>For further reading and context see he following papers.</p>
+<p>This <a class="reference external" href="https://jupyterbook.org">Jupyter Book</a> explores how cell surface receptors can be modeled using <a class="reference external" href="https://www.sagemath.org">Sagemath</a>, a free open-source mathematics software system (see https://www.sagemath.org).</p>
+<p>The focus is Markov chain models of receptors and symbolic algebraic calculations of equilibrium and steady-state kinetic occupancy measures (i.e., the probability of each state), as opposed to numerical methods to calculate steady states or time-dependent dynamics.</p>
+<p>After an introductory tutorial, we illustrate an approach to <strong>modeling conformational coupling of receptor dimers and higher-order oligomers</strong> that was introduced in the following two papers.</p>
 <ul class="simple">
 <li><p>Gregory Douglas Conradi Smith, <strong>Allostery in oligomeric receptor models</strong>, <em>Mathematical Medicine and Biology: A Journal of the IMA</em>, 37(3):313-333, 2020. <a class="reference external" href="https://doi.org/10.1093/imammb/dqz016">doi: 10.1093/imammb/dqz016</a></p></li>
 <li><p>Richard H. Hammack and Gregory D. Smith, <strong>Cycle bases of reduced powers of graphs</strong>, <em>ARS Mathematica Contemporanea</em>, 12(1):183–203, 2017. <a class="reference external" href="https://doi.org/10.26493/1855-3974.856.4d2">doi: 10.26493/1855-3974.856.4d2</a></p></li>
@@ -413,15 +411,14 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
 <a class="reference external" href="https://www.wm.edu/">William &amp; Mary</a></p>
 <p>greg.conradi.smith&#64;gmail.com<br />
 <a class="reference external" href="https://orcid.org/0000-0002-1054-6790">0000-0002-1054-6790</a></p>
-<p>Author of <a class="reference external" href="https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F">Cellular Biophysics &amp; Modeling: a primer on the computational biology</a>. Cambridge University Press, 2019.</p>
+<p>Author of <a class="reference external" href="https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F">Cellular Biophysics &amp; Modeling: a primer on the computational biology of excitable cells</a>. Cambridge University Press, 2019.</p>
 <p><img alt="Doodle" src="_images/Doodle.png" /></p>
 <section id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor models and binding curves</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling.html">Receptor modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling.html">Receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling.html#scraps">Scraps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
@@ -436,6 +433,7 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
@@ -493,11 +491,11 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="overview.html"
+       href="receptor_modeling.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Overview</p>
+        <p class="prev-next-title">Receptor models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

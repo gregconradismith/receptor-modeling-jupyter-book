@@ -9,7 +9,7 @@ logo: images/Doodle.png
 # See https://jupyterbook.org/content/execute.html
 # auto force cache
 execute:
-  execute_notebooks: auto
+  execute_notebooks: cache
 
 # Define the name of the latex output file for PDF builds
 latex:

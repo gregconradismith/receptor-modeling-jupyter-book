@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Receptor modeling - scraps &#8212; Receptors</title>
+    <title>Non-equilibrium steady states &#8212; Receptors</title>
   
   
   
@@ -65,8 +65,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'receptor_modeling_scraps';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Reduced graph powers" href="reduced_graph_powers.html" />
-    <link rel="prev" title="Receptor modeling - equilibrium formalism" href="receptor_modeling_equilibrium_formalism.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,13 +156,12 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling.html">Receptor models</a></li>
-
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Receptor modeling - equilibrium formalism</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Receptor modeling - scraps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
@@ -376,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Receptor modeling - scraps</h1>
+    <h1>Non-equilibrium steady states</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,7 +384,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-and-laplacian">Generator matrix and Laplacian</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#three-state-model">Three state model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraps">Scraps</a></li>
 </ul>
             </nav>
         </div>
@@ -399,8 +396,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="receptor-modeling-scraps">
-<h1>Receptor modeling - scraps<a class="headerlink" href="#receptor-modeling-scraps" title="Permalink to this heading">#</a></h1>
+  <section id="non-equilibrium-steady-states">
+<h1>Non-equilibrium steady states<a class="headerlink" href="#non-equilibrium-steady-states" title="Permalink to this heading">#</a></h1>
+<p>The equilibrium formulation assumes detailed balance. However, when the state-transition diagram of a receptor model includes cycles, the steady-state probability distribution may not satisfy detailed balance.</p>
+<p>Let us consider again the following state-transition diagram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a12, a21, a13, a31, a23, a32, a34, a43&#39;</span><span class="p">)</span>
@@ -432,16 +431,6 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The Laplacian of <code class="docutils literal notranslate"><span class="pre">G</span></code> is:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">laplacian_matrix</span><span class="p">()</span>
-<span class="n">L</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This matrix is sometimes referred to as the <code class="docutils literal notranslate"><span class="pre">combinatorial</span> <span class="pre">Laplacian</span> <span class="pre">matrix</span></code> of the weighted directed graph <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
 <section id="generator-matrix-and-laplacian">
 <h2>Generator matrix and Laplacian<a class="headerlink" href="#generator-matrix-and-laplacian" title="Permalink to this heading">#</a></h2>
 <p>The generator matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> for the Markov chain associated to <code class="docutils literal notranslate"><span class="pre">G</span></code> can be constructed from the weighted adjacency matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> as folows.</p>
@@ -452,6 +441,18 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Equivalently, the generator matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> is the opposite of the Laplacian matrix <code class="docutils literal notranslate"><span class="pre">L</span></code> (<span class="math notranslate nohighlight">\(Q=-L\)</span>). The Laplacian of <code class="docutils literal notranslate"><span class="pre">G</span></code> is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">laplacian_matrix</span><span class="p">()</span>
+<span class="n">L</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="scraps">
+<h2>Scraps<a class="headerlink" href="#scraps" title="Permalink to this heading">#</a></h2>
 <p>The following code defines <code class="docutils literal notranslate"><span class="pre">e</span></code> to be column vector of ones.  This is used to show that each row of <code class="docutils literal notranslate"><span class="pre">Q</span></code> sums to zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -474,53 +475,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-</div>
-</section>
-<section id="three-state-model">
-<h2>Three state model<a class="headerlink" href="#three-state-model" title="Permalink to this heading">#</a></h2>
-<p>As a simple example, consider a receptor model with three states arranged as follows.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;a01&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;a10&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;a12&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;a21&#39;</span><span class="p">}})</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)}</span>
-<span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">({</span><span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;RL&#39;</span><span class="p">:</span><span class="s1">&#39;kap*L&#39;</span><span class="p">},</span> <span class="s1">&#39;RL&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;R&#39;</span><span class="p">:</span><span class="s1">&#39;kam&#39;</span><span class="p">,</span> <span class="s1">&#39;RLL&#39;</span><span class="p">:</span><span class="s1">&#39;kbp*L&#39;</span><span class="p">},</span> <span class="s1">&#39;RLL&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;RL&#39;</span><span class="p">:</span><span class="s1">&#39;kbm&#39;</span><span class="p">}})</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;RL&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;RLL&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)}</span>
-<span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>When both forward and reverse transitions are explicit, the state-transition diagram has the topology of a symmetric directed version of the <a class="reference internal" href="example_graphs.html#example-graphs-path-graph"><span class="std std-ref">path graph</span></a> with 3 vertices.</p>
-<p>Here is the (undirected) path graph <span class="math notranslate nohighlight">\(P_3\)</span>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]})</span>
-<span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The symmetric directed version is</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
-<span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
 </div>
 </section>
 </section>
@@ -556,24 +510,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="receptor_modeling_equilibrium_formalism.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Receptor modeling - equilibrium formalism</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="reduced_graph_powers.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reduced graph powers</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -593,7 +529,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-and-laplacian">Generator matrix and Laplacian</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#three-state-model">Three state model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraps">Scraps</a></li>
 </ul>
   </nav></div>
 

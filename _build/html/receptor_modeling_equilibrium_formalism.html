@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>The equilibrium formalism for receptor models &#8212; Receptors</title>
+    <title>Equilibrium formalism &#8212; Receptors</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'receptor_modeling_equilibrium_formalism';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Receptor modeling - scraps" href="receptor_modeling_scraps.html" />
+    <link rel="next" title="Non-equilibrium steady states" href="receptor_modeling_scraps.html" />
     <link rel="prev" title="Ligand binding" href="receptor_modeling_ligands.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -159,10 +159,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">The equilibrium formalism for receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_scraps.html">Receptor modeling - scraps</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_scraps.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
@@ -374,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The equilibrium formalism for receptor models</h1>
+    <h1>Equilibrium formalism</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -384,7 +385,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-analysis">Equilibrium analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-each-state">Probability of each state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-spanning-tree-to-relative-probabilities">From spanning tree to relative probabilities</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
@@ -402,51 +404,120 @@ document.write(`
 \def\c{\mathsf{c}}
 \def\kappab{\kappa_{\b}}
 \def\kappac{\kappa_{\c}}
-\def\kappabstar{\hat{\kappa}_{\b}}
-\def\kappacstar{\hat{\kappa}_{\c}}\]</div>
-<section id="the-equilibrium-formalism-for-receptor-models">
-<h1>The equilibrium formalism for receptor models<a class="headerlink" href="#the-equilibrium-formalism-for-receptor-models" title="Permalink to this heading">#</a></h1>
-<p>Here we repeat our analysis of sequential binding using a notation that will prove helpful.</p>
-<p>To find the equilibrium probability of each state of a receptor model, it is sufficient to consider the weighted rooted spanning tree that specifies the model.</p>
+\def\kappabstar{k_{\b}}
+\def\kappacstar{k_{\c}}\]</div>
+<section id="equilibrium-formalism">
+<h1>Equilibrium formalism<a class="headerlink" href="#equilibrium-formalism" title="Permalink to this heading">#</a></h1>
+<p>To illustrate the equilibrium formalism for receptor models, we will repeat our analysis of sequential binding using a standard notation. We begin with the weighted rooted spanning tree that specifies the equilibrium receptor model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a b c kappa_b kappa_c&#39;</span><span class="p">)</span>
 <span class="n">T</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">],[(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">),(</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">)]])</span>
 <span class="n">T</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">kappa_b</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">kappa_c</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="p">{</span><span class="n">a</span><span class="p">:(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">b</span><span class="p">:(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">c</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="p">{</span><span class="n">a</span><span class="p">:(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">b</span><span class="p">:(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">c</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d794db1b279db3ca36ebda03c7e524a8052cd9a565d2352a822a62c02c69b155.png" src="_images/d794db1b279db3ca36ebda03c7e524a8052cd9a565d2352a822a62c02c69b155.png" />
+<img alt="_images/afd2f83ea487787830014a69726b08018c0066caffb23d63c5582876d3dbcd16.png" src="_images/afd2f83ea487787830014a69726b08018c0066caffb23d63c5582876d3dbcd16.png" />
 </div>
 </div>
-<p>In the diagram above, <span class="math notranslate nohighlight">\(\kappab\)</span> and <span class="math notranslate nohighlight">\(\kappac\)</span> are dimensionless equilibrium constants, <span class="math notranslate nohighlight">\(\kappabstar\)</span> and <span class="math notranslate nohighlight">\(\kappacstar\)</span> are association constants with physical dimension of inverse concentration, and <span class="math notranslate nohighlight">\(x\)</span> is ligand concentration.</p>
-<p>The edges of the spanning tree are directed backwards, i.e., the forward reaction direction is opposite of the direction of the arrow.  For example, the reaction labelled <span class="math notranslate nohighlight">\(\kappab\)</span> has <span class="math notranslate nohighlight">\(a\)</span> as reactant and <span class="math notranslate nohighlight">\(b\)</span> as product; consequently, increasing <span class="math notranslate nohighlight">\(\kappab\)</span> decreases the equilibrium probability (relative fraction) of state <span class="math notranslate nohighlight">\(a\)</span> and increases the probability of state <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>In the diagram above, <span class="math notranslate nohighlight">\(\kappab\)</span> and <span class="math notranslate nohighlight">\(\kappac\)</span> are dimensionless equilibrium constants.</p>
+<p>The edges of the spanning tree are directed backwards, i.e., the forward reaction is against the direction of the arrow.  For example, the reaction labelled with the equilibrium constant <span class="math notranslate nohighlight">\(\kappab\)</span> has <span class="math notranslate nohighlight">\(a\)</span> as reactant and <span class="math notranslate nohighlight">\(b\)</span> as product; consequently, increasing <span class="math notranslate nohighlight">\(\kappab\)</span> decreases the equilibrium probability (relative fraction) of state <span class="math notranslate nohighlight">\(a\)</span> and increases the probability of state <span class="math notranslate nohighlight">\(b\)</span>.</p>
 <p>The three states are labelled so that the reactant comes before the product in dictionary order (<span class="math notranslate nohighlight">\(a\)</span> to <span class="math notranslate nohighlight">\(b\)</span> to <span class="math notranslate nohighlight">\(c\)</span>).  The subscript of the equilibrium constants <span class="math notranslate nohighlight">\(\kappab\)</span> and <span class="math notranslate nohighlight">\(\kappac\)</span> are chosen to match the label of the <em>products</em>.</p>
-<section id="equilibrium-analysis">
-<h2>Equilibrium analysis<a class="headerlink" href="#equilibrium-analysis" title="Permalink to this heading">#</a></h2>
+<p>The dependence on ligand concentration is encorporated by defining <span class="math notranslate nohighlight">\(\kappab = \kappabstar x\)</span> and <span class="math notranslate nohighlight">\(\kappac = \kappacstar x\)</span> where <span class="math notranslate nohighlight">\(\kappabstar\)</span> and <span class="math notranslate nohighlight">\(\kappacstar\)</span> are association constants with physical dimension of inverse concentration, and <span class="math notranslate nohighlight">\(x\)</span> is ligand concentration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a b c x kb kc&#39;</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">],[(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">),(</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">)]])</span>
+<span class="n">T</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">kb</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">kc</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="p">{</span><span class="n">a</span><span class="p">:(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">b</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">c</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1524cd5794bd0cb940b219a00e330fcfb2f1cd52e12554755eff8a369ed61b39.png" src="_images/1524cd5794bd0cb940b219a00e330fcfb2f1cd52e12554755eff8a369ed61b39.png" />
+</div>
+</div>
+<section id="probability-of-each-state">
+<h2>Probability of each state<a class="headerlink" href="#probability-of-each-state" title="Permalink to this heading">#</a></h2>
 <p>For the equilibrium receptor model above, the probability of state <span class="math notranslate nohighlight">\(i\)</span> is given by
 <span class="math notranslate nohighlight">\(\pi_i = z_i / z_T\)</span> where  <span class="math notranslate nohighlight">\(z_T= \textstyle \sum_i z_i\)</span>,
 <span class="math notranslate nohighlight">\(z_a = 1\)</span>,
 <span class="math notranslate nohighlight">\(z_b = \kappab = \kappabstar x\)</span>, and
 <span class="math notranslate nohighlight">\(z_c =\kappab \kappac = \kappabstar \kappacstar x^2\)</span>. That is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b1ae98d6-72ce-46ca-be67-b96209e9a639">
-<span class="eqno">(1)<a class="headerlink" href="#equation-b1ae98d6-72ce-46ca-be67-b96209e9a639" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9b0154b-8a8e-4fe9-b878-c497d19697b1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-a9b0154b-8a8e-4fe9-b878-c497d19697b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}\]</div>
 <p>It is helpful to  present this set of rational functions using the following compact notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd5b969f-5b05-4d97-9651-26a27a1005ba">
-<span class="eqno">(2)<a class="headerlink" href="#equation-bd5b969f-5b05-4d97-9651-26a27a1005ba" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3be7cdf6-cf55-4ff1-a557-08fdbb2c8840">
+<span class="eqno">(2)<a class="headerlink" href="#equation-3be7cdf6-cf55-4ff1-a557-08fdbb2c8840" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_a  :  \pi_b :  \pi_c ] = [1 :\kappab : \kappab \kappac ]  = [1 : \kappabstar x :\kappabstar \kappacstar x^2  ] \,  .
 \end{equation}\]</div>
 <p>In expressions of this kind,  it is understood that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1eab4ca3-1122-49aa-8e21-59b5ec6fb3ff">
-<span class="eqno">(3)<a class="headerlink" href="#equation-1eab4ca3-1122-49aa-8e21-59b5ec6fb3ff" title="Permalink to this equation">#</a></span>\[\begin{equation}
-[ x_1 \! : \! x_2 : \! \cdots \! : \! x_n ] = [ \lambda x_1 \! : \! \lambda  x_2 : \! \cdots \! : \! \lambda  x_n ]
+<div class="amsmath math notranslate nohighlight" id="equation-27f57a72-ebb8-432f-a024-b68db5a75f36">
+<span class="eqno">(3)<a class="headerlink" href="#equation-27f57a72-ebb8-432f-a024-b68db5a75f36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+[ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ] = [ \lambda z_1 \! : \! \lambda  z_2 : \! \cdots \! : \! \lambda  z_n ]
 \end{equation}\]</div>
-<p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>. Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.</p>
+<p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>.  Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.  Prior to normalization, we will refer to <span class="math notranslate nohighlight">\([ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ]\)</span> as <em>relative probabilites</em> for each receptor state.</p>
+</section>
+<section id="from-spanning-tree-to-relative-probabilities">
+<h2>From spanning tree to relative probabilities<a class="headerlink" href="#from-spanning-tree-to-relative-probabilities" title="Permalink to this heading">#</a></h2>
+<p>By using a spanning tree as the specification for the receptor model, it is straightforward to extract symbolic expressions for the fraction of receptors in each state.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">paths</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">all_simple_paths</span><span class="p">(</span><span class="n">starting_vertices</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">],</span><span class="n">ending_vertices</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">trivial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[a], [b, a], [c, b, a]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The list <code class="docutils literal notranslate"><span class="pre">paths</span></code> has length 3. <code class="docutils literal notranslate"><span class="pre">paths[0]=[a]</span></code>.  <code class="docutils literal notranslate"><span class="pre">paths[1]=[b,a]</span></code>.  <code class="docutils literal notranslate"><span class="pre">paths[2]=[c,b,a]</span></code>.  These are vertices encountered in paths beginning at vertex 0 (<code class="docutils literal notranslate"><span class="pre">a</span></code>), 1 (<code class="docutils literal notranslate"><span class="pre">b</span></code>), and 2 (<code class="docutils literal notranslate"><span class="pre">c</span></code>) and (in each case) ending at vertex <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p>The relative probability of each state is obtained as the product of the edge weights in each path, with the trivial path yielding 1 (an empty product).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+       <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">T</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, kb*x, kb*kc*x^2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The list <code class="docutils literal notranslate"><span class="pre">z</span></code> also has length 3.  <code class="docutils literal notranslate"><span class="pre">z[0]</span></code> is 1.  <code class="docutils literal notranslate"><span class="pre">z[1]=kb*x</span></code>.  <code class="docutils literal notranslate"><span class="pre">z[2]=kb*kc*x^2</span></code>.  These are the relative probabilities <code class="docutils literal notranslate"><span class="pre">z_a</span></code>, <code class="docutils literal notranslate"><span class="pre">z_b</span></code>, and <code class="docutils literal notranslate"><span class="pre">z_c</span></code>.</p>
+<p>Symbolic expressions for the normalized probabilities are found as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ztot</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)):</span>
+    <span class="n">prob</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">ztot</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1/(kb*kc*x^2 + kb*x + 1), kb*x/(kb*kc*x^2 + kb*x + 1), kb*kc*x^2/(kb*kc*x^2 + kb*x + 1)]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
@@ -498,7 +569,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Receptor modeling - scraps</p>
+        <p class="prev-next-title">Non-equilibrium steady states</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -520,7 +591,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-analysis">Equilibrium analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-each-state">Probability of each state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-spanning-tree-to-relative-probabilities">From spanning tree to relative probabilities</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>

@@ -7,9 +7,10 @@ parts:
   - caption: Receptor modeling
     chapters:
     - file: receptor_modeling_overview
+    - file: receptor_modeling_states_and_transitions
     - file: receptor_modeling_ligands
     - file: receptor_modeling_equilibrium_formalism
-    - file: receptor_modeling_scraps
+    - file: receptor_modeling_nonequilibrium
     - file: reduced_graph_powers
     - file: MyTools
     - file: MyToolsExamplesVertexAndEdgeLabels

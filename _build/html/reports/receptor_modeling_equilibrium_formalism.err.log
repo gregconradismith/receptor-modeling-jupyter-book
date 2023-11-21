@@ -17,27 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-kappab = var("kappab", latex_name=r"\kappa_b")
-kappac = var("kappac", latex_name=r"\kappa_c")
-x = var("x", latex_name=r"x")
-G.set_edge_label('a','b',kappab*x)
-G.set_edge_label('b','c',kappab*kappac*x^2)
-G.show(edge_labels=True,figsize=8)
-f=kappab*kappac*x^2
-f.show()
-show(f)
-print(f)
+ztot = sum(z);
+prob = []
+for i in range(len(z)):
+    prob.append(z/ztot)
+print(prob)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn [2], line 4[0m
-[1;32m      2[0m kappac [38;5;241m=[39m var([38;5;124m"[39m[38;5;124mkappac[39m[38;5;124m"[39m, latex_name[38;5;241m=[39m[38;5;124mr[39m[38;5;124m"[39m[38;5;124m\[39m[38;5;124mkappa_c[39m[38;5;124m"[39m)
-[1;32m      3[0m x [38;5;241m=[39m var([38;5;124m"[39m[38;5;124mx[39m[38;5;124m"[39m, latex_name[38;5;241m=[39m[38;5;124mr[39m[38;5;124m"[39m[38;5;124mx[39m[38;5;124m"[39m)
-[0;32m----> 4[0m [43mG[49m[38;5;241m.[39mset_edge_label([38;5;124m'[39m[38;5;124ma[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m,kappab[38;5;241m*[39mx)
-[1;32m      5[0m G[38;5;241m.[39mset_edge_label([38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mc[39m[38;5;124m'[39m,kappab[38;5;241m*[39mkappac[38;5;241m*[39mx[38;5;241m*[39m[38;5;241m*[39mInteger([38;5;241m2[39m))
-[1;32m      6[0m G[38;5;241m.[39mshow(edge_labels[38;5;241m=[39m[38;5;28;01mTrue[39;00m,figsize[38;5;241m=[39mInteger([38;5;241m8[39m))
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn [5], line 4[0m
+[1;32m      2[0m prob [38;5;241m=[39m []
+[1;32m      3[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;28mlen[39m(z)):
+[0;32m----> 4[0m     prob[38;5;241m.[39mappend([43mz[49m[38;5;241;43m/[39;49m[43mztot[49m)
+[1;32m      5[0m [38;5;28mprint[39m(prob)
 
-[0;31mNameError[0m: name 'G' is not defined
-NameError: name 'G' is not defined
+[0;31mTypeError[0m: unsupported operand type(s) for /: 'list' and 'sage.symbolic.expression.Expression'
+TypeError: unsupported operand type(s) for /: 'list' and 'sage.symbolic.expression.Expression'
 

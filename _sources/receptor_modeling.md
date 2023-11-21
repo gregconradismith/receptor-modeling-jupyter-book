@@ -16,18 +16,112 @@ kernelspec:
 
 # Receptor models
 
-```{math}
-\def\b{\mathsf{b}}
-\def\c{\mathsf{c}}
-\def\kappab{\kappa_{\b}}
-\def\kappac{\kappa_{\c}}
-\def\kappabstar{\hat{\kappa}_{\b}}
-\def\kappacstar{\hat{\kappa}_{\c}}
+
+Quantitative pharmacologists construct models of relationship between ligand concentration and the fraction of cell surface receptors in each of several molecular conformations. These models give insight into the action of natural ligands and drugs on receptor-mediated cell responses.  A good starting point for review of receptor modeling is 
+
+* Kenakin, T. P. (2018). [A Pharmacology Primer: Techniques for More Effective and Strategic Drug Discovery.](https://www.amazon.com/Pharmacology-Primer-Techniques-Effective-Strategic/dp/0128139579/) Academic Press. {cite}`Kenakin2018`
+
+An introction to this topic for undergraduate neuroscienc majors is __Ligands, Receptors, and Rate Laws__, Chapter 4 of [Cellular Biophysics \& Modeling: a primer on the computational biology of excitable cells](https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F). Cambridge University Press, 2019.
+
+## States and transitions
+
+The process of receptor modeling often begins by specifying the molecular conformations (states) to be considered and the transitions between these states.  For example, the following graph may represent a receptor model that has four states:
+
+```{code-cell}
+G_undirected = Graph({1: [2, 3], 2: [3], 3: [4]})
+vertex_positions = {1: (0, 0), 2: (1, 1.41), 3: (2, 0), 4: (4,0)}
+G_undirected.plot(figsize=8,pos=vertex_positions,graph_border=True)
 ```
 
-Quantitative pharmacologists construct models of relationship between ligand concentration and the fraction of cell surface receptors in each of several molecular conformations. These models give insight into the action of natural ligands and drugs on receptor-mediated cell responses.
+This graph `G_undirected` is constructed by calling the Sagemath command [`Graph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html#supported-formats) with a dictionary that associates neighbors to each vertex.  The vertices of the graph `G` are the integers 1, 2, 3, and 4.  The method `plot()` shows the graph `G_undirected` using a dictionary `vertex_positions` that specifies the locations of each vertex.
 
-The modeling process begings by specifying the molecular conformations (states) to be considered and the transitions between these states.
+The adjacency matrix of this graph is
+```{code-cell}
+A = G_undirected.adjacency_matrix()
+```
+
+The incidence matrix of this graph is
+```{code-cell}
+E = G_undirected.incidence_matrix()
+```
+
+```{note}
+The graphs used here to represent receptor states and transitions will be both connected and simple.
+* _Connected_: at least one path joins every pair of vertices.
+* _Simple_: no loops or multiple edges.
+```
+
+In the context of receptor modeling, the undirected graph above is interpreted as a short-hand for the following _directed_ graph.
+
+```{code-cell}
+G_directed = G_undirected.to_directed()
+G_directed.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
+```
+
+The method `to_directed()` produces `G_directed` as the _symmetric_ digraph associated to `G_undirected`, in which adjacent vertices are  connected in both directions.
+
+```{note}
+Receptor state-transition diagrams  will always be symmetric directed graphs, that is, for every edge from vertex `i` to vertex `j`, there is also an edge from vertex `j` to vertex `i`.  Thus, the state-transtion diagrams for a receptor model may, for simplicity, be illustrated as an undirected graph.
+```
+
+## Transition rate constants 
+
+In the context of receptor modeling, state-transition diagrams are usually _weighted_, as shown here.
+
+```{code-cell}
+var('a12, a21, a13, a31, a23, a32, a34, a43')
+d = {1: {2:a12, 3:a13}, 2: {1:a21, 3:a23}, 3: {2:a32, 1:a31, 4:a34}, 4: {3:a43}};
+G = DiGraph(d,weighted=True)
+G.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
+```
+
+In the code above, a directed graph `G` is constructed by calling the Sagemath command [`DiGraph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html#methods).  The input argument `d` is a [Python dictionary](https://doc.sagemath.org/html/en/thematic_tutorials/tutorial-programming-python.html) that assigns out-neighbors to each vertex and corresponding edge labels.
+The edge labels are not _strings_, but _symbolic variables_ defined using Sagemath's `var` command.
+For example, the symbolic variable `a12` stands for the rate of transition between state 1 and 2. 
+
+Because these rate constants are symbolic variables, Sagemath will evaluate expressions such as
+```{code-cell}
+f = a12 * (a21 + a13)^2 / a13
+f.expand()
+```
+
+The weighted adjacency matrix for `G` is 
+
+```{code-cell}
+G.weighted_adjacency_matrix()
+```
+
+The Laplacian of `G` is:
+```{code-cell}
+G.laplacian_matrix()
+```
+This matrix is sometimes referred to as the `combinatorial Laplacian matrix` of the weighted directed graph `G`.
+
+
+
+
+The generator matrix `Q` for the Markov chain associated to `G` can be constructed from the weighted adjacency matrix `A` as folows.
+```{code-cell}
+Q = A - diagonal_matrix(sum(A.T))
+```
+
+The following code defines `e` to be column vector of ones.  This is used to show that each row of `Q` sums to zero.
+```{code-cell}
+e = matrix([1,1,1,1]).T
+```
+
+```{code-cell}
+print(Q*e)
+```
+
+Multiplying on the left by the transpose of `e`, given by `e.T`, we see that each column of `Q` does not sum to zero.
+
+```{code-cell}
+print(e.T*Q)
+```
+
+
+
 
 (receptors:three_state_model)=
 ## A three-state receptor model

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to Receptors &#8212; Receptors</title>
+    <title>Non-equilibrium steady states &#8212; Receptors</title>
   
   
   
@@ -61,10 +61,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'receptor_modeling_nonequilibrium';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="receptor_modeling_overview.html" />
+    <link rel="next" title="Reduced graph powers" href="reduced_graph_powers.html" />
+    <link rel="prev" title="Equilibrium formalism" href="receptor_modeling_equilibrium_formalism.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -130,7 +132,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -149,19 +151,19 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Welcome to Receptors
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
@@ -261,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Freceptor_modeling_nonequilibrium.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/receptor_modeling_nonequilibrium.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -373,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to Receptors</h1>
+    <h1>Non-equilibrium steady states</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -383,9 +385,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a><ul class="nav section-nav flex-column">
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-and-laplacian">Generator matrix and Laplacian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-solution">Symbolic solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-on-cycles">Condition on cycles</a></li>
 </ul>
             </nav>
         </div>
@@ -397,71 +399,106 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="welcome-to-receptors">
-<h1>Welcome to <strong>Receptors</strong><a class="headerlink" href="#welcome-to-receptors" title="Permalink to this heading">#</a></h1>
-<p>This <a class="reference external" href="https://jupyterbook.org">Jupyter Book</a> explores how cell surface receptors can be modeled using <a class="reference external" href="https://www.sagemath.org">Sagemath</a>, a free open-source mathematics software system (see <a class="reference external" href="https://www.sagemath.org">https://www.sagemath.org</a>).</p>
-<p>The focus is Markov chain models of receptors and symbolic algebraic calculations of equilibrium and steady-state kinetic occupancy measures (i.e., the probability of each state), as opposed to numerical methods to calculate steady states or time-dependent dynamics.</p>
-<p>After an brief introductory tutorial, we illustrate an approach to <strong>modeling conformational coupling of receptor dimers and higher-order oligomers</strong> that was introduced in the following two papers.</p>
-<ul class="simple">
-<li><p>Gregory Douglas Conradi Smith, <strong>Allostery in oligomeric receptor models</strong>, <em>Mathematical Medicine and Biology: A Journal of the IMA</em>, 37(3):313-333, 2020. <a class="reference external" href="https://doi.org/10.1093/imammb/dqz016">doi: 10.1093/imammb/dqz016</a></p></li>
-<li><p>Richard H. Hammack and Gregory D. Smith, <strong>Cycle bases of reduced powers of graphs</strong>, <em>ARS Mathematica Contemporanea</em>, 12(1):183–203, 2017. <a class="reference external" href="https://doi.org/10.26493/1855-3974.856.4d2">doi: 10.26493/1855-3974.856.4d2</a></p></li>
-</ul>
-<p>Comments and suggestions are welcome!</p>
-<p><a class="reference external" href="https://gregconradismith.wordpress.com/">Greg Conradi Smith</a><br />
-Professor and Associate Chair<br />
-Department of <a class="reference external" href="https://www.wm.edu/as/appliedscience/">Applied Science</a><br />
-Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscience/">Neuroscience</a> and <a class="reference external" href="https://www.wm.edu/as/cams/mathematical-biology/">CAMS Mathematical Biology</a><br />
-<a class="reference external" href="https://www.wm.edu/">William &amp; Mary</a></p>
-<p>greg.conradi.smith&#64;gmail.com<br />
-<a class="reference external" href="https://orcid.org/0000-0002-1054-6790">0000-0002-1054-6790</a></p>
-<p>Author of <a class="reference external" href="https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F">Cellular Biophysics &amp; Modeling: a primer on the computational biology of excitable cells</a>. Cambridge University Press, 2019.</p>
-<p><img alt="Doodle" src="_images/Doodle.png" /></p>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
-</ul>
+  <div class="math notranslate nohighlight">
+\[\def\bpi{\boldsymbol{\pi}}
+\def\bzero{\boldsymbol{0}}
+\def\be{\boldsymbol{e}}\]</div>
+<section id="non-equilibrium-steady-states">
+<h1>Non-equilibrium steady states<a class="headerlink" href="#non-equilibrium-steady-states" title="Permalink to this heading">#</a></h1>
+<p>The equilibrium formulation assumes detailed balance. However, when the state-transition diagram of a receptor model includes cycles, the steady-state probability distribution may not satisfy detailed balance.</p>
+<p>Let us consider again the following state-transition diagram.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a12, a21, a13, a31, a23, a32, a34, a43&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="n">a12</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="n">a13</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="n">a21</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="n">a23</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="n">a32</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">a31</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="n">a34</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span><span class="n">a43</span><span class="p">}};</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">weighted</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">vertex_positions</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span>
+<span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
-</ul>
 </div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-order oligomers</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReducedFromCartesianPower.html">Reduced Power Graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
-</ul>
+<div class="cell_output docutils container">
+<img alt="_images/09c72693977e3fec7249e1268228a932afd2cad72b0ba5cc1e5541357503ede7.png" src="_images/09c72693977e3fec7249e1268228a932afd2cad72b0ba5cc1e5541357503ede7.png" />
 </div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and helps</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
-</ul>
 </div>
+<section id="generator-matrix-and-laplacian">
+<h2>Generator matrix and Laplacian<a class="headerlink" href="#generator-matrix-and-laplacian" title="Permalink to this heading">#</a></h2>
+<p>The generator matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> for the Markov chain associated to <code class="docutils literal notranslate"><span class="pre">G</span></code> can be constructed from the weighted adjacency matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>, given by</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">weighted_adjacency_matrix</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0 a12 a13   0]
+[a21   0 a23   0]
+[a31 a32   0 a34]
+[  0   0 a43   0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">diagonal_matrix</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[      -a12 - a13              a12              a13                0]
+[             a21       -a21 - a23              a23                0]
+[             a31              a32 -a31 - a32 - a34              a34]
+[               0                0              a43             -a43]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Equivalently, the generator matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> is the opposite of the Laplacian matrix <code class="docutils literal notranslate"><span class="pre">L</span></code> (
+<code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">=</span> <span class="pre">-G.laplacian_matrix()</span></code> (not shown).  <code class="docutils literal notranslate"><span class="pre">Q</span></code> is referred to as the generator matrix for the Markov chain because the probability distribution <span class="math notranslate nohighlight">\(\bpi^T\)</span> solves <span class="math notranslate nohighlight">\(d\bpi^T/dt = \bpi^T Q\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The probability distribution <span class="math notranslate nohighlight">\(\bpi^T\)</span> is a row vector.</p>
+</div>
+<p>The steady-state probability distribution solves <span class="math notranslate nohighlight">\(\bpi^T Q = \bzero\)</span> subject to <span class="math notranslate nohighlight">\(\bpi^T \be = 1\)</span> (conservation of probability).  In this expression, <span class="math notranslate nohighlight">\(\be\)</span> is a commensurate column vector of 1s.</p>
+<p>The following code confirms that each row of <code class="docutils literal notranslate"><span class="pre">Q</span></code> sums to zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="o">*</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0]
+[0]
+[0]
+[0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see that the columns of <code class="docutils literal notranslate"><span class="pre">Q</span></code> do not sum to zero, we evaluate <span class="math notranslate nohighlight">\(\be^T Q\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[           -a12 - a13 + a21 + a31             a12 - a21 - a23 + a32 a13 + a23 - a31 - a32 - a34 + a43                         a34 - a43]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="symbolic-solution">
+<h2>Symbolic solution<a class="headerlink" href="#symbolic-solution" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="condition-on-cycles">
+<h2>Condition on cycles<a class="headerlink" href="#condition-on-cycles" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -474,16 +511,16 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "sage-10.0"
         },
         kernelOptions: {
-            name: "python3",
+            name: "sage-10.0",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'sage-10.0'</script>
 
                 </article>
               
@@ -496,12 +533,21 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="receptor_modeling_equilibrium_formalism.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Equilibrium formalism</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="receptor_modeling_overview.html"
+       href="reduced_graph_powers.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Overview</p>
+        <p class="prev-next-title">Reduced graph powers</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -523,9 +569,9 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a><ul class="nav section-nav flex-column">
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-and-laplacian">Generator matrix and Laplacian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-solution">Symbolic solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-on-cycles">Condition on cycles</a></li>
 </ul>
   </nav></div>
 

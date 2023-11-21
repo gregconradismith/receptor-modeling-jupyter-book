@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Receptor models &#8212; Receptors</title>
+    <title>Overview &#8212; Receptors</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'receptor_modeling_overview';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Ligand binding" href="receptor_modeling_ligands.html" />
+    <link rel="next" title="States and transitions" href="receptor_modeling_states_and_transitions.html" />
     <link rel="prev" title="Welcome to Receptors" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -158,9 +158,10 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Receptor models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">The equilibrium formalism for receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_scraps.html">Receptor modeling - scraps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
@@ -360,9 +361,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -373,24 +372,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Receptor models</h1>
+    <h1>Overview</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#states-and-transitions">States and transitions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undirected-graphs-as-state-transition-diagrams">Undirected graphs as state-transition diagrams</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs-as-state-transition-diagrams">Directed graphs as state-transition diagrams</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transition-rate-constants">Transition rate constants</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -400,161 +386,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="receptor-models">
-<h1>Receptor models<a class="headerlink" href="#receptor-models" title="Permalink to this heading">#</a></h1>
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
 <p>Quantitative pharmacologists construct models of relationship between ligand concentration and the fraction of cell surface receptors in each of several molecular conformations. These models give insight into the action of natural ligands and drugs on receptor-mediated cell responses.  A good starting point for review of receptor modeling is</p>
 <ul class="simple">
 <li><p>Kenakin, T. P. (2018). <a class="reference external" href="https://www.amazon.com/Pharmacology-Primer-Techniques-Effective-Strategic/dp/0128139579/">A Pharmacology Primer: Techniques for More Effective and Strategic Drug Discovery.</a> Academic Press. <span id="id1">[<a class="reference internal" href="overview.html#id3" title="Terry P Kenakin. A pharmacology primer: techniques for more effective and strategic drug discovery. Academic Press, 2018.">Ken18</a>]</span></p></li>
 </ul>
 <p>An introction to this topic for undergraduate neuroscienc majors is <strong>Ligands, Receptors, and Rate Laws</strong>, Chapter 4 of <a class="reference external" href="https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F">Cellular Biophysics &amp; Modeling: a primer on the computational biology of excitable cells</a>. Cambridge University Press, 2019.</p>
-<section id="states-and-transitions">
-<h2>States and transitions<a class="headerlink" href="#states-and-transitions" title="Permalink to this heading">#</a></h2>
-<p>The process of receptor modeling often begins by specifying the molecular conformations (states) to be considered and the transitions between these states.</p>
-<section id="undirected-graphs-as-state-transition-diagrams">
-<h3>Undirected graphs as state-transition diagrams<a class="headerlink" href="#undirected-graphs-as-state-transition-diagrams" title="Permalink to this heading">#</a></h3>
-<p>For example, the following graph may represent a receptor model that has four states:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_undirected</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">]})</span>
-<span class="n">vertex_positions</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span>
-<span class="n">G_undirected</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/fef322840d716a86eade33751c36e8b5c19ba81ff1631d4fb333f9c316a125f7.png" src="_images/fef322840d716a86eade33751c36e8b5c19ba81ff1631d4fb333f9c316a125f7.png" />
-</div>
-</div>
-<p>The graph <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code> is constructed by calling the Sagemath command <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html#supported-formats"><code class="docutils literal notranslate"><span class="pre">Graph()</span></code></a> with a dictionary that associates neighbors to each vertex.  The vertices of the graph <code class="docutils literal notranslate"><span class="pre">G</span></code> are the integers 1, 2, 3, and 4.  The method <code class="docutils literal notranslate"><span class="pre">plot()</span></code> shows the graph <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code> using a dictionary <code class="docutils literal notranslate"><span class="pre">vertex_positions</span></code> that specifies the locations of each vertex.</p>
-<p>The adjacency matrix of this graph is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_undirected</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 1 0]
-[1 0 1 0]
-[1 1 0 1]
-[0 0 1 0]
-</pre></div>
-</div>
-</div>
-</div>
-<p>The incidence matrix of this graph is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_undirected</span><span class="o">.</span><span class="n">incidence_matrix</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 1 0 0]
-[1 0 1 0]
-[0 1 1 1]
-[0 0 0 1]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The graphs used here to represent receptor states and transitions will be both connected and simple.</p>
-<ul class="simple">
-<li><p><em>Connected</em>: at least one path joins every pair of vertices.</p></li>
-<li><p><em>Simple</em>: no loops or multiple edges.</p></li>
-</ul>
-</div>
-</section>
-<section id="directed-graphs-as-state-transition-diagrams">
-<h3>Directed graphs as state-transition diagrams<a class="headerlink" href="#directed-graphs-as-state-transition-diagrams" title="Permalink to this heading">#</a></h3>
-<p>In the context of receptor modeling, the undirected graph above is interpreted as a short-hand for the following <em>directed</em> graph.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_directed</span> <span class="o">=</span> <span class="n">G_undirected</span><span class="o">.</span><span class="n">to_directed</span><span class="p">()</span>
-<span class="n">G_directed</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/a0f9d49971e968696c6e086ae38b6b8d99c657e55305b808c5483a29272245e9.png" src="_images/a0f9d49971e968696c6e086ae38b6b8d99c657e55305b808c5483a29272245e9.png" />
-</div>
-</div>
-<p>The method <code class="docutils literal notranslate"><span class="pre">to_directed()</span></code> produces <code class="docutils literal notranslate"><span class="pre">G_directed</span></code> as the <em>symmetric</em> digraph associated to <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code>, in which adjacent vertices are  connected in both directions.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Receptor state-transition diagrams  will always be symmetric directed graphs, that is, for every edge from vertex <code class="docutils literal notranslate"><span class="pre">i</span></code> to vertex <code class="docutils literal notranslate"><span class="pre">j</span></code>, there is also an edge from vertex <code class="docutils literal notranslate"><span class="pre">j</span></code> to vertex <code class="docutils literal notranslate"><span class="pre">i</span></code>.  Thus, the state-transtion diagrams for a receptor model may, for simplicity, be illustrated as an undirected graph.</p>
-</div>
-</section>
-</section>
-<section id="transition-rate-constants">
-<h2>Transition rate constants<a class="headerlink" href="#transition-rate-constants" title="Permalink to this heading">#</a></h2>
-<p>In the context of receptor modeling, state-transition diagrams are usually <em>weighted</em>, as shown here.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a12, a21, a13, a31, a23, a32, a34, a43&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="n">a12</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="n">a13</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="n">a21</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="n">a23</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="n">a32</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">a31</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="n">a34</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span><span class="n">a43</span><span class="p">}};</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">weighted</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/09c72693977e3fec7249e1268228a932afd2cad72b0ba5cc1e5541357503ede7.png" src="_images/09c72693977e3fec7249e1268228a932afd2cad72b0ba5cc1e5541357503ede7.png" />
-</div>
-</div>
-<p>In the code above, a directed graph <code class="docutils literal notranslate"><span class="pre">G</span></code> is constructed by calling the Sagemath command <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html#methods"><code class="docutils literal notranslate"><span class="pre">DiGraph()</span></code></a>.  The input argument <code class="docutils literal notranslate"><span class="pre">d</span></code> is a <a class="reference external" href="https://doc.sagemath.org/html/en/thematic_tutorials/tutorial-programming-python.html">Python dictionary</a> that assigns out-neighbors to each vertex and corresponding edge labels.
-The edge labels are not <em>strings</em>, but <em>symbolic variables</em> defined using Sagemath’s <code class="docutils literal notranslate"><span class="pre">var</span></code> command.
-For example, the symbolic variable <code class="docutils literal notranslate"><span class="pre">a12</span></code> stands for the rate of transition between state 1 and 2.</p>
-<p>Because these rate constants are symbolic variables, Sagemath will evaluate expressions such as</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">a12</span> <span class="o">*</span> <span class="p">(</span><span class="n">a21</span> <span class="o">+</span> <span class="n">a13</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">/</span> <span class="n">a13</span>
-<span class="n">f</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a12*a13 + 2*a12*a21 + a12*a21^2/a13
-</pre></div>
-</div>
-</div>
-</div>
-<p>One reason for using symbolic variables is that we can produce symbolic expressions important quantities using <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/index.html">module for graphs and digraphs</a> available in <code class="docutils literal notranslate"><span class="pre">Sagemath</span></code>. For example, the weighted adjacency matrix for <code class="docutils literal notranslate"><span class="pre">G</span></code> is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">weighted_adjacency_matrix</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0 a12 a13   0]
-[a21   0 a23   0]
-[a31 a32   0 a34]
-[  0   0 a43   0]
-</pre></div>
-</div>
-</div>
-</div>
-<p>The Laplacian of <code class="docutils literal notranslate"><span class="pre">G</span></code> is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">laplacian_matrix</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[      a21 + a31            -a12            -a13               0]
-[           -a21       a12 + a32            -a23               0]
-[           -a31            -a32 a13 + a23 + a43            -a34]
-[              0               0            -a43             a34]
-</pre></div>
-</div>
-</div>
-</div>
-<p>This matrix is sometimes referred to as the <code class="docutils literal notranslate"><span class="pre">combinatorial</span> <span class="pre">Laplacian</span> <span class="pre">matrix</span></code> of the weighted directed graph <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -598,11 +436,11 @@ For example, the symbolic variable <code class="docutils literal notranslate"><s
       </div>
     </a>
     <a class="right-next"
-       href="receptor_modeling_ligands.html"
+       href="receptor_modeling_states_and_transitions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ligand binding</p>
+        <p class="prev-next-title">States and transitions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -615,25 +453,6 @@ For example, the symbolic variable <code class="docutils literal notranslate"><s
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#states-and-transitions">States and transitions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undirected-graphs-as-state-transition-diagrams">Undirected graphs as state-transition diagrams</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs-as-state-transition-diagrams">Directed graphs as state-transition diagrams</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transition-rate-constants">Transition rate constants</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

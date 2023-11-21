@@ -17,21 +17,19 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-ztot = sum(z);
-prob = []
-for i in range(len(z)):
-    prob.append(z/ztot)
-print(prob)
+var('a12, a21, a13, a31, a23, a32, a34, a43')
+d = {1: {2:a12, 3:a13}, 2: {1:a21, 3:a23}, 3: {2:a32, 1:a31, 4:a34}, 4: {3:a43}};
+G = DiGraph(d,weighted=True)
+G.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn [5], line 4[0m
-[1;32m      2[0m prob [38;5;241m=[39m []
-[1;32m      3[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;28mlen[39m(z)):
-[0;32m----> 4[0m     prob[38;5;241m.[39mappend([43mz[49m[38;5;241;43m/[39;49m[43mztot[49m)
-[1;32m      5[0m [38;5;28mprint[39m(prob)
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn [1], line 4[0m
+[1;32m      2[0m d [38;5;241m=[39m {Integer([38;5;241m1[39m): {Integer([38;5;241m2[39m):a12, Integer([38;5;241m3[39m):a13}, Integer([38;5;241m2[39m): {Integer([38;5;241m1[39m):a21, Integer([38;5;241m3[39m):a23}, Integer([38;5;241m3[39m): {Integer([38;5;241m2[39m):a32, Integer([38;5;241m1[39m):a31, Integer([38;5;241m4[39m):a34}, Integer([38;5;241m4[39m): {Integer([38;5;241m3[39m):a43}};
+[1;32m      3[0m G [38;5;241m=[39m DiGraph(d,weighted[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m----> 4[0m G[38;5;241m.[39mplot(figsize[38;5;241m=[39mInteger([38;5;241m8[39m),edge_labels[38;5;241m=[39m[38;5;28;01mTrue[39;00m,pos[38;5;241m=[39m[43mvertex_positions[49m,graph_border[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
 
-[0;31mTypeError[0m: unsupported operand type(s) for /: 'list' and 'sage.symbolic.expression.Expression'
-TypeError: unsupported operand type(s) for /: 'list' and 'sage.symbolic.expression.Expression'
+[0;31mNameError[0m: name 'vertex_positions' is not defined
+NameError: name 'vertex_positions' is not defined
 

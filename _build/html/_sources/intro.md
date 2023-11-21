@@ -1,10 +1,10 @@
 # Welcome to __Receptors__
 
-This [Jupyter Book](https://jupyterbook.org) explores how cell surface receptors can be modeled using [Sagemath](https://www.sagemath.org), a free open\-source mathematics software system \(see https://www.sagemath.org\).
+This [Jupyter Book](https://jupyterbook.org) explores how cell surface receptors can be modeled using [Sagemath](https://www.sagemath.org), a free open\-source mathematics software system (see [https://www.sagemath.org](https://www.sagemath.org)).
 
 The focus is Markov chain models of receptors and symbolic algebraic calculations of equilibrium and steady\-state kinetic occupancy measures \(i.e., the probability of each state\), as opposed to numerical methods to calculate steady states or time\-dependent dynamics.
 
-After an introductory tutorial, we illustrate an approach to **modeling conformational coupling of receptor dimers and higher\-order oligomers** that was introduced in the following two papers.
+After an brief introductory tutorial, we illustrate an approach to **modeling conformational coupling of receptor dimers and higher\-order oligomers** that was introduced in the following two papers.
 
 * Gregory Douglas Conradi Smith, **Allostery in oligomeric receptor models**, *Mathematical Medicine and Biology: A Journal of the IMA*, 37(3):313-333, 2020. [doi: 10.1093/imammb/dqz016](https://doi.org/10.1093/imammb/dqz016)
 

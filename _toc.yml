@@ -4,9 +4,12 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Receptor models and binding curves
+  - caption: Receptor modeling
     chapters:
-    - file: receptor_modeling
+    - file: receptor_modeling_overview
+    - file: receptor_modeling_ligands
+    - file: receptor_modeling_equilibrium_formalism
+    - file: receptor_modeling_scraps
     - file: reduced_graph_powers
     - file: MyTools
     - file: MyToolsExamplesVertexAndEdgeLabels
@@ -25,7 +28,7 @@ parts:
     - file: 2023-08-21-practicing-python
   - caption: Higher-order oligomers
     chapters:
-    - file: example_reduced_graph_powers.md
+    - file: example_reduced_graph_powers
     - file: ReducedFromCartesianPower
     - file: wang_algebra.md
   - caption: Scraps and helps

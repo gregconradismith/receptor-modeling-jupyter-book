@@ -387,7 +387,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-and-laplacian">Generator matrix and Laplacian</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-solution">Symbolic solution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-on-cycles">Condition on cycles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-komolgovor-condition-on-the-cycle">With Komolgovor condition on the cycle</a></li>
 </ul>
             </nav>
         </div>
@@ -401,6 +401,7 @@ document.write(`
                   
   <div class="math notranslate nohighlight">
 \[\def\bpi{\boldsymbol{\pi}}
+\def\bpit{\boldsymbol{\pi}^{\,T}}
 \def\bzero{\boldsymbol{0}}
 \def\be{\boldsymbol{e}}\]</div>
 <section id="non-equilibrium-steady-states">
@@ -456,13 +457,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Equivalently, the generator matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> is the opposite of the Laplacian matrix <code class="docutils literal notranslate"><span class="pre">L</span></code> (
-<code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">=</span> <span class="pre">-G.laplacian_matrix()</span></code> (not shown).  <code class="docutils literal notranslate"><span class="pre">Q</span></code> is referred to as the generator matrix for the Markov chain because the probability distribution <span class="math notranslate nohighlight">\(\bpi^T\)</span> solves <span class="math notranslate nohighlight">\(d\bpi^T/dt = \bpi^T Q\)</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Q</span></code> is referred to as the generator matrix for the Markov chain because the probability distribution <span class="math notranslate nohighlight">\(\bpit\)</span> solves <span class="math notranslate nohighlight">\(d\bpit/dt = \bpit Q\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The probability distribution <span class="math notranslate nohighlight">\(\bpi^T\)</span> is a row vector.</p>
+<p>The probability distribution <span class="math notranslate nohighlight">\(\bpit\)</span> is a row vector.</p>
 </div>
-<p>The steady-state probability distribution solves <span class="math notranslate nohighlight">\(\bpi^T Q = \bzero\)</span> subject to <span class="math notranslate nohighlight">\(\bpi^T \be = 1\)</span> (conservation of probability).  In this expression, <span class="math notranslate nohighlight">\(\be\)</span> is a commensurate column vector of 1s.</p>
+<p>The steady-state probability distribution solves <span class="math notranslate nohighlight">\(\bpit Q = \bzero\)</span> subject to <span class="math notranslate nohighlight">\(\bpit \be = 1\)</span> (conservation of probability).  In this expression, <span class="math notranslate nohighlight">\(\be\)</span> is a commensurate column vector of 1s.</p>
 <p>The following code confirms that each row of <code class="docutils literal notranslate"><span class="pre">Q</span></code> sums to zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -480,25 +480,79 @@ document.write(`
 </div>
 </div>
 </div>
-<p>To see that the columns of <code class="docutils literal notranslate"><span class="pre">Q</span></code> do not sum to zero, we evaluate <span class="math notranslate nohighlight">\(\be^T Q\)</span>.</p>
+</section>
+<section id="symbolic-solution">
+<h2>Symbolic solution<a class="headerlink" href="#symbolic-solution" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">Q</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mysolve</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
+    <span class="n">var</span><span class="p">(</span><span class="s1">&#39;p1 p2 p3 p4&#39;</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">])</span>
+    <span class="n">pQ</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="n">Q</span>
+    <span class="n">eq</span> <span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">lhs</span> <span class="ow">in</span> <span class="n">pQ</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">eq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">eq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="o">+</span><span class="n">p3</span><span class="o">+</span><span class="n">p4</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Solution:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rhs</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span><span class="o">.</span><span class="n">factor</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The non-equilirium steady state probability distribution is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mysolve</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[           -a12 - a13 + a21 + a31             a12 - a21 - a23 + a32 a13 + a23 - a31 - a32 - a34 + a43                         a34 - a43]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-(a12 + a13)*p1 + a21*p2 + a31*p3 == 0
+a12*p1 - (a21 + a23)*p2 + a32*p3 == 0
+a13*p1 + a23*p2 - (a31 + a32 + a34)*p3 + a43*p4 == 0
+a34*p3 - a43*p4 == 0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solution:
+p0 = (a21*a31 + a23*a31 + a21*a32)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
+p1 = (a12*a31 + a12*a32 + a13*a32)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
+p2 = (a13*a21 + a12*a23 + a13*a23)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
+p3 = (a13*a21 + a12*a23 + a13*a23)*a34/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">Q</span></code> is rank 3 (not 4), the solution requires replacing the last equation with <code class="docutils literal notranslate"><span class="pre">p1+p2+p3+p4</span> <span class="pre">==</span> <span class="pre">1</span></code>.</p>
 </section>
-<section id="symbolic-solution">
-<h2>Symbolic solution<a class="headerlink" href="#symbolic-solution" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="condition-on-cycles">
-<h2>Condition on cycles<a class="headerlink" href="#condition-on-cycles" title="Permalink to this heading">#</a></h2>
+<section id="with-komolgovor-condition-on-the-cycle">
+<h2>With Komolgovor condition on the cycle<a class="headerlink" href="#with-komolgovor-condition-on-the-cycle" title="Permalink to this heading">#</a></h2>
+<p>The equilirium steady state probability distribution is simpler</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">a12</span><span class="o">=</span><span class="n">a13</span><span class="o">*</span><span class="n">a32</span><span class="o">*</span><span class="n">a21</span><span class="o">/</span><span class="p">(</span><span class="n">a23</span><span class="o">*</span><span class="n">a31</span><span class="p">))</span>
+<span class="n">mysolve</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-(a13 + a13*a21*a32/(a23*a31))*p1 + a21*p2 + a31*p3 == 0
+a13*a21*a32*p1/(a23*a31) - (a21 + a23)*p2 + a32*p3 == 0
+a13*p1 + a23*p2 - (a31 + a32 + a34)*p3 + a43*p4 == 0
+a34*p3 - a43*p4 == 0
+
+Solution:
+p0 = a23*a31*a43/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
+p1 = a13*a32*a43/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
+p2 = a13*a23*a43/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
+p3 = a13*a23*a34/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -571,7 +625,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-and-laplacian">Generator matrix and Laplacian</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-solution">Symbolic solution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-on-cycles">Condition on cycles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-komolgovor-condition-on-the-cycle">With Komolgovor condition on the cycle</a></li>
 </ul>
   </nav></div>
 

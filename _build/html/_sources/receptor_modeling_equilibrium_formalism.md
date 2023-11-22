@@ -51,7 +51,7 @@ var('a b c x kb kc')
 T = DiGraph([[a,b,c],[(b,a),(c,b)]])
 T.set_edge_label(b,a,kb*x)
 T.set_edge_label(c,b,kc*x)
-T.plot(figsize=6,pos={a:(0,0),b:(4,0),c:(4,0)},edge_labels=True,graph_border=True,vertex_size=1000)
+T.plot(figsize=6,pos={a:(0,0),b:(4,0),c:(6,0)},edge_labels=True,graph_border=True,vertex_size=1000)
 ```
 
 ## Probability of each state 

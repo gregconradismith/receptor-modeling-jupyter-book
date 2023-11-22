@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'receptor_modeling_equilibrium_formalism';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Non-equilibrium steady states" href="receptor_modeling_scraps.html" />
+    <link rel="next" title="Non-equilibrium steady states" href="receptor_modeling_nonequilibrium.html" />
     <link rel="prev" title="Ligand binding" href="receptor_modeling_ligands.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_scraps.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
@@ -433,12 +433,12 @@ document.write(`
 <span class="n">T</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">],[(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">),(</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">)]])</span>
 <span class="n">T</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">kb</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">kc</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="p">{</span><span class="n">a</span><span class="p">:(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">b</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">c</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="p">{</span><span class="n">a</span><span class="p">:(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">b</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">c</span><span class="p">:(</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1524cd5794bd0cb940b219a00e330fcfb2f1cd52e12554755eff8a369ed61b39.png" src="_images/1524cd5794bd0cb940b219a00e330fcfb2f1cd52e12554755eff8a369ed61b39.png" />
+<img alt="_images/7307c14adcccc66caf0dcf21b2c3ac8e55db24c1997dfe0d7fe43a8acf4cc51c.png" src="_images/7307c14adcccc66caf0dcf21b2c3ac8e55db24c1997dfe0d7fe43a8acf4cc51c.png" />
 </div>
 </div>
 <section id="probability-of-each-state">
@@ -448,18 +448,18 @@ document.write(`
 <span class="math notranslate nohighlight">\(z_a = 1\)</span>,
 <span class="math notranslate nohighlight">\(z_b = \kappab = \kappabstar x\)</span>, and
 <span class="math notranslate nohighlight">\(z_c =\kappab \kappac = \kappabstar \kappacstar x^2\)</span>. That is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9b0154b-8a8e-4fe9-b878-c497d19697b1">
-<span class="eqno">(1)<a class="headerlink" href="#equation-a9b0154b-8a8e-4fe9-b878-c497d19697b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-04f2f17e-7ad8-4387-9e85-15fe6d73e088">
+<span class="eqno">(1)<a class="headerlink" href="#equation-04f2f17e-7ad8-4387-9e85-15fe6d73e088" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}\]</div>
 <p>It is helpful to  present this set of rational functions using the following compact notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3be7cdf6-cf55-4ff1-a557-08fdbb2c8840">
-<span class="eqno">(2)<a class="headerlink" href="#equation-3be7cdf6-cf55-4ff1-a557-08fdbb2c8840" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f14d525b-4fad-44ff-89a9-2f36e1865e98">
+<span class="eqno">(2)<a class="headerlink" href="#equation-f14d525b-4fad-44ff-89a9-2f36e1865e98" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_a  :  \pi_b :  \pi_c ] = [1 :\kappab : \kappab \kappac ]  = [1 : \kappabstar x :\kappabstar \kappacstar x^2  ] \,  .
 \end{equation}\]</div>
 <p>In expressions of this kind,  it is understood that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-27f57a72-ebb8-432f-a024-b68db5a75f36">
-<span class="eqno">(3)<a class="headerlink" href="#equation-27f57a72-ebb8-432f-a024-b68db5a75f36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2bee6c22-1d97-4a40-b094-2460e67a1e0f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-2bee6c22-1d97-4a40-b094-2460e67a1e0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 [ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ] = [ \lambda z_1 \! : \! \lambda  z_2 : \! \cdots \! : \! \lambda  z_n ]
 \end{equation}\]</div>
 <p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>.  Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.  Prior to normalization, we will refer to <span class="math notranslate nohighlight">\([ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ]\)</span> as <em>relative probabilites</em> for each receptor state.</p>
@@ -565,7 +565,7 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="receptor_modeling_scraps.html"
+       href="receptor_modeling_nonequilibrium.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>

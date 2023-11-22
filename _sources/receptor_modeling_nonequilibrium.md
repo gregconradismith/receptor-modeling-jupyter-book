@@ -15,6 +15,7 @@ kernelspec:
 
 ```{math}
 \def\bpi{\boldsymbol{\pi}}
+\def\bpit{\boldsymbol{\pi}^{\,T}}
 \def\bzero{\boldsymbol{0}}
 \def\be{\boldsymbol{e}}
 ```
@@ -46,26 +47,49 @@ Q = A - diagonal_matrix(sum(A.T))
 print(Q)
 ```
 
-Equivalently, the generator matrix `Q` is the opposite of the Laplacian matrix `L` (
-`Q = -G.laplacian_matrix()` (not shown).  `Q` is referred to as the generator matrix for the Markov chain because the probability distribution {math}`\bpi^T` solves {math}`d\bpi^T/dt = \bpi^T Q`.  
+`Q` is referred to as the generator matrix for the Markov chain because the probability distribution {math}`\bpit` solves {math}`d\bpit/dt = \bpit Q`.  
 
 ```{note}
-The probability distribution {math}`\bpi^T` is a row vector.
+The probability distribution {math}`\bpit` is a row vector.
 ```
 
-The steady-state probability distribution solves {math}`\bpi^T Q = \bzero` subject to {math}`\bpi^T \be = 1` (conservation of probability).  In this expression, {math}`\be` is a commensurate column vector of 1s. 
+The steady-state probability distribution solves {math}`\bpit Q = \bzero` subject to {math}`\bpit \be = 1` (conservation of probability).  In this expression, {math}`\be` is a commensurate column vector of 1s. 
 
 The following code confirms that each row of `Q` sums to zero.
 ```{code-cell}
 e = matrix([1,1,1,1]).T
 print(Q*e)
 ```
-To see that the columns of `Q` do not sum to zero, we evaluate {math}`\be^T Q`.
-
-```{code-cell}
-print(e.T*Q)
-```
 
 ## Symbolic solution 
 
-## Condition on cycles 
+```{code-cell}
+def mysolve(Q):
+    var('p1 p2 p3 p4')
+    p = vector([p1, p2, p3, p4])
+    pQ = p*Q
+    eq =[]
+    for lhs in pQ:
+        print(lhs == 0)
+        eq.append(lhs == 0)
+    eq[-1] = p1+p2+p3+p4 == 1
+    z = solve(eq,list(p))
+    print('\nSolution:')
+    for i in range(4):
+        f = z[0][i].rhs()
+        print('p%s' % i,'=',f.expand().factor())
+ ```
+
+The non-equilirium steady state probability distribution is
+ ```{code-cell}
+mysolve(Q)
+ ```
+Because `Q` is rank 3 (not 4), the solution requires replacing the last equation with `p1+p2+p3+p4 == 1`.
+
+## With Komolgovor condition on the cycle
+
+The equilirium steady state probability distribution is simpler
+```{code-cell}
+Q = Q.subs(a12=a13*a32*a21/(a23*a31))
+mysolve(Q)
+ ```

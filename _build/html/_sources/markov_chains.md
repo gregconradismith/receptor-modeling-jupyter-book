@@ -16,7 +16,7 @@ kernelspec:
 
 ## Symbolic vertex and edge labels
 
-Recall the three-state receptor model [three-state receptor model](receptors:three_state_model) discussed earlier.
+Recall the [three-state receptor model](receptor_modeling_ligands:three_state_model) discussed above ([Ligands](receptor_modeling_ligands)).  Using generic notation this
 
 ```{code-cell}
 var('p0 p1 p2 a01 a10 a12 a21')

@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'receptor_modeling_nonequilibrium';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Reduced graph powers" href="reduced_graph_powers.html" />
-    <link rel="prev" title="Equilibrium formalism" href="receptor_modeling_equilibrium_formalism.html" />
+    <link rel="next" title="Example graphs" href="example_graphs.html" />
+    <link rel="prev" title="Markov chain receptor models" href="markov_chains.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,23 +157,26 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
@@ -182,13 +185,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-order oligomers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-Order Oligomers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ReducedFromCartesianPower.html">Reduced Power Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and helps</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and Helps</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -385,9 +388,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-and-laplacian">Generator matrix and Laplacian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix">Generator matrix</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-solution">Symbolic solution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-komolgovor-condition-on-the-cycle">With Komolgovor condition on the cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komolgorov-s-criterion-and-equilibrium">Komolgorov’s criterion and equilibrium</a></li>
 </ul>
             </nav>
         </div>
@@ -422,13 +425,15 @@ document.write(`
 <img alt="_images/09c72693977e3fec7249e1268228a932afd2cad72b0ba5cc1e5541357503ede7.png" src="_images/09c72693977e3fec7249e1268228a932afd2cad72b0ba5cc1e5541357503ede7.png" />
 </div>
 </div>
-<section id="generator-matrix-and-laplacian">
-<h2>Generator matrix and Laplacian<a class="headerlink" href="#generator-matrix-and-laplacian" title="Permalink to this heading">#</a></h2>
-<p>The generator matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> for the Markov chain associated to <code class="docutils literal notranslate"><span class="pre">G</span></code> can be constructed from the weighted adjacency matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>, given by</p>
+<section id="generator-matrix">
+<h2>Generator matrix<a class="headerlink" href="#generator-matrix" title="Permalink to this heading">#</a></h2>
+<p>The generator matrix <span class="math notranslate nohighlight">\(Q\)</span> for the Markov chain associated to <span class="math notranslate nohighlight">\(G\)</span> can be constructed from the weighted adjacency matrix <span class="math notranslate nohighlight">\(A\)</span>, given by</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">weighted_adjacency_matrix</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">SR</span><span class="p">,</span><span class="n">G</span><span class="o">.</span><span class="n">weighted_adjacency_matrix</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -439,12 +444,49 @@ document.write(`
 [  0   0 a43   0]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;sage.matrix.matrix_generic_sparse.Matrix_generic_sparse&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>I’m not sure why the above code doesn’t work. I changed it to explicitly use SR.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">SR</span><span class="p">,[[</span><span class="mi">0</span><span class="p">,</span><span class="n">a12</span><span class="p">,</span><span class="n">a13</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="n">a21</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a23</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="n">a31</span><span class="p">,</span><span class="n">a32</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a34</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a43</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0 a12 a13   0]
+[a21   0 a23   0]
+[a31 a32   0 a34]
+[  0   0 a43   0]
+4
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;sage.matrix.matrix_symbolic_dense.Matrix_symbolic_dense&#39;&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">diagonal_matrix</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a12, a21, a13, a31, a23, a32, a34, a43&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="n">a12</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="n">a13</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="n">a21</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="n">a23</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="n">a32</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">a31</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="n">a34</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span><span class="n">a43</span><span class="p">}};</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">weighted</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">diagonal_matrix</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The rank of Q is&#39;</span><span class="p">,</span><span class="n">Q</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -453,17 +495,15 @@ document.write(`
 [             a21       -a21 - a23              a23                0]
 [             a31              a32 -a31 - a32 - a34              a34]
 [               0                0              a43             -a43]
+The rank of Q is 3
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;sage.matrix.matrix_symbolic_dense.Matrix_symbolic_dense&#39;&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">Q</span></code> is referred to as the generator matrix for the Markov chain because the probability distribution <span class="math notranslate nohighlight">\(\bpit\)</span> solves <span class="math notranslate nohighlight">\(d\bpit/dt = \bpit Q\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The probability distribution <span class="math notranslate nohighlight">\(\bpit\)</span> is a row vector.</p>
-</div>
-<p>The steady-state probability distribution solves <span class="math notranslate nohighlight">\(\bpit Q = \bzero\)</span> subject to <span class="math notranslate nohighlight">\(\bpit \be = 1\)</span> (conservation of probability).  In this expression, <span class="math notranslate nohighlight">\(\be\)</span> is a commensurate column vector of 1s.</p>
-<p>The following code confirms that each row of <code class="docutils literal notranslate"><span class="pre">Q</span></code> sums to zero.</p>
+<p>Another way to write this is <span class="math notranslate nohighlight">\(Q = A - \text{diag}(A\be)\)</span> where <span class="math notranslate nohighlight">\(\be\)</span> is a commensurate column vector of 1s. The following code confirms that <span class="math notranslate nohighlight">\(Q \be = \bzero\)</span>, i.e., each row of <span class="math notranslate nohighlight">\(Q\)</span> sums to zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
@@ -480,33 +520,27 @@ document.write(`
 </div>
 </div>
 </div>
+<p>The matrix
+<span class="math notranslate nohighlight">\(Q\)</span> is referred to as the generator matrix for the Markov chain because the probability distribution <span class="math notranslate nohighlight">\(\bpit\)</span> solves <span class="math notranslate nohighlight">\(d\bpit/dt = \bpit Q\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The probability distribution <span class="math notranslate nohighlight">\(\bpit\)</span> is a row vector.</p>
+</div>
+<p>The steady-state probability distribution solves <span class="math notranslate nohighlight">\(\bpit Q = \bzero\)</span> subject to <span class="math notranslate nohighlight">\(\bpit \be = 1\)</span>.  This expression is equivalent to <span class="math notranslate nohighlight">\(\sum_i \pi_i = 1\)</span> (conservation of probability).</p>
 </section>
 <section id="symbolic-solution">
 <h2>Symbolic solution<a class="headerlink" href="#symbolic-solution" title="Permalink to this heading">#</a></h2>
+<p>We will symbolically solve <span class="math notranslate nohighlight">\(\bpit Q = \bzero\)</span> subject to <span class="math notranslate nohighlight">\(\bpit \be = 1\)</span>.</p>
+<p>To begin, we will unpack the four linear equations of <span class="math notranslate nohighlight">\(\bpit Q = \bzero\)</span>, which is compact notation for four linear equations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mysolve</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
-    <span class="n">var</span><span class="p">(</span><span class="s1">&#39;p1 p2 p3 p4&#39;</span><span class="p">)</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">])</span>
-    <span class="n">pQ</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="n">Q</span>
-    <span class="n">eq</span> <span class="o">=</span><span class="p">[]</span>
-    <span class="k">for</span> <span class="n">lhs</span> <span class="ow">in</span> <span class="n">pQ</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">eq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">eq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="o">+</span><span class="n">p3</span><span class="o">+</span><span class="n">p4</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Solution:&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rhs</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span><span class="o">.</span><span class="n">factor</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The non-equilirium steady state probability distribution is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mysolve</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;p1 p2 p3 p4&#39;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">])</span>
+<span class="n">pQ</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="n">Q</span>
+<span class="n">eq</span> <span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">lhs</span> <span class="ow">in</span> <span class="n">pQ</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">eq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -517,42 +551,147 @@ a13*p1 + a23*p2 - (a31 + a32 + a34)*p3 + a43*p4 == 0
 a34*p3 - a43*p4 == 0
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solution:
-p0 = (a21*a31 + a23*a31 + a21*a32)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
-p1 = (a12*a31 + a12*a32 + a13*a32)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
-p2 = (a13*a21 + a12*a23 + a13*a23)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
-p3 = (a13*a21 + a12*a23 + a13*a23)*a34/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
-</pre></div>
 </div>
 </div>
-</div>
-<p>Because <code class="docutils literal notranslate"><span class="pre">Q</span></code> is rank 3 (not 4), the solution requires replacing the last equation with <code class="docutils literal notranslate"><span class="pre">p1+p2+p3+p4</span> <span class="pre">==</span> <span class="pre">1</span></code>.</p>
-</section>
-<section id="with-komolgovor-condition-on-the-cycle">
-<h2>With Komolgovor condition on the cycle<a class="headerlink" href="#with-komolgovor-condition-on-the-cycle" title="Permalink to this heading">#</a></h2>
-<p>The equilirium steady state probability distribution is simpler</p>
+<p>Note that <span class="math notranslate nohighlight">\(Q\)</span> is rank 3, in spite of being <span class="math notranslate nohighlight">\(4\times 4\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">a12</span><span class="o">=</span><span class="n">a13</span><span class="o">*</span><span class="n">a32</span><span class="o">*</span><span class="n">a21</span><span class="o">/</span><span class="p">(</span><span class="n">a23</span><span class="o">*</span><span class="n">a31</span><span class="p">))</span>
-<span class="n">mysolve</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-(a13 + a13*a21*a32/(a23*a31))*p1 + a21*p2 + a31*p3 == 0
-a13*a21*a32*p1/(a23*a31) - (a21 + a23)*p2 + a32*p3 == 0
-a13*p1 + a23*p2 - (a31 + a32 + a34)*p3 + a43*p4 == 0
-a34*p3 - a43*p4 == 0
-
-Solution:
-p0 = a23*a31*a43/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
-p1 = a13*a32*a43/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
-p2 = a13*a23*a43/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
-p3 = a13*a23*a34/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
 </div>
+<p>This means that the fourth equation (<code class="docutils literal notranslate"><span class="pre">a34*p3</span> <span class="pre">-</span> <span class="pre">a43*p4</span> <span class="pre">==</span> <span class="pre">0</span></code>) is superfluous because <span class="math notranslate nohighlight">\(Q\)</span> is rank 3, in spite of being <span class="math notranslate nohighlight">\(4\times 4\)</span>.  We will replace this equation by the condition <code class="docutils literal notranslate"><span class="pre">p1+p2+p3+p4</span> <span class="pre">==</span> <span class="pre">1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="o">+</span><span class="n">p3</span><span class="o">+</span><span class="n">p4</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">eq</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-(a12 + a13)*p1 + a21*p2 + a31*p3 == 0
+a12*p1 - (a21 + a23)*p2 + a32*p3 == 0
+a13*p1 + a23*p2 - (a31 + a32 + a34)*p3 + a43*p4 == 0
+p1 + p2 + p3 + p4 == 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>This system of four linear equations can now be solved to obtain the steady-state probability distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rhs</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span><span class="o">.</span><span class="n">factor</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p1 = (a21*a31 + a23*a31 + a21*a32)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
+p2 = (a12*a31 + a12*a32 + a13*a32)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
+p3 = (a13*a21 + a12*a23 + a13*a23)*a43/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
+p4 = (a13*a21 + a12*a23 + a13*a23)*a34/(a13*a21*a34 + a12*a23*a34 + a13*a23*a34 + a13*a21*a43 + a12*a23*a43 + a13*a23*a43 + a12*a31*a43 + a21*a31*a43 + a23*a31*a43 + a12*a32*a43 + a13*a32*a43 + a21*a32*a43)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This solution can be written more compactly as follows.</p>
+<div class="math notranslate nohighlight" id="equation-eq-p1234">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-p1234" title="Permalink to this equation">#</a></span>\[\begin{split}p_1 &amp; = \frac{z_1}{z_1+z_2+z_3+z_4}\\
+p_2 &amp; = \frac{z_2}{z_1+z_2+z_3+z_4}\\
+p_3 &amp; = \frac{z_3}{z_1+z_2+z_3+z_4}\\
+p_4 &amp; = \frac{z_4}{z_1+z_2+z_3+z_4}\end{split}\]</div>
+<p>where</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+z_1 &amp; = (a_{21} a_{31} + a_{23} a_{31} + a_{21} a_{32} ) a_{43}\\
+z_2 &amp; = (a_{12} a_{31} + a_{12} a_{32} + a_{13} a_{32} ) a_{43}\\
+z_3 &amp; = (a_{13} a_{21} + a_{12} a_{23} + a_{13} a_{23} ) a_{43}\\
+z_4 &amp; = (a_{13} a_{21} + a_{12} a_{23} + a_{13} a_{23} ) a_{34} \, .
+\end{align*}\]</div>
+<p>This probability distribution is a <em>non-equilibrium steady state</em>.  To see this, check to see if the distribution satisfies detailed balance, i.e., <span class="math notranslate nohighlight">\(a_{ij} \pi_i = a_{ji} \pi_j\)</span>. Using the note above, we see that detailed balance implies <span class="math notranslate nohighlight">\(a_{ij} z_i = a_{ji} z_j\)</span>, but <span class="math notranslate nohighlight">\(a_{01} z_0 \neq a_{10} z_1\)</span>.</p>
+</section>
+<section id="komolgorov-s-criterion-and-equilibrium">
+<h2><a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov%27s_criterion">Komolgorov’s criterion</a> and equilibrium<a class="headerlink" href="#komolgorov-s-criterion-and-equilibrium" title="Permalink to this heading">#</a></h2>
+<p>If the product of rate constants around the cycle is the same in both directions, i.e., <code class="docutils literal notranslate"><span class="pre">a12*a23*a31=a13*a32*a21</span></code> <a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov%27s_criterion">Komolgorov’s criterion</a> is satisfied.  In this case, the steady-state probability distribution is guaranteed to satisfy detailed balance.  The code below usings this condition to repace <code class="docutils literal notranslate"><span class="pre">a12</span></code> by <code class="docutils literal notranslate"><span class="pre">a13*a32*a21/(a23*a31)</span></code>.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mysolve</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">Q</span><span class="p">):</span>
+    <span class="n">pQ</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="n">Q</span>
+    <span class="n">eq</span> <span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">lhs</span> <span class="ow">in</span> <span class="n">pQ</span><span class="p">:</span>
+       <span class="n">eq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">eq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="o">+</span><span class="n">p3</span><span class="o">+</span><span class="n">p4</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rhs</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span><span class="o">.</span><span class="n">factor</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>The equilibrium steady-state probability distribution assuming the Komolgorov condition is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">a31</span><span class="o">=</span><span class="n">a13</span><span class="o">*</span><span class="n">a32</span><span class="o">*</span><span class="n">a21</span><span class="o">/</span><span class="p">(</span><span class="n">a12</span><span class="o">*</span><span class="n">a23</span><span class="p">))</span>
+<span class="n">mysolve</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p1 = a21*a32*a43/(a12*a23*a34 + a12*a23*a43 + a12*a32*a43 + a21*a32*a43)
+p2 = a12*a32*a43/(a12*a23*a34 + a12*a23*a43 + a12*a32*a43 + a21*a32*a43)
+p3 = a12*a23*a43/(a12*a23*a34 + a12*a23*a43 + a12*a32*a43 + a21*a32*a43)
+p4 = a12*a23*a34/(a12*a23*a34 + a12*a23*a43 + a12*a32*a43 + a21*a32*a43)
+</pre></div>
+</div>
+</div>
+</div>
+<p>which can be written more compactly using <a class="reference internal" href="#equation-eq-p1234">(4)</a> and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+z_1 &amp; = a_{21} a_{32} a_{43}\\
+z_2 &amp; = a_{12} a_{32} a_{43}\\
+z_3 &amp; = a_{12} a_{23} a_{43}\\
+z_4 &amp; = a_{12} a_{23} a_{34} \, .
+\end{align*}\]</div>
+<p>As required, this distribution satisfies detailed balance, i.e., <span class="math notranslate nohighlight">\(a_{ij} \pi_i = a_{ji} \pi_j\)</span>.</p>
+<p>Detailed balance implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define <span class="math notranslate nohighlight">\(\kappa_{j}=a_{ij}/a{ji}\)</span> for <span class="math notranslate nohighlight">\(i &lt; j\)</span> whenever vertex <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are adjacent.</p>
+<p>Dividing the numerator and denominator of each <span class="math notranslate nohighlight">\(\pi_i\)</span> by <span class="math notranslate nohighlight">\(a_{12}a_{23}a_{34}\)</span> yields <span class="math notranslate nohighlight">\(z_1 = 1\)</span>,   <span class="math notranslate nohighlight">\(z_2 = \kappa_{2}\)</span>,  <span class="math notranslate nohighlight">\(z_3 = \kappa_{2}\kappa_{3}\)</span>, and <span class="math notranslate nohighlight">\(z_4 =  \kappa_{2} \kappa_{3} \kappa_{4}\)</span>.</p>
+<p>In the notation of the <a class="reference internal" href="receptor_modeling_equilibrium_formalism.html"><span class="doc std std-doc">equilibrium formulation</span></a>, this corresponds to the spanning tree</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;kappa_2, kappa_3, kappa_4&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="n">kappa_2</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="n">kappa_3</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span><span class="n">kappa_4</span><span class="p">}};</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">weighted</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">vertex_positions</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span>
+<span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4f75fba028a1cfb566612d417e7dbf2ed08fad3caadcb80bcd1ee2d15108b8cc.png" src="_images/4f75fba028a1cfb566612d417e7dbf2ed08fad3caadcb80bcd1ee2d15108b8cc.png" />
+</div>
+</div>
+<p>and its associated relative probabilities:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-99556470-e938-4d58-bcd8-2b99d3072a1b">
+<span class="eqno">(5)<a class="headerlink" href="#equation-99556470-e938-4d58-bcd8-2b99d3072a1b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ [ \pi_1  :  \pi_2 :  \pi_3 :  \pi_4] = [1 :\kappa_{2} : \kappa_{2} \kappa_{3} :  \kappa_{2} \kappa_{3} \kappa_{4} ] \,  .
+\end{equation}\]</div>
 </section>
 </section>
 
@@ -588,20 +727,20 @@ p3 = a13*a23*a34/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="receptor_modeling_equilibrium_formalism.html"
+       href="markov_chains.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Equilibrium formalism</p>
+        <p class="prev-next-title">Markov chain receptor models</p>
       </div>
     </a>
     <a class="right-next"
-       href="reduced_graph_powers.html"
+       href="example_graphs.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reduced graph powers</p>
+        <p class="prev-next-title">Example graphs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -623,9 +762,9 @@ p3 = a13*a23*a34/(a13*a23*a34 + a13*a23*a43 + a23*a31*a43 + a13*a32*a43)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-and-laplacian">Generator matrix and Laplacian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix">Generator matrix</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-solution">Symbolic solution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-komolgovor-condition-on-the-cycle">With Komolgovor condition on the cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komolgorov-s-criterion-and-equilibrium">Komolgorov’s criterion and equilibrium</a></li>
 </ul>
   </nav></div>
 

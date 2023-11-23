@@ -4,22 +4,24 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Receptor modeling
+  - caption: Receptor Modeling
     chapters:
     - file: receptor_modeling_overview
     - file: receptor_modeling_states_and_transitions
     - file: receptor_modeling_ligands
     - file: receptor_modeling_equilibrium_formalism
+    - file: markov_chains
     - file: receptor_modeling_nonequilibrium
-    - file: reduced_graph_powers
+    - file: example_graphs
+  - caption: Tools and Examples
+    chapters:
     - file: MyTools
     - file: MyToolsExamplesVertexAndEdgeLabels
     - file: MyToolsExamplesEnumerateAllostericParameters
     - file: EnumerateAllostericParameters
     - file: PlotBindingCurves
-    - file: markov_chains
-    - file: example_graphs
-  - caption: Receptor dimers
+    - file: reduced_graph_powers
+  - caption: Receptor Dimers
     chapters:
     - file: overview
     - file: 2023-08-20-example-lmfit
@@ -27,12 +29,12 @@ parts:
     - file: 2023-08-25-plotting-hypercubes
     - file: 2023-08-24-example-minimize-receptor-model-pade
     - file: 2023-08-21-practicing-python
-  - caption: Higher-order oligomers
+  - caption: Higher-Order Oligomers
     chapters:
     - file: example_reduced_graph_powers
     - file: ReducedFromCartesianPower
     - file: wang_algebra.md
-  - caption: Scraps and helps
+  - caption: Scraps and Helps
     chapters:
     - file: markdown
     - file: markdown-notebooks

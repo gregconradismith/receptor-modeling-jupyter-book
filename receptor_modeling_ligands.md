@@ -20,6 +20,7 @@ Usually one or more of the transitions in receptor model involve ligand binding.
 consider a receptor model with two sequential ligand binding transitions.
 
 ```{code-cell}
+:label: receptor_modeling_ligands:three_state_model
 var('R RL RLL L kap kam kbp kbm')
 G = DiGraph({R: {RL:kap*L}, RL: {R:kam, RLL:kbp*L}, RLL: {RL:kbm}})
 pos = {R: (0, 0), RL: (2, 0), RLL: (4, 0)}

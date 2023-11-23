@@ -26,6 +26,7 @@ kernelspec:
 % def\kappabstar{\hat{\kappa}_{\b}}
 % \def\kappacstar{\hat{\kappa}_{\c}}
 
+(equilibrium)=
 # Equilibrium formalism  
 
 To illustrate the equilibrium formalism for receptor models, we will repeat our analysis of sequential binding using a standard notation. We begin with the weighted rooted spanning tree that specifies the equilibrium receptor model.

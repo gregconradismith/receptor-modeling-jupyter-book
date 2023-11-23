@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'reduced_graph_powers';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="My Tools" href="MyTools.html" />
-    <link rel="prev" title="Receptor modeling - scraps" href="receptor_modeling_scraps.html" />
+    <link rel="next" title="Overview" href="overview.html" />
+    <link rel="prev" title="Plot Binding Curves" href="PlotBindingCurves.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,23 +157,26 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Receptor models</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Receptor modeling - equilibrium formalism</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_scraps.html">Receptor modeling - scraps</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reduced graph powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reduced graph powers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
@@ -182,13 +185,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-order oligomers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-Order Oligomers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ReducedFromCartesianPower.html">Reduced Power Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and helps</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and Helps</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -420,7 +423,7 @@ for the number of vertices and edges of <span class="math notranslate nohighligh
 \[|V(G^{(k)})|=\binom{v+k-1}{k}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v=|V(G)|\)</span>. The number of edges in the reduced graph power <span class="math notranslate nohighlight">\(G^{(k)}\)</span> is</p>
 <div class="math notranslate nohighlight" id="equation-number-of-edges">
-<span class="eqno">(4)<a class="headerlink" href="#equation-number-of-edges" title="Permalink to this equation">#</a></span>\[|E(G^{(k)})|=e\binom{v+k-2}{k-1}\]</div>
+<span class="eqno">(6)<a class="headerlink" href="#equation-number-of-edges" title="Permalink to this equation">#</a></span>\[|E(G^{(k)})|=e\binom{v+k-2}{k-1}\]</div>
 <p>where <span class="math notranslate nohighlight">\(e=|E(G)|\)</span>.
 When the graph <span class="math notranslate nohighlight">\(G\)</span> is understood, will sometimes abbreviate the number of vertices and edges in its reduced graph power by <span class="math notranslate nohighlight">\(v^{(k)} = |V(G^{(k)})|\)</span> and <span class="math notranslate nohighlight">\(e^{(k)} = |E(G^{(k)})|\)</span>.</p>
 </section>
@@ -449,7 +452,7 @@ When the graph <span class="math notranslate nohighlight">\(G\)</span> is unders
 \end{equation}\]</div>
 <p>Specializing to the case of a dimer (<span class="math notranslate nohighlight">\(k=2\)</span>), we have <span class="math notranslate nohighlight">\(|V(P_n^{(2)})|=\binom{n+1}{2}\)</span>,  <span class="math notranslate nohighlight">\(|E(P_n^{(2)})|=n(n-1)\)</span>, and <span class="math notranslate nohighlight">\(\beta(P_n^{(2)}) = \binom{n-1}{2}\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-beta-for-path-graph">
-<span class="eqno">(5)<a class="headerlink" href="#equation-beta-for-path-graph" title="Permalink to this equation">#</a></span>\[\beta(P_n^{(k)}) = (n-1)\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, .\]</div>
+<span class="eqno">(7)<a class="headerlink" href="#equation-beta-for-path-graph" title="Permalink to this equation">#</a></span>\[\beta(P_n^{(k)}) = (n-1)\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, .\]</div>
 </section>
 <section id="the-cycle-graph-c-n">
 <h3>The cycle graph <span class="math notranslate nohighlight">\(C_n\)</span><a class="headerlink" href="#the-cycle-graph-c-n" title="Permalink to this heading">#</a></h3>
@@ -1220,20 +1223,20 @@ For example, $K_5$ is</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="receptor_modeling_scraps.html"
+       href="PlotBindingCurves.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Receptor modeling - scraps</p>
+        <p class="prev-next-title">Plot Binding Curves</p>
       </div>
     </a>
     <a class="right-next"
-       href="MyTools.html"
+       href="overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">My Tools</p>
+        <p class="prev-next-title">Overview</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

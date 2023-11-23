@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'receptor_modeling_ligands';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The equilibrium formalism for receptor models" href="receptor_modeling_equilibrium_formalism.html" />
-    <link rel="prev" title="Receptor models" href="receptor_modeling_overview.html" />
+    <link rel="next" title="Equilibrium formalism" href="receptor_modeling_equilibrium_formalism.html" />
+    <link rel="prev" title="States and transitions" href="receptor_modeling_states_and_transitions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -156,23 +156,26 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Ligand binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">The equilibrium formalism for receptor models</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_scraps.html">Receptor modeling - scraps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
@@ -181,13 +184,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-order oligomers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-Order Oligomers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ReducedFromCartesianPower.html">Reduced Power Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and helps</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and Helps</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -456,7 +459,7 @@ RL  = L/(10*L^2 + L + 1)
 RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/1a67c0778f5ec7da2158f3ab05d05b6fe6e0fdebeb5d35cea5eba9f582bfd179.png" src="_images/1a67c0778f5ec7da2158f3ab05d05b6fe6e0fdebeb5d35cea5eba9f582bfd179.png" />
+<img alt="_images/9ef61f89bce419d3370d85df9e6e787e9337971cc9d9637dcba57f2f239ac4d2.png" src="_images/9ef61f89bce419d3370d85df9e6e787e9337971cc9d9637dcba57f2f239ac4d2.png" />
 </div>
 </div>
 <p>At low ligand concentration most receptors are in the unbound form (<code class="docutils literal notranslate"><span class="pre">R</span></code>, red). At high concentrations most receptors are in the doubly bound form (<code class="docutils literal notranslate"><span class="pre">RLL</span></code>, blue).</p>
@@ -521,7 +524,7 @@ RL  = L/(10*L^2 + L + 1)
 RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/ed97399338bd9731b9cfe7cbc8019d5c9e6587f7e48d0d124f1f2361a7bfd03e.png" src="_images/ed97399338bd9731b9cfe7cbc8019d5c9e6587f7e48d0d124f1f2361a7bfd03e.png" />
+<img alt="_images/7c8dbe5f5a176b4a8a4025d2d1b0c0e355bd61b898e2fd37513e5d9d9d671f5a.png" src="_images/7c8dbe5f5a176b4a8a4025d2d1b0c0e355bd61b898e2fd37513e5d9d9d671f5a.png" />
 </div>
 </div>
 </section>
@@ -537,7 +540,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" src="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" />
+<img alt="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" src="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" />
 </div>
 </div>
 <p>The arrows indicate the direction of the forward reaction.  The labels on the arrow are equilibrium constants or the product of equilibrium association constant and ligand concentration.</p>
@@ -577,12 +580,12 @@ RLL = 10*L^2/(10*L^2 + L + 1)
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="receptor_modeling_overview.html"
+       href="receptor_modeling_states_and_transitions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Receptor models</p>
+        <p class="prev-next-title">States and transitions</p>
       </div>
     </a>
     <a class="right-next"
@@ -590,7 +593,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The equilibrium formalism for receptor models</p>
+        <p class="prev-next-title">Equilibrium formalism</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

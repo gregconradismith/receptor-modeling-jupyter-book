@@ -17,14 +17,35 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-print(eq[-1])
+Q = Q.subs(a12=a13*a32*a21/(a23*a31))
+mysolve(p,Q)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn [7], line 1[0m
-[0;32m----> 1[0m [38;5;28mprint[39m([43meq[49m[[38;5;241m-[39mInteger([38;5;241m1[39m)])
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn [11], line 2[0m
+[1;32m      1[0m Q [38;5;241m=[39m Q[38;5;241m.[39msubs(a12[38;5;241m=[39ma13[38;5;241m*[39ma32[38;5;241m*[39ma21[38;5;241m/[39m(a23[38;5;241m*[39ma31))
+[0;32m----> 2[0m [43mmysolve[49m[43m([49m[43mp[49m[43m,[49m[43mQ[49m[43m)[49m
 
-[0;31mNameError[0m: name 'eq' is not defined
-NameError: name 'eq' is not defined
+Cell [0;32mIn [10], line 10[0m, in [0;36mmysolve[0;34m(p, Q)[0m
+[1;32m      8[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(Integer([38;5;241m4[39m)):
+[1;32m      9[0m     f [38;5;241m=[39m z[Integer([38;5;241m0[39m)][i][38;5;241m.[39mrhs()
+[0;32m---> 10[0m     [38;5;28mprint[39m([38;5;124;43m'[39;49m[38;5;124;43mp[39;49m[38;5;132;43;01m%s[39;49;00m[38;5;124;43m'[39;49m[43m [49m[38;5;241;43m%[39;49m[43m [49m[43mi[49m[38;5;241;43m+[39;49m[43mInteger[49m[43m([49m[38;5;241;43m1[39;49m[43m)[49m,[38;5;124m'[39m[38;5;124m=[39m[38;5;124m'[39m,f[38;5;241m.[39mexpand()[38;5;241m.[39mfactor())
+
+File [0;32m/ext/sage/10.0/src/sage/rings/integer.pyx:1766[0m, in [0;36msage.rings.integer.Integer.__add__[0;34m()[0m
+[1;32m   1764[0m         return y
+[1;32m   1765[0m 
+[0;32m-> 1766[0m     return coercion_model.bin_op(left, right, operator.add)
+[1;32m   1767[0m 
+[1;32m   1768[0m cpdef _add_(self, right):
+
+File [0;32m/ext/sage/10.0/src/sage/structure/coerce.pyx:1248[0m, in [0;36msage.structure.coerce.CoercionModel.bin_op[0;34m()[0m
+[1;32m   1246[0m     # We should really include the underlying error.
+[1;32m   1247[0m     # This causes so much headache.
+[0;32m-> 1248[0m     raise bin_op_exception(op, x, y)
+[1;32m   1249[0m 
+[1;32m   1250[0m cpdef canonical_coercion(self, x, y):
+
+[0;31mTypeError[0m: unsupported operand parent(s) for +: '<class 'str'>' and 'Integer Ring'
+TypeError: unsupported operand parent(s) for +: '<class 'str'>' and 'Integer Ring'
 

@@ -170,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
@@ -499,18 +499,18 @@ document.write(`
 <span class="math notranslate nohighlight">\(z_a = 1\)</span>,
 <span class="math notranslate nohighlight">\(z_b = \kappab = \kappabstar x\)</span>, and
 <span class="math notranslate nohighlight">\(z_c =\kappab \kappac = \kappabstar \kappacstar x^2\)</span>. That is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1824e989-f005-4d5c-9bee-819921daf830">
-<span class="eqno">(1)<a class="headerlink" href="#equation-1824e989-f005-4d5c-9bee-819921daf830" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b28116a5-8a73-4ad4-bd11-b1bdc078325b">
+<span class="eqno">(1)<a class="headerlink" href="#equation-b28116a5-8a73-4ad4-bd11-b1bdc078325b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}\]</div>
 <p>It is helpful to  present this set of rational functions using the following compact notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c830adaa-460a-4e86-8bd0-2bb3e4d91460">
-<span class="eqno">(2)<a class="headerlink" href="#equation-c830adaa-460a-4e86-8bd0-2bb3e4d91460" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-72c725ab-0b56-4301-aaed-d2c0c44f1bba">
+<span class="eqno">(2)<a class="headerlink" href="#equation-72c725ab-0b56-4301-aaed-d2c0c44f1bba" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_a  :  \pi_b :  \pi_c ] = [1 :\kappab : \kappab \kappac ]  = [1 : \kappabstar x :\kappabstar \kappacstar x^2  ] \,  .
 \end{equation}\]</div>
 <p>In expressions of this kind,  it is understood that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aec96913-e9c9-42e0-81e3-5044020d3421">
-<span class="eqno">(3)<a class="headerlink" href="#equation-aec96913-e9c9-42e0-81e3-5044020d3421" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-73ee51f5-cc5a-47aa-abd2-747e52691f91">
+<span class="eqno">(3)<a class="headerlink" href="#equation-73ee51f5-cc5a-47aa-abd2-747e52691f91" title="Permalink to this equation">#</a></span>\[\begin{equation}
 [ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ] = [ \lambda z_1 \! : \! \lambda  z_2 : \! \cdots \! : \! \lambda  z_n ]
 \end{equation}\]</div>
 <p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>.  Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.  Prior to normalization, we will refer to <span class="math notranslate nohighlight">\([ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ]\)</span> as <em>relative probabilites</em> for each receptor state.</p>

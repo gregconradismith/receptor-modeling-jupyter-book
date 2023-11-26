@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Examples of using MyTools.ipynb - adding labels to receptor models &#8212; Receptors</title>
+    <title>Examples of using MyTools.ipynb &#8212; Receptors</title>
   
   
   
@@ -170,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Examples of using MyTools.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
@@ -409,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Examples of using MyTools.ipynb - adding labels to receptor models</h1>
+    <h1>Examples of using MyTools.ipynb</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -419,11 +419,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-and-plot-a-graph-the-vertices-are-integers-the-edge-labels-are-none">Make and plot a graph. The vertices are integers.  The edge labels are ‘None’</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-function-add-edge-monomials-g-defines-variables-from-a-polynomial-ring-and-applies-them-edge-labels-to-the-graph-the-default-method-is-used-below">The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G)</span></code>defines variables from a polynomial ring and applies them edge labels to the graph.  The default method is used below.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-function-add-edge-monomials-also-works-when-vertices-are-variables-from-a-polynomial-ring">The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code>also works when vertices are variables from a polynomial ring.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-method-alpha-in-add-edge-monomials-creates-simpler-edge-labels">Using <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> in <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code> creates simpler edge labels</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ring-true-in-add-vertex-monomials-constructs-a-polynomial-ring-over-the-variables-that-label-the-vertices">Using <code class="docutils literal notranslate"><span class="pre">ring=True</span></code> in <code class="docutils literal notranslate"><span class="pre">add_vertex_monomials()</span></code> constructs a polynomial ring over the variables that label the vertices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ring-true-in-add-edge-monomials-constructs-a-polynomial-ring-over-the-variables-that-label-the-edges">Using <code class="docutils literal notranslate"><span class="pre">ring=True</span></code> in <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code> constructs a polynomial ring over the variables that label the edges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#below-we-create-a-spanning-tree-labelled-according-to-a-breadth-first-traversal">Below we create a spanning tree labelled according to a breadth-first traversal</a></li>
 </ul>
@@ -437,8 +432,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="examples-of-using-mytools-ipynb-adding-labels-to-receptor-models">
-<h1>Examples of using MyTools.ipynb - adding labels to receptor models<a class="headerlink" href="#examples-of-using-mytools-ipynb-adding-labels-to-receptor-models" title="Permalink to this heading">#</a></h1>
+  <section id="examples-of-using-mytools-ipynb">
+<h1>Examples of using MyTools.ipynb<a class="headerlink" href="#examples-of-using-mytools-ipynb" title="Permalink to this heading">#</a></h1>
+<p>This notebook illustrates some of the function definitions contained in <code class="docutils literal notranslate"><span class="pre">MyTools.ipynb</span></code>.   We start with functions that take a standard graph with vertices <code class="docutils literal notranslate"><span class="pre">integers</span></code>, and then modify the vertex types.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> MyTools.ipynb
@@ -446,19 +442,46 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="make-and-plot-a-graph-the-vertices-are-integers-the-edge-labels-are-none">
-<h2>Make and plot a graph. The vertices are integers.  The edge labels are ‘None’<a class="headerlink" href="#make-and-plot-a-graph-the-vertices-are-integers-the-edge-labels-are-none" title="Permalink to this heading">#</a></h2>
+<p>Make and plot a graph.  The vertices are integers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span> <span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span> <span class="c1"># vertex positions</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">]},</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span>
+
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7a8e0197f8f48e582a0f4d73786f3d5cc3423c4d26b690ee638f46538328a944.png" src="_images/7a8e0197f8f48e582a0f4d73786f3d5cc3423c4d26b690ee638f46538328a944.png" />
-<img alt="_images/bf4e595628ee96dc6d4a87d7b133186d9ff9f5a0d123431a2200ae7a5671ebf3.png" src="_images/bf4e595628ee96dc6d4a87d7b133186d9ff9f5a0d123431a2200ae7a5671ebf3.png" />
+<img alt="_images/d791416d866a766a7b523f45e413e6514dfcdba021e6fdb14cdb1cac71846fc2.png" src="_images/d791416d866a766a7b523f45e413e6514dfcdba021e6fdb14cdb1cac71846fc2.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;vertices:&#39;</span><span class="p">,</span><span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;edges:&#39;</span><span class="p">,</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vertices: [0, 1, 2, 3]
+edges: [(0, 1, None), (0, 2, None), (1, 2, None), (2, 3, None)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default the vertices are <code class="docutils literal notranslate"><span class="pre">integers</span></code> and the edge labels are <code class="docutils literal notranslate"><span class="pre">None</span></code>.   The method <code class="docutils literal notranslate"><span class="pre">.show()</span></code> has a named parameter <code class="docutils literal notranslate"><span class="pre">edge_lablels</span></code> that is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.  To see the edge labels we repeat the <code class="docutils literal notranslate"><span class="pre">show()</span></code> command again using <code class="docutils literal notranslate"><span class="pre">edge_labels=True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ef9685cd2404453e44acf6a88ce2a2b20cad81f43f76c50f23ac6e30bd989466.png" src="_images/ef9685cd2404453e44acf6a88ce2a2b20cad81f43f76c50f23ac6e30bd989466.png" />
+</div>
+</div>
+<p>The first function we will illustrate is <code class="docutils literal notranslate"><span class="pre">add_vertex_monomials</span></code>.  The <code class="docutils literal notranslate"><span class="pre">help()</span></code> command provides information about the usage.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">add_vertex_monomials</span><span class="p">)</span>
@@ -493,76 +516,48 @@ add_vertex_monomials(G=Graph on 0 vertices, method=&#39;integer&#39;, ring=False
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="o">=</span><span class="n">add_vertex_monomials</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="n">my_graph_show</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">H</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vertices: [a0, a1, a2, a3]
-edges: [(a0, a1, None), (a0, a2, None), (a1, a2, None), (a2, a3, None)]
-</pre></div>
-</div>
-<img alt="_images/881f1695c32d9d8dbb44de4d6d52870cd67c63e3caae237a323283fa0c0bb722.png" src="_images/881f1695c32d9d8dbb44de4d6d52870cd67c63e3caae237a323283fa0c0bb722.png" />
+<img alt="_images/09937de565136af7428552c0f8cdfb6736c7d2e77f53ac611ecb72c35af56d9a.png" src="_images/09937de565136af7428552c0f8cdfb6736c7d2e77f53ac611ecb72c35af56d9a.png" />
 </div>
 </div>
-</section>
-<section id="the-function-add-edge-monomials-g-defines-variables-from-a-polynomial-ring-and-applies-them-edge-labels-to-the-graph-the-default-method-is-used-below">
-<h2>The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G)</span></code>defines variables from a polynomial ring and applies them edge labels to the graph.  The default method is used below.<a class="headerlink" href="#the-function-add-edge-monomials-g-defines-variables-from-a-polynomial-ring-and-applies-them-edge-labels-to-the-graph-the-default-method-is-used-below" title="Permalink to this heading">#</a></h2>
+<p>The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code>defines variables from a polynomial ring and applies them edge labels to the graph.  The default method is used below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">add_edge_monomials</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="n">my_graph_show</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vertices: [0, 1, 2, 3]
-edges: [(0, 1, e01), (0, 2, e02), (1, 2, e12), (2, 3, e23)]
-</pre></div>
 </div>
-<img alt="_images/b695fb8d3ebb7851ddfe73c86b666c9fc21da5c1a7ddca4fee89883fdd36e2ed.png" src="_images/b695fb8d3ebb7851ddfe73c86b666c9fc21da5c1a7ddca4fee89883fdd36e2ed.png" />
-</div>
-</div>
-</section>
-<section id="the-function-add-edge-monomials-also-works-when-vertices-are-variables-from-a-polynomial-ring">
-<h2>The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code>also works when vertices are variables from a polynomial ring.<a class="headerlink" href="#the-function-add-edge-monomials-also-works-when-vertices-are-variables-from-a-polynomial-ring" title="Permalink to this heading">#</a></h2>
+<p>The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code>also works when vertices are variables from a polynomial ring.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="o">=</span><span class="n">add_edge_monomials</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-<span class="n">my_graph_show</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">H</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vertices: [a0, a1, a2, a3]
-edges: [(a0, a1, e_a0a1), (a0, a2, e_a0a2), (a1, a2, e_a1a2), (a2, a3, e_a2a3)]
-</pre></div>
-</div>
-<img alt="_images/7ae69e7ca2f5f3907886ad1e7fce91270ed25631f2731c943d689db4649fde77.png" src="_images/7ae69e7ca2f5f3907886ad1e7fce91270ed25631f2731c943d689db4649fde77.png" />
+<img alt="_images/09937de565136af7428552c0f8cdfb6736c7d2e77f53ac611ecb72c35af56d9a.png" src="_images/09937de565136af7428552c0f8cdfb6736c7d2e77f53ac611ecb72c35af56d9a.png" />
 </div>
 </div>
-</section>
-<section id="using-method-alpha-in-add-edge-monomials-creates-simpler-edge-labels">
-<h2>Using <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> in <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code> creates simpler edge labels<a class="headerlink" href="#using-method-alpha-in-add-edge-monomials-creates-simpler-edge-labels" title="Permalink to this heading">#</a></h2>
+<p>Using <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> in <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code> creates simpler edge labels</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">add_edge_monomials</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
-<span class="n">my_graph_show</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vertices: [0, 1, 2, 3]
-edges: [(0, 1, b), (0, 2, c), (0, 3, d), (1, 2, e), (2, 3, f)]
-</pre></div>
-</div>
-<img alt="_images/8a9111e813e6a9266ef954b514eb3176a84c6079f639503da4dea32e6af48983.png" src="_images/8a9111e813e6a9266ef954b514eb3176a84c6079f639503da4dea32e6af48983.png" />
+<img alt="_images/63e3c2e66a63a9f8d69ba6a27524729aaad53b9505720e5c0884a1b55035b75f.png" src="_images/63e3c2e66a63a9f8d69ba6a27524729aaad53b9505720e5c0884a1b55035b75f.png" />
 </div>
 </div>
-</section>
-<section id="using-ring-true-in-add-vertex-monomials-constructs-a-polynomial-ring-over-the-variables-that-label-the-vertices">
-<h2>Using <code class="docutils literal notranslate"><span class="pre">ring=True</span></code> in <code class="docutils literal notranslate"><span class="pre">add_vertex_monomials()</span></code> constructs a polynomial ring over the variables that label the vertices<a class="headerlink" href="#using-ring-true-in-add-vertex-monomials-constructs-a-polynomial-ring-over-the-variables-that-label-the-vertices" title="Permalink to this heading">#</a></h2>
+<p>Using <code class="docutils literal notranslate"><span class="pre">ring=True</span></code> in <code class="docutils literal notranslate"><span class="pre">add_vertex_monomials()</span></code> constructs a polynomial ring over the variables that label the vertices</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">V</span><span class="p">)</span> <span class="o">=</span> <span class="n">add_vertex_monomials</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">HouseGraph</span><span class="p">(),</span><span class="n">ring</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -612,7 +607,6 @@ a1*a4^2 + a0*a4^2 + 2*a1*a3*a4 + 2*a0*a3*a4 + 2*a0*a1*a4 + 2*a0^2*a4 + a1*a3^2 +
 </div>
 </div>
 </div>
-</section>
 <section id="using-ring-true-in-add-edge-monomials-constructs-a-polynomial-ring-over-the-variables-that-label-the-edges">
 <h2>Using <code class="docutils literal notranslate"><span class="pre">ring=True</span></code> in <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code> constructs a polynomial ring over the variables that label the edges<a class="headerlink" href="#using-ring-true-in-add-edge-monomials-constructs-a-polynomial-ring-over-the-variables-that-label-the-edges" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -655,7 +649,7 @@ c*f^2 + b*f^2 + 2*c*e*f + 2*b*e*f + 2*b*c*f + 2*b^2*f + c*e^2 + b*e^2 + 2*b*c*e 
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/19a23356ef20dd8f38363126da0744694867a1e545524397382b0f2506566c04.png" src="_images/19a23356ef20dd8f38363126da0744694867a1e545524397382b0f2506566c04.png" />
-<img alt="_images/eedb266f1af63191534a81082807359eedebe3e9acf33d8c547164d9a31ad5ae.png" src="_images/eedb266f1af63191534a81082807359eedebe3e9acf33d8c547164d9a31ad5ae.png" />
+<img alt="_images/23ee3ef47b4a3de6ee53bd119eab3568865910f1e4530690f435d25d783fd5f0.png" src="_images/23ee3ef47b4a3de6ee53bd119eab3568865910f1e4530690f435d25d783fd5f0.png" />
 <div class="output text_html"><html>\(\displaystyle \left[0, 1, 4, 5, 2, 6, 3, 9, 7, 8\right]\)</html></div></div>
 </div>
 <div class="cell docutils container">
@@ -687,7 +681,7 @@ c*f^2 + b*f^2 + 2*c*e*f + 2*b*e*f + 2*b*c*f + 2*b^2*f + c*e^2 + b*e^2 + 2*b*c*e 
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/f0299d6128b24e1bd7356464c48b96c291f0de456b78ce1d2497f3b476478170.png" src="_images/f0299d6128b24e1bd7356464c48b96c291f0de456b78ce1d2497f3b476478170.png" />
-<img alt="_images/d20b1c390657eca4d11e3ec857b5c34f99a7d937e34a169e86c49196485924c5.png" src="_images/d20b1c390657eca4d11e3ec857b5c34f99a7d937e34a169e86c49196485924c5.png" />
+<img alt="_images/9efc905e5dca9daf14adc999aff3fee0436f8d1040a83e991f7049f57b79f4d8.png" src="_images/9efc905e5dca9daf14adc999aff3fee0436f8d1040a83e991f7049f57b79f4d8.png" />
 </div>
 </div>
 </section>
@@ -760,11 +754,6 @@ c*f^2 + b*f^2 + 2*c*e*f + 2*b*e*f + 2*b*c*f + 2*b^2*f + c*e^2 + b*e^2 + 2*b*c*e 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-and-plot-a-graph-the-vertices-are-integers-the-edge-labels-are-none">Make and plot a graph. The vertices are integers.  The edge labels are ‘None’</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-function-add-edge-monomials-g-defines-variables-from-a-polynomial-ring-and-applies-them-edge-labels-to-the-graph-the-default-method-is-used-below">The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G)</span></code>defines variables from a polynomial ring and applies them edge labels to the graph.  The default method is used below.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-function-add-edge-monomials-also-works-when-vertices-are-variables-from-a-polynomial-ring">The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code>also works when vertices are variables from a polynomial ring.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-method-alpha-in-add-edge-monomials-creates-simpler-edge-labels">Using <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> in <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code> creates simpler edge labels</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ring-true-in-add-vertex-monomials-constructs-a-polynomial-ring-over-the-variables-that-label-the-vertices">Using <code class="docutils literal notranslate"><span class="pre">ring=True</span></code> in <code class="docutils literal notranslate"><span class="pre">add_vertex_monomials()</span></code> constructs a polynomial ring over the variables that label the vertices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ring-true-in-add-edge-monomials-constructs-a-polynomial-ring-over-the-variables-that-label-the-edges">Using <code class="docutils literal notranslate"><span class="pre">ring=True</span></code> in <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code> constructs a polynomial ring over the variables that label the edges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#below-we-create-a-spanning-tree-labelled-according-to-a-breadth-first-traversal">Below we create a spanning tree labelled according to a breadth-first traversal</a></li>
 </ul>

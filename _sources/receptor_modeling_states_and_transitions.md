@@ -27,6 +27,12 @@ vertex_positions = {1: (0, 0), 2: (1, 1.41), 3: (2, 0), 4: (4,0)}
 G_undirected.plot(figsize=8,pos=vertex_positions,graph_border=True)
 ```
 
+```{code-cell}
+G_undirected = Graph({1: [2, 3], 2: [3], 3: [4]})
+vertex_positions = {1: (0, 0), 2: (1, 1.41), 3: (2, 0), 4: (4,0)}
+G_undirected.plot(figsize=8,pos=vertex_positions,graph_border=True,talk=True)
+```
+
 The graph `G_undirected` is constructed by calling the Sagemath command [`Graph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html#supported-formats) with a dictionary that associates neighbors to each vertex.  The vertices of the graph `G` are the integers 1, 2, 3, and 4.  The method `plot()` shows the graph `G_undirected` using a dictionary `vertex_positions` that specifies the locations of each vertex.
 
 The adjacency matrix of this graph is
@@ -52,6 +58,11 @@ In the context of receptor modeling, the undirected graph above is interpreted a
 ```{code-cell}
 G_directed = G_undirected.to_directed()
 G_directed.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
+```
+
+```{code-cell}
+G_directed = G_undirected.to_directed()
+G_directed.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True,talk=True)
 ```
 
 The method `to_directed()` produces `G_directed` as the _symmetric_ digraph associated to `G_undirected`, in which adjacent vertices are  connected in both directions.

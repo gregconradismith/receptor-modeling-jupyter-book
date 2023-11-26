@@ -240,6 +240,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/receptor_modeling_ligands.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -248,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Freceptor_modeling_ligands.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book/issues/new?title=Issue%20on%20page%20%2Freceptor_modeling_ligands.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,6 +323,23 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/receptor_modeling_ligands.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -404,7 +452,7 @@ document.write(`
 <h1>Ligand binding<a class="headerlink" href="#ligand-binding" title="Permalink to this heading">#</a></h1>
 <p>Usually one or more of the transitions in receptor model involve ligand binding.  For example,
 consider a receptor model with two sequential ligand binding transitions.</p>
-<div class="cell docutils container">
+<div class="cell docutils container" id="receptor-modeling-ligands-three-state-model">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;R RL RLL L kap kam kbp kbm&#39;</span><span class="p">)</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">({</span><span class="n">R</span><span class="p">:</span> <span class="p">{</span><span class="n">RL</span><span class="p">:</span><span class="n">kap</span><span class="o">*</span><span class="n">L</span><span class="p">},</span> <span class="n">RL</span><span class="p">:</span> <span class="p">{</span><span class="n">R</span><span class="p">:</span><span class="n">kam</span><span class="p">,</span> <span class="n">RLL</span><span class="p">:</span><span class="n">kbp</span><span class="o">*</span><span class="n">L</span><span class="p">},</span> <span class="n">RLL</span><span class="p">:</span> <span class="p">{</span><span class="n">RL</span><span class="p">:</span><span class="n">kbm</span><span class="p">}})</span>
@@ -459,7 +507,7 @@ RL  = L/(10*L^2 + L + 1)
 RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/9ef61f89bce419d3370d85df9e6e787e9337971cc9d9637dcba57f2f239ac4d2.png" src="_images/9ef61f89bce419d3370d85df9e6e787e9337971cc9d9637dcba57f2f239ac4d2.png" />
+<img alt="_images/eba6647d55622487ea84d38ce7964b992e7cd4b8342d689dc5e16d2d19605555.png" src="_images/eba6647d55622487ea84d38ce7964b992e7cd4b8342d689dc5e16d2d19605555.png" />
 </div>
 </div>
 <p>At low ligand concentration most receptors are in the unbound form (<code class="docutils literal notranslate"><span class="pre">R</span></code>, red). At high concentrations most receptors are in the doubly bound form (<code class="docutils literal notranslate"><span class="pre">RLL</span></code>, blue).</p>
@@ -524,7 +572,7 @@ RL  = L/(10*L^2 + L + 1)
 RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/7c8dbe5f5a176b4a8a4025d2d1b0c0e355bd61b898e2fd37513e5d9d9d671f5a.png" src="_images/7c8dbe5f5a176b4a8a4025d2d1b0c0e355bd61b898e2fd37513e5d9d9d671f5a.png" />
+<img alt="_images/954264ea2aa8c2a43c2d6f6e300374e86e50ae13e1f3e4e541bf10c72496b1d7.png" src="_images/954264ea2aa8c2a43c2d6f6e300374e86e50ae13e1f3e4e541bf10c72496b1d7.png" />
 </div>
 </div>
 </section>
@@ -540,7 +588,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" src="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" />
+<img alt="_images/9577ed8dda4da378b78a8941d427c1748429ff2beef4c8c664d7f419dc45403e.png" src="_images/9577ed8dda4da378b78a8941d427c1748429ff2beef4c8c664d7f419dc45403e.png" />
 </div>
 </div>
 <p>The arrows indicate the direction of the forward reaction.  The labels on the arrow are equilibrium constants or the product of equilibrium association constant and ligand concentration.</p>
@@ -640,7 +688,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

@@ -241,6 +241,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/markov_chains.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -249,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmarkov_chains.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmarkov_chains.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -293,6 +324,23 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/markov_chains.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -406,7 +454,7 @@ document.write(`
 <h1>Markov chain receptor models<a class="headerlink" href="#markov-chain-receptor-models" title="Permalink to this heading">#</a></h1>
 <section id="symbolic-vertex-and-edge-labels">
 <h2>Symbolic vertex and edge labels<a class="headerlink" href="#symbolic-vertex-and-edge-labels" title="Permalink to this heading">#</a></h2>
-<p>Recall the <span class="xref myst">three-state receptor model</span> discussed above (<a class="reference internal" href="receptor_modeling_ligands.html"><span class="doc std std-doc">Ligands</span></a>).  Using generic notation this</p>
+<p>Recall the <a class="reference internal" href="receptor_modeling_ligands.html#receptor-modeling-ligands-three-state-model"><span class="std std-ref">three state model</span></a> discussed above (<a class="reference internal" href="receptor_modeling_ligands.html"><span class="doc std std-doc">Ligands</span></a>).  Using generic notation for the <a class="reference internal" href="example_graphs.html#example-graphs-path-graph"><span class="std std-ref">path graph</span></a> on three vertices,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;p0 p1 p2 a01 a10 a12 a21&#39;</span><span class="p">)</span>
@@ -680,7 +728,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

@@ -19,8 +19,10 @@ kernelspec:
 Usually one or more of the transitions in receptor model involve ligand binding.  For example,
 consider a receptor model with two sequential ligand binding transitions.
 
+(receptor_modeling_ligands:three_state_model)=
+
 ```{code-cell}
-:label: receptor_modeling_ligands:three_state_model
+:label: my_three_state_model_code
 var('R RL RLL L kap kam kbp kbm')
 G = DiGraph({R: {RL:kap*L}, RL: {R:kam, RLL:kbp*L}, RLL: {RL:kbm}})
 pos = {R: (0, 0), RL: (2, 0), RLL: (4, 0)}
@@ -109,5 +111,3 @@ T.plot(figsize=8,edge_labels=True,pos=pos,graph_border=True,vertex_size=1000)
 The arrows indicate the direction of the forward reaction.  The labels on the arrow are equilibrium constants or the product of equilibrium association constant and ligand concentration. 
 
 The following section presents this viewpoint in detail.
-
-

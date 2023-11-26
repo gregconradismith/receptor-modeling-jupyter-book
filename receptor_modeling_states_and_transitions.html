@@ -240,6 +240,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/receptor_modeling_states_and_transitions.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -248,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Freceptor_modeling_states_and_transitions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book/issues/new?title=Issue%20on%20page%20%2Freceptor_modeling_states_and_transitions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,6 +323,23 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/receptor_modeling_states_and_transitions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -419,6 +467,18 @@ document.write(`
 <img alt="_images/fef322840d716a86eade33751c36e8b5c19ba81ff1631d4fb333f9c316a125f7.png" src="_images/fef322840d716a86eade33751c36e8b5c19ba81ff1631d4fb333f9c316a125f7.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_undirected</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">]})</span>
+<span class="n">vertex_positions</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span>
+<span class="n">G_undirected</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">talk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/382a7244d9f904c17b63e258167b4ba889877f71fd451727f845d8b17b5e0363.png" src="_images/382a7244d9f904c17b63e258167b4ba889877f71fd451727f845d8b17b5e0363.png" />
+</div>
+</div>
 <p>The graph <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code> is constructed by calling the Sagemath command <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html#supported-formats"><code class="docutils literal notranslate"><span class="pre">Graph()</span></code></a> with a dictionary that associates neighbors to each vertex.  The vertices of the graph <code class="docutils literal notranslate"><span class="pre">G</span></code> are the integers 1, 2, 3, and 4.  The method <code class="docutils literal notranslate"><span class="pre">plot()</span></code> shows the graph <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code> using a dictionary <code class="docutils literal notranslate"><span class="pre">vertex_positions</span></code> that specifies the locations of each vertex.</p>
 <p>The adjacency matrix of this graph is</p>
 <div class="cell docutils container">
@@ -473,6 +533,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/a0f9d49971e968696c6e086ae38b6b8d99c657e55305b808c5483a29272245e9.png" src="_images/a0f9d49971e968696c6e086ae38b6b8d99c657e55305b808c5483a29272245e9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_directed</span> <span class="o">=</span> <span class="n">G_undirected</span><span class="o">.</span><span class="n">to_directed</span><span class="p">()</span>
+<span class="n">G_directed</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">talk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ba23044f078a7a246f8d7e07ac085029aecd00ef2a676938b710f53bc72068e3.png" src="_images/ba23044f078a7a246f8d7e07ac085029aecd00ef2a676938b710f53bc72068e3.png" />
 </div>
 </div>
 <p>The method <code class="docutils literal notranslate"><span class="pre">to_directed()</span></code> produces <code class="docutils literal notranslate"><span class="pre">G_directed</span></code> as the <em>symmetric</em> digraph associated to <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code>, in which adjacent vertices are  connected in both directions.</p>
@@ -643,7 +714,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

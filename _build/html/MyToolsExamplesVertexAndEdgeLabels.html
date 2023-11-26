@@ -157,23 +157,26 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor modeling</span></p>
-<ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Examples of using MyTools.ipynb - adding labels to receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
@@ -182,13 +185,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-order oligomers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-Order Oligomers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ReducedFromCartesianPower.html">Reduced Power Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and helps</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and Helps</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -238,6 +241,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/MyToolsExamplesVertexAndEdgeLabels.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -246,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -263,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMyToolsExamplesVertexAndEdgeLabels.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book/issues/new?title=Issue%20on%20page%20%2FMyToolsExamplesVertexAndEdgeLabels.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -421,8 +455,39 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2871c66df3facb756ea0d1016b8cdd4c0f075f407c1156c5748de83d8e386826.png" src="_images/2871c66df3facb756ea0d1016b8cdd4c0f075f407c1156c5748de83d8e386826.png" />
-<img alt="_images/3ec1c7ed51cdc8b7d1d3ffa1a0c064bc0383e5016814761d995b01faf143f144.png" src="_images/3ec1c7ed51cdc8b7d1d3ffa1a0c064bc0383e5016814761d995b01faf143f144.png" />
+<img alt="_images/7a8e0197f8f48e582a0f4d73786f3d5cc3423c4d26b690ee638f46538328a944.png" src="_images/7a8e0197f8f48e582a0f4d73786f3d5cc3423c4d26b690ee638f46538328a944.png" />
+<img alt="_images/bf4e595628ee96dc6d4a87d7b133186d9ff9f5a0d123431a2200ae7a5671ebf3.png" src="_images/bf4e595628ee96dc6d4a87d7b133186d9ff9f5a0d123431a2200ae7a5671ebf3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">add_vertex_monomials</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function add_vertex_monomials in module __main__:
+
+add_vertex_monomials(G=Graph on 0 vertices, method=&#39;integer&#39;, ring=False)
+    Add monomials to vertices of a graph.
+    
+    INPUT:
+    
+    - ``G`` -- graph object (default: `Graph()`);
+    
+    - ``method`` -- integer (default: ``integer``);  
+    
+    OUTPUT: The graph with monomials as vertices
+    
+    EXAMPLES:
+    
+    This example illustrates ... ::
+    
+        sage: A = ModuliSpace()
+        sage: A.point(2,3)
+        xxx
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -437,7 +502,7 @@ document.write(`
 edges: [(a0, a1, None), (a0, a2, None), (a1, a2, None), (a2, a3, None)]
 </pre></div>
 </div>
-<img alt="_images/1e4fd7c8a1f289150f6210158547b0c048e59531efce1321e0ca7af903ac8873.png" src="_images/1e4fd7c8a1f289150f6210158547b0c048e59531efce1321e0ca7af903ac8873.png" />
+<img alt="_images/881f1695c32d9d8dbb44de4d6d52870cd67c63e3caae237a323283fa0c0bb722.png" src="_images/881f1695c32d9d8dbb44de4d6d52870cd67c63e3caae237a323283fa0c0bb722.png" />
 </div>
 </div>
 </section>
@@ -455,7 +520,7 @@ edges: [(a0, a1, None), (a0, a2, None), (a1, a2, None), (a2, a3, None)]
 edges: [(0, 1, e01), (0, 2, e02), (1, 2, e12), (2, 3, e23)]
 </pre></div>
 </div>
-<img alt="_images/903407492c39953304bacd8aeac565802ed20c30f56706b69da9a7be2ffd64e5.png" src="_images/903407492c39953304bacd8aeac565802ed20c30f56706b69da9a7be2ffd64e5.png" />
+<img alt="_images/b695fb8d3ebb7851ddfe73c86b666c9fc21da5c1a7ddca4fee89883fdd36e2ed.png" src="_images/b695fb8d3ebb7851ddfe73c86b666c9fc21da5c1a7ddca4fee89883fdd36e2ed.png" />
 </div>
 </div>
 </section>
@@ -473,7 +538,7 @@ edges: [(0, 1, e01), (0, 2, e02), (1, 2, e12), (2, 3, e23)]
 edges: [(a0, a1, e_a0a1), (a0, a2, e_a0a2), (a1, a2, e_a1a2), (a2, a3, e_a2a3)]
 </pre></div>
 </div>
-<img alt="_images/4b071a8d8587a45407276bba408995adf60b5efc04e0c699adeac3c07e2c416b.png" src="_images/4b071a8d8587a45407276bba408995adf60b5efc04e0c699adeac3c07e2c416b.png" />
+<img alt="_images/7ae69e7ca2f5f3907886ad1e7fce91270ed25631f2731c943d689db4649fde77.png" src="_images/7ae69e7ca2f5f3907886ad1e7fce91270ed25631f2731c943d689db4649fde77.png" />
 </div>
 </div>
 </section>
@@ -590,7 +655,7 @@ c*f^2 + b*f^2 + 2*c*e*f + 2*b*e*f + 2*b*c*f + 2*b^2*f + c*e^2 + b*e^2 + 2*b*c*e 
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/19a23356ef20dd8f38363126da0744694867a1e545524397382b0f2506566c04.png" src="_images/19a23356ef20dd8f38363126da0744694867a1e545524397382b0f2506566c04.png" />
-<img alt="_images/2e7c9aa21594de25b6b169b980efd56a4c351b2a615d788ccb0ac1cb0ffd7606.png" src="_images/2e7c9aa21594de25b6b169b980efd56a4c351b2a615d788ccb0ac1cb0ffd7606.png" />
+<img alt="_images/eedb266f1af63191534a81082807359eedebe3e9acf33d8c547164d9a31ad5ae.png" src="_images/eedb266f1af63191534a81082807359eedebe3e9acf33d8c547164d9a31ad5ae.png" />
 <div class="output text_html"><html>\(\displaystyle \left[0, 1, 4, 5, 2, 6, 3, 9, 7, 8\right]\)</html></div></div>
 </div>
 <div class="cell docutils container">
@@ -622,7 +687,7 @@ c*f^2 + b*f^2 + 2*c*e*f + 2*b*e*f + 2*b*c*f + 2*b^2*f + c*e^2 + b*e^2 + 2*b*c*e 
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/f0299d6128b24e1bd7356464c48b96c291f0de456b78ce1d2497f3b476478170.png" src="_images/f0299d6128b24e1bd7356464c48b96c291f0de456b78ce1d2497f3b476478170.png" />
-<img alt="_images/cc6d7ecec00c820bd5d075ffa34b008be900ace28ead571d7abe7853d7b404dd.png" src="_images/cc6d7ecec00c820bd5d075ffa34b008be900ace28ead571d7abe7853d7b404dd.png" />
+<img alt="_images/d20b1c390657eca4d11e3ec857b5c34f99a7d937e34a169e86c49196485924c5.png" src="_images/d20b1c390657eca4d11e3ec857b5c34f99a7d937e34a169e86c49196485924c5.png" />
 </div>
 </div>
 </section>
@@ -725,7 +790,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

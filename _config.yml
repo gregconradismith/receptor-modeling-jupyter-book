@@ -51,4 +51,9 @@ math:
   '\mref': '\mathbf{m}_\text{ref}'
   '\Mydef': 'MYDEF'
 
+#This did not work (I saw no effect)
+#sphinx:
+#  extra_extensions:
+#  - 'sphinx.ext.autodoc'
+
 

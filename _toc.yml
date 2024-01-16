@@ -7,21 +7,24 @@ parts:
   - caption: Receptor Modeling
     chapters:
     - file: receptor_modeling_overview
-    - file: receptor_modeling_states_and_transitions
-    - file: receptor_modeling_ligands
-    - file: receptor_modeling_equilibrium_formalism
+    - file: states_and_transitions
+    - file: ligands
+    - file: equilibrium
     - file: markov_chains
-    - file: receptor_modeling_nonequilibrium
+    - file: nonequilibrium
     - file: example_graphs
+  - caption: States and Transitions of Receptor Dimers
+    chapters:
+    - file: reduced_graph_powers
+    - file: example_reduced_graph_powers
   - caption: Tools and Examples
     chapters:
     - file: MyTools
+    - file: docstring_test
+    - file: MyStruggleWithDocstrings
     - file: MyToolsExamplesVertexAndEdgeLabels
     - file: MyToolsExamplesEnumerateAllostericParameters
-    - file: EnumerateAllostericParameters
-    - file: PlotBindingCurves
-    - file: reduced_graph_powers
-  - caption: Receptor Dimers
+  - caption: Automated Fitting of Allosteric Parameters in Receptor Dimers
     chapters:
     - file: overview
     - file: 2023-08-20-example-lmfit
@@ -29,13 +32,10 @@ parts:
     - file: 2023-08-25-plotting-hypercubes
     - file: 2023-08-24-example-minimize-receptor-model-pade
     - file: 2023-08-21-practicing-python
-  - caption: Higher-Order Oligomers
+    - file: EnumerateAllostericParameters
+    - file: PlotBindingCurves
+  - caption: Wang algebras
     chapters:
-    - file: example_reduced_graph_powers
-    - file: ReducedFromCartesianPower
-    - file: wang_algebra.md
-  - caption: Scraps and Helps
-    chapters:
-    - file: markdown
-    - file: markdown-notebooks
+    - file: tree_polynomials
+    - file: wang_algebra
 

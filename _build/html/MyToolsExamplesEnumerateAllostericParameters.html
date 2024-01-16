@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Examples of using MyTools.ipynb - allosteric parameters in receptor dimers &#8212; Receptors</title>
+    <title>Using MyTools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers &#8212; Receptors</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'MyToolsExamplesEnumerateAllostericParameters';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Allosteric parameters in receptor dimers" href="EnumerateAllostericParameters.html" />
-    <link rel="prev" title="Examples of using MyTools.ipynb" href="MyToolsExamplesVertexAndEdgeLabels.html" />
+    <link rel="next" title="Overview" href="overview.html" />
+    <link rel="prev" title="Using MyTools.ipynb - Part 1 - Assigning monomials to graph vertices and edges" href="MyToolsExamplesVertexAndEdgeLabels.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,23 +160,27 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_states_and_transitions.html">States and transitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_ligands.html">Ligand binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_equilibrium_formalism.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">States and Transitions of Receptor Dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Examples of using MyTools.ipynb</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced graph powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyStruggleWithDocstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Using MyTools.ipynb - Part 1 - Assigning monomials to graph vertices and edges</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using MyTools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
@@ -184,17 +188,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Higher-Order Oligomers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ReducedFromCartesianPower.html">Reduced Power Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Scraps and Helps</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 
     </div>
@@ -396,9 +396,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -409,20 +407,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Examples of using MyTools.ipynb - allosteric parameters in receptor dimers</h1>
+    <h1>Using MyTools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerating-allosteric-parameters-for-a-5-state-receptor-model-with-the-topology-of-the-house-graph">Enumerating allosteric parameters for a 5-state receptor model with the topology of the house graph.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-a-receptor-model-with-more-states">An example of a receptor model with more states</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -432,9 +421,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="examples-of-using-mytools-ipynb-allosteric-parameters-in-receptor-dimers">
-<h1>Examples of using MyTools.ipynb - allosteric parameters in receptor dimers<a class="headerlink" href="#examples-of-using-mytools-ipynb-allosteric-parameters-in-receptor-dimers" title="Permalink to this heading">#</a></h1>
-<p>The file <code class="docutils literal notranslate"><span class="pre">MyTools.ipynb</span></code> is includes the The function <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G)</span></code> takes a graph G and returns the $\kappa$ and $\eta$ values for a dimer model with the topology of the reduced graph power $G^{(2)}$.  The default method uses $e_1, e_2, \ldots , e_v$. Using <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> gives single digit edge labels ($b,c,\ldots$).</p>
+  <section id="using-mytools-ipynb-part-2-enumerating-allosteric-parameters-in-receptor-dimers">
+<h1>Using MyTools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers<a class="headerlink" href="#using-mytools-ipynb-part-2-enumerating-allosteric-parameters-in-receptor-dimers" title="Permalink to this heading">#</a></h1>
+<p>This notebook illustrates some of the function definitions contained in <code class="docutils literal notranslate"><span class="pre">MyTools.ipynb</span></code>.</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">MyTools.ipynb</span></code> includes the function <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G)</span></code> which takes a graph G and returns the <span class="math notranslate nohighlight">\(\kappa\)</span> and <span class="math notranslate nohighlight">\(\eta\)</span> values for a dimer model with the topology of the reduced graph power <span class="math notranslate nohighlight">\(G^{(2)}\)</span>.  The default method uses <span class="math notranslate nohighlight">\(e_1, e_2, \ldots , e_v\)</span> while <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> gives single digit edge labels (<span class="math notranslate nohighlight">\(b,c,\ldots\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> MyTools.ipynb
@@ -442,111 +432,28 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="enumerating-allosteric-parameters-for-a-5-state-receptor-model-with-the-topology-of-the-house-graph">
-<h2>Enumerating allosteric parameters for a 5-state receptor model with the topology of the house graph.<a class="headerlink" href="#enumerating-allosteric-parameters-for-a-5-state-receptor-model-with-the-topology-of-the-house-graph" title="Permalink to this heading">#</a></h2>
+<p>Below we will consider a receptor model with the topology of the house graph.  Note that <code class="docutils literal notranslate"><span class="pre">G=graph.HouseGraph()</span></code> constructs a graph <code class="docutils literal notranslate"><span class="pre">G</span></code> with integer vertices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">HouseGraph</span><span class="p">()</span>
-<span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/17c47fc43c8795cc502fb0c79c98c67375e8e487e77c47ca2a1954e33164ffa5.png" src="_images/17c47fc43c8795cc502fb0c79c98c67375e8e487e77c47ca2a1954e33164ffa5.png" />
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">alpha</span></code> has replaces the vertices with  monomials.  The spanning tree is constructed with BFS labeling.  KappaEta is a list of lists giving the probability of each state as a symbolic expression which is displayed in LaTeX format.  The polynomial ring <code class="docutils literal notranslate"><span class="pre">A</span></code> has the <span class="math notranslate nohighlight">\(\kappa_i\)</span> and <span class="math notranslate nohighlight">\(\eta_{ij}\)</span> as symbolic variables for <span class="math notranslate nohighlight">\(0 \leq i,j \leq v-1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/be2f6ecfb6e48ea0908dbf834f77f37b3c36f4211899ee29d8f6899a2820a86c.png" src="_images/be2f6ecfb6e48ea0908dbf834f77f37b3c36f4211899ee29d8f6899a2820a86c.png" />
 <img alt="_images/049a4157642980eb18431b979cd98e4e0da5871eaea4fbbafca761f20c094438.png" src="_images/049a4157642980eb18431b979cd98e4e0da5871eaea4fbbafca761f20c094438.png" />
-<div class="output text_html"><html>\(\displaystyle \left[\left[1, 2 \kappa_{\mathit{b}}, 2 \kappa_{\mathit{c}}, 2 \kappa_{\mathit{c}} \kappa_{\mathit{d}}, 2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}}\right], \left[0, \kappa_{\mathit{b}}^{2} \eta_{\mathit{bb}}, 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \eta_{\mathit{bc}}, 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \eta_{\mathit{bc}} \eta_{\mathit{bd}}, 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} \eta_{\mathit{be}}\right], \left[0, 0, \kappa_{\mathit{c}}^{2} \eta_{\mathit{cc}}, 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \eta_{\mathit{cc}} \eta_{\mathit{cd}}, 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} \eta_{\mathit{ce}}\right], \left[0, 0, 0, \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}}, 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{ce}} \eta_{\mathit{de}}\right], \left[0, 0, 0, 0, \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \kappa_{\mathit{e}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{ce}}^{2} \eta_{\mathit{de}}^{2} \eta_{\mathit{ee}}\right]\right]\)</html></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a b c d&#39;</span><span class="p">)</span>
-<span class="n">table</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div class="notruncate">
-<table  class="table_form">
-<tbody>
-<tr class ="row-a">
-<td style="text-align:left">\(a\)</td>
-<td style="text-align:left">\(b\)</td>
-</tr>
-<tr class ="row-b">
-<td style="text-align:left">\(c\)</td>
-<td style="text-align:left">\(d\)</td>
-</tr>
-</tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">latex</span><span class="p">(</span><span class="n">matrix</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\left(\begin{array}{rr}
-a &amp; b \\
-c &amp; d
-\end{array}\right)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="n">matrix</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html>\(\displaystyle \left(\begin{array}{rr}
-a & b \\
-c & d
-\end{array}\right)\)</html></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">matrix</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]])))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><html>\(\displaystyle \left(\begin{array}{rr}
-a & b \\
-c & d
-\end{array}\right)\)</html></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html</span><span class="p">(</span><span class="n">table</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],[</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">]]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div class="notruncate">
-<table  class="table_form">
-<tbody>
-<tr class ="row-a">
-<td style="text-align:left">\(a\)</td>
-<td style="text-align:left">\(b\)</td>
-</tr>
-<tr class ="row-b">
-<td style="text-align:left">\(c\)</td>
-<td style="text-align:left">\(d\)</td>
-</tr>
-</tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">KappaEta</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -589,79 +496,132 @@ c & d
 </table>
 </div></div></div>
 </div>
+<p>The next example is reminicent of the  <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0022519396900144">cubic ternary complex model</a>.  Note that <code class="docutils literal notranslate"><span class="pre">graphs.GridGraph([2,2,2])</span></code> has tuples as vertices.  We use <code class="docutils literal notranslate"><span class="pre">cannonical_label()</span></code> to make the vertices <code class="docutils literal notranslate"><span class="pre">integers</span></code>.  This is necessary because <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> requires a graph <code class="docutils literal notranslate"><span class="pre">G</span></code> with <code class="docutils literal notranslate"><span class="pre">integer</span></code> vertices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
-<span class="n">FlatKappaEta</span> <span class="o">=</span> <span class="n">flatten</span><span class="p">(</span><span class="n">KappaEta</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">FlatKappaEta</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">GridGraph</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 1\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{b}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{c}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{c}} \kappa_{\mathit{d}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \kappa_{\mathit{b}}^{2} \eta_{\mathit{bb}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \eta_{\mathit{bc}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \eta_{\mathit{bc}} \eta_{\mathit{bd}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} \eta_{\mathit{be}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \kappa_{\mathit{c}}^{2} \eta_{\mathit{cc}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \eta_{\mathit{cc}} \eta_{\mathit{cd}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} \eta_{\mathit{ce}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{ce}} \eta_{\mathit{de}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \kappa_{\mathit{e}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{ce}}^{2} \eta_{\mathit{de}}^{2} \eta_{\mathit{ee}}\]</div>
+<img alt="_images/5048b19a025b36a533f9bbdc3999b36bb00862c0fc9b73f8d8871a63c2b73f22.png" src="_images/5048b19a025b36a533f9bbdc3999b36bb00862c0fc9b73f8d8871a63c2b73f22.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import pandas as pd</span>
-<span class="c1">#df = pd.DataFrame(KappaEta)</span>
-<span class="c1">#display(Math(latex(df)))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from astropy.table import Table</span>
-<span class="c1">#tab = Table.read(display(Math(latex(KappaEta)))).to_pandas()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="an-example-of-a-receptor-model-with-more-states">
-<h2>An example of a receptor model with more states<a class="headerlink" href="#an-example-of-a-receptor-model-with-more-states" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">PetersenGraph</span><span class="p">(),</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">canonical_label</span><span class="p">()</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/19a23356ef20dd8f38363126da0744694867a1e545524397382b0f2506566c04.png" src="_images/19a23356ef20dd8f38363126da0744694867a1e545524397382b0f2506566c04.png" />
-<img alt="_images/d7707c40d341288ef6a04293e545dd9a19585add51fadd999e9283ca86010b9c.png" src="_images/d7707c40d341288ef6a04293e545dd9a19585add51fadd999e9283ca86010b9c.png" />
-<div class="output text_html"><html>\(\displaystyle \left[\left[1, 2 \kappa_{\mathit{1}}, 2 \kappa_{\mathit{4}}, 2 \kappa_{\mathit{5}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{6}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{6}} \kappa_{\mathit{9}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{8}}\right], \left[0, \kappa_{\mathit{1}}^{2} \eta_{\mathit{11}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{4}} \eta_{\mathit{14}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{5}} \eta_{\mathit{15}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \eta_{\mathit{11}} \eta_{\mathit{12}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}} \eta_{\mathit{11}} \eta_{\mathit{16}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{16}} \eta_{\mathit{19}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{16}} \eta_{\mathit{17}} \eta_{\mathit{19}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{8}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{18}}\right], \left[0, 0, \kappa_{\mathit{4}}^{2} \eta_{\mathit{44}}, 2 \kappa_{\mathit{4}} \kappa_{\mathit{5}} \eta_{\mathit{45}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{4}} \eta_{\mathit{14}} \eta_{\mathit{24}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{4}} \kappa_{\mathit{6}} \eta_{\mathit{14}} \eta_{\mathit{46}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{4}} \eta_{\mathit{14}} \eta_{\mathit{24}} \eta_{\mathit{34}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{4}} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{14}} \eta_{\mathit{46}} \eta_{\mathit{49}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{4}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{14}} \eta_{\mathit{46}} \eta_{\mathit{47}} \eta_{\mathit{49}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{4}} \kappa_{\mathit{8}} \eta_{\mathit{14}} \eta_{\mathit{24}} \eta_{\mathit{34}} \eta_{\mathit{48}}\right], \left[0, 0, 0, \kappa_{\mathit{5}}^{2} \eta_{\mathit{55}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{5}} \eta_{\mathit{15}} \eta_{\mathit{25}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{5}} \kappa_{\mathit{6}} \eta_{\mathit{15}} \eta_{\mathit{56}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{5}} \eta_{\mathit{15}} \eta_{\mathit{25}} \eta_{\mathit{35}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{5}} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{15}} \eta_{\mathit{56}} \eta_{\mathit{59}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{5}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{15}} \eta_{\mathit{56}} \eta_{\mathit{57}} \eta_{\mathit{59}}, 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{5}} \kappa_{\mathit{8}} \eta_{\mathit{15}} \eta_{\mathit{25}} \eta_{\mathit{35}} \eta_{\mathit{58}}\right], \left[0, 0, 0, 0, \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{6}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{16}} \eta_{\mathit{26}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}} \eta_{\mathit{23}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{19}} \eta_{\mathit{29}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{17}} \eta_{\mathit{27}} \eta_{\mathit{19}} \eta_{\mathit{29}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}} \kappa_{\mathit{8}} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}} \eta_{\mathit{23}} \eta_{\mathit{18}} \eta_{\mathit{28}}\right], \left[0, 0, 0, 0, 0, \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{19}} \eta_{\mathit{69}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{17}} \eta_{\mathit{67}} \eta_{\mathit{19}} \eta_{\mathit{69}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{8}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{18}} \eta_{\mathit{68}}\right], \left[0, 0, 0, 0, 0, 0, \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}}^{2} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}}^{2} \eta_{\mathit{23}}^{2} \eta_{\mathit{33}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{19}} \eta_{\mathit{29}} \eta_{\mathit{39}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{17}} \eta_{\mathit{27}} \eta_{\mathit{37}} \eta_{\mathit{19}} \eta_{\mathit{29}} \eta_{\mathit{39}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}}^{2} \kappa_{\mathit{8}} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}}^{2} \eta_{\mathit{23}}^{2} \eta_{\mathit{33}} \eta_{\mathit{18}} \eta_{\mathit{28}} \eta_{\mathit{38}}\right], \left[0, 0, 0, 0, 0, 0, 0, \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{9}}^{2} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{19}}^{2} \eta_{\mathit{69}}^{2} \eta_{\mathit{99}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{7}} \kappa_{\mathit{9}}^{2} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{17}} \eta_{\mathit{67}} \eta_{\mathit{19}}^{2} \eta_{\mathit{69}}^{2} \eta_{\mathit{79}} \eta_{\mathit{99}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{8}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{18}} \eta_{\mathit{68}} \eta_{\mathit{19}} \eta_{\mathit{29}} \eta_{\mathit{39}} \eta_{\mathit{89}}\right], \left[0, 0, 0, 0, 0, 0, 0, 0, \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{7}}^{2} \kappa_{\mathit{9}}^{2} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{17}}^{2} \eta_{\mathit{67}}^{2} \eta_{\mathit{77}} \eta_{\mathit{19}}^{2} \eta_{\mathit{69}}^{2} \eta_{\mathit{79}}^{2} \eta_{\mathit{99}}, 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{8}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{17}} \eta_{\mathit{27}} \eta_{\mathit{37}} \eta_{\mathit{18}} \eta_{\mathit{68}} \eta_{\mathit{78}} \eta_{\mathit{19}} \eta_{\mathit{29}} \eta_{\mathit{39}} \eta_{\mathit{89}}\right], \left[0, 0, 0, 0, 0, 0, 0, 0, 0, \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}}^{2} \kappa_{\mathit{8}}^{2} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}}^{2} \eta_{\mathit{23}}^{2} \eta_{\mathit{33}} \eta_{\mathit{18}}^{2} \eta_{\mathit{28}}^{2} \eta_{\mathit{38}}^{2} \eta_{\mathit{88}}\right]\right]\)</html></div></div>
+<img alt="_images/ec69c4ac67d23b388f041b77128dbb05f210e3cbcac2ec502e8814fd52f544d5.png" src="_images/ec69c4ac67d23b388f041b77128dbb05f210e3cbcac2ec502e8814fd52f544d5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e7fa53939390affec0a65d35fb9c4479440edd5f66e188a94544eab8cdced289.png" src="_images/e7fa53939390affec0a65d35fb9c4479440edd5f66e188a94544eab8cdced289.png" />
+<img alt="_images/36f84204a9499f47471cfc4dc87b50cdf3b0ca0707bdae97d468f9c84119a465.png" src="_images/36f84204a9499f47471cfc4dc87b50cdf3b0ca0707bdae97d468f9c84119a465.png" />
+<div class="output text_html"><div class="notruncate">
+<table  class="table_form">
+<tbody>
+<tr class ="row-a">
+<td style="text-align:left">\(1\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{e}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}} \kappa_{\mathit{f}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}} \kappa_{\mathit{g}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}} \kappa_{\mathit{g}} \kappa_{\mathit{h}}\)</td>
+</tr>
+<tr class ="row-b">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{b}}^{2} \eta_{\mathit{bb}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \eta_{\mathit{bc}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{d}} \eta_{\mathit{bd}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{e}} \eta_{\mathit{bc}} \eta_{\mathit{be}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{d}} \kappa_{\mathit{f}} \eta_{\mathit{bd}} \eta_{\mathit{bf}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{d}} \kappa_{\mathit{g}} \eta_{\mathit{bd}} \eta_{\mathit{bg}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{d}} \kappa_{\mathit{g}} \kappa_{\mathit{h}} \eta_{\mathit{bd}} \eta_{\mathit{bg}} \eta_{\mathit{bh}}\)</td>
+</tr>
+<tr class ="row-a">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{c}}^{2} \eta_{\mathit{cc}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \eta_{\mathit{cd}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{ce}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{f}} \eta_{\mathit{cd}} \eta_{\mathit{cf}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{g}} \eta_{\mathit{cd}} \eta_{\mathit{cg}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{g}} \kappa_{\mathit{h}} \eta_{\mathit{cd}} \eta_{\mathit{cg}} \eta_{\mathit{ch}}\)</td>
+</tr>
+<tr class ="row-b">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{d}}^{2} \eta_{\mathit{dd}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{cd}} \eta_{\mathit{de}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}}^{2} \kappa_{\mathit{f}} \eta_{\mathit{dd}} \eta_{\mathit{df}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}}^{2} \kappa_{\mathit{g}} \eta_{\mathit{dd}} \eta_{\mathit{dg}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}}^{2} \kappa_{\mathit{g}} \kappa_{\mathit{h}} \eta_{\mathit{dd}} \eta_{\mathit{dg}} \eta_{\mathit{dh}}\)</td>
+</tr>
+<tr class ="row-a">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{c}}^{2} \kappa_{\mathit{e}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{ce}}^{2} \eta_{\mathit{ee}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \kappa_{\mathit{f}} \eta_{\mathit{cd}} \eta_{\mathit{de}} \eta_{\mathit{cf}} \eta_{\mathit{ef}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \kappa_{\mathit{g}} \eta_{\mathit{cd}} \eta_{\mathit{de}} \eta_{\mathit{cg}} \eta_{\mathit{eg}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \kappa_{\mathit{g}} \kappa_{\mathit{h}} \eta_{\mathit{cd}} \eta_{\mathit{de}} \eta_{\mathit{cg}} \eta_{\mathit{eg}} \eta_{\mathit{ch}} \eta_{\mathit{eh}}\)</td>
+</tr>
+<tr class ="row-b">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{d}}^{2} \kappa_{\mathit{f}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{df}}^{2} \eta_{\mathit{ff}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}}^{2} \kappa_{\mathit{f}} \kappa_{\mathit{g}} \eta_{\mathit{dd}} \eta_{\mathit{df}} \eta_{\mathit{dg}} \eta_{\mathit{fg}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}}^{2} \kappa_{\mathit{f}} \kappa_{\mathit{g}} \kappa_{\mathit{h}} \eta_{\mathit{dd}} \eta_{\mathit{df}} \eta_{\mathit{dg}} \eta_{\mathit{fg}} \eta_{\mathit{dh}} \eta_{\mathit{fh}}\)</td>
+</tr>
+<tr class ="row-a">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{d}}^{2} \kappa_{\mathit{g}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{dg}}^{2} \eta_{\mathit{gg}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{d}}^{2} \kappa_{\mathit{g}}^{2} \kappa_{\mathit{h}} \eta_{\mathit{dd}} \eta_{\mathit{dg}}^{2} \eta_{\mathit{gg}} \eta_{\mathit{dh}} \eta_{\mathit{gh}}\)</td>
+</tr>
+<tr class ="row-b">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{d}}^{2} \kappa_{\mathit{g}}^{2} \kappa_{\mathit{h}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{dg}}^{2} \eta_{\mathit{gg}} \eta_{\mathit{dh}}^{2} \eta_{\mathit{gh}}^{2} \eta_{\mathit{hh}}\)</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</div>
+<p>An example of a receptor model with more states.  Using <code class="docutils literal notranslate"><span class="pre">show=False</span></code> suppresses the output.  One can still work with the ring <code class="docutils literal notranslate"><span class="pre">A</span></code>, show the BFS spanning tree, and list the probability of each state.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">PetersenGraph</span><span class="p">(),</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -675,7 +635,138 @@ c & d
 </div>
 </div>
 </div>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f694e99389bbd3f023aa3df8825a2deb8ad6867ebc471658fabdccd29165f5bc.png" src="_images/f694e99389bbd3f023aa3df8825a2deb8ad6867ebc471658fabdccd29165f5bc.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">KappaEta</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0 : 1\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1 : 2 \kappa_{\mathit{1}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 : 2 \kappa_{\mathit{4}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 3 : 2 \kappa_{\mathit{5}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 4 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 5 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{6}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 6 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 7 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{6}} \kappa_{\mathit{9}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 8 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 9 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{8}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 11 : \kappa_{\mathit{1}}^{2} \eta_{\mathit{11}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 12 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{4}} \eta_{\mathit{14}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 13 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{5}} \eta_{\mathit{15}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 14 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \eta_{\mathit{11}} \eta_{\mathit{12}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 15 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}} \eta_{\mathit{11}} \eta_{\mathit{16}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 16 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 17 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{16}} \eta_{\mathit{19}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 18 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{16}} \eta_{\mathit{17}} \eta_{\mathit{19}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 19 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{8}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{18}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 22 : \kappa_{\mathit{4}}^{2} \eta_{\mathit{44}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 23 : 2 \kappa_{\mathit{4}} \kappa_{\mathit{5}} \eta_{\mathit{45}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 24 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{4}} \eta_{\mathit{14}} \eta_{\mathit{24}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 25 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{4}} \kappa_{\mathit{6}} \eta_{\mathit{14}} \eta_{\mathit{46}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 26 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{4}} \eta_{\mathit{14}} \eta_{\mathit{24}} \eta_{\mathit{34}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 27 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{4}} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{14}} \eta_{\mathit{46}} \eta_{\mathit{49}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 28 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{4}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{14}} \eta_{\mathit{46}} \eta_{\mathit{47}} \eta_{\mathit{49}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 29 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{4}} \kappa_{\mathit{8}} \eta_{\mathit{14}} \eta_{\mathit{24}} \eta_{\mathit{34}} \eta_{\mathit{48}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 33 : \kappa_{\mathit{5}}^{2} \eta_{\mathit{55}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 34 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{5}} \eta_{\mathit{15}} \eta_{\mathit{25}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 35 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{5}} \kappa_{\mathit{6}} \eta_{\mathit{15}} \eta_{\mathit{56}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 36 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{5}} \eta_{\mathit{15}} \eta_{\mathit{25}} \eta_{\mathit{35}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 37 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{5}} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{15}} \eta_{\mathit{56}} \eta_{\mathit{59}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 38 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{5}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{15}} \eta_{\mathit{56}} \eta_{\mathit{57}} \eta_{\mathit{59}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 39 : 2 \kappa_{\mathit{1}} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{5}} \kappa_{\mathit{8}} \eta_{\mathit{15}} \eta_{\mathit{25}} \eta_{\mathit{35}} \eta_{\mathit{58}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 44 : \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 45 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{6}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{16}} \eta_{\mathit{26}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 46 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}} \eta_{\mathit{23}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 47 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{19}} \eta_{\mathit{29}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 48 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{17}} \eta_{\mathit{27}} \eta_{\mathit{19}} \eta_{\mathit{29}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 49 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}} \kappa_{\mathit{8}} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}} \eta_{\mathit{23}} \eta_{\mathit{18}} \eta_{\mathit{28}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 55 : \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 56 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 57 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{19}} \eta_{\mathit{69}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 58 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{17}} \eta_{\mathit{67}} \eta_{\mathit{19}} \eta_{\mathit{69}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 59 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{8}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{18}} \eta_{\mathit{68}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 66 : \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}}^{2} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}}^{2} \eta_{\mathit{23}}^{2} \eta_{\mathit{33}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 67 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{19}} \eta_{\mathit{29}} \eta_{\mathit{39}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 68 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{17}} \eta_{\mathit{27}} \eta_{\mathit{37}} \eta_{\mathit{19}} \eta_{\mathit{29}} \eta_{\mathit{39}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 69 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}}^{2} \kappa_{\mathit{8}} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}}^{2} \eta_{\mathit{23}}^{2} \eta_{\mathit{33}} \eta_{\mathit{18}} \eta_{\mathit{28}} \eta_{\mathit{38}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 77 : \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{9}}^{2} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{19}}^{2} \eta_{\mathit{69}}^{2} \eta_{\mathit{99}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 78 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{7}} \kappa_{\mathit{9}}^{2} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{17}} \eta_{\mathit{67}} \eta_{\mathit{19}}^{2} \eta_{\mathit{69}}^{2} \eta_{\mathit{79}} \eta_{\mathit{99}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 79 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{8}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{18}} \eta_{\mathit{68}} \eta_{\mathit{19}} \eta_{\mathit{29}} \eta_{\mathit{39}} \eta_{\mathit{89}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 88 : \kappa_{\mathit{1}}^{2} \kappa_{\mathit{6}}^{2} \kappa_{\mathit{7}}^{2} \kappa_{\mathit{9}}^{2} \eta_{\mathit{11}} \eta_{\mathit{16}}^{2} \eta_{\mathit{66}} \eta_{\mathit{17}}^{2} \eta_{\mathit{67}}^{2} \eta_{\mathit{77}} \eta_{\mathit{19}}^{2} \eta_{\mathit{69}}^{2} \eta_{\mathit{79}}^{2} \eta_{\mathit{99}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 89 : 2 \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}} \kappa_{\mathit{3}} \kappa_{\mathit{6}} \kappa_{\mathit{7}} \kappa_{\mathit{8}} \kappa_{\mathit{9}} \eta_{\mathit{11}} \eta_{\mathit{12}} \eta_{\mathit{13}} \eta_{\mathit{16}} \eta_{\mathit{26}} \eta_{\mathit{36}} \eta_{\mathit{17}} \eta_{\mathit{27}} \eta_{\mathit{37}} \eta_{\mathit{18}} \eta_{\mathit{68}} \eta_{\mathit{78}} \eta_{\mathit{19}} \eta_{\mathit{29}} \eta_{\mathit{39}} \eta_{\mathit{89}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 99 : \kappa_{\mathit{1}}^{2} \kappa_{\mathit{2}}^{2} \kappa_{\mathit{3}}^{2} \kappa_{\mathit{8}}^{2} \eta_{\mathit{11}} \eta_{\mathit{12}}^{2} \eta_{\mathit{22}} \eta_{\mathit{13}}^{2} \eta_{\mathit{23}}^{2} \eta_{\mathit{33}} \eta_{\mathit{18}}^{2} \eta_{\mathit{28}}^{2} \eta_{\mathit{38}}^{2} \eta_{\mathit{88}}\]</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -715,15 +806,15 @@ c & d
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Examples of using MyTools.ipynb</p>
+        <p class="prev-next-title">Using MyTools.ipynb - Part 1 - Assigning monomials to graph vertices and edges</p>
       </div>
     </a>
     <a class="right-next"
-       href="EnumerateAllostericParameters.html"
+       href="overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Allosteric parameters in receptor dimers</p>
+        <p class="prev-next-title">Overview</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -736,21 +827,6 @@ c & d
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerating-allosteric-parameters-for-a-5-state-receptor-model-with-the-topology-of-the-house-graph">Enumerating allosteric parameters for a 5-state receptor model with the topology of the house graph.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-of-a-receptor-model-with-more-states">An example of a receptor model with more states</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

@@ -16,7 +16,7 @@ kernelspec:
 
 ## Symbolic vertex and edge labels
 
-Recall the [three state model](receptor_modeling_ligands:three_state_model) discussed above ([Ligands](receptor_modeling_ligands)).  Using generic notation for the [path graph](example_graphs:path_graph) on three vertices, 
+Recall the [three state model](ligands:three_state_model) discussed above ([Ligands](ligands)).  Using generic notation for the [path graph](example_graphs:path_graph) on three vertices, 
 
 ```{code-cell}
 var('p0 p1 p2 a01 a10 a12 a21')

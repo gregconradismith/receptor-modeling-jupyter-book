@@ -1,6 +1,5 @@
 # Welcome to __Receptors__
 
-Test.
 
 This [Jupyter Book](https://jupyterbook.org) explores how cell surface receptors can be modeled using [Sagemath](https://www.sagemath.org), a free open\-source mathematics software system (see [https://www.sagemath.org](https://www.sagemath.org)).
 

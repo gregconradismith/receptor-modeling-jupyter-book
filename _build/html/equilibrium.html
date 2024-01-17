@@ -438,6 +438,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-each-state">Probability of each state</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-spanning-tree-to-relative-probabilities">From spanning tree to relative probabilities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-binding-curve">Equilibrium binding curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
@@ -499,18 +500,18 @@ document.write(`
 <span class="math notranslate nohighlight">\(z_a = 1\)</span>,
 <span class="math notranslate nohighlight">\(z_b = \kappab = \kappabstar x\)</span>, and
 <span class="math notranslate nohighlight">\(z_c =\kappab \kappac = \kappabstar \kappacstar x^2\)</span>. That is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1fbedd89-fddf-4698-8296-c34084d92236">
-<span class="eqno">(1)<a class="headerlink" href="#equation-1fbedd89-fddf-4698-8296-c34084d92236" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-83758598-9f68-4eac-8a6e-4c9f2c26247d">
+<span class="eqno">(1)<a class="headerlink" href="#equation-83758598-9f68-4eac-8a6e-4c9f2c26247d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}\]</div>
 <p>It is helpful to  present this set of rational functions using the following compact notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a9ee3f2-c437-489a-91c5-46b89e26e0b0">
-<span class="eqno">(2)<a class="headerlink" href="#equation-1a9ee3f2-c437-489a-91c5-46b89e26e0b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-38c92f41-3246-40af-8519-5ebc3da8413a">
+<span class="eqno">(2)<a class="headerlink" href="#equation-38c92f41-3246-40af-8519-5ebc3da8413a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_a  :  \pi_b :  \pi_c ] = [1 :\kappab : \kappab \kappac ]  = [1 : \kappabstar x :\kappabstar \kappacstar x^2  ] \,  .
 \end{equation}\]</div>
 <p>In expressions of this kind,  it is understood that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5942f470-0710-4a81-8198-1e47efb358ec">
-<span class="eqno">(3)<a class="headerlink" href="#equation-5942f470-0710-4a81-8198-1e47efb358ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ff535da8-0ead-497b-8256-6d3d95ff3e83">
+<span class="eqno">(3)<a class="headerlink" href="#equation-ff535da8-0ead-497b-8256-6d3d95ff3e83" title="Permalink to this equation">#</a></span>\[\begin{equation}
 [ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ] = [ \lambda z_1 \! : \! \lambda  z_2 : \! \cdots \! : \! \lambda  z_n ]
 \end{equation}\]</div>
 <p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>.  Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.  Prior to normalization, we will refer to <span class="math notranslate nohighlight">\([ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ]\)</span> as <em>relative probabilites</em> for each receptor state.</p>
@@ -567,6 +568,32 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1/(kb*kc*x^2 + kb*x + 1), kb*x/(kb*kc*x^2 + kb*x + 1), kb*kc*x^2/(kb*kc*x^2 + kb*x + 1)]
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="equilibrium-binding-curve">
+<h2>Equilibrium binding curve<a class="headerlink" href="#equilibrium-binding-curve" title="Permalink to this heading">#</a></h2>
+<p>After choosing values for <code class="docutils literal notranslate"><span class="pre">kb</span></code> and <code class="docutils literal notranslate"><span class="pre">kc</span></code>, the equilibrium binding curves can be calculated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">;</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">kb</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">kc</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span>
+<span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot_semilogx</span><span class="p">(</span><span class="n">prob</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">col</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;p[</span><span class="si">%s</span><span class="s1">]&#39;</span><span class="o">%</span><span class="k">i</span>, axes_labels=[&#39;x&#39;, &#39;probability&#39;])
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p[</span><span class="si">%s</span><span class="s1">] =&#39;</span><span class="o">%</span><span class="k">i</span>,prob[i].subs(params))
+<span class="n">show</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p[0] = 1/(x^2 + x + 1)
+p[1] = x/(x^2 + x + 1)
+p[2] = x^2/(x^2 + x + 1)
+</pre></div>
+</div>
+<img alt="_images/4ae7e6356d2ea7e6fc0fb19fa8cfaa34989264590cb10c65cd2658b5545b3fc2.png" src="_images/4ae7e6356d2ea7e6fc0fb19fa8cfaa34989264590cb10c65cd2658b5545b3fc2.png" />
 </div>
 </div>
 </section>
@@ -644,6 +671,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-each-state">Probability of each state</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-spanning-tree-to-relative-probabilities">From spanning tree to relative probabilities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-binding-curve">Equilibrium binding curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>

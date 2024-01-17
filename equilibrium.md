@@ -112,6 +112,20 @@ for i in range(len(z)):
 print(prob)
 ```
 
+## Equilibrium binding curve
+
+After choosing values for `kb` and `kc`, the equilibrium binding curves can be calculated.
+
+```{code-cell}
+xmin=0.01; xmax=100;
+params = {kb:1,kc:1}
+p = [0]*3
+col = ['red','green','blue']
+for i in range(3):
+    p[i] = plot_semilogx(prob[i].subs(params), (x, xmin, xmax), color=col[i], legend_label='p[%s]'%i, axes_labels=['x', 'probability'])
+    print('p[%s] ='%i,prob[i].subs(params))
+show(sum(p))
+```
 
 
 ## References

@@ -452,10 +452,6 @@ document.write(`
   <section id="states-and-transitions">
 <h1>States and transitions<a class="headerlink" href="#states-and-transitions" title="Permalink to this heading">#</a></h1>
 <p>The process of receptor modeling often begins by specifying the molecular conformations (states) to be considered and the transitions between these states.</p>
-<div class="toggle admonition">
-<p class="admonition-title">This cell was hidden with the toggle class</p>
-<p>Wow, a hidden block! ✨✨</p>
-</div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -467,7 +463,9 @@ document.write(`
 <span class="c1"># It sets the default figure size, makes the plots transparent, displays </span>
 <span class="c1"># edge labels, uses the spring layout algorithm for graph layouts, and sets</span>
 <span class="c1"># the background color for edge labels.</span>
+<span class="c1">#</span>
 <span class="c1"># See https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph_plot.html</span>
+<span class="c1">#</span>
 
 <span class="kn">import</span> <span class="nn">sage.graphs.graph_plot</span>
 
@@ -558,21 +556,10 @@ document.write(`
 <img alt="_images/23b923a22b026d0545502f02006b6b55785d27c7780db374d9f4b57c278961f7.png" src="_images/23b923a22b026d0545502f02006b6b55785d27c7780db374d9f4b57c278961f7.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_directed</span> <span class="o">=</span> <span class="n">G_undirected</span><span class="o">.</span><span class="n">to_directed</span><span class="p">()</span>
-<span class="n">G_directed</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">talk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/3c0c75da1036cbede69559b294ba8020145ef45607d7157186a5f372e83c788b.png" src="_images/3c0c75da1036cbede69559b294ba8020145ef45607d7157186a5f372e83c788b.png" />
-</div>
-</div>
 <p>The method <code class="docutils literal notranslate"><span class="pre">to_directed()</span></code> produces <code class="docutils literal notranslate"><span class="pre">G_directed</span></code> as the <em>symmetric</em> digraph associated to <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code>, in which adjacent vertices are  connected in both directions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Receptor state-transition diagrams  will always be symmetric directed graphs, that is, for every edge from vertex <code class="docutils literal notranslate"><span class="pre">i</span></code> to vertex <code class="docutils literal notranslate"><span class="pre">j</span></code>, there is also an edge from vertex <code class="docutils literal notranslate"><span class="pre">j</span></code> to vertex <code class="docutils literal notranslate"><span class="pre">i</span></code>.  Thus, the state-transtion diagrams for a receptor model may, for simplicity, be illustrated as an undirected graph.</p>
+<p>Receptor state-transition diagrams  will always be symmetric directed graphs, that is, for every edge from vertex <code class="docutils literal notranslate"><span class="pre">i</span></code> to vertex <code class="docutils literal notranslate"><span class="pre">j</span></code>, there is also an edge from vertex <code class="docutils literal notranslate"><span class="pre">j</span></code> to vertex <code class="docutils literal notranslate"><span class="pre">i</span></code>.  Thus, the state-transtion diagrams for a receptor model may, for simplicity, be illustrated as an undirected graph. We will refer to such undirected graphs as the <em>topology</em> of the receptor model.</p>
 </div>
 </section>
 <section id="transition-rate-constants">
@@ -608,7 +595,7 @@ For example, the symbolic variable <code class="docutils literal notranslate"><s
 </div>
 </div>
 </div>
-<p>One reason for using symbolic variables is that we can produce symbolic expressions important quantities using <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/index.html">module for graphs and digraphs</a> available in <code class="docutils literal notranslate"><span class="pre">Sagemath</span></code>. For example, the weighted adjacency matrix for <code class="docutils literal notranslate"><span class="pre">G</span></code> is</p>
+<p>One reason for using symbolic variables is that we can produce symbolic expressions important quantities using the <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/index.html">module for graphs and digraphs</a> available in <code class="docutils literal notranslate"><span class="pre">Sagemath</span></code>. For example, the weighted adjacency matrix for <code class="docutils literal notranslate"><span class="pre">G</span></code> is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">weighted_adjacency_matrix</span><span class="p">()</span>

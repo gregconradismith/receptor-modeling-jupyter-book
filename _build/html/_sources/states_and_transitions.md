@@ -17,10 +17,6 @@ kernelspec:
 
 The process of receptor modeling often begins by specifying the molecular conformations (states) to be considered and the transitions between these states.  
 
-```{admonition} This cell was hidden with the toggle class
-:class: toggle
-Wow, a hidden block! ✨✨
-```
 
 ```{code-cell}
 :tags: ["hide-input"]
@@ -28,7 +24,9 @@ Wow, a hidden block! ✨✨
 # It sets the default figure size, makes the plots transparent, displays 
 # edge labels, uses the spring layout algorithm for graph layouts, and sets
 # the background color for edge labels.
+#
 # See https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph_plot.html
+#
 
 import sage.graphs.graph_plot
 
@@ -82,15 +80,10 @@ G_directed = G_undirected.to_directed()
 G_directed.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
 ```
 
-```{code-cell}
-G_directed = G_undirected.to_directed()
-G_directed.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True,talk=True)
-```
-
 The method `to_directed()` produces `G_directed` as the _symmetric_ digraph associated to `G_undirected`, in which adjacent vertices are  connected in both directions.
 
 ```{note}
-Receptor state-transition diagrams  will always be symmetric directed graphs, that is, for every edge from vertex `i` to vertex `j`, there is also an edge from vertex `j` to vertex `i`.  Thus, the state-transtion diagrams for a receptor model may, for simplicity, be illustrated as an undirected graph.
+Receptor state-transition diagrams  will always be symmetric directed graphs, that is, for every edge from vertex `i` to vertex `j`, there is also an edge from vertex `j` to vertex `i`.  Thus, the state-transtion diagrams for a receptor model may, for simplicity, be illustrated as an undirected graph. We will refer to such undirected graphs as the _topology_ of the receptor model.
 ```
 
 ## Transition rate constants 
@@ -114,7 +107,7 @@ f = a12 * (a21 + a13)^2 / a13
 f.expand()
 ```
 
-One reason for using symbolic variables is that we can produce symbolic expressions important quantities using [module for graphs and digraphs](https://doc.sagemath.org/html/en/reference/graphs/index.html) available in `Sagemath`. For example, the weighted adjacency matrix for `G` is 
+One reason for using symbolic variables is that we can produce symbolic expressions important quantities using the [module for graphs and digraphs](https://doc.sagemath.org/html/en/reference/graphs/index.html) available in `Sagemath`. For example, the weighted adjacency matrix for `G` is 
 
 ```{code-cell}
 G.weighted_adjacency_matrix()

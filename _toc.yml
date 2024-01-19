@@ -16,6 +16,7 @@ parts:
     - file: my_tools_examples_vertex_and_edge_labels
   - caption: Receptor Dimers
     chapters:
+    - file: receptor_dimers_overview
     - file: reduced_graph_powers
     - file: my_tools_examples_enumerate_allosteric_parameters
   - caption: Automated Fitting of Allosteric Parameters in Receptor Dimers

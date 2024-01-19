@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Using receptor_tools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers &#8212; Receptors</title>
+    <title>Tools and Examples - Part 2 &#8212; Receptors</title>
   
   
   
@@ -166,12 +166,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_vertex_and_edge_labels.html">Tools and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_vertex_and_edge_labels.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using receptor_tools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples - Part 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
@@ -193,6 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -397,7 +398,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -408,11 +411,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Using receptor_tools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</h1>
+    <h1>Tools and Examples - Part 2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerating-allosteric-parameters-in-receptor-dimers">Enumerating allosteric parameters in receptor dimers</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -422,8 +433,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="using-receptor-tools-ipynb-part-2-enumerating-allosteric-parameters-in-receptor-dimers">
-<h1>Using receptor_tools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers<a class="headerlink" href="#using-receptor-tools-ipynb-part-2-enumerating-allosteric-parameters-in-receptor-dimers" title="Permalink to this heading">#</a></h1>
+  <section id="tools-and-examples-part-2">
+<h1>Tools and Examples - Part 2<a class="headerlink" href="#tools-and-examples-part-2" title="Permalink to this heading">#</a></h1>
+<section id="enumerating-allosteric-parameters-in-receptor-dimers">
+<h2>Enumerating allosteric parameters in receptor dimers<a class="headerlink" href="#enumerating-allosteric-parameters-in-receptor-dimers" title="Permalink to this heading">#</a></h2>
 <p>This notebook illustrates some of the function definitions contained in <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code>.</p>
 <p>The file <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> includes the function <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G)</span></code> which takes a graph G and returns the <span class="math notranslate nohighlight">\(\kappa\)</span> and <span class="math notranslate nohighlight">\(\eta\)</span> values for a dimer model with the topology of the reduced graph power <span class="math notranslate nohighlight">\(G^{(2)}\)</span>.  The default method uses <span class="math notranslate nohighlight">\(e_1, e_2, \ldots , e_v\)</span> while <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> gives single digit edge labels (<span class="math notranslate nohighlight">\(b,c,\ldots\)</span>).</p>
 <div class="cell docutils container">
@@ -770,6 +783,7 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -829,6 +843,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerating-allosteric-parameters-in-receptor-dimers">Enumerating allosteric parameters in receptor dimers</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

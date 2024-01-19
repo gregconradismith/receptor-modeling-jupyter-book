@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Tools and Examples &#8212; Receptors</title>
+    <title>Tools and Examples - Part 1 &#8212; Receptors</title>
   
   
   
@@ -166,12 +166,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_enumerate_allosteric_parameters.html">Using receptor_tools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_enumerate_allosteric_parameters.html">Tools and Examples - Part 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
@@ -193,6 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -410,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tools and Examples</h1>
+    <h1>Tools and Examples - Part 1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,6 +421,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-monomials-to-receptor-model-states-and-transitions">Assigning monomials to receptor model states and transitions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-graph">print_graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-vertex-monomials">add_vertex_monomials</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-edge-monomials">add_edge_monomials()</a></li>
@@ -434,9 +436,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="tools-and-examples">
-<h1>Tools and Examples<a class="headerlink" href="#tools-and-examples" title="Permalink to this heading">#</a></h1>
-<p>The notebook  in <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> (see Appendix) contains function definitions that will prove useful as we further explore receptor modeling.  The command <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">run</span> <span class="pre">receptor_tools.ipynb</span></code> loads these function definitions and the remainder of this notebook illustrates how to use some of them.  The focus is on tools that assigning monomials to receptor model states and transitions (i.e., graph vertices and edges).  Doing this makes the structure of a receptor model easier to undertand.  It also facilitates symbolic calcuations that begin with the state-transition diagram of a receptor model.</p>
+  <section id="tools-and-examples-part-1">
+<h1>Tools and Examples - Part 1<a class="headerlink" href="#tools-and-examples-part-1" title="Permalink to this heading">#</a></h1>
+<section id="assigning-monomials-to-receptor-model-states-and-transitions">
+<h2>Assigning monomials to receptor model states and transitions<a class="headerlink" href="#assigning-monomials-to-receptor-model-states-and-transitions" title="Permalink to this heading">#</a></h2>
+<p>The notebook  in <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> (see Appendix) contains function definitions that will prove useful as we further explore receptor modeling.  The command <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">receptor_tools.ipynb</span></code> loads these function definitions, and the remainder of this notebook illustrates how to use some of them.  The focus is on tools that assign monomials to receptor model states and transitions (i.e., graph vertices and edges).  Doing this makes the structure of a receptor model easier to understand.  It also facilitates symbolic calculations that begin with the state-transition diagram of a receptor model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
@@ -462,6 +466,7 @@ document.write(`
 </div>
 </div>
 <p>By default the vertices are <code class="docutils literal notranslate"><span class="pre">integers</span></code> and the edge labels are <code class="docutils literal notranslate"><span class="pre">None</span></code>.   The method <code class="docutils literal notranslate"><span class="pre">show()</span></code> has a named parameter <code class="docutils literal notranslate"><span class="pre">edge_lablels</span></code> that is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> by default (above left). To see the edge labels we repeat the <code class="docutils literal notranslate"><span class="pre">show()</span></code> command using <code class="docutils literal notranslate"><span class="pre">edge_labels=True</span></code>.</p>
+</section>
 <section id="print-graph">
 <h2>print_graph<a class="headerlink" href="#print-graph" title="Permalink to this heading">#</a></h2>
 <p>The first function we will illustrate is <code class="docutils literal notranslate"><span class="pre">print_graph</span></code>. On the next line, the command <code class="docutils literal notranslate"><span class="pre">mydoc(print_graph)</span></code> provides information about the usage.   As advertized, he command <code class="docutils literal notranslate"><span class="pre">print_graph(G)</span></code> gives a list of the vertices and edges of <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
@@ -712,6 +717,7 @@ c*f^2 + b*f^2 + 2*c*e*f + 2*b*e*f + 2*b*c*f + 2*b^2*f + c*e^2 + b*e^2 + 2*b*c*e 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-monomials-to-receptor-model-states-and-transitions">Assigning monomials to receptor model states and transitions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-graph">print_graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-vertex-monomials">add_vertex_monomials</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-edge-monomials">add_edge_monomials()</a></li>

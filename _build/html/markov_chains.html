@@ -165,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">States and Transitions of Receptor Dimers</span></p>
@@ -438,7 +439,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-vertex-and-edge-labels">Symbolic vertex and edge labels</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-of-markov-chain">Generator matrix of Markov chain</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chain-tree-theorem-hill-s-diagrammatic-method">Markov chain tree theorem (Hill’s diagrammatic method)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chain-tree-theorem">Markov chain tree theorem</a></li>
 </ul>
             </nav>
         </div>
@@ -464,15 +465,15 @@ document.write(`
 <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p0</span><span class="p">,</span><span class="n">a10</span><span class="p">)</span>
 <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">a12</span><span class="p">)</span>
 <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">a21</span><span class="p">)</span>
-<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">talk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f14b619660b4335f99d492b81682c37ac7781ecad1c29874f6bd5b8a4fd624c6.png" src="_images/f14b619660b4335f99d492b81682c37ac7781ecad1c29874f6bd5b8a4fd624c6.png" />
+<img alt="_images/f005ca87126ea34425c22f5e0119783e7be0b2ece82bbf9045eed1ce66f3fa7c.png" src="_images/f005ca87126ea34425c22f5e0119783e7be0b2ece82bbf9045eed1ce66f3fa7c.png" />
 </div>
 </div>
-<p>We assign symbolic variables to the vertices and edges of $G$ because this allows us to produce symbolic expressions important quantities using methods available in <code class="docutils literal notranslate"><span class="pre">Sagemath</span></code>’s <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/index.html">module for graphs and digraphs</a>. For example, the weighted adjacency matrix associated with graph $G$ above is</p>
+<p>We assign symbolic variables to the vertices and edges of <span class="math notranslate nohighlight">\(G\)</span> because this allows us to produce symbolic expressions important quantities using methods available in <code class="docutils literal notranslate"><span class="pre">Sagemath</span></code>’s <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/index.html">module for graphs and digraphs</a>. For example, the weighted adjacency matrix associated with graph $G$ above is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">weighted_adjacency_matrix</span><span class="p">()</span>
@@ -480,7 +481,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The combinatorial Laplacian matrix is $L=D-A$ where $D$ is a diagonal matrix given by the column sum of $A$.</p>
+<p>The combinatorial Laplacian matrix is <span class="math notranslate nohighlight">\(L=D-A\)</span> where <span class="math notranslate nohighlight">\(D\)</span> is a diagonal matrix given by the column sum of <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">diagonal_matrix</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">))</span><span class="o">-</span><span class="n">A</span>
@@ -514,7 +515,7 @@ a_{01} & -a_{01} & 0 \\
 </section>
 <section id="generator-matrix-of-markov-chain">
 <h2>Generator matrix of Markov chain<a class="headerlink" href="#generator-matrix-of-markov-chain" title="Permalink to this heading">#</a></h2>
-<p>The Markov chain with states and transistions of $G$ has a generator matrix $Q$ that is the opposite (additive inverse) of the Laplacian matrix ($L$). That is, $Q=-L=A-D$. We define a function that calculates the symbolic generator matrix $Q$ from the weighted adjacency matrix $A$.</p>
+<p>The Markov chain with states and transistions of <span class="math notranslate nohighlight">\(G\)</span> has a generator matrix <span class="math notranslate nohighlight">\(Q\)</span> that is the opposite (additive inverse) of the Laplacian matrix (<span class="math notranslate nohighlight">\(L\)</span>). That is, <span class="math notranslate nohighlight">\(Q=-L=A-D\)</span>. We define a function that calculates the symbolic generator matrix $Q$ from the weighted adjacency matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -552,20 +553,55 @@ a_{10} & -a_{10} - a_{12} & a_{12} \\
 </div>
 </div>
 </section>
-<section id="markov-chain-tree-theorem-hill-s-diagrammatic-method">
-<h2>Markov chain tree theorem (Hill’s diagrammatic method)<a class="headerlink" href="#markov-chain-tree-theorem-hill-s-diagrammatic-method" title="Permalink to this heading">#</a></h2>
-<p>Using the Markov chain tree theorem (CHECK), it is straightforward to find symbolic expressions for the steady-state probabilities of each state (p0,p1,p2).  The relative probabilities are:</p>
+<section id="markov-chain-tree-theorem">
+<span id="markov-chain-tree-theorem-intro"></span><h2>Markov chain tree theorem<a class="headerlink" href="#markov-chain-tree-theorem" title="Permalink to this heading">#</a></h2>
+<p>Using the <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_chain_tree_theorem">Markov chain tree theorem</a>, it is straightforward to find symbolic expressions for the steady-state probabilities of each receptor state (<code class="docutils literal notranslate"><span class="pre">p0</span></code>, <code class="docutils literal notranslate"><span class="pre">p1</span></code>, <code class="docutils literal notranslate"><span class="pre">p2</span></code>). The relative probabilities are given by the sum of the weights of all the spanning trees rooted in vertex <code class="docutils literal notranslate"><span class="pre">i</span></code>. Because this three-state receptor model has no cycles, there is only one directed spanning tree rooted in each vertex (shown below).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T0</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">T0</span><span class="o">.</span><span class="n">delete_edge</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span><span class="n">p1</span><span class="p">)</span>
+<span class="n">T0</span><span class="o">.</span><span class="n">delete_edge</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">)</span>
+
+<span class="n">T1</span><span class="o">.</span><span class="n">delete_edge</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p0</span><span class="p">)</span>
+<span class="n">T1</span><span class="o">.</span><span class="n">delete_edge</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">)</span>
+
+<span class="n">T2</span><span class="o">.</span><span class="n">delete_edge</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p0</span><span class="p">)</span>
+<span class="n">T2</span><span class="o">.</span><span class="n">delete_edge</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span><span class="n">p1</span><span class="p">)</span>
+
+<span class="n">T0</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;root = p0&#39;</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">T1</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;root = p1&#39;</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">T2</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;root = p2&#39;</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/d4bfca7ac5a56c68785ec20fa9cf2244b5e40e30a585d4d27c0b4856c18b8995.png" src="_images/d4bfca7ac5a56c68785ec20fa9cf2244b5e40e30a585d4d27c0b4856c18b8995.png" />
+<img alt="_images/8f8740ade7be0f5ed71663a93ba06bc301c7226886335c513b9ffb6dfcaf0167.png" src="_images/8f8740ade7be0f5ed71663a93ba06bc301c7226886335c513b9ffb6dfcaf0167.png" />
+<img alt="_images/7766d2b7db1f282a653c4cd5bd7e7a448206cbc1c8620e49df28622d0c3a59ec.png" src="_images/7766d2b7db1f282a653c4cd5bd7e7a448206cbc1c8620e49df28622d0c3a59ec.png" />
+</div>
+</div>
+<p>The relative probability of state <code class="docutils literal notranslate"><span class="pre">i</span></code> is given by the determinant of the Laplacian matrix with row <code class="docutils literal notranslate"><span class="pre">i</span></code> and column <code class="docutils literal notranslate"><span class="pre">i</span></code> removed.
+In this case, each relative probability is a monomial with two factors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z0</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">determinant</span><span class="p">()</span><span class="o">.</span><span class="n">simplify_full</span><span class="p">()</span>
 <span class="n">z1</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">determinant</span><span class="p">()</span><span class="o">.</span><span class="n">simplify_full</span><span class="p">()</span>
 <span class="n">z2</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">determinant</span><span class="p">()</span><span class="o">.</span><span class="n">simplify_full</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[ </span><span class="si">{</span><span class="n">z0</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">z1</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">z2</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[ z0 : z1 : z2 ] = [ </span><span class="si">{</span><span class="n">z0</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">z1</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">z2</span><span class="si">}</span><span class="s1"> ]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ a10*a21 : a01*a21 : a01*a12]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ z0 : z1 : z2 ] = [ a10*a21 : a01*a21 : a01*a12 ]
 </pre></div>
 </div>
 </div>
@@ -598,40 +634,13 @@ a_{10} & -a_{10} - a_{12} & a_{12} \\
 </table>
 </div></div></div>
 </div>
-<p>This calculation can be peformed for a Markov chain whose topology is a simple directed graph (connected, no loops) that is also symmetric.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hill_diagramatic_method</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">nrows</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">Q</span><span class="o">.</span><span class="n">ncols</span><span class="p">()</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="p">[</span> <span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">]</span>
-        <span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-        <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">determinant</span><span class="p">()</span><span class="o">.</span><span class="n">simplify_full</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">z</span>
-
-<span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">HouseGraph</span><span class="p">()</span><span class="o">.</span><span class="n">to_directed</span><span class="p">()</span>
-<span class="c1"># put values on each edge ... </span>
-<span class="n">zz</span> <span class="o">=</span> <span class="n">hill_diagramatic_method</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">zz</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[a10*a21, a01*a21, a01*a12]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define this? G.weighted_laplacian_matrix()</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>This three-state receptor model has no cycles.  For this reason the steady-state probabilities will satisfy detailed balance. This  implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define equilibrium constants as <span class="math notranslate nohighlight">\(\kappa_{j}=a_{ij}/a_{ji}\)</span> for <span class="math notranslate nohighlight">\(i &lt; j\)</span> whenever vertex <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are adjacent.
+Dividing the numerator and denominator of each <span class="math notranslate nohighlight">\(p_i\)</span> by <span class="math notranslate nohighlight">\(a_{10}a_{21}\)</span> yields</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4212a6e3-a4eb-423e-8be8-444f04897d81">
+<span class="eqno">(5)<a class="headerlink" href="#equation-4212a6e3-a4eb-423e-8be8-444f04897d81" title="Permalink to this equation">#</a></span>\[\begin{equation}
+p_0 = \frac{1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_1 = \frac{\kappa_1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_2 = \frac{\kappa_1 \kappa_2}{1+\kappa_1+\kappa_1\kappa_2}
+\end{equation}\]</div>
+<p>This confirms that the steady-state probabilities of this three-state receptor model can be written in terms of equilibrium constants.</p>
 </section>
 </section>
 
@@ -704,7 +713,7 @@ a_{10} & -a_{10} - a_{12} & a_{12} \\
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbolic-vertex-and-edge-labels">Symbolic vertex and edge labels</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-matrix-of-markov-chain">Generator matrix of Markov chain</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chain-tree-theorem-hill-s-diagrammatic-method">Markov chain tree theorem (Hill’s diagrammatic method)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-chain-tree-theorem">Markov chain tree theorem</a></li>
 </ul>
   </nav></div>
 

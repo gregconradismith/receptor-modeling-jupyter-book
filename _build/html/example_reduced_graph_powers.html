@@ -165,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Markov chain tree theorem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">States and Transitions of Receptor Dimers</span></p>
@@ -464,7 +465,7 @@ for the number of vertices and edges of $G$.  We assume the graph $G$ is connect
 <p>where $v=|V(G)|$.
 The number of edges in the reduced graph power $G^{(k)}$ is</p>
 <div class="math notranslate nohighlight" id="equation-edges">
-<span class="eqno">(6)<a class="headerlink" href="#equation-edges" title="Permalink to this equation">#</a></span>\[|E(G^{(k)})|=e\binom{v+k-2}{k-1}   \]</div>
+<span class="eqno">(10)<a class="headerlink" href="#equation-edges" title="Permalink to this equation">#</a></span>\[|E(G^{(k)})|=e\binom{v+k-2}{k-1}   \]</div>
 <p>where $e=|E(G)|$.
 When the graph $G$ is understood, will sometimes abbreviate the number of vertices and edges in its reduced graph power by $v^{(k)} = |V(G^{(k)})|$ and $e^{(k)} = |E(G^{(k)})|$.</p>
 <section id="the-path-graph-p-n">
@@ -491,7 +492,7 @@ The number of vertices of the reduced graph power $P_n^{(k)}$ is $|V(P_n^{(k)})|
 \end{equation}\]</div>
 <p>Specializing to the case of a dimer ($k=2$), we have $|V(P_n^{(2)})|=\binom{n+1}{2}$,  $|E(P_n^{(2)})|=n(n-1)$, and $\beta(P_n^{(2)}) = \binom{n-1}{2}$.</p>
 <div class="math notranslate nohighlight" id="equation-path-graph">
-<span class="eqno">(7)<a class="headerlink" href="#equation-path-graph" title="Permalink to this equation">#</a></span>\[\beta(P_n^{(k)}) = (n-1)\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, . \]</div>
+<span class="eqno">(11)<a class="headerlink" href="#equation-path-graph" title="Permalink to this equation">#</a></span>\[\beta(P_n^{(k)}) = (n-1)\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, . \]</div>
 </section>
 <section id="the-cycle-graph-c-n">
 <h2>The cycle graph $C_n$<a class="headerlink" href="#the-cycle-graph-c-n" title="Permalink to this heading">#</a></h2>

@@ -52,17 +52,19 @@ var('a b c x kb kc')
 T = DiGraph([[a,b,c],[(b,a),(c,b)]])
 T.set_edge_label(b,a,kb*x)
 T.set_edge_label(c,b,kc*x)
-T.plot(figsize=6,pos={a:(0,0),b:(4,0),c:(6,0)},edge_labels=True,graph_border=True,vertex_size=1000)
+T.plot(figsize=6,pos={a:(0,0),b:(3,0),c:(6,0)},edge_labels=True,graph_border=True,vertex_size=1000)
 ```
 
 ## Probability of each state 
 
 For the equilibrium receptor model above, the probability of state {math}`i` is given by
-{math}`\pi_i = z_i / z_T` where  {math}`z_T= \textstyle \sum_i z_i`,
-{math}`z_a = 1`,
-{math}`z_b = \kappab = \kappabstar x`, and
-{math}`z_c =\kappab \kappac = \kappabstar \kappacstar x^2`. That is,
+{math}`\pi_i = z_i / z_T` where  {math}`z_T= \textstyle \sum_i z_i`, and 
 
+```{math}
+:label: equilibrium:z
+z_a = 1 \quad z_b = \kappab = \kappabstar x \quad  z_c =\kappab \kappac = \kappabstar \kappacstar x^2 \, .
+```
+That is,
 \begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}
@@ -92,6 +94,8 @@ The list `paths` has length 3. `paths[0]=[a]`.  `paths[1]=[b,a]`.  `paths[2]=[c,
 The relative probability of each state is obtained as the product of the edge weights in each path, with the trivial path yielding 1 (an empty product).
 
 ```{code-cell}
+paths = T.all_simple_paths(starting_vertices=[a,b,c],ending_vertices=[a],trivial=True)
+print(paths)
 z = []
 for p in paths:
     w = 1
@@ -100,7 +104,7 @@ for p in paths:
     z.append(w)
 print(z)
 ```
-The list `z` also has length 3.  `z[0]` is 1.  `z[1]=kb*x`.  `z[2]=kb*kc*x^2`.  These are the relative probabilities `z_a`, `z_b`, and `z_c`.
+The list `z` also has length 3.  `z[0]=1`.  `z[1]=kb*x`.  `z[2]=kb*kc*x^2`.  These are the relative probabilities {math}`z_a`, {math}`z_b`, and {math}`z_c`, which agree with our previous analytical calculation {eq}`equilibrium:z`.
 
 Symbolic expressions for the normalized probabilities are found as follows.
 
@@ -112,6 +116,20 @@ for i in range(len(z)):
 print(prob)
 ```
 
+## Equilibrium binding curve
+
+After choosing values for `kb` and `kc`, the equilibrium binding curves can be calculated.
+
+```{code-cell}
+xmin=0.01; xmax=100;
+params = {kb:1,kc:1}
+p = [0]*3
+col = ['red','green','blue']
+for i in range(3):
+    p[i] = plot_semilogx(prob[i].subs(params), (x, xmin, xmax), color=col[i], legend_label='p[%s]'%i, axes_labels=['x', 'probability'])
+    print('p[%s] ='%i,prob[i].subs(params))
+show(sum(p))
+```
 
 
 ## References

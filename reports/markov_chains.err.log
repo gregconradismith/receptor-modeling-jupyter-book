@@ -1,0 +1,130 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1256, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/util.py", line 87, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 694, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1012, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 906, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+T0 = G.copy()
+T1 = G.copy()
+T2 = G.copy()
+
+T0.delete_edge(p0,p1)
+T0.delete_edge(p1,p2)
+
+T1.delete_edge(p1,p0)
+T1.delete_edge(p1,p2)
+
+T2.delete_edge(p1,p0)
+T2.delete_edge(p2,p1)
+
+T0.show(figsize=4,edge_labels=True,title='root = p0',border=True)
+T1.show(figsize=4,edge_labels=True,title='root = p1',border=True)
+T2.show(figsize=4,edge_labels=True,title='root = p2',border=True)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn [8], line 14[0m
+[1;32m     11[0m T2[38;5;241m.[39mdelete_edge(p1,p0)
+[1;32m     12[0m T2[38;5;241m.[39mdelete_edge(p2,p1)
+[0;32m---> 14[0m [43mT0[49m[38;5;241;43m.[39;49m[43mshow[49m[43m([49m[43mfigsize[49m[38;5;241;43m=[39;49m[43mInteger[49m[43m([49m[38;5;241;43m4[39;49m[43m)[49m[43m,[49m[43medge_labels[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43mtitle[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mroot = p0[39;49m[38;5;124;43m'[39;49m[43m,[49m[43mborder[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+[1;32m     15[0m T1[38;5;241m.[39mshow(figsize[38;5;241m=[39mInteger([38;5;241m4[39m),edge_labels[38;5;241m=[39m[38;5;28;01mTrue[39;00m,title[38;5;241m=[39m[38;5;124m'[39m[38;5;124mroot = p1[39m[38;5;124m'[39m,border[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[1;32m     16[0m T2[38;5;241m.[39mshow(figsize[38;5;241m=[39mInteger([38;5;241m4[39m),edge_labels[38;5;241m=[39m[38;5;28;01mTrue[39;00m,title[38;5;241m=[39m[38;5;124m'[39m[38;5;124mroot = p2[39m[38;5;124m'[39m,border[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+
+File [0;32m/ext/sage/10.0/src/sage/graphs/generic_graph.py:20864[0m, in [0;36mGenericGraph.show[0;34m(self, method, **kwds)[0m
+[1;32m  20859[0m [38;5;66;03m# This dictionary only contains the options that graphplot[39;00m
+[1;32m  20860[0m [38;5;66;03m# understands. These options are removed from kwds at the same[39;00m
+[1;32m  20861[0m [38;5;66;03m# time.[39;00m
+[1;32m  20862[0m plot_kwds [38;5;241m=[39m {k: kwds[38;5;241m.[39mpop(k) [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m graphplot_options [38;5;28;01mif[39;00m k [38;5;129;01min[39;00m kwds}
+[0;32m> 20864[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mgraphplot[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mplot_kwds[49m[43m)[49m[38;5;241;43m.[39;49m[43mshow[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+
+File [0;32m/ext/sage/10.0/src/sage/graphs/graph_plot.py:1049[0m, in [0;36mGraphPlot.show[0;34m(self, **kwds)[0m
+[1;32m   1046[0m     [38;5;28;01mif[39;00m k [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m kwds:
+[1;32m   1047[0m         kwds[k] [38;5;241m=[39m value
+[0;32m-> 1049[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mplot[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mshow[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+
+File [0;32m/ext/sage/10.0/src/sage/misc/decorators.py:413[0m, in [0;36msuboptions.__call__.<locals>.wrapper[0;34m(*args, **kwds)[0m
+[1;32m    409[0m         [38;5;28;01mdel[39;00m kwds[key]
+[1;32m    411[0m kwds[[38;5;28mself[39m[38;5;241m.[39mname [38;5;241m+[39m [38;5;124m"[39m[38;5;124moptions[39m[38;5;124m"[39m] [38;5;241m=[39m suboptions
+[0;32m--> 413[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+
+File [0;32m/ext/sage/10.0/src/sage/plot/graphics.py:2135[0m, in [0;36mGraphics.show[0;34m(self, **kwds)[0m
+[1;32m   2133[0m [38;5;28;01mfrom[39;00m [38;5;21;01msage[39;00m[38;5;21;01m.[39;00m[38;5;21;01mrepl[39;00m[38;5;21;01m.[39;00m[38;5;21;01mrich_output[39;00m [38;5;28;01mimport[39;00m get_display_manager
+[1;32m   2134[0m dm [38;5;241m=[39m get_display_manager()
+[0;32m-> 2135[0m [43mdm[49m[38;5;241;43m.[39;49m[43mdisplay_immediately[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+
+File [0;32m/ext/sage/10.0/src/sage/repl/rich_output/display_manager.py:853[0m, in [0;36mDisplayManager.display_immediately[0;34m(self, obj, **rich_repr_kwds)[0m
+[1;32m    830[0m [38;5;28;01mdef[39;00m [38;5;21mdisplay_immediately[39m([38;5;28mself[39m, obj, [38;5;241m*[39m[38;5;241m*[39mrich_repr_kwds):
+[1;32m    831[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    832[0m [38;5;124;03m    Show output without going back to the command line prompt.[39;00m
+[1;32m    833[0m 
+[0;32m   (...)[0m
+[1;32m    851[0m [38;5;124;03m        1/2[39;00m
+[1;32m    852[0m [38;5;124;03m    """[39;00m
+[0;32m--> 853[0m     plain_text, rich_output [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_rich_output_formatter[49m[43m([49m[43mobj[49m[43m,[49m[43m [49m[43mrich_repr_kwds[49m[43m)[49m
+[1;32m    854[0m     [38;5;28mself[39m[38;5;241m.[39m_backend[38;5;241m.[39mdisplay_immediately(plain_text, rich_output)
+
+File [0;32m/ext/sage/10.0/src/sage/repl/rich_output/display_manager.py:645[0m, in [0;36mDisplayManager._rich_output_formatter[0;34m(self, obj, rich_repr_kwds)[0m
+[1;32m    643[0m has_rich_repr [38;5;241m=[39m [38;5;28misinstance[39m(obj, SageObject) [38;5;129;01mand[39;00m [38;5;28mhasattr[39m(obj, [38;5;124m'[39m[38;5;124m_rich_repr_[39m[38;5;124m'[39m)
+[1;32m    644[0m [38;5;28;01mif[39;00m has_rich_repr:
+[0;32m--> 645[0m     rich_output [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_call_rich_repr[49m[43m([49m[43mobj[49m[43m,[49m[43m [49m[43mrich_repr_kwds[49m[43m)[49m
+[1;32m    646[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(rich_output, OutputPlainText):
+[1;32m    647[0m     plain_text [38;5;241m=[39m rich_output
+
+File [0;32m/ext/sage/10.0/src/sage/repl/rich_output/display_manager.py:603[0m, in [0;36mDisplayManager._call_rich_repr[0;34m(self, obj, rich_repr_kwds)[0m
+[1;32m    571[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    572[0m [38;5;124;03mCall the ``_rich_repr_`` method[39;00m
+[1;32m    573[0m 
+[0;32m   (...)[0m
+[1;32m    599[0m [38;5;124;03m    doctest:...: ...RichReprWarning: Exception in _rich_repr_ while displaying object: reason[39;00m
+[1;32m    600[0m [38;5;124;03m"""[39;00m
+[1;32m    601[0m [38;5;28;01mif[39;00m rich_repr_kwds:
+[1;32m    602[0m     [38;5;66;03m# do not ignore errors from invalid options[39;00m
+[0;32m--> 603[0m     [38;5;28;01mreturn[39;00m [43mobj[49m[38;5;241;43m.[39;49m[43m_rich_repr_[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mrich_repr_kwds[49m[43m)[49m
+[1;32m    604[0m [38;5;28;01mtry[39;00m:
+[1;32m    605[0m     [38;5;28;01mreturn[39;00m obj[38;5;241m.[39m_rich_repr_([38;5;28mself[39m)
+
+File [0;32m/ext/sage/10.0/src/sage/plot/graphics.py:1001[0m, in [0;36mGraphics._rich_repr_[0;34m(self, display_manager, **kwds)[0m
+[1;32m    999[0m [38;5;28;01mfor[39;00m file_ext, output_container [38;5;129;01min[39;00m preferred:
+[1;32m   1000[0m     [38;5;28;01mif[39;00m output_container [38;5;129;01min[39;00m display_manager[38;5;241m.[39msupported_output():
+[0;32m-> 1001[0m         [38;5;28;01mreturn[39;00m [43mdisplay_manager[49m[38;5;241;43m.[39;49m[43mgraphics_from_save[49m[43m([49m
+[1;32m   1002[0m [43m            [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msave[49m[43m,[49m[43m [49m[43mkwds[49m[43m,[49m[43m [49m[43mfile_ext[49m[43m,[49m[43m [49m[43moutput_container[49m[43m)[49m
+
+File [0;32m/ext/sage/10.0/src/sage/repl/rich_output/display_manager.py:733[0m, in [0;36mDisplayManager.graphics_from_save[0;34m(self, save_function, save_kwds, file_extension, output_container, figsize, dpi)[0m
+[1;32m    731[0m [38;5;28;01mif[39;00m dpi [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    732[0m     kwds[[38;5;124m'[39m[38;5;124mdpi[39m[38;5;124m'[39m] [38;5;241m=[39m dpi
+[0;32m--> 733[0m [43msave_function[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+[1;32m    734[0m [38;5;28;01mfrom[39;00m [38;5;21;01msage[39;00m[38;5;21;01m.[39;00m[38;5;21;01mrepl[39;00m[38;5;21;01m.[39;00m[38;5;21;01mrich_output[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbuffer[39;00m [38;5;28;01mimport[39;00m OutputBuffer
+[1;32m    735[0m buf [38;5;241m=[39m OutputBuffer[38;5;241m.[39mfrom_file(filename)
+
+File [0;32m/ext/sage/10.0/src/sage/misc/decorators.py:413[0m, in [0;36msuboptions.__call__.<locals>.wrapper[0;34m(*args, **kwds)[0m
+[1;32m    409[0m         [38;5;28;01mdel[39;00m kwds[key]
+[1;32m    411[0m kwds[[38;5;28mself[39m[38;5;241m.[39mname [38;5;241m+[39m [38;5;124m"[39m[38;5;124moptions[39m[38;5;124m"[39m] [38;5;241m=[39m suboptions
+[0;32m--> 413[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+
+File [0;32m/ext/sage/10.0/src/sage/plot/graphics.py:3314[0m, in [0;36mGraphics.save[0;34m(self, filename, **kwds)[0m
+[1;32m   3311[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m rcParams
+[1;32m   3312[0m rc_backup [38;5;241m=[39m (rcParams[[38;5;124m'[39m[38;5;124mps.useafm[39m[38;5;124m'[39m], rcParams[[38;5;124m'[39m[38;5;124mpdf.use14corefonts[39m[38;5;124m'[39m],
+[1;32m   3313[0m              rcParams[[38;5;124m'[39m[38;5;124mtext.usetex[39m[38;5;124m'[39m])  [38;5;66;03m# save the rcParams[39;00m
+[0;32m-> 3314[0m figure [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmatplotlib[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43moptions[49m[43m)[49m
+[1;32m   3315[0m [38;5;66;03m# You can output in PNG, PS, EPS, PDF, PGF, or SVG format, depending[39;00m
+[1;32m   3316[0m [38;5;66;03m# on the file extension.[39;00m
+[1;32m   3317[0m [38;5;66;03m# PGF is handled by a different backend[39;00m
+[1;32m   3318[0m [38;5;28;01mif[39;00m ext [38;5;241m==[39m [38;5;124m'[39m[38;5;124m.pgf[39m[38;5;124m'[39m:
+
+[0;31mTypeError[0m: Graphics.matplotlib() got an unexpected keyword argument 'border'
+TypeError: Graphics.matplotlib() got an unexpected keyword argument 'border'
+

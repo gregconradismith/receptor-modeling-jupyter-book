@@ -1,0 +1,1331 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>My Tools &#8212; Receptors</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'receptor_tools';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="My struggle with docstrings" href="my_struggle_with_docstrings.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Doodle.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Doodle.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Receptors
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_vertex_and_edge_labels.html">Tools and Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_enumerate_allosteric_parameters.html">Using receptor_tools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">My Tools</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/receptor_tools.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book/issues/new?title=Issue%20on%20page%20%2Freceptor_tools.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/receptor_tools.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>My Tools</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="my-tools">
+<h1>My Tools<a class="headerlink" href="#my-tools" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mydoc</span><span class="p">(</span><span class="n">myfun</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display the **signature** of `myfun` followed by the **docstring** of `myfun`.</span>
+<span class="sd">    Set `method =&#39;signature&#39;` or `&#39;method = &#39;docstring&#39;` or `&#39;method = &#39;both&#39;`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">inspect</span>
+    <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">Latex</span><span class="p">,</span> <span class="n">display_markdown</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;signature&#39;</span> <span class="ow">or</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;both&#39;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">signature</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s2">&quot;**`&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">myfun</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">signature</span><span class="p">(</span><span class="n">myfun</span><span class="p">))</span><span class="o">+</span><span class="s2">&quot;`**&quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;docstring&#39;</span> <span class="ow">or</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;both&#39;</span><span class="p">:</span> 
+        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getdoc</span><span class="p">(</span><span class="n">myfun</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">mydoc(myfun,</span> <span class="pre">method='both')</span></code></strong></p>
+<p>Display the <strong>signature</strong> of <code class="docutils literal notranslate"><span class="pre">myfun</span></code> followed by the <strong>docstring</strong> of <code class="docutils literal notranslate"><span class="pre">myfun</span></code>.
+Set <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">='signature'</span></code> or <code class="docutils literal notranslate"><span class="pre">'method</span> <span class="pre">=</span> <span class="pre">'docstring'</span></code> or <code class="docutils literal notranslate"><span class="pre">'method</span> <span class="pre">=</span> <span class="pre">'both'</span></code></p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_graph</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prints the vertices and edges of the graph `G`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;vertices:&#39;</span><span class="p">,</span><span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;edges:&#39;</span><span class="p">,</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">print_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">print_graph(G)</span></code></strong></p>
+<p>Prints the vertices and edges of the graph <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_vertex_monomials</span><span class="p">(</span><span class="n">G</span><span class="o">=</span><span class="n">Graph</span><span class="p">(),</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span><span class="n">ring</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add monomials to vertices of a graph. </span>
+
+<span class="sd">    The add_vertex_monomials function takes a graph G, as well as optional parameters method and ring. The function creates a new graph H with vertices labeled by monomials. The monomials are chosen based on the number of vertices in G. If the method parameter is set to &#39;alpha&#39; and the number of vertices in G is less than or equal to 10, the monomials are chosen as alphabetical letters (&#39;a&#39; to &#39;k&#39;). Otherwise, the monomials are chosen as strings of the form &#39;a0&#39;, &#39;a1&#39;, ..., &#39;an-1&#39;, where n is the number of vertices in G. The function then adds the vertices from G to H using the monomials as labels, and adds the edges from G to H using the monomials as endpoints. If the ring parameter is set to True, the function also creates a polynomial ring V with the chosen monomials and &#39;invlex&#39; order, and returns both H and V. Otherwise, it returns only H.</span>
+
+<span class="sd">    INPUT:</span>
+<span class="sd">    </span>
+<span class="sd">    - ``G`` -- graph object (default: `Graph()`);</span>
+<span class="sd">    </span>
+<span class="sd">    - ``method`` -- integer (default: ``integer``);</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT: </span>
+<span class="sd">    </span>
+<span class="sd">    - The graph with monomials as vertices</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># define a list of possible monomials as strings</span>
+    <span class="n">monomials_integer</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="s1">&#39;J&#39;</span><span class="p">,</span><span class="s1">&#39;K&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">,</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">method</span><span class="o">==</span><span class="s1">&#39;alpha&#39;</span> <span class="ow">and</span> <span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">monomials_integer</span><span class="p">):</span>
+        <span class="n">monomials</span><span class="o">=</span><span class="n">monomials_integer</span><span class="p">[:</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()]</span>  <span class="c1"># use only a subset of the monomials</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># method=&#39;integer&#39; or too many alpha</span>
+        <span class="n">monomials</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">())]</span>
+
+    <span class="c1"># create a polynomial ring with names as specified monomials</span>
+    <span class="n">V</span><span class="o">=</span><span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">monomials</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;invlex&#39;</span><span class="p">)</span>
+
+    <span class="c1"># create a new graph H of the same type (directed or undirected) as G</span>
+    <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">is_directed</span><span class="p">():</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
+
+    <span class="c1"># add vertices to H as generators of the polynomial ring V</span>
+    <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">get_pos</span><span class="p">():</span>
+        <span class="n">d_pos_G</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_pos</span><span class="p">()</span>
+        <span class="n">d_pos_H</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">H</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+            <span class="n">d_pos_H</span><span class="p">[</span><span class="n">V</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">v</span><span class="p">)]</span><span class="o">=</span><span class="n">d_pos_G</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+        <span class="n">H</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span><span class="n">d_pos_H</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">H</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+            
+    <span class="c1"># add edges to H while mapping the vertices to their corresponding generators in V</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">V</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="c1"># optionally inject the variable names as symbols in the current namespace</span>
+    <span class="k">if</span> <span class="n">ring</span><span class="p">:</span>
+        <span class="c1"># V.inject_variables()</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>  <span class="c1"># return both the created graph H and the polynomial ring V</span>
+        <span class="c1">#var_names = [str(var) for var in V]</span>
+        <span class="c1">#inject_variables(&quot;,&quot;.join(var_names))</span>
+        <span class="c1">#return H, var_names  # return both the created graph H and the variable names</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">H</span>  <span class="c1"># only return the created graph H</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">add_vertex_monomials</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_vertex_monomials(G=Graph</span> <span class="pre">on</span> <span class="pre">0</span> <span class="pre">vertices,</span> <span class="pre">method='integer',</span> <span class="pre">ring=False)</span></code></strong></p>
+<p>Add monomials to vertices of a graph.</p>
+<p>The add_vertex_monomials function takes a graph G, as well as optional parameters method and ring. The function creates a new graph H with vertices labeled by monomials. The monomials are chosen based on the number of vertices in G. If the method parameter is set to ‘alpha’ and the number of vertices in G is less than or equal to 10, the monomials are chosen as alphabetical letters (‘a’ to ‘k’). Otherwise, the monomials are chosen as strings of the form ‘a0’, ‘a1’, …, ‘an-1’, where n is the number of vertices in G. The function then adds the vertices from G to H using the monomials as labels, and adds the edges from G to H using the monomials as endpoints. If the ring parameter is set to True, the function also creates a polynomial ring V with the chosen monomials and ‘invlex’ order, and returns both H and V. Otherwise, it returns only H.</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as vertices</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_edge_monomials</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span>
+                       <span class="n">edge_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;l&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="s1">&#39;q&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="s1">&#39;t&#39;</span><span class="p">,</span><span class="s1">&#39;u&#39;</span><span class="p">,</span><span class="s1">&#39;v&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="c1"># no &quot;a&quot; here!</span>
+                       <span class="n">ring</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">short_name</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add monomials to edges of a graph.</span>
+<span class="sd">    </span>
+<span class="sd">    The add_edge_monomials function takes a graph G, as well as optional parameters method, edge_vars, ring, and short_name. If method is set to &#39;integer&#39;, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph. The edge variables can be represented either as &#39;e&#39; followed by the first vertex label or the first and second vertex labels concatenated. If the vertex labels are integers and the short_name parameter is set to True, the edge variables are created using only the first vertex label. If method is set to &#39;alpha&#39;, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph in reverse order. The number of edge variables used is determined by the size of the graph. The ring parameter, if set to True, injects the polynomial variables into the global namespace and returns the graph and the polynomial ring. Otherwise, it simply returns the graph.</span>
+
+<span class="sd">    INPUT:</span>
+<span class="sd">    </span>
+<span class="sd">    - ``G`` -- graph object (default: `Graph()`);</span>
+<span class="sd">    </span>
+<span class="sd">    - ``method`` -- integer (default: ``integer``);</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT: </span>
+<span class="sd">    </span>
+<span class="sd">    - The graph with monomials as edges</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">method</span><span class="o">==</span><span class="s1">&#39;integer&#39;</span><span class="p">:</span> <span class="c1"># method parameter is set to &#39;integer&#39;</span>
+        <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># checking if the vertex labels are integers</span>
+            <span class="k">if</span> <span class="n">short_name</span><span class="p">:</span>
+                <span class="n">edge_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">e</span>[0] for e in G.edges(sort=True)] # create a list of edge variables using the first vertex label
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">edge_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span> <span class="c1"># create a list of edge variables using both vertex labels</span>
+            <span class="n">E</span><span class="o">=</span><span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">edge_vars</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;invlex&#39;</span><span class="p">)</span> <span class="c1"># create a polynomial ring using the edge variables</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">short_name</span><span class="p">:</span>
+                <span class="n">edge_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="k">e</span>[0] for e in G.edges(sort=True)] # create a list of edge variables using the first vertex label
+                <span class="n">edge_vars</span> <span class="o">=</span> <span class="p">[</span> <span class="n">ev</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span> <span class="n">edge_vars</span> <span class="p">]</span> <span class="c1"># remove &#39;a&#39; from the edge variables</span>
+                <span class="n">edge_subscripts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span> <span class="c1"># create a list of edge subscripts using both vertex labels</span>
+                <span class="n">edge_subscripts</span> <span class="o">=</span> <span class="p">[</span> <span class="n">ss</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">ss</span> <span class="ow">in</span> <span class="n">edge_subscripts</span> <span class="p">]</span> <span class="c1"># remove &#39;a&#39; from edge subscripts</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">edge_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;e_</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span> <span class="c1"># create a list of edge variables using both vertex labels</span>
+                <span class="n">edge_subscripts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span> <span class="c1"># create a list of edge subscripts using both vertex labels</span>
+            <span class="n">edge_names</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">edge_subscripts</span><span class="p">:</span>
+                <span class="n">edge_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;e_{</span><span class="se">\\</span><span class="s1">mathit{&#39;</span> <span class="o">+</span> <span class="n">sub</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;e_&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;}}&#39;</span><span class="p">)</span> <span class="c1"># create a list of latex names for the edge variables</span>
+            <span class="n">E</span><span class="o">=</span><span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">edge_vars</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;invlex&#39;</span><span class="p">)</span> <span class="c1"># create a polynomial ring using the edge variables</span>
+            <span class="n">E</span><span class="o">.</span><span class="n">_latex_names</span> <span class="o">=</span> <span class="n">edge_names</span> <span class="c1"># assign latex names to the polynomial variables</span>
+        <span class="n">gen</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span> <span class="c1"># add an edge with the corresponding variable to the graph</span>
+            <span class="n">gen</span><span class="o">=</span><span class="n">gen</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># method parameter is set to &#39;alpha&#39;</span>
+        <span class="n">edge_vars</span> <span class="o">=</span> <span class="n">edge_vars</span><span class="p">[:</span><span class="n">G</span><span class="o">.</span><span class="n">size</span><span class="p">()]</span> <span class="c1"># get the first G.size() edge variables</span>
+        <span class="n">E</span><span class="o">=</span><span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">edge_vars</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;invlex&#39;</span><span class="p">)</span> <span class="c1"># create a polynomial ring using the edge variables</span>
+        <span class="n">evars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">E</span><span class="o">.</span><span class="n">gens</span><span class="p">()[:</span><span class="n">G</span><span class="o">.</span><span class="n">size</span><span class="p">()])</span> <span class="c1"># create a list of the polynomial variables</span>
+        <span class="n">evars</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">evars</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span> <span class="c1"># add an edge with the corresponding variable to the graph</span>
+    <span class="k">if</span> <span class="n">ring</span><span class="p">:</span>
+        <span class="c1"># E.inject_variables() # inject the polynomial variables into the global namespace</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span> <span class="c1"># return the graph and the polynomial ring</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">G</span> <span class="c1"># return the graph</span>
+    
+<span class="n">mydoc</span><span class="p">(</span><span class="n">add_edge_monomials</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G,</span> <span class="pre">method='integer',</span> <span class="pre">edge_vars=['b',</span> <span class="pre">'c',</span> <span class="pre">'d',</span> <span class="pre">'e',</span> <span class="pre">'f',</span> <span class="pre">'g',</span> <span class="pre">'h',</span> <span class="pre">'i',</span> <span class="pre">'j',</span> <span class="pre">'k',</span> <span class="pre">'l',</span> <span class="pre">'m',</span> <span class="pre">'n',</span> <span class="pre">'o',</span> <span class="pre">'p',</span> <span class="pre">'q',</span> <span class="pre">'r',</span> <span class="pre">'s',</span> <span class="pre">'t',</span> <span class="pre">'u',</span> <span class="pre">'v',</span> <span class="pre">'w',</span> <span class="pre">'x',</span> <span class="pre">'y',</span> <span class="pre">'z'],</span> <span class="pre">ring=False,</span> <span class="pre">short_name=False)</span></code></strong></p>
+<p>Add monomials to edges of a graph.</p>
+<p>The add_edge_monomials function takes a graph G, as well as optional parameters method, edge_vars, ring, and short_name. If method is set to ‘integer’, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph. The edge variables can be represented either as ‘e’ followed by the first vertex label or the first and second vertex labels concatenated. If the vertex labels are integers and the short_name parameter is set to True, the edge variables are created using only the first vertex label. If method is set to ‘alpha’, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph in reverse order. The number of edge variables used is determined by the size of the graph. The ring parameter, if set to True, injects the polynomial variables into the global namespace and returns the graph and the polynomial ring. Otherwise, it simply returns the graph.</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as edges</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_edge_monomials_ver2</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add monomials to edges of a graph. </span>
+
+<span class="sd">    [NEED TO WRITE DESCRIPTION]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">edge_labels</span><span class="o">==</span><span class="s1">&#39;default&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">to_simple</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">26</span><span class="p">:</span>
+            <span class="n">edge_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;l&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="s1">&#39;q&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="s1">&#39;t&#39;</span><span class="p">,</span><span class="s1">&#39;u&#39;</span><span class="p">,</span><span class="s1">&#39;v&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">edge_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;e</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">to_simple</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">())]</span>
+    <span class="n">remaining_edge_labels</span><span class="o">=</span><span class="n">edge_labels</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">edge_labels</span><span class="o">==</span><span class="s1">&#39;cannonical&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prefix</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;</span><span class="si">%s%s%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">prefix</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">is_directed</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">edge_label</span><span class="o">=</span><span class="n">remaining_edge_labels</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">edge_label</span><span class="p">)</span>
+                    <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge_label</span><span class="o">+</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">edge_label</span><span class="o">=</span><span class="n">remaining_edge_labels</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">edge_label</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">G</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">add_edge_monomials_ver2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_edge_monomials_ver2(G,</span> <span class="pre">edge_labels='default',</span> <span class="pre">prefix='')</span></code></strong></p>
+<p>Add monomials to edges of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">HouseGraph</span><span class="p">(),</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enumerate allosteric parameters of a receptor model.</span>
+
+<span class="sd">    [NEED TO WRITE DESCRIPTION]</span>
+
+<span class="sd">    INPUT:</span>
+<span class="sd">    </span>
+<span class="sd">    - ``G`` -- graph object (default: `Graph()`);</span>
+<span class="sd">    </span>
+<span class="sd">    - ``method`` -- integer (default: ``integer``);</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT: </span>
+<span class="sd">    </span>
+<span class="sd">    - The graph with monomials as vertices</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">defaultKwargs</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span> <span class="o">**</span><span class="n">defaultKwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">}</span>
+    <span class="c1">#print(kwargs)</span>
+
+    <span class="n">my_method</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">my_method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span><span class="s1">&#39;alpha&#39;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;enumerate_allosteric_parameters says: method must be &#39;integer&#39; or &#39;alpha&#39;.&quot;</span><span class="p">)</span>
+
+    <span class="n">verbose</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;verbose&#39;</span><span class="p">]</span>
+    <span class="n">myshow</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;show&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">my_method</span><span class="o">==</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span> <span class="o">=</span> <span class="n">add_vertex_monomials</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">ring</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">Groot</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Groot</span><span class="o">=</span><span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">verbose</span> <span class="ow">or</span> <span class="n">myshow</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="p">(</span><span class="n">BFSVertexList</span><span class="p">,</span><span class="n">BFSTree</span><span class="p">)</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">lex_BFS</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">initial_vertex</span><span class="o">=</span><span class="n">Groot</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">E</span><span class="p">)</span><span class="o">=</span><span class="n">add_edge_monomials</span><span class="p">(</span><span class="n">BFSTree</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="n">my_method</span><span class="p">,</span><span class="n">ring</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">short_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">T</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">get_pos</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="n">verbose</span> <span class="ow">or</span> <span class="n">myshow</span><span class="p">:</span>
+        <span class="n">T</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+
+    <span class="n">F</span> <span class="o">=</span> <span class="p">[</span><span class="n">E</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">BFSVertexList</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span> <span class="c1"># every element except the first (the root 0, which has been set to E(0))</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">all_paths</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">BFSVertexList</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">use_multiedges</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">report_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># there is only one path, so take the first</span>
+        <span class="n">f</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="o">+</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">F</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">nf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># this should be equal to G.order()</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+
+    <span class="n">KappaVars</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">KappaNames</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">E</span><span class="o">.</span><span class="n">gens</span><span class="p">():</span>
+        <span class="n">estr</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">estr</span><span class="p">)</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">estr</span><span class="o">=</span><span class="n">estr</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">KappaVars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;kappa_&#39;</span><span class="o">+</span><span class="n">estr</span><span class="p">)</span>
+        <span class="n">KappaNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">kappa_{</span><span class="se">\\</span><span class="s1">mathit{&#39;</span> <span class="o">+</span> <span class="n">estr</span> <span class="o">+</span> <span class="s1">&#39;}}&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">KappaVars</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">KappaNames</span><span class="p">)</span>
+
+    <span class="n">EtaProb</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nf</span><span class="p">);</span> <span class="n">EtaMons</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nf</span><span class="p">);</span> <span class="n">EtaCoef</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nf</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)):</span>
+            <span class="n">fprod</span><span class="o">=</span><span class="n">F</span><span class="p">[</span><span class="n">i0</span><span class="p">]</span><span class="o">*</span><span class="n">F</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span>
+            <span class="n">EtaProb</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">=</span><span class="n">fprod</span>
+            <span class="n">EtaMons</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">=</span><span class="n">fprod</span><span class="o">.</span><span class="n">monomials</span><span class="p">()</span>
+            <span class="n">EtaCoef</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">=</span><span class="n">fprod</span><span class="o">.</span><span class="n">coefficients</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">EtaProb</span><span class="p">))</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">EtaMons</span><span class="p">))</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">EtaCoef</span><span class="p">))</span>
+
+    <span class="n">UniqueMons</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">mon</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">EtaMons</span><span class="p">))):</span>
+        <span class="n">UniqueMons</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mon</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">UniqueMons</span><span class="p">)</span>
+
+    <span class="n">EtaVars</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">EtaNames</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">mon</span> <span class="ow">in</span> <span class="n">UniqueMons</span><span class="p">:</span>
+        <span class="n">vvar</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">mon</span><span class="p">)</span>
+        <span class="n">vvar</span> <span class="o">=</span> <span class="n">vvar</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">my_method</span><span class="o">==</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span>
+            <span class="n">nchar</span><span class="o">=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nchar</span><span class="o">=</span><span class="mi">2</span>
+        <span class="n">vvar</span> <span class="o">=</span> <span class="n">replace_powers</span><span class="p">(</span><span class="n">vvar</span><span class="p">,</span><span class="n">nchar</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">my_method</span><span class="o">==</span><span class="s1">&#39;integer&#39;</span><span class="p">:</span>
+            <span class="n">vvar</span> <span class="o">=</span> <span class="n">vvar</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">EtaVars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;eta_&#39;</span><span class="o">+</span><span class="n">vvar</span><span class="p">)</span>
+        <span class="n">EtaNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">eta_{</span><span class="se">\\</span><span class="s1">mathit{&#39;</span> <span class="o">+</span> <span class="n">vvar</span> <span class="o">+</span> <span class="s1">&#39;}}&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">EtaVars</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">EtaNames</span><span class="p">)</span>
+
+    <span class="n">A</span><span class="o">=</span><span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">KappaVars</span><span class="o">+</span><span class="n">EtaVars</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;invlex&#39;</span><span class="p">)</span>
+    <span class="c1"># A.inject_variables()</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">_latex_names</span> <span class="o">=</span> <span class="n">KappaNames</span><span class="o">+</span><span class="n">EtaNames</span>
+    <span class="c1"># https://ask.sagemath.org/question/8202/how-to-give-latex-names-to-generators-of-polynomial-rings/</span>
+
+    <span class="n">d_vars</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">E</span><span class="o">.</span><span class="n">gens</span><span class="p">())</span><span class="o">+</span><span class="n">UniqueMons</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">gens</span><span class="p">())))</span>
+    <span class="n">d_vars</span><span class="p">[</span><span class="n">E</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">=</span><span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">d_vars</span><span class="p">)</span>
+
+    <span class="n">KappaProb</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nf</span><span class="p">);</span> <span class="n">KappaMons</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nf</span><span class="p">);</span> <span class="n">KappaCoef</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nf</span><span class="p">);</span>
+    <span class="n">Kappa</span> <span class="o">=</span> <span class="n">repmat</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">nf</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i0</span><span class="p">):</span>
+            <span class="n">Kappa</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)):</span>
+            <span class="n">fsum</span> <span class="o">=</span> <span class="n">F</span><span class="p">[</span><span class="n">i0</span><span class="p">]</span><span class="o">+</span><span class="n">F</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span>
+            <span class="n">KappaProb</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">=</span><span class="n">fsum</span>
+            <span class="n">KappaMons</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">=</span><span class="n">fsum</span><span class="o">.</span><span class="n">monomials</span><span class="p">()</span>
+            <span class="n">KappaCoef</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">=</span><span class="n">fsum</span><span class="o">.</span><span class="n">coefficients</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">KappaMons</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">])):</span>
+                <span class="n">mon</span> <span class="o">=</span> <span class="n">KappaMons</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">][</span><span class="n">m</span><span class="p">]</span>
+                <span class="n">Kappa</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">*=</span> <span class="n">d_vars</span><span class="p">[</span><span class="n">mon</span><span class="p">]</span><span class="o">^</span><span class="n">KappaCoef</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">][</span><span class="n">m</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i0</span><span class="o">!=</span><span class="n">i1</span><span class="p">:</span>
+                <span class="n">Kappa</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">*=</span><span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">KappaProb</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">KappaMons</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">KappaCoef</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">Kappa</span><span class="p">)</span>
+
+    <span class="n">Eta</span> <span class="o">=</span> <span class="n">repmat</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">nf</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i0</span><span class="p">):</span>
+            <span class="n">Eta</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">F</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">EtaMons</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">])):</span>
+                <span class="n">mon</span> <span class="o">=</span> <span class="n">EtaMons</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">][</span><span class="n">m</span><span class="p">]</span>
+                <span class="n">Eta</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span> <span class="o">*=</span> <span class="n">d_vars</span><span class="p">[</span><span class="n">mon</span><span class="p">]</span> <span class="o">**</span> <span class="n">EtaCoef</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">][</span><span class="n">m</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">Eta</span><span class="p">)</span>
+
+    <span class="n">KappaEta</span> <span class="o">=</span> <span class="n">table_multiply</span><span class="p">(</span><span class="n">Kappa</span><span class="p">,</span><span class="n">Eta</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span> <span class="ow">or</span> <span class="n">myshow</span><span class="p">:</span>
+        <span class="n">show</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">KappaEta</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">enumerate_allosteric_parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G=House</span> <span class="pre">Graph:</span> <span class="pre">Graph</span> <span class="pre">on</span> <span class="pre">5</span> <span class="pre">vertices,</span> <span class="pre">**kwargs)</span></code></strong></p>
+<p>Enumerate allosteric parameters of a receptor model.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as vertices</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">replace_powers</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">nchar</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">result</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;^2&#39;</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">+=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">nchar</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">+=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">table_multiply</span><span class="p">(</span><span class="n">Alpha</span><span class="p">,</span><span class="n">Beta</span><span class="p">):</span>
+    <span class="n">AlphaBeta</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">A</span><span class="p">,</span><span class="n">B</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Alpha</span><span class="p">,</span><span class="n">Beta</span><span class="p">):</span>
+        <span class="n">AlphaBeta</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">AlphaBeta</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">repmat</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1"># n rows and m columns</span>
+    <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">n</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">value</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">n</span>
+    <span class="k">return</span> <span class="n">repmat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">n</span>
+    <span class="k">return</span> <span class="n">repmat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="n">phi_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">phi_sum</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">phi</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_binary_array</span><span class="p">(</span><span class="n">n_states</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_states</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_random_q</span><span class="p">(</span><span class="n">n_states</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">n_states</span><span class="p">)</span>
+    <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">q</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pade</span><span class="p">(</span><span class="n">phi_list</span><span class="p">,</span><span class="n">q_list</span><span class="p">,</span><span class="n">x_list</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+    <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x_list</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x_list</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">phi_list</span><span class="p">,</span><span class="n">q_list</span><span class="p">)):</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">num</span><span class="p">,[</span><span class="n">phi</span><span class="o">*</span><span class="n">q</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_list</span><span class="p">])</span>
+        <span class="n">den</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">den</span><span class="p">,[</span><span class="n">q</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_list</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">den</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_simulated_data</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">xlogmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span><span class="n">xlogmax</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">xnum</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">noise</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">!=</span><span class="nb">len</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;make_simulated_data says: phi and q are not the same length.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning: Setting q0 to 1.&#39;</span><span class="p">)</span>
+        <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">xlogmin</span><span class="p">,</span><span class="n">xlogmax</span><span class="p">,</span><span class="n">xnum</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">pade</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">noise</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dimerize</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="n">Phi</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">Phi</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span><span class="p">[</span><span class="n">i0</span><span class="p">]</span><span class="o">*</span><span class="n">phi</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i0</span><span class="o">==</span><span class="n">i1</span><span class="p">:</span>
+                <span class="n">Phi</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">*=</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">Phi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_symbolic_dimer_binding_curve</span><span class="p">(</span><span class="n">Phi</span><span class="p">,</span><span class="n">KappaEta</span><span class="p">):</span>
+    <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Phi</span><span class="p">)</span>
+    <span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">den</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="n">i0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">num</span> <span class="o">+=</span> <span class="n">Phi</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span><span class="o">*</span><span class="n">KappaEta</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span>
+            <span class="n">den</span> <span class="o">+=</span> <span class="n">KappaEta</span><span class="p">[</span><span class="n">i0</span><span class="p">][</span><span class="n">i1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">num</span><span class="o">/</span><span class="n">den</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transition_and_context</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="c1"># f=from tuple, t=to tuple</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">!=</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Tuples must be the same size.&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+    <span class="n">t</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+    <span class="k">def</span> <span class="nf">remove_common_item</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">tt</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">ff</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ff</span><span class="o">==</span><span class="n">tt</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span>
+                    <span class="n">t</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">ff</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">context</span><span class="o">=</span><span class="p">[];</span>
+    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">remove_common_item</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">c</span><span class="o">==</span><span class="p">[]:</span>
+            <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">context</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">context</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">combinatorial_coefficient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="c1"># f=from tuple, t=to tuple</span>
+    <span class="n">ff</span><span class="p">,</span><span class="n">tt</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="n">transition_and_context</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">coeff</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">context</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span><span class="o">==</span><span class="n">ff</span><span class="p">:</span>
+            <span class="n">coeff</span><span class="o">=</span><span class="n">coeff</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">coeff</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cartesian_power_original</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct Cartesian power of a graph.</span>
+
+<span class="sd">    [NEED TO WRITE DESCRIPTION]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Make Cartesian power G^k (unreduced)</span>
+    <span class="n">Gk</span><span class="o">=</span><span class="n">G</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">Gk</span> <span class="o">=</span> <span class="n">Gk</span><span class="o">.</span><span class="n">cartesian_product</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="c1"># Make each vertex a tuple</span>
+    <span class="n">vflat</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">Gk</span><span class="o">.</span><span class="n">order</span><span class="p">()));</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Gk</span><span class="o">.</span><span class="n">order</span><span class="p">()):</span>
+        <span class="n">v</span><span class="o">=</span><span class="n">Gk</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span>
+        <span class="c1">#print(i,v,flatten(v))</span>
+        <span class="n">vflat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="n">Gk</span><span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="n">vflat</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">edge_labels</span><span class="o">==</span><span class="s1">&#39;cannonical&#39;</span><span class="p">:</span>
+        <span class="n">Gk</span> <span class="o">=</span> <span class="n">add_edge_labels_ver2</span><span class="p">(</span><span class="n">Gk</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">)</span>
+        <span class="c1">#Gk = add_edge_monomials(Gk)</span>
+    <span class="k">return</span> <span class="n">Gk</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">Cartesian_power_original</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">Cartesian_power_original(G,</span> <span class="pre">k,</span> <span class="pre">edge_labels='cannonical')</span></code></strong></p>
+<p>Construct Cartesian power of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">false</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct reduced Cartesian power of a graph.</span>
+
+<span class="sd">    [NEED TO WRITE DESCRIPTION]</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Gk</span> <span class="o">=</span> <span class="n">Cartesian_power_original</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">edge_labels</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">sv</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+            <span class="n">su</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">!=</span><span class="n">u</span> <span class="ow">and</span> <span class="n">sv</span><span class="o">==</span><span class="n">su</span> <span class="ow">and</span> <span class="n">v</span><span class="o">&lt;</span><span class="n">u</span> <span class="ow">and</span> <span class="n">Gk</span><span class="o">.</span><span class="n">has_vertex</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="ow">and</span> <span class="n">Gk</span><span class="o">.</span><span class="n">has_vertex</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+                <span class="n">Gk</span><span class="o">.</span><span class="n">merge_vertices</span><span class="p">([</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">edge_labels</span><span class="o">==</span><span class="s1">&#39;induced&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">fr</span><span class="p">,</span><span class="n">to</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="n">transition_and_context</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">prefix</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">Gk</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fr</span><span class="p">,</span><span class="n">to</span><span class="p">,</span><span class="n">context</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">independent</span><span class="p">:</span>
+                    <span class="n">Gk</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fr</span><span class="p">,</span><span class="n">to</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">ctxt</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">context</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">:</span>
+                            <span class="n">ctxt</span><span class="o">=</span><span class="n">ctxt</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">ctxt</span><span class="o">=</span><span class="n">ctxt</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                        <span class="n">Gk</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fr</span><span class="p">,</span><span class="n">to</span><span class="p">,</span><span class="n">ctxt</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Gk</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">reduced_Cartesian_power_original</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_Cartesian_power_original(G,</span> <span class="pre">k,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
+<p>Construct reduced Cartesian power of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">combinatorial_laplacian</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">combinatorial_coefficients</span><span class="o">=</span><span class="n">false</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Construct the combinatorial Laplacian of a graph.</span>
+<span class="sd">    </span>
+<span class="sd">    [NEED TO WRITE DESCRIPTION]</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">v</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">SR</span><span class="p">,</span> <span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">(),</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">:</span> <span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">combinatorial_coefficients</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()):</span>
+                <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]):</span>
+                    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">combinatorial_coefficient</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">diagonal_matrix</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()))</span>
+    <span class="n">L</span><span class="o">=</span><span class="n">D</span><span class="o">-</span><span class="n">A</span>
+    <span class="k">return</span> <span class="n">L</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">combinatorial_laplacian</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">combinatorial_laplacian(G,</span> <span class="pre">combinatorial_coefficients=False)</span></code></strong></p>
+<p>Construct the combinatorial Laplacian of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tree_polynomial</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">combinatorial_coefficients</span><span class="o">=</span><span class="n">false</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Construct the tree polynomial of a graph.</span>
+
+<span class="sd">    [NEED TO WRITE DESCRIPTION]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">L</span><span class="o">=</span><span class="n">combinatorial_laplacian</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">combinatorial_coefficients</span><span class="p">)</span>
+    <span class="n">T</span><span class="o">=</span><span class="n">det</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">T</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">tree_polynomial</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">tree_polynomial(G,</span> <span class="pre">combinatorial_coefficients=False)</span></code></strong></p>
+<p>Construct the tree polynomial of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">symmetric_directed</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">to_directed</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">D</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">D</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">D</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "sage-10.0"
+        },
+        kernelOptions: {
+            name: "sage-10.0",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'sage-10.0'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="my_struggle_with_docstrings.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">My struggle with docstrings</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Greg Conradi Smith
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

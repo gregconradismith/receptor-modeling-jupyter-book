@@ -34,7 +34,9 @@ This state-transition diagram has the topology of a symmetric directed [path gra
 
 ```{code-cell}
 z_R = kam*kbm; z_RL = kap*L*kbm; z_RLL = kap*L*kbp*L
+
 z_T = z_R+z_RL+z_RLL
+
 R = z_R/z_T; RL = z_RL/z_T; RLL = z_RLL/z_T
 
 print('R   =',R); print('RL  =',RL); print('RLL =',RLL)
@@ -57,11 +59,13 @@ show(pR+pRL+pRLL)
 ```
 At low ligand concentration most receptors are in the unbound form (`R`, red). At high concentrations most receptors are in the doubly bound form (`RLL`, blue).
 
-For any given ligand concentration, the fraction of receptors in each of the three states sums to 1.
+For any given ligand concentration, the fraction of receptors in each of the three states sums to 1.  This can be shown by asking Sagemath to solve for the values of `L` that satisfy `R+RL+RLL == 1`, as follows:
 
 ```{code-cell}
 solve(R+RL+RLL == 1,L)
 ```
+The answer indicates that `R+RL+RLL == 1` whenever `[L == L]`, that is, for any value of `L`.
+
 
 ## Equilibrium association constants
 
@@ -73,6 +77,7 @@ To see this, divide the numberator and denominator of the expressions for `R`, `
 var('ka kb')
 
 z_R = 1; z_RL = ka*L; z_RLL = ka*L*kb*L; z_T = z_R+z_RL+z_RLL
+
 R = z_R/z_T; RL = z_RL/z_T; RLL = z_RLL/z_T
 
 print('R =',R,'','RL =',RL,'','RLL =',RLL)
@@ -83,9 +88,10 @@ The filled circles on the plot below show that these expressions give the same t
 ```{code-cell}
 params = {ka:1,kb:10}
 R = R.subs(params); RL = RL.subs(params); RLL = RLL.subs(params)
-print('R   =',R); print('RL  =',RL); print('RLL =',RLL)
+print('R   =',R,'','RL  =',RL,'','RLL =',RLL)
 
 X = [0.01,0.03,0.1,0.3,1,3,10,30,100]
+
 vReq = [(x, R(L=x)) for x in X]
 pReq = points(vReq, rgbcolor=(0.5,0,0), pointsize=50)
 
@@ -98,16 +104,35 @@ pRLLeq = points(vRLLeq, rgbcolor=(0,0,0.5), pointsize=50)
 show(pR + pRL + pRLL + pReq + pRLeq + pRLLeq)
 ```
 
-## Equilibrium binding curves and branchings
+## Equilibrium binding curves and arborescences
 
-Equilibrium binding curves can be compactly specified as a _branching_ with association constants and ligand concentrations weighting the edges.  The branching is essentially a rooted spanning tree with arrows reversed.
+Receptor models and equilibrium binding curves can be compactly specified as an (_arborescence_)[https://en.wikipedia.org/wiki/Arborescence_(graph_theory)] with directed edges (arcs) weighted by association constants and ligand concentrations. In graph theory, an arborescence is a directed graph having a distinguished vertex `u` (called the root) such that, for any other vertex `v`, there is exactly one directed path from `u` to `v`.  
 
 ```{code-cell}
 T = DiGraph({'R': {'RL':ka*L}, 'RL': {'RLL':kb*L}})
 pos = {'R': (0, 0), 'RL': (2, 0), 'RLL': (4, 0)}
 T.plot(figsize=8,edge_labels=True,pos=pos,graph_border=True,vertex_size=1000)
-
 ```
-The arrows indicate the direction of the forward reaction.  The labels on the arrow are equilibrium constants or the product of equilibrium association constant and ligand concentration. 
 
-The following section presents this viewpoint in detail.
+In the arborescence shown above, the root is state `R`. 
+
+## Equilibrium binding curves and rooted spanning trees
+
+An arborescence is a _rooted spanning tree_ of the state-transtion diagram with arrows reversed.
+
+When specifying a receptor model and equilibrium binding curve as a rooted spanning tree, the orientation of the arcs specify the reverse direction of each tansition (reactant {math}`\leftarrow` product). 
+
+```{code-cell}
+T = DiGraph({'RL': {'R':ka*L}, 'RLL': {'RL':kb*L}})
+pos = {'R': (0, 0), 'RL': (2, 0), 'RLL': (4, 0)}
+T.plot(figsize=8,edge_labels=True,pos=pos,graph_border=True,vertex_size=1000)
+```
+
+:::{admonition} arborescence vs. rooted spanning tree
+:class: tip
+
+A receptor model and its equilibrium binding curve can be specifed either as an arborescence or a rooted spanning tree. The two approaches are equivalent.
+
+However, the rooted spanning tree formulation is helpful in the analysis of conformation coupling of receptors. For this reason, in the sections that follow, we will specify receptor models as rooted spanning trees.
+:::
+

@@ -164,9 +164,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Tools and Examples Using MyTools.ipynb - Part 1 - Assigning monomials to graph vertices and edges</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">States and Transitions of Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
@@ -176,7 +177,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">My Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyStruggleWithDocstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Using MyTools.ipynb - Part 1 - Assigning monomials to graph vertices and edges</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Using MyTools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
@@ -194,6 +194,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
 </ul>
 
     </div>
@@ -395,9 +399,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -413,14 +415,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#my-graph-show-g"><code class="docutils literal notranslate"><span class="pre">my_graph_show(G)</span></code></a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -432,7 +426,6 @@ document.write(`
                   
   <section id="my-tools">
 <h1>My Tools<a class="headerlink" href="#my-tools" title="Permalink to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">mydoc(myfun,method='both')</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mydoc</span><span class="p">(</span><span class="n">myfun</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">):</span>
@@ -460,29 +453,24 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 </div>
 </div>
 <hr class="docutils" />
-<section id="my-graph-show-g">
-<h2><code class="docutils literal notranslate"><span class="pre">my_graph_show(G)</span></code><a class="headerlink" href="#my-graph-show-g" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_graph_show</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Show a graph Greg&#39;s way.</span>
-<span class="sd">    Prints the vertices and edges of the graph `G`.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_graph</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prints the vertices and edges of the graph `G`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;vertices:&#39;</span><span class="p">,</span><span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;edges:&#39;</span><span class="p">,</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">print_graph</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><strong><code class="docutils literal notranslate"><span class="pre">my_graph_show(G)</span></code></strong></p>
-<p>Show a graph Greg’s way.
-Prints the vertices and edges of the graph <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">print_graph(G)</span></code></strong></p>
+<p>Prints the vertices and edges of the graph <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
 </div>
 </div>
 <hr class="docutils" />
-<p><code class="docutils literal notranslate"><span class="pre">add_vertex_monomials(G=Graph(),method='integer',ring=False)</span></code></p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -502,15 +490,9 @@ Prints the vertices and edges of the graph <code class="docutils literal notrans
 <span class="sd">    </span>
 <span class="sd">    - ``method`` -- integer (default: ``integer``);</span>
 <span class="sd">    </span>
-<span class="sd">    OUTPUT: The graph with monomials as vertices</span>
+<span class="sd">    OUTPUT: </span>
 <span class="sd">    </span>
-<span class="sd">    EXAMPLES:</span>
-<span class="sd">    </span>
-<span class="sd">    This example illustrates ... ::</span>
-<span class="sd">    </span>
-<span class="sd">        sage: A = ModuliSpace()</span>
-<span class="sd">        sage: A.point(2,3)</span>
-<span class="sd">        xxx</span>
+<span class="sd">    - The graph with monomials as vertices</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># define a list of possible monomials as strings</span>
     <span class="n">monomials_integer</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="s1">&#39;J&#39;</span><span class="p">,</span><span class="s1">&#39;K&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">,</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span>
@@ -553,12 +535,12 @@ Prints the vertices and edges of the graph <code class="docutils literal notrans
         <span class="c1">#return H, var_names  # return both the created graph H and the variable names</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">H</span>  <span class="c1"># only return the created graph H</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">add_vertex_monomials</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
-</div>
-<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><strong><code class="docutils literal notranslate"><span class="pre">add_vertex_monomials(G=Graph</span> <span class="pre">on</span> <span class="pre">0</span> <span class="pre">vertices,</span> <span class="pre">method='integer',</span> <span class="pre">ring=False)</span></code></strong></p>
 <p>Add monomials to vertices of a graph.</p>
@@ -568,14 +550,10 @@ Prints the vertices and edges of the graph <code class="docutils literal notrans
 <li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
 </ul>
-<p>OUTPUT: The graph with monomials as vertices</p>
-<p>EXAMPLES:</p>
-<p>This example illustrates … ::</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sage: A = ModuliSpace()
-sage: A.point(2,3)
-xxx
-</pre></div>
-</div>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as vertices</p></li>
+</ul>
 </div>
 </div>
 <hr class="docutils" />
@@ -1113,7 +1091,6 @@ xxx
 </div>
 </div>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1173,20 +1150,6 @@ xxx
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#my-graph-show-g"><code class="docutils literal notranslate"><span class="pre">my_graph_show(G)</span></code></a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

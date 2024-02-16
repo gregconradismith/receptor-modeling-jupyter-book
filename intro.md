@@ -31,3 +31,5 @@ Author of [Cellular Biophysics \& Modeling: a primer on the computational biolog
 ```{tableofcontents}
 ```
 
+```{nb-exec-table}
+```

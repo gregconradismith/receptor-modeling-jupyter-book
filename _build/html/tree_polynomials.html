@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Wang algebra" href="wang_algebra.html" />
-    <link rel="prev" title="Plot Binding Curves" href="plot_binding_curves.html" />
+    <link rel="prev" title="Cycle fluxes in receptor models" href="cycle_fluxes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -165,16 +165,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_vertex_and_edge_labels.html">Tools and Examples - Part 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_enumerate_allosteric_parameters.html">Tools and Examples - Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
@@ -182,6 +184,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
 <ul class="current nav bd-sidenav">
@@ -509,30 +516,30 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gk</span><span class="o">=</span><span class="n">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="mi">2</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gk</span><span class="o">=</span><span class="n">reduced_cartesian_power</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="mi">2</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">)</span>
 <span class="n">Gk</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5332e9ffa4424fb0ec1bf7e5961ec238730f133d70f4f247a7671af8ed5349e3.png" src="_images/5332e9ffa4424fb0ec1bf7e5961ec238730f133d70f4f247a7671af8ed5349e3.png" />
+<img alt="_images/ce0fd5142eaa068932a20ed3f5da908f2d3bcf9aa7666bcc3808e60fa2a4b399.png" src="_images/ce0fd5142eaa068932a20ed3f5da908f2d3bcf9aa7666bcc3808e60fa2a4b399.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gk</span><span class="o">=</span><span class="n">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="mi">3</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gk</span><span class="o">=</span><span class="n">reduced_cartesian_power</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="mi">3</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="n">Gk</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="n">true</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8f5cce1130f7bb87b049539d5e0d27babeea0e50995927c00454e79790ead93f.png" src="_images/8f5cce1130f7bb87b049539d5e0d27babeea0e50995927c00454e79790ead93f.png" />
+<img alt="_images/cacb0b59f5ffdfeedcf99d1fd6337b265fc773147b2f6a29b95c3824d1b782c7.png" src="_images/cacb0b59f5ffdfeedcf99d1fd6337b265fc773147b2f6a29b95c3824d1b782c7.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">Gk</span><span class="o">=</span><span class="n">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+<span class="n">Gk</span><span class="o">=</span><span class="n">reduced_cartesian_power</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Gk</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="n">true</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">combinatorial_laplacian</span><span class="p">(</span><span class="n">Gk</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">()</span>
@@ -542,7 +549,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/674d4e5d44eae576f434d9ad27d89bf1f91ac80e688d6ab1788c1d636f421e98.png" src="_images/674d4e5d44eae576f434d9ad27d89bf1f91ac80e688d6ab1788c1d636f421e98.png" />
+<img alt="_images/0ab15615bbff35743ffccbbce1c453690ce9c6ff39bef89e40a8b63fe67ac256.png" src="_images/0ab15615bbff35743ffccbbce1c453690ce9c6ff39bef89e40a8b63fe67ac256.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[        a01 + a02              -a01              -a02                 0                 0                 0]
 [             -a01 2*a01 + a02 + a12              -a12              -a01              -a02                 0]
 [             -a02              -a12 a01 + 2*a02 + a12                 0              -a01              -a02]
@@ -561,7 +568,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">symmetric_directed</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">Dk</span><span class="o">=</span><span class="n">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+<span class="n">Dk</span><span class="o">=</span><span class="n">reduced_cartesian_power</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Dk</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">combinatorial_laplacian</span><span class="p">(</span><span class="n">Dk</span><span class="p">,</span><span class="n">combinatorial_coefficients</span><span class="o">=</span><span class="n">true</span><span class="p">))</span>
 <span class="n">Tk</span><span class="o">=</span><span class="n">tree_polynomial</span><span class="p">(</span><span class="n">Dk</span><span class="p">,</span><span class="n">combinatorial_coefficients</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
@@ -570,7 +577,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eb5f0bef4568dec9c89c3696780e96f0e43de9cdc3ad0903575972c98467e74a.png" src="_images/eb5f0bef4568dec9c89c3696780e96f0e43de9cdc3ad0903575972c98467e74a.png" />
+<img alt="_images/8a325b29a0b362d3ba4056f314bd5ddb18f231bb8aab672dd7de7d91237a3068.png" src="_images/8a325b29a0b362d3ba4056f314bd5ddb18f231bb8aab672dd7de7d91237a3068.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[        2*a01 + 2*a02                -2*a01                -2*a02                     0                     0                     0]
 [                 -a10 a01 + a02 + a10 + a12                  -a12                  -a01                  -a02                     0]
 [                 -a20                  -a21 a01 + a02 + a20 + a21                     0                  -a01                  -a02]
@@ -586,7 +593,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gk</span><span class="o">=</span><span class="n">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">CubeGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gk</span><span class="o">=</span><span class="n">reduced_cartesian_power</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">CubeGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span><span class="n">Gk</span><span class="o">.</span><span class="n">spanning_trees_count</span><span class="p">(),</span><span class="s1">&#39;spanning trees.  Here is one:&#39;</span><span class="p">)</span>
 <span class="n">TGk</span><span class="o">=</span><span class="n">Gk</span><span class="o">.</span><span class="n">random_spanning_tree</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span> <span class="n">Gk</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
@@ -599,13 +606,13 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 1187343891269694642309198417406636743388000595418407837505224529723117873425106862080000000000000000000000000000 spanning trees.  Here is one:
 </pre></div>
 </div>
-<img alt="_images/e01a3a8c04cfff9cf207f64833576e21e5c7628273f69f9a8c8f540b2db01bc0.png" src="_images/e01a3a8c04cfff9cf207f64833576e21e5c7628273f69f9a8c8f540b2db01bc0.png" />
+<img alt="_images/b80957a6df867725085bd06ec7d613bdec2223b4f60fb391d6695c3d333a214f.png" src="_images/b80957a6df867725085bd06ec7d613bdec2223b4f60fb391d6695c3d333a214f.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">symmetric_directed</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">CycleGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">Dk</span><span class="o">=</span><span class="n">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+<span class="n">Dk</span><span class="o">=</span><span class="n">reduced_cartesian_power</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Dk</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Tk</span><span class="o">=</span><span class="n">tree_polynomial</span><span class="p">(</span><span class="n">Dk</span><span class="p">,</span><span class="n">combinatorial_coefficients</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Tk</span><span class="o">.</span><span class="n">factor</span><span class="p">()</span>
@@ -613,7 +620,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b98e90710f45e7f05211a9ea8e49aebc8fa91571d8f7b6a5fc76505efcaa826a.png" src="_images/b98e90710f45e7f05211a9ea8e49aebc8fa91571d8f7b6a5fc76505efcaa826a.png" />
+<img alt="_images/b8ec52875f5e7e01e1d3401e33343555629b48802e8486c050661ec9b86754cb.png" src="_images/b8ec52875f5e7e01e1d3401e33343555629b48802e8486c050661ec9b86754cb.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36*(2*a01^2 + 4*a01*a02 + 2*a02^2 + 4*a01*a10 + 5*a02*a10 + 2*a10^2 + 5*a01*a12 + 5*a02*a12 + 4*a10*a12 + 2*a12^2 + 5*a01*a20 + 4*a02*a20 + 5*a10*a20 + 5*a12*a20 + 2*a20^2 + 5*a01*a21 + 5*a02*a21 + 5*a10*a21 + 4*a12*a21 + 4*a20*a21 + 2*a21^2)*(a10*a20 + a12*a20 + a10*a21)^3*(a01 + a02 + a10 + a12 + a20 + a21)
 </pre></div>
 </div>
@@ -626,7 +633,7 @@ document.write(`
 <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">symmetric_directed</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 <span class="n">D</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="n">true</span><span class="p">,</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;spring&#39;</span><span class="p">)</span>
-<span class="n">Dk</span><span class="o">=</span><span class="n">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+<span class="n">Dk</span><span class="o">=</span><span class="n">reduced_cartesian_power</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;induced&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Dk</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Tk</span><span class="o">=</span><span class="n">tree_polynomial</span><span class="p">(</span><span class="n">Dk</span><span class="p">,</span><span class="n">combinatorial_coefficients</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
 <span class="n">Tk</span><span class="o">.</span><span class="n">factor</span><span class="p">()</span>
@@ -634,8 +641,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/241fb815608d64d1e312b52271cb91fc388c42c9ee61a2c304e46739cf07d55f.png" src="_images/241fb815608d64d1e312b52271cb91fc388c42c9ee61a2c304e46739cf07d55f.png" />
-<img alt="_images/ba6654220fbf3bcfedca47742e1924c31507b8e02ea9efccfa8d6a2b2cb305b5.png" src="_images/ba6654220fbf3bcfedca47742e1924c31507b8e02ea9efccfa8d6a2b2cb305b5.png" />
+<img alt="_images/9a74b7766aaffc7326f7e48720a3787bfc66aebab908dd3cdf0f1ac993878739.png" src="_images/9a74b7766aaffc7326f7e48720a3787bfc66aebab908dd3cdf0f1ac993878739.png" />
+<img alt="_images/17482745fbaeda4a4c78d1a13ce95a67a0271ec4d90e30a968111a7a514a3219.png" src="_images/17482745fbaeda4a4c78d1a13ce95a67a0271ec4d90e30a968111a7a514a3219.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8*(a01*a02*a10 + a02^2*a10 + a02*a10^2 + a01^2*a12 + 2*a01*a02*a12 + a02^2*a12 + a01*a10*a12 + 2*a02*a10*a12 + a01*a12^2 + a02*a12^2 + a01^2*a20 + a01*a02*a20 + 2*a01*a10*a20 + 2*a02*a10*a20 + a10^2*a20 + 3*a01*a12*a20 + 2*a02*a12*a20 + 2*a10*a12*a20 + a12^2*a20 + a01*a20^2 + a10*a20^2 + a12*a20^2 + a01^2*a21 + 2*a01*a02*a21 + a02^2*a21 + 2*a01*a10*a21 + 3*a02*a10*a21 + a10^2*a21 + 2*a01*a12*a21 + 2*a02*a12*a21 + a10*a12*a21 + 2*a01*a20*a21 + a02*a20*a21 + 2*a10*a20*a21 + a12*a20*a21 + a01*a21^2 + a02*a21^2 + a10*a21^2 + a01^2*a23 + 2*a01*a02*a23 + a02^2*a23 + 2*a01*a10*a23 + 2*a02*a10*a23 + a10^2*a23 + 2*a01*a12*a23 + 2*a02*a12*a23 + 2*a10*a12*a23 + a12^2*a23 + 2*a01*a20*a23 + a02*a20*a23 + 2*a10*a20*a23 + 2*a12*a20*a23 + 2*a01*a21*a23 + 2*a02*a21*a23 + 2*a10*a21*a23 + a12*a21*a23 + a01*a23^2 + a02*a23^2 + a10*a23^2 + a12*a23^2 + a01^2*a32 + 2*a01*a02*a32 + a02^2*a32 + 2*a01*a10*a32 + 2*a02*a10*a32 + a10^2*a32 + 2*a01*a12*a32 + 2*a02*a12*a32 + 2*a10*a12*a32 + a12^2*a32 + 2*a01*a20*a32 + 2*a02*a20*a32 + 2*a10*a20*a32 + 2*a12*a20*a32 + a20^2*a32 + 2*a01*a21*a32 + 2*a02*a21*a32 + 2*a10*a21*a32 + 2*a12*a21*a32 + 2*a20*a21*a32 + a21^2*a32 + 2*a01*a23*a32 + 2*a02*a23*a32 + 2*a10*a23*a32 + 2*a12*a23*a32 + a20*a23*a32 + a21*a23*a32 + a01*a32^2 + a02*a32^2 + a10*a32^2 + a12*a32^2 + a20*a32^2 + a21*a32^2)*(a10*a20 + a12*a20 + a10*a21)^2*a32^2
 </pre></div>
 </div>
@@ -675,12 +682,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="plot_binding_curves.html"
+       href="cycle_fluxes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Plot Binding Curves</p>
+        <p class="prev-next-title">Cycle fluxes in receptor models</p>
       </div>
     </a>
     <a class="right-next"

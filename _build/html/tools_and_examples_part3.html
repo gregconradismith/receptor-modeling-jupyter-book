@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'tools_and_examples_part3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="example-lmfit" href="2023-08-20-example-lmfit.html" />
-    <link rel="prev" title="Overview" href="overview.html" />
+    <link rel="next" title="Enumerating allosteric parameters in receptor dimers" href="enumerate_allosteric_parameters-2.html" />
+    <link rel="prev" title="Plot Binding Curves" href="plot_binding_curves.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,24 +174,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples - Part 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
@@ -203,6 +200,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
 </ul>
 
@@ -429,6 +429,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerating-allosteric-parameters-in-receptor-dimers">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-ffeb3b-under-construction-span"><span style="color:#ffeb3b">UNDER CONSTRUCTION</span></a></li>
 </ul>
             </nav>
         </div>
@@ -445,6 +446,9 @@ document.write(`
 <section id="enumerating-allosteric-parameters-in-receptor-dimers">
 <h2>Enumerating allosteric parameters in receptor dimers<a class="headerlink" href="#enumerating-allosteric-parameters-in-receptor-dimers" title="Permalink to this heading">#</a></h2>
 <p>This notebook illustrates some of the function definitions contained in <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code>.</p>
+</section>
+<section id="span-style-color-ffeb3b-under-construction-span">
+<h2><span style='color:#ffeb3b'>UNDER CONSTRUCTION</span><a class="headerlink" href="#span-style-color-ffeb3b-under-construction-span" title="Permalink to this heading">#</a></h2>
 <p>The file <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> includes the function <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G)</span></code> which takes a graph G and returns the <span class="math notranslate nohighlight">\(\kappa\)</span> and <span class="math notranslate nohighlight">\(\eta\)</span> values for a dimer model with the topology of the reduced graph power <span class="math notranslate nohighlight">\(G^{(2)}\)</span>.  The default method uses <span class="math notranslate nohighlight">\(e_1, e_2, \ldots , e_v\)</span> while <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> gives single digit edge labels (<span class="math notranslate nohighlight">\(b,c,\ldots\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,7 +531,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e56476331c2a97b85af12e89a40107744e5c1da7ee8900be20f41bd4e648ccd8.png" src="_images/e56476331c2a97b85af12e89a40107744e5c1da7ee8900be20f41bd4e648ccd8.png" />
+<img alt="_images/5e76ffaae3b96b041a92e3d3315e446ca6c685347ac2435e900ef00d4d36a4af.png" src="_images/5e76ffaae3b96b041a92e3d3315e446ca6c685347ac2435e900ef00d4d36a4af.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -538,7 +542,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6c76e9afad67b1cf8304e72423be9bcb821bee65e4ed850ff343f8309499ff78.png" src="_images/6c76e9afad67b1cf8304e72423be9bcb821bee65e4ed850ff343f8309499ff78.png" />
+<img alt="_images/f40c78873980aff33362ab758235db16db06c1c889bf5cfb6e5c00f2d6fea459.png" src="_images/f40c78873980aff33362ab758235db16db06c1c889bf5cfb6e5c00f2d6fea459.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -548,8 +552,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6b9a7ce58a0ae46d80b6aa4ef888fe975c88757dcdad25c3eca035dbc9238b50.png" src="_images/6b9a7ce58a0ae46d80b6aa4ef888fe975c88757dcdad25c3eca035dbc9238b50.png" />
-<img alt="_images/89f007326912ee2ba7d2d71933765b9a4204c7c5c4357562480ccc6f807ad16f.png" src="_images/89f007326912ee2ba7d2d71933765b9a4204c7c5c4357562480ccc6f807ad16f.png" />
+<img alt="_images/3c83a202da3fb9ddaadbc57d912245b0b32f49146b0960323d3cd2195a10e126.png" src="_images/3c83a202da3fb9ddaadbc57d912245b0b32f49146b0960323d3cd2195a10e126.png" />
+<img alt="_images/39c8b1913799f3cf9f99abf8ff2b132245108f13f091ecfc9532b045504b0e3f.png" src="_images/39c8b1913799f3cf9f99abf8ff2b132245108f13f091ecfc9532b045504b0e3f.png" />
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -824,20 +828,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="overview.html"
+       href="plot_binding_curves.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Overview</p>
+        <p class="prev-next-title">Plot Binding Curves</p>
       </div>
     </a>
     <a class="right-next"
-       href="2023-08-20-example-lmfit.html"
+       href="enumerate_allosteric_parameters-2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">example-lmfit</p>
+        <p class="prev-next-title">Enumerating allosteric parameters in receptor dimers</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -860,6 +864,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerating-allosteric-parameters-in-receptor-dimers">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-ffeb3b-under-construction-span"><span style="color:#ffeb3b">UNDER CONSTRUCTION</span></a></li>
 </ul>
   </nav></div>
 

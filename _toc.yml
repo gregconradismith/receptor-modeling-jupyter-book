@@ -19,22 +19,19 @@ parts:
     - file: receptor_dimers_overview
     - file: reduced_graph_powers
     - file: tools_and_examples_part2
-  - caption: Allosteric Parameters in Receptor Dimers
+  - caption: Equilibrium Receptor Dimers and Allosteric Parameters
     chapters:
-    - file: overview
-    - file: tools_and_examples_part3
-    - file: 2023-08-20-example-lmfit
-    - file: 2023-08-24-example-minimize-linear-regression
-    - file: 2023-08-25-plotting-hypercubes
-    - file: 2023-08-24-example-minimize-receptor-model-pade
-    - file: 2023-08-21-practicing-python
+    - file: allosteric_parameters_overview
     - file: enumerate_allosteric_parameters
+    - file: minimize-receptor-model-pade
     - file: plot_binding_curves
-  - caption: Cycle fluxes
+    - file: tools_and_examples_part3
+    - file: enumerate_allosteric_parameters-2
+  - caption: Cycle Fluxes
     chapters:
     - file: cycle_fluxes_overview
     - file: cycle_fluxes
-  - caption: Wang algebras
+  - caption: Wang Algebras
     chapters:
     - file: tree_polynomials
     - file: wang_algebra
@@ -45,6 +42,10 @@ parts:
     - file: bfs_spanning_tree
     - file: docstring_test
     - file: my_struggle_with_docstrings
+    - file: example-lmfit
+    - file: example-minimize-linear-regression
+    - file: plotting-hypercubes
+    - file: practicing-python
     - file: receptor_tools
 
 

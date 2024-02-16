@@ -174,24 +174,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cycle fluxes in receptor models</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
@@ -203,6 +200,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
 </ul>
 
@@ -538,7 +538,7 @@ z[4] = a04*a10*a20*a32 + a04*a12*a20*a32 + a04*a10*a21*a32 + a04*a10*a20*a34 + a
 Defining a, b, c, d, e, f, A, B, C, D, E, F
 </pre></div>
 </div>
-<img alt="_images/660f60ee1ca99c204b919c97312f366d923c2996d158d2c43e84bc3ff849d021.png" src="_images/660f60ee1ca99c204b919c97312f366d923c2996d158d2c43e84bc3ff849d021.png" />
+<img alt="_images/b14b3658044092851c2c682c1f34308b0b45e37e6122ad44f68b570e48c3077c.png" src="_images/b14b3658044092851c2c682c1f34308b0b45e37e6122ad44f68b570e48c3077c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -743,39 +743,39 @@ T[4] =  a*b*d*e + b*c*d*e + b*d*e*f + c*d*e*A + d*e*f*A + e*f*A*B + b*e*f*C + e*
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 =&gt; [a0, a1, a2, a0] - [a0, a2, a1, a0] =&gt; [a, b, C] - [c, B, A] =&gt; (-1) * (-a*b*C + c*A*B) @ ( e*F + D*E + D*F )
 </pre></div>
 </div>
-<img alt="_images/798286c8da080487923f6a82469a0a2c8494154e1141e831bb4a9d8806c567e3.png" src="_images/798286c8da080487923f6a82469a0a2c8494154e1141e831bb4a9d8806c567e3.png" />
+<img alt="_images/ee205793fd4a4088df2fd8b37f5d75fd370dc4b8c8a6264838c9921f9e5cefc0.png" src="_images/ee205793fd4a4088df2fd8b37f5d75fd370dc4b8c8a6264838c9921f9e5cefc0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 =&gt; [a0, a2, a3, a4, a0] - [a0, a4, a3, a2, a0] =&gt; [c, d, e, F] - [f, E, D, C] =&gt; (-1) * (-c*d*e*F + f*C*D*E) @ ( b + A )
 </pre></div>
 </div>
-<img alt="_images/5352e3628ea8ce669865e7aa87ef69b014104abd6d0a831a1f1293fe65aede5f.png" src="_images/5352e3628ea8ce669865e7aa87ef69b014104abd6d0a831a1f1293fe65aede5f.png" />
+<img alt="_images/4364425c5ce2ca80f0024cd5c9aa0dbfbd29f4c7deb11e87c6fd5bbc292c193b.png" src="_images/4364425c5ce2ca80f0024cd5c9aa0dbfbd29f4c7deb11e87c6fd5bbc292c193b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 =&gt; [a0, a1, a2, a3, a4, a0] - [a0, a4, a3, a2, a1, a0] =&gt; [a, b, d, e, F] - [f, E, D, B, A] =&gt; (-1) * (-a*b*d*e*F + f*A*B*D*E) @ ( 1 )
 </pre></div>
 </div>
-<img alt="_images/9d0ac732e4b6873b6d396f05b577e03e822b6bb58cc215837f617b2ecb567c67.png" src="_images/9d0ac732e4b6873b6d396f05b577e03e822b6bb58cc215837f617b2ecb567c67.png" />
+<img alt="_images/c2f0e6893217532d1dc1c7554292989e505432a461c577c4a7725b580813e12f.png" src="_images/c2f0e6893217532d1dc1c7554292989e505432a461c577c4a7725b580813e12f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 =&gt; [a0, a1, a0] - [a0, a1, a0] =&gt; [a, A] - [a, A] =&gt; 0 @ ( d*e*F + e*B*F + e*C*F + B*D*E + B*D*F + C*D*E + C*D*F )
 </pre></div>
 </div>
-<img alt="_images/86950fff1d7128b7eb9efc2e15830e02d0528a35427343e4bd22fd654995a48c.png" src="_images/86950fff1d7128b7eb9efc2e15830e02d0528a35427343e4bd22fd654995a48c.png" />
+<img alt="_images/f3aa1257c9ca11f2c002ba0762f169ac538d24660975722d60399cd0d51f241d.png" src="_images/f3aa1257c9ca11f2c002ba0762f169ac538d24660975722d60399cd0d51f241d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 =&gt; [a0, a2, a0] - [a0, a2, a0] =&gt; [c, C] - [c, C] =&gt; 0 @ ( b*e*F + b*D*E + b*D*F + e*A*F + A*D*E + A*D*F )
 </pre></div>
 </div>
-<img alt="_images/9e86c9652d1a32176ad27d0a9369cfdd9bd4537c16c23330bbdbe10e57f68640.png" src="_images/9e86c9652d1a32176ad27d0a9369cfdd9bd4537c16c23330bbdbe10e57f68640.png" />
+<img alt="_images/43956cd29d6f48cd02eff5a5f98d538e0cc80ca5e257f7969212ee5af7393fe3.png" src="_images/43956cd29d6f48cd02eff5a5f98d538e0cc80ca5e257f7969212ee5af7393fe3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 =&gt; [a0, a4, a0] - [a0, a4, a0] =&gt; [f, F] - [f, F] =&gt; 0 @ ( b*d*e + b*e*C + b*C*D + d*e*A + e*A*B + e*A*C + A*B*D + A*C*D )
 </pre></div>
 </div>
-<img alt="_images/d0859eb6d14a8c4e403db8f249db0ba93e927f7094d3a7fb934c7eb5ddd0e141.png" src="_images/d0859eb6d14a8c4e403db8f249db0ba93e927f7094d3a7fb934c7eb5ddd0e141.png" />
+<img alt="_images/ab9b95440083552f555629941ef99dded1f64a988be166ffff68301dc6d5aaa3.png" src="_images/ab9b95440083552f555629941ef99dded1f64a988be166ffff68301dc6d5aaa3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 =&gt; [a1, a2, a1] - [a1, a2, a1] =&gt; [b, B] - [b, B] =&gt; 0 @ ( a*e*F + a*D*E + a*D*F + c*e*F + c*D*E + c*D*F + f*D*E )
 </pre></div>
 </div>
-<img alt="_images/d9a7b280eeb620343d3f3d70245c858537470117660c1b22de7b9f588948534b.png" src="_images/d9a7b280eeb620343d3f3d70245c858537470117660c1b22de7b9f588948534b.png" />
+<img alt="_images/83e8f6c6191dd21d330573bbf93e06581cfba17741fbad7b12017824fe9a64ef.png" src="_images/83e8f6c6191dd21d330573bbf93e06581cfba17741fbad7b12017824fe9a64ef.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 =&gt; [a2, a3, a2] - [a2, a3, a2] =&gt; [d, D] - [d, D] =&gt; 0 @ ( a*b*E + a*b*F + b*c*E + b*c*F + b*f*E + c*A*E + c*A*F + f*A*E )
 </pre></div>
 </div>
-<img alt="_images/4dce559623105626c0e7970a2bf2a60f2d4cabc0c9238ae1d3643e9fd1fc29fd.png" src="_images/4dce559623105626c0e7970a2bf2a60f2d4cabc0c9238ae1d3643e9fd1fc29fd.png" />
+<img alt="_images/3435df09c8ca146747b4a68115aa597969ab1c27b148726babd131673db8c3ca.png" src="_images/3435df09c8ca146747b4a68115aa597969ab1c27b148726babd131673db8c3ca.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 =&gt; [a3, a4, a3] - [a3, a4, a3] =&gt; [e, E] - [e, E] =&gt; 0 @ ( a*b*d + b*c*d + b*d*f + b*f*C + c*d*A + d*f*A + f*A*B + f*A*C )
 </pre></div>
 </div>
-<img alt="_images/48a72065c7e5386f92c6c6f5cd72143874bef4dc99350eab0fe7af72490285a4.png" src="_images/48a72065c7e5386f92c6c6f5cd72143874bef4dc99350eab0fe7af72490285a4.png" />
+<img alt="_images/922dc4e8ffc4d07a1391fd2c95f630ed16b7084e3b2575f473aa9c16658573d4.png" src="_images/922dc4e8ffc4d07a1391fd2c95f630ed16b7084e3b2575f473aa9c16658573d4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>( a*b*C - c*A*B ) @ ( e*F + D*E + D*F )
 ( c*d*e*F - f*C*D*E ) @ ( b + A )
 ( a*b*d*e*F - f*A*B*D*E ) @ ( 1 )

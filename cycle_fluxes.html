@@ -1,0 +1,919 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Cycle fluxes in receptor models &#8212; Receptors</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cycle_fluxes';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reduced Graph Powers" href="tree_polynomials.html" />
+    <link rel="prev" title="Overview" href="cycle_fluxes_overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Doodle.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/Doodle.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Receptors
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cycle fluxes in receptor models</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/cycle_fluxes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcycle_fluxes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/cycle_fluxes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cycle fluxes in receptor models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-ffeb3b-under-construction-span"><span style="color:#ffeb3b">UNDER CONSTRUCTION</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#receptor-model-with-topology-of-the-house-graph">Receptor model with topology of the House Graph</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="cycle-fluxes-in-receptor-models">
+<h1>Cycle fluxes in receptor models<a class="headerlink" href="#cycle-fluxes-in-receptor-models" title="Permalink to this heading">#</a></h1>
+<section id="span-style-color-ffeb3b-under-construction-span">
+<h2><span style='color:#ffeb3b'>UNDER CONSTRUCTION</span><a class="headerlink" href="#span-style-color-ffeb3b-under-construction-span" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="o">%</span><span class="n">run</span> <span class="n">receptor_tools</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As discusssed earlier <a class="reference internal" href="markov_chains.html#markov-chain-tree-theorem-intro"><span class="std std-ref">earlier</span></a>, the <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_chain_tree_theorem">Markov chain tree theorem</a> (also called Hill’s diagrammatic method) provides algebraic expressions for the steady-state probabilities of a receptor model.    The function <code class="docutils literal notranslate"><span class="pre">hill_diagramatic_method()</span></code> below takes a symbolic generator matrix for such a Markov chain as input and, using the Markov chain tree theorem, calculates the steady-state probability of each state.</p>
+<p>The receptor models considered here have state-transition diagrams with the topology of a simple symmetric directed graph (connected, no loops). The Markov chain tree theorem always applies to receptor models with these properties.  However, there are Markov chains that can not be analyzed in this way (e.g., Markov chains with an infinite number of states).</p>
+</section>
+<section id="receptor-model-with-topology-of-the-house-graph">
+<h2>Receptor model with topology of the House Graph<a class="headerlink" href="#receptor-model-with-topology-of-the-house-graph" title="Permalink to this heading">#</a></h2>
+<p>Consider receptor model that has more than one cycle, namely, the <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generators/basic.html#sage.graphs.generators.basic.HouseGraph">house graph</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;p0 p1 p2 p3 p4 a01 a10 a02 a20 a04 a40 a12 a21 a23 a32 a34 a43&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="n">a01</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="n">a02</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="n">a04</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="n">a10</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="n">a12</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="n">a21</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">a20</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="n">a23</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span><span class="n">a32</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="n">a34</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span><span class="n">a43</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">a40</span><span class="p">}};</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">weighted</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">vertex_positions</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)}</span>
+<span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">vertex_positions</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1d84ac4e8805d5bb6ef5c175b5f7121a3fe1549783938d4ad95bb9b918bef731.png" src="_images/1d84ac4e8805d5bb6ef5c175b5f7121a3fe1549783938d4ad95bb9b918bef731.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">weighted_adjacency_matrix</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">hill_diagramatic_method</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;z[</span><span class="si">%s</span><span class="s1">] =&#39;</span><span class="o">%</span><span class="k">i</span>, f&#39;{expand(z[i])}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>z[0] = a10*a20*a32*a40 + a12*a20*a32*a40 + a10*a21*a32*a40 + a10*a20*a34*a40 + a12*a20*a34*a40 + a10*a21*a34*a40 + a10*a23*a34*a40 + a12*a23*a34*a40 + a10*a20*a32*a43 + a12*a20*a32*a43 + a10*a21*a32*a43
+z[1] = a01*a20*a32*a40 + a01*a21*a32*a40 + a02*a21*a32*a40 + a01*a20*a34*a40 + a01*a21*a34*a40 + a02*a21*a34*a40 + a01*a23*a34*a40 + a01*a20*a32*a43 + a01*a21*a32*a43 + a02*a21*a32*a43 + a04*a21*a32*a43
+z[2] = a02*a10*a32*a40 + a01*a12*a32*a40 + a02*a12*a32*a40 + a02*a10*a34*a40 + a01*a12*a34*a40 + a02*a12*a34*a40 + a02*a10*a32*a43 + a04*a10*a32*a43 + a01*a12*a32*a43 + a02*a12*a32*a43 + a04*a12*a32*a43
+z[3] = a02*a10*a23*a40 + a01*a12*a23*a40 + a02*a12*a23*a40 + a04*a10*a20*a43 + a04*a12*a20*a43 + a04*a10*a21*a43 + a02*a10*a23*a43 + a04*a10*a23*a43 + a01*a12*a23*a43 + a02*a12*a23*a43 + a04*a12*a23*a43
+z[4] = a04*a10*a20*a32 + a04*a12*a20*a32 + a04*a10*a21*a32 + a04*a10*a20*a34 + a04*a12*a20*a34 + a04*a10*a21*a34 + a02*a10*a23*a34 + a04*a10*a23*a34 + a01*a12*a23*a34 + a02*a12*a23*a34 + a04*a12*a23*a34
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, each of the five relative probabilities is a multinomial with 10 terms because there are 10 rooted spanning trees associated to each state (vertex).  Each term has 4 factors because any spanning tree of the house graph has 4 edges.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myHouseGraph</span><span class="p">():</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+    <span class="n">vertex_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a0&#39;</span><span class="p">,</span><span class="s1">&#39;a1&#39;</span><span class="p">,</span><span class="s1">&#39;a2&#39;</span><span class="p">,</span><span class="s1">&#39;a3&#39;</span><span class="p">,</span><span class="s1">&#39;a4&#39;</span><span class="p">]</span>
+    <span class="n">edge_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">]</span>
+    <span class="n">V</span><span class="o">=</span><span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">vertex_vars</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;invlex&#39;</span><span class="p">)</span>
+    <span class="n">V</span><span class="o">.</span><span class="n">inject_variables</span><span class="p">()</span>
+    <span class="n">E</span><span class="o">=</span><span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">edge_vars</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;lex&#39;</span><span class="p">)</span>
+    <span class="n">E</span><span class="o">.</span><span class="n">inject_variables</span><span class="p">()</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a0</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span><span class="n">a0</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span><span class="n">a4</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a4</span><span class="p">,</span><span class="n">a0</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a3</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a3</span><span class="p">,</span><span class="n">a4</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)))</span>
+    <span class="n">H</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a4</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">edge_vars</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">H</span><span class="p">,</span> <span class="n">E</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">myHouseGraph</span><span class="p">()</span>
+<span class="n">H</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;spring&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defining a0, a1, a2, a3, a4
+Defining a, b, c, d, e, f, A, B, C, D, E, F
+</pre></div>
+</div>
+<img alt="_images/014c1709ef728d478118707d7a00d20bcfabb3fbcce629f22c4fa97d8aed858f.png" src="_images/014c1709ef728d478118707d7a00d20bcfabb3fbcce629f22c4fa97d8aed858f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tree_polynomial</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">P</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">P</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">edge_vars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">#edge_coeff = []</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">f</span> <span class="o">+=</span> <span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="c1">#print(e,e[2].monomials()[0],list(e[2].monomials()[0]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">variables</span><span class="p">())</span>
+        <span class="n">edge_vars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">variables</span><span class="p">())</span> 
+        <span class="c1">#    edge_coeff.append(e[2]/e[2].monomials()[0])</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">edge_vars</span><span class="p">)</span>
+    <span class="n">Trees</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">is_directed</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">root</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">in_branchings</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">root</span><span class="p">,</span><span class="n">spanning</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                    <span class="n">t</span> <span class="o">*=</span> <span class="n">P</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">T</span> <span class="o">+=</span> <span class="n">t</span>
+            <span class="k">return</span> <span class="n">T</span>  
+        <span class="k">else</span><span class="p">:</span>  
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="c1">#print(&#39;r=&#39;,r)</span>
+                <span class="n">T</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">in_branchings</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">r</span><span class="p">,</span><span class="n">spanning</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                    <span class="c1">#b.show(figsize=10,edge_labels=true)</span>
+                    <span class="n">t</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                        <span class="c1">#print(e)</span>
+                        <span class="c1">#t *= P(e[2].monomials()[0])</span>
+                        <span class="n">t</span> <span class="o">*=</span> <span class="n">P</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">T</span> <span class="o">+=</span> <span class="n">t</span>
+                <span class="n">Trees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+                <span class="c1">#return Trees</span>
+            <span class="k">return</span> <span class="n">Trees</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">spanning_trees</span><span class="p">():</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">b</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">*=</span> <span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">T</span> <span class="o">+=</span> <span class="n">t</span>
+        <span class="k">return</span> <span class="n">P</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TT</span> <span class="o">=</span> <span class="n">tree_polynomial</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">P</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">tree_polynomial</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">a0</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><html>\(\displaystyle b d e F + b e C F + b C D E + b C D F + d e A F + e A B F + e A C F + A B D E + A B D F + A C D E + A C D F\)</html></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">H</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">tree_polynomial</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a0 : b*d*e*F + b*e*C*F + b*C*D*E + b*C*D*F + d*e*A*F + e*A*B*F + e*A*C*F + A*B*D*E + A*B*D*F + A*C*D*E + A*C*D*F
+a1 : a*d*e*F + a*e*B*F + a*e*C*F + a*B*D*E + a*B*D*F + a*C*D*E + a*C*D*F + c*e*B*F + c*B*D*E + c*B*D*F + f*B*D*E
+a2 : a*b*e*F + a*b*D*E + a*b*D*F + b*c*e*F + b*c*D*E + b*c*D*F + b*f*D*E + c*e*A*F + c*A*D*E + c*A*D*F + f*A*D*E
+a3 : a*b*d*E + a*b*d*F + b*c*d*E + b*c*d*F + b*d*f*E + b*f*C*E + c*d*A*E + c*d*A*F + d*f*A*E + f*A*B*E + f*A*C*E
+a4 : a*b*d*e + b*c*d*e + b*d*e*f + b*e*f*C + b*f*C*D + c*d*e*A + d*e*f*A + e*f*A*B + e*f*A*C + f*A*B*D + f*A*C*D
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cycle_fluxes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">Cvert3</span> <span class="o">=</span> <span class="p">[]</span>  
+    <span class="n">Cvert2</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">all_simple_cycles</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">Cvert3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Cvert2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="n">Cvert2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">Cvert3Sort</span> <span class="o">=</span> <span class="n">Cvert3</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">Cvert3Sort</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">Cvert3SortP</span> <span class="o">=</span> <span class="n">Cvert3Sort</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Cvert3Sort</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">Cvert3SortP</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">Cvert3SortP</span><span class="p">[</span><span class="n">i</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">Cvert3SortP2</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span> <span class="c1"># arbitrary max cycle length </span>
+        <span class="n">Cvert3SortP2</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">C</span> <span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">Cvert3SortP</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="o">==</span><span class="n">i</span> <span class="p">]</span>
+    <span class="n">Cvert3SortP</span> <span class="o">=</span> <span class="n">Cvert3SortP2</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">Cvert3SortM</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Cvert3SortP</span><span class="p">)):</span>  
+        <span class="n">Cvert3SortM</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Cvert3SortP</span><span class="p">[</span><span class="n">i</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">CvertP</span> <span class="o">=</span> <span class="n">Cvert3SortP</span> <span class="o">+</span> <span class="n">Cvert2</span>
+    <span class="n">CvertM</span> <span class="o">=</span> <span class="n">Cvert3SortM</span> <span class="o">+</span> <span class="n">Cvert2</span>
+    <span class="n">ncycles</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">CvertP</span><span class="p">)</span>
+
+    <span class="n">CedgeP</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">CedgeM</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ThetaP</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ThetaM</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncycles</span><span class="p">):</span>
+        <span class="n">CPe</span> <span class="o">=</span> <span class="p">[</span> <span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">CMe</span> <span class="o">=</span> <span class="p">[</span> <span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">CvertM</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="n">CvertM</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">CvertM</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">TPe</span> <span class="o">=</span> <span class="n">prod</span><span class="p">(</span><span class="n">CPe</span><span class="p">)</span>
+        <span class="n">TMe</span> <span class="o">=</span> <span class="n">prod</span><span class="p">(</span><span class="n">CMe</span><span class="p">)</span>
+        <span class="n">CedgeP</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CPe</span><span class="p">)</span>
+        <span class="n">ThetaP</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TPe</span><span class="p">)</span>
+        <span class="n">CedgeM</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CMe</span><span class="p">)</span>
+        <span class="n">ThetaM</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TMe</span><span class="p">)</span>
+
+    <span class="n">Tkappa</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ThetaPMTkappa</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncycles</span><span class="p">):</span>
+        <span class="n">CP</span><span class="o">=</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="c1">#print(&#39;CP=&#39;,CP)</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1">#show(H,edge_labels=True) ######</span>
+        <span class="n">H</span><span class="o">.</span><span class="n">allow_multiple_edges</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1">#print([None]+CP)</span>
+        <span class="n">H</span><span class="o">.</span><span class="n">merge_vertices</span><span class="p">([</span><span class="kc">None</span><span class="p">]</span><span class="o">+</span><span class="n">CP</span><span class="p">)</span> <span class="c1"># None becomes vertex 0 (as opposed to a0, a1, ...)</span>
+        <span class="k">if</span> <span class="n">H</span><span class="o">.</span><span class="n">order</span><span class="p">():</span>
+            <span class="c1">#show(H,edge_labels=True) ######</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="n">tree_polynomial</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">root</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="n">P</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">Tkappa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">ThetaPMTkappa</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ThetaP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">ThetaM</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">Tkappa</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">total of&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Cvert2</span><span class="p">),</span><span class="s1">&#39;+ 2 *&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Cvert3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;cycles.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> 
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncycles</span><span class="p">):</span>
+            <span class="n">H</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">H</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="n">H</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">H</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">H</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">CvertM</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="n">CvertM</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ThetaP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">ThetaM</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> 
+                <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">CvertM</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span><span class="n">CedgeP</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">CedgeM</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span><span class="n">ThetaP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">ThetaM</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;@ (&#39;</span><span class="p">,</span><span class="n">Tkappa</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span><span class="n">CvertP</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">CvertM</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;=&gt;&#39;</span><span class="p">,</span><span class="n">CedgeP</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">CedgeM</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;=&gt;&#39;</span><span class="p">,(</span><span class="n">ThetaP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">ThetaM</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">factor</span><span class="p">(),</span><span class="s1">&#39;@ (&#39;</span><span class="p">,</span><span class="n">Tkappa</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+            <span class="n">H</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">color_by_label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            
+    <span class="k">return</span> <span class="n">ncycles</span><span class="p">,</span> <span class="n">CedgeP</span><span class="p">,</span> <span class="n">CedgeM</span><span class="p">,</span> <span class="n">ThetaP</span><span class="p">,</span> <span class="n">ThetaM</span><span class="p">,</span> <span class="n">Tkappa</span><span class="p">,</span> <span class="n">ThetaPMTkappa</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Trees</span> <span class="o">=</span> <span class="n">tree_polynomial</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">Trees</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Trees</span><span class="p">)):</span>
+    <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Trees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;T[</span><span class="si">%s</span><span class="s1">] = &#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">TT</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(a, b, c, d, e, f, A, B, C, D, E, F)
+T[0] =  A*B*D*E + b*C*D*E + A*C*D*E + b*d*e*F + d*e*A*F + e*A*B*F + b*e*C*F + e*A*C*F + A*B*D*F + b*C*D*F + A*C*D*F
+T[1] =  a*B*D*E + c*B*D*E + f*B*D*E + a*C*D*E + a*d*e*F + a*e*B*F + c*e*B*F + a*e*C*F + a*B*D*F + c*B*D*F + a*C*D*F
+T[2] =  a*b*D*E + b*c*D*E + b*f*D*E + c*A*D*E + f*A*D*E + a*b*e*F + b*c*e*F + c*e*A*F + a*b*D*F + b*c*D*F + c*A*D*F
+T[3] =  a*b*d*E + b*c*d*E + b*d*f*E + c*d*A*E + d*f*A*E + f*A*B*E + b*f*C*E + f*A*C*E + a*b*d*F + b*c*d*F + c*d*A*F
+T[4] =  a*b*d*e + b*c*d*e + b*d*e*f + c*d*e*A + d*e*f*A + e*f*A*B + b*e*f*C + e*f*A*C + f*A*B*D + b*f*C*D + f*A*C*D
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncycles</span><span class="p">,</span> <span class="n">CedgeP</span><span class="p">,</span> <span class="n">CedgeM</span><span class="p">,</span> <span class="n">ThetaP</span><span class="p">,</span> <span class="n">ThetaM</span><span class="p">,</span> <span class="n">Tkappa</span><span class="p">,</span> <span class="n">ThetaPMTkappa</span> <span class="o">=</span> <span class="n">cycle_fluxes</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncycles</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span><span class="n">ThetaP</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">ThetaM</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;) @ (&#39;</span><span class="p">,</span><span class="n">Tkappa</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total of 6 + 2 * 3 cycles.
+
+0 =&gt; [a0, a1, a2, a0] - 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[a0, a2, a1, a0] =&gt; [a, b, C] - [c, B, A] =&gt; (-1) * (-a*b*C + c*A*B) @ ( e*F + D*E + D*F )
+</pre></div>
+</div>
+<img alt="_images/2c3d4740b548d8d2976a3278ba439149809a510707ca933d4b12c68e88c0dc1a.png" src="_images/2c3d4740b548d8d2976a3278ba439149809a510707ca933d4b12c68e88c0dc1a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 =&gt; [a0, a2, a3, a4, a0] - [a0, a4, a3, a2, a0] =&gt; [c, d, e, F] - [f, E, D, C] =&gt; (-1) * (-c*d*e*F + f*C*D*E) @ ( b + A )
+</pre></div>
+</div>
+<img alt="_images/1ee0c0e83656969fe78ef1f35248f7cf957aa938731b9681175b12eee0e38013.png" src="_images/1ee0c0e83656969fe78ef1f35248f7cf957aa938731b9681175b12eee0e38013.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 =&gt; [a0, a1, a2, a3, a4, a0] - [a0, a4, a3, a2, a1, a0] =&gt; [a, b, d, e, F] - [f, E, D, B, A] =&gt; (-1) * (-a*b*d*e*F + f*A*B*D*E) @ ( 1 )
+</pre></div>
+</div>
+<img alt="_images/a8d92a84a98d7c8aaf836b684dfd833d11e69841269197905b6991149c84d717.png" src="_images/a8d92a84a98d7c8aaf836b684dfd833d11e69841269197905b6991149c84d717.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 =&gt; [a0, a1, a0] - [a0, a1, a0] =&gt; [a, A] - [a, A] =&gt; 0 @ ( d*e*F + e*B*F + e*C*F + B*D*E + B*D*F + C*D*E + C*D*F )
+</pre></div>
+</div>
+<img alt="_images/d444dbf99c1962c42bf640f6a740d76eb12fccdbbebd51ff08bf002c53f04f74.png" src="_images/d444dbf99c1962c42bf640f6a740d76eb12fccdbbebd51ff08bf002c53f04f74.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 =&gt; [a0, a2, a0] - [a0, a2, a0] =&gt; [c, C] - [c, C] =&gt; 0 @ ( b*e*F + b*D*E + b*D*F + e*A*F + A*D*E + A*D*F )
+</pre></div>
+</div>
+<img alt="_images/74b41c3c89cd11d0aed1de618355527a7f49e56e81ee3f4460468fe66039a46c.png" src="_images/74b41c3c89cd11d0aed1de618355527a7f49e56e81ee3f4460468fe66039a46c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 =&gt; [a0, a4, a0] - [a0, a4, a0] =&gt; [f, F] - [f, F] =&gt; 0 @ ( b*d*e + b*e*C + b*C*D + d*e*A + e*A*B + e*A*C + A*B*D + A*C*D )
+</pre></div>
+</div>
+<img alt="_images/6798caa0a390239bbd9a62357dc47a8a2cbc0dc77d1715f6f36022ced50697ee.png" src="_images/6798caa0a390239bbd9a62357dc47a8a2cbc0dc77d1715f6f36022ced50697ee.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 =&gt; [a1, a2, a1] - [a1, a2, a1] =&gt; [b, B] - [b, B] =&gt; 0 @ ( a*e*F + a*D*E + a*D*F + c*e*F + c*D*E + c*D*F + f*D*E )
+</pre></div>
+</div>
+<img alt="_images/eef869f78a5d9fe3b187044bccee2104463064f847def8fe1558f0f4f87be53d.png" src="_images/eef869f78a5d9fe3b187044bccee2104463064f847def8fe1558f0f4f87be53d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 =&gt; [a2, a3, a2] - [a2, a3, a2] =&gt; [d, D] - [d, D] =&gt; 0 @ ( a*b*E + a*b*F + b*c*E + b*c*F + b*f*E + c*A*E + c*A*F + f*A*E )
+</pre></div>
+</div>
+<img alt="_images/214051c02be5139372deff9e697ecffdc94c800c72bd183098573f48b790a63c.png" src="_images/214051c02be5139372deff9e697ecffdc94c800c72bd183098573f48b790a63c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 =&gt; [a3, a4, a3] - [a3, a4, a3] =&gt; [e, E] - [e, E] =&gt; 0 @ ( a*b*d + b*c*d + b*d*f + b*f*C + c*d*A + d*f*A + f*A*B + f*A*C )
+</pre></div>
+</div>
+<img alt="_images/09fdbadf0cb6aacb8e7019fef5c76e57aa7ee1bb23c6dcc10987e9ed690f3e94.png" src="_images/09fdbadf0cb6aacb8e7019fef5c76e57aa7ee1bb23c6dcc10987e9ed690f3e94.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>( a*b*C - c*A*B ) @ ( e*F + D*E + D*F )
+( c*d*e*F - f*C*D*E ) @ ( b + A )
+( a*b*d*e*F - f*A*B*D*E ) @ ( 1 )
+( a*A - a*A ) @ ( d*e*F + e*B*F + e*C*F + B*D*E + B*D*F + C*D*E + C*D*F )
+( c*C - c*C ) @ ( b*e*F + b*D*E + b*D*F + e*A*F + A*D*E + A*D*F )
+( f*F - f*F ) @ ( b*d*e + b*e*C + b*C*D + d*e*A + e*A*B + e*A*C + A*B*D + A*C*D )
+( b*B - b*B ) @ ( a*e*F + a*D*E + a*D*F + c*e*F + c*D*E + c*D*F + f*D*E )
+( d*D - d*D ) @ ( a*b*E + a*b*F + b*c*E + b*c*F + b*f*E + c*A*E + c*A*F + f*A*E )
+( e*E - e*E ) @ ( a*b*d + b*c*d + b*d*f + b*f*C + c*d*A + d*f*A + f*A*B + f*A*C )
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "sage-10.0"
+        },
+        kernelOptions: {
+            name: "sage-10.0",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'sage-10.0'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cycle_fluxes_overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tree_polynomials.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reduced Graph Powers</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-ffeb3b-under-construction-span"><span style="color:#ffeb3b">UNDER CONSTRUCTION</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#receptor-model-with-topology-of-the-house-graph">Receptor model with topology of the House Graph</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Greg Conradi Smith
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -174,24 +174,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
@@ -203,6 +200,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
 </ul>
 
@@ -509,18 +509,18 @@ document.write(`
 <div class="math notranslate nohighlight" id="equation-equilibrium-z">
 <span class="eqno">(1)<a class="headerlink" href="#equation-equilibrium-z" title="Permalink to this equation">#</a></span>\[z_a = 1 \quad z_b = \kappab = \kappabstar x \quad  z_c =\kappab \kappac = \kappabstar \kappacstar x^2 \, .\]</div>
 <p>That is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f70f1feb-d396-4be0-895e-ea043647a9c5">
-<span class="eqno">(2)<a class="headerlink" href="#equation-f70f1feb-d396-4be0-895e-ea043647a9c5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-da35a8a9-2039-455a-89bf-d2e997ddfb72">
+<span class="eqno">(2)<a class="headerlink" href="#equation-da35a8a9-2039-455a-89bf-d2e997ddfb72" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}\]</div>
 <p>It is helpful to  present this set of rational functions using the following compact notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e88283df-8f02-4638-a951-584f2d1920d7">
-<span class="eqno">(3)<a class="headerlink" href="#equation-e88283df-8f02-4638-a951-584f2d1920d7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fa7f62ed-d24e-4548-85ed-a70d226f6f5a">
+<span class="eqno">(3)<a class="headerlink" href="#equation-fa7f62ed-d24e-4548-85ed-a70d226f6f5a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_a  :  \pi_b :  \pi_c ] = [1 :\kappab : \kappab \kappac ]  = [1 : \kappabstar x :\kappabstar \kappacstar x^2  ] \,  .
 \end{equation}\]</div>
 <p>In expressions of this kind,  it is understood that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ac37ec1-7f45-46a1-baa7-15796a9a627a">
-<span class="eqno">(4)<a class="headerlink" href="#equation-0ac37ec1-7f45-46a1-baa7-15796a9a627a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb08ad15-1728-4ea3-a75a-a0b6f9fa7f12">
+<span class="eqno">(4)<a class="headerlink" href="#equation-fb08ad15-1728-4ea3-a75a-a0b6f9fa7f12" title="Permalink to this equation">#</a></span>\[\begin{equation}
 [ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ] = [ \lambda z_1 \! : \! \lambda  z_2 : \! \cdots \! : \! \lambda  z_n ]
 \end{equation}\]</div>
 <p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>.  Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.  Prior to normalization, we will refer to <span class="math notranslate nohighlight">\([ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ]\)</span> as <em>relative probabilites</em> for each receptor state.</p>
@@ -605,7 +605,7 @@ p[1] = x/(x^2 + x + 1)
 p[2] = x^2/(x^2 + x + 1)
 </pre></div>
 </div>
-<img alt="_images/6a18221340d5ead29d695ee14bbf459951c830071601cae4d6d58bd687fc141d.png" src="_images/6a18221340d5ead29d695ee14bbf459951c830071601cae4d6d58bd687fc141d.png" />
+<img alt="_images/9629c90c38dd6d3474977f2bd504335432e8ed23b2b280d860371c06e0dab1c4.png" src="_images/9629c90c38dd6d3474977f2bd504335432e8ed23b2b280d860371c06e0dab1c4.png" />
 </div>
 </div>
 </section>

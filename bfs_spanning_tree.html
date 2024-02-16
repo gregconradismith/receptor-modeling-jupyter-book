@@ -174,24 +174,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
@@ -203,6 +200,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
 </ul>
 
@@ -453,7 +453,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/befc47313977bc11db2b3cde85bad23f3c9ee1c8ca6543b84853c7c7db2cae96.png" src="_images/befc47313977bc11db2b3cde85bad23f3c9ee1c8ca6543b84853c7c7db2cae96.png" />
-<img alt="_images/28a061b32644605e96309354a82110728cca3889bdb7a3f907ffb2179737a005.png" src="_images/28a061b32644605e96309354a82110728cca3889bdb7a3f907ffb2179737a005.png" />
+<img alt="_images/bb08a998ebb0fced7ae8752fdeaea8924afac306a5455a1fafe09a4f5339a9f0.png" src="_images/bb08a998ebb0fced7ae8752fdeaea8924afac306a5455a1fafe09a4f5339a9f0.png" />
 <div class="output text_html"><html>\(\displaystyle \left[0, 1, 4, 5, 2, 6, 3, 9, 7, 8\right]\)</html></div></div>
 </div>
 <div class="cell docutils container">
@@ -485,7 +485,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/a71f75d47ecd4922351e341340be76be41e3cf48c42240ed0e72949aa0423abe.png" src="_images/a71f75d47ecd4922351e341340be76be41e3cf48c42240ed0e72949aa0423abe.png" />
-<img alt="_images/0fa39b4cce5a83beaad58a131e286ab585716c2ca3a2b3964f152a4b982a12be.png" src="_images/0fa39b4cce5a83beaad58a131e286ab585716c2ca3a2b3964f152a4b982a12be.png" />
+<img alt="_images/0787a32b93522d74dd0a4dab81cfe0cfe2ded90d40dfb78aa1cc4a9fdb2468b8.png" src="_images/0787a32b93522d74dd0a4dab81cfe0cfe2ded90d40dfb78aa1cc4a9fdb2468b8.png" />
 </div>
 </div>
 </section>

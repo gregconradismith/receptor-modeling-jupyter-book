@@ -165,36 +165,45 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">States and Transitions of Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyStruggleWithDocstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Using MyTools.ipynb - Part 1 - Assigning monomials to graph vertices and edges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Using MyTools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-receptor-model-pade.html">example-minimize-receptor-model-pade.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
 </ul>
 
     </div>
@@ -511,7 +520,7 @@ RL  = L/(10*L^2 + L + 1)
 RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/334737da8e123a4467b17c262b49da3e9e4f18c0915251927df5a88516e79de7.png" src="_images/334737da8e123a4467b17c262b49da3e9e4f18c0915251927df5a88516e79de7.png" />
+<img alt="_images/a9594a0dd3891190aa1d31001fc1e030b3dfaa8431d0d31a928fda94a9e6cc09.png" src="_images/a9594a0dd3891190aa1d31001fc1e030b3dfaa8431d0d31a928fda94a9e6cc09.png" />
 </div>
 </div>
 <p>At low ligand concentration most receptors are in the unbound form (<code class="docutils literal notranslate"><span class="pre">R</span></code>, red). At high concentrations most receptors are in the doubly bound form (<code class="docutils literal notranslate"><span class="pre">RLL</span></code>, blue).</p>
@@ -577,7 +586,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R   = 1/(10*L^2 + L + 1)  RL  = L/(10*L^2 + L + 1)  RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/ea7da73f845e0a3e4dbca947c579a6cce6943cd959e73718dbe7af2e02aec7e0.png" src="_images/ea7da73f845e0a3e4dbca947c579a6cce6943cd959e73718dbe7af2e02aec7e0.png" />
+<img alt="_images/2074a29547da7de1f4264b7f4bbec58e46afc5334e1d19420b83193260ed011b.png" src="_images/2074a29547da7de1f4264b7f4bbec58e46afc5334e1d19420b83193260ed011b.png" />
 </div>
 </div>
 </section>
@@ -593,7 +602,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" src="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" />
+<img alt="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" src="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" />
 </div>
 </div>
 <p>In the arborescence shown above, the root is state <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
@@ -611,7 +620,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" src="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" />
+<img alt="_images/3d9449e298f19c233f291a320f50598c0b5c81ab8bd3ebb629c2193eeaedee95.png" src="_images/3d9449e298f19c233f291a320f50598c0b5c81ab8bd3ebb629c2193eeaedee95.png" />
 </div>
 </div>
 <p>:::{admonition} arborescence vs. rooted spanning tree

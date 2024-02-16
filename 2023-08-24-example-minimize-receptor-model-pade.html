@@ -164,36 +164,45 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">States and Transitions of Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools and Examples</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MyTools.html">My Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyStruggleWithDocstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesVertexAndEdgeLabels.html">Using MyTools.ipynb - Part 1 - Assigning monomials to graph vertices and edges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MyToolsExamplesEnumerateAllostericParameters.html">Using MyTools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">example-minimize-receptor-model-pade.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EnumerateAllostericParameters.html">Allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PlotBindingCurves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
 </ul>
 
     </div>
@@ -496,14 +505,14 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal q0: 1.0
-Optimal q1: 7.289380119860512
-Optimal q2: 1.7028866763664647
-Optimal q3: 7.6554440757695845
-Optimal q4: 0.0
-Optimal q5: 4.896568223791719
+Optimal q1: 9.156877271593372
+Optimal q2: 9.17768031692942
+Optimal q3: 2.911874893657629
+Optimal q4: 8.19934990161431
+Optimal q5: 0.4241065400224508
 </pre></div>
 </div>
-<img alt="_images/bc7949a60b0571299d9a17e2a51d6a30959627dc47871b478145b153ad984984.png" src="_images/bc7949a60b0571299d9a17e2a51d6a30959627dc47871b478145b153ad984984.png" />
+<img alt="_images/c2c38131e91d9c15fd401004759c5028c25a4958085e42b9170099dba231ba4c.png" src="_images/c2c38131e91d9c15fd401004759c5028c25a4958085e42b9170099dba231ba4c.png" />
 </div>
 </div>
 </section>

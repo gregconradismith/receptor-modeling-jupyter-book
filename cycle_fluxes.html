@@ -538,7 +538,7 @@ z[4] = a04*a10*a20*a32 + a04*a12*a20*a32 + a04*a10*a21*a32 + a04*a10*a20*a34 + a
 Defining a, b, c, d, e, f, A, B, C, D, E, F
 </pre></div>
 </div>
-<img alt="_images/014c1709ef728d478118707d7a00d20bcfabb3fbcce629f22c4fa97d8aed858f.png" src="_images/014c1709ef728d478118707d7a00d20bcfabb3fbcce629f22c4fa97d8aed858f.png" />
+<img alt="_images/660f60ee1ca99c204b919c97312f366d923c2996d158d2c43e84bc3ff849d021.png" src="_images/660f60ee1ca99c204b919c97312f366d923c2996d158d2c43e84bc3ff849d021.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -738,46 +738,44 @@ T[4] =  a*b*d*e + b*c*d*e + b*d*e*f + c*d*e*A + d*e*f*A + e*f*A*B + b*e*f*C + e*
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total of 6 + 2 * 3 cycles.
-
-0 =&gt; [a0, a1, a2, a0] - 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[a0, a2, a1, a0] =&gt; [a, b, C] - [c, B, A] =&gt; (-1) * (-a*b*C + c*A*B) @ ( e*F + D*E + D*F )
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 =&gt; [a0, a1, a2, a0] - [a0, a2, a1, a0] =&gt; [a, b, C] - [c, B, A] =&gt; (-1) * (-a*b*C + c*A*B) @ ( e*F + D*E + D*F )
 </pre></div>
 </div>
-<img alt="_images/2c3d4740b548d8d2976a3278ba439149809a510707ca933d4b12c68e88c0dc1a.png" src="_images/2c3d4740b548d8d2976a3278ba439149809a510707ca933d4b12c68e88c0dc1a.png" />
+<img alt="_images/798286c8da080487923f6a82469a0a2c8494154e1141e831bb4a9d8806c567e3.png" src="_images/798286c8da080487923f6a82469a0a2c8494154e1141e831bb4a9d8806c567e3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 =&gt; [a0, a2, a3, a4, a0] - [a0, a4, a3, a2, a0] =&gt; [c, d, e, F] - [f, E, D, C] =&gt; (-1) * (-c*d*e*F + f*C*D*E) @ ( b + A )
 </pre></div>
 </div>
-<img alt="_images/1ee0c0e83656969fe78ef1f35248f7cf957aa938731b9681175b12eee0e38013.png" src="_images/1ee0c0e83656969fe78ef1f35248f7cf957aa938731b9681175b12eee0e38013.png" />
+<img alt="_images/5352e3628ea8ce669865e7aa87ef69b014104abd6d0a831a1f1293fe65aede5f.png" src="_images/5352e3628ea8ce669865e7aa87ef69b014104abd6d0a831a1f1293fe65aede5f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 =&gt; [a0, a1, a2, a3, a4, a0] - [a0, a4, a3, a2, a1, a0] =&gt; [a, b, d, e, F] - [f, E, D, B, A] =&gt; (-1) * (-a*b*d*e*F + f*A*B*D*E) @ ( 1 )
 </pre></div>
 </div>
-<img alt="_images/a8d92a84a98d7c8aaf836b684dfd833d11e69841269197905b6991149c84d717.png" src="_images/a8d92a84a98d7c8aaf836b684dfd833d11e69841269197905b6991149c84d717.png" />
+<img alt="_images/9d0ac732e4b6873b6d396f05b577e03e822b6bb58cc215837f617b2ecb567c67.png" src="_images/9d0ac732e4b6873b6d396f05b577e03e822b6bb58cc215837f617b2ecb567c67.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 =&gt; [a0, a1, a0] - [a0, a1, a0] =&gt; [a, A] - [a, A] =&gt; 0 @ ( d*e*F + e*B*F + e*C*F + B*D*E + B*D*F + C*D*E + C*D*F )
 </pre></div>
 </div>
-<img alt="_images/d444dbf99c1962c42bf640f6a740d76eb12fccdbbebd51ff08bf002c53f04f74.png" src="_images/d444dbf99c1962c42bf640f6a740d76eb12fccdbbebd51ff08bf002c53f04f74.png" />
+<img alt="_images/86950fff1d7128b7eb9efc2e15830e02d0528a35427343e4bd22fd654995a48c.png" src="_images/86950fff1d7128b7eb9efc2e15830e02d0528a35427343e4bd22fd654995a48c.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 =&gt; [a0, a2, a0] - [a0, a2, a0] =&gt; [c, C] - [c, C] =&gt; 0 @ ( b*e*F + b*D*E + b*D*F + e*A*F + A*D*E + A*D*F )
 </pre></div>
 </div>
-<img alt="_images/74b41c3c89cd11d0aed1de618355527a7f49e56e81ee3f4460468fe66039a46c.png" src="_images/74b41c3c89cd11d0aed1de618355527a7f49e56e81ee3f4460468fe66039a46c.png" />
+<img alt="_images/9e86c9652d1a32176ad27d0a9369cfdd9bd4537c16c23330bbdbe10e57f68640.png" src="_images/9e86c9652d1a32176ad27d0a9369cfdd9bd4537c16c23330bbdbe10e57f68640.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 =&gt; [a0, a4, a0] - [a0, a4, a0] =&gt; [f, F] - [f, F] =&gt; 0 @ ( b*d*e + b*e*C + b*C*D + d*e*A + e*A*B + e*A*C + A*B*D + A*C*D )
 </pre></div>
 </div>
-<img alt="_images/6798caa0a390239bbd9a62357dc47a8a2cbc0dc77d1715f6f36022ced50697ee.png" src="_images/6798caa0a390239bbd9a62357dc47a8a2cbc0dc77d1715f6f36022ced50697ee.png" />
+<img alt="_images/d0859eb6d14a8c4e403db8f249db0ba93e927f7094d3a7fb934c7eb5ddd0e141.png" src="_images/d0859eb6d14a8c4e403db8f249db0ba93e927f7094d3a7fb934c7eb5ddd0e141.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 =&gt; [a1, a2, a1] - [a1, a2, a1] =&gt; [b, B] - [b, B] =&gt; 0 @ ( a*e*F + a*D*E + a*D*F + c*e*F + c*D*E + c*D*F + f*D*E )
 </pre></div>
 </div>
-<img alt="_images/eef869f78a5d9fe3b187044bccee2104463064f847def8fe1558f0f4f87be53d.png" src="_images/eef869f78a5d9fe3b187044bccee2104463064f847def8fe1558f0f4f87be53d.png" />
+<img alt="_images/d9a7b280eeb620343d3f3d70245c858537470117660c1b22de7b9f588948534b.png" src="_images/d9a7b280eeb620343d3f3d70245c858537470117660c1b22de7b9f588948534b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 =&gt; [a2, a3, a2] - [a2, a3, a2] =&gt; [d, D] - [d, D] =&gt; 0 @ ( a*b*E + a*b*F + b*c*E + b*c*F + b*f*E + c*A*E + c*A*F + f*A*E )
 </pre></div>
 </div>
-<img alt="_images/214051c02be5139372deff9e697ecffdc94c800c72bd183098573f48b790a63c.png" src="_images/214051c02be5139372deff9e697ecffdc94c800c72bd183098573f48b790a63c.png" />
+<img alt="_images/4dce559623105626c0e7970a2bf2a60f2d4cabc0c9238ae1d3643e9fd1fc29fd.png" src="_images/4dce559623105626c0e7970a2bf2a60f2d4cabc0c9238ae1d3643e9fd1fc29fd.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 =&gt; [a3, a4, a3] - [a3, a4, a3] =&gt; [e, E] - [e, E] =&gt; 0 @ ( a*b*d + b*c*d + b*d*f + b*f*C + c*d*A + d*f*A + f*A*B + f*A*C )
 </pre></div>
 </div>
-<img alt="_images/09fdbadf0cb6aacb8e7019fef5c76e57aa7ee1bb23c6dcc10987e9ed690f3e94.png" src="_images/09fdbadf0cb6aacb8e7019fef5c76e57aa7ee1bb23c6dcc10987e9ed690f3e94.png" />
+<img alt="_images/48a72065c7e5386f92c6c6f5cd72143874bef4dc99350eab0fe7af72490285a4.png" src="_images/48a72065c7e5386f92c6c6f5cd72143874bef4dc99350eab0fe7af72490285a4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>( a*b*C - c*A*B ) @ ( e*F + D*E + D*F )
 ( c*d*e*F - f*C*D*E ) @ ( b + A )
 ( a*b*d*e*F - f*A*B*D*E ) @ ( 1 )

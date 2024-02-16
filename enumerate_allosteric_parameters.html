@@ -166,16 +166,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_vertex_and_edge_labels.html">Tools and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_enumerate_allosteric_parameters.html">Using receptor_tools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
@@ -183,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
 <ul class="nav bd-sidenav">
@@ -193,6 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -434,9 +442,71 @@ document.write(`
 <p>The file <code class="docutils literal notranslate"><span class="pre">MyTools.ipynb</span></code> is includes several function definitions whose use is illustrated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> MyTools.ipynb
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> receptor_tools.ipynb
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">mydoc(myfun,</span> <span class="pre">method='both')</span></code></strong></p>
+<p>Display the <strong>signature</strong> of <code class="docutils literal notranslate"><span class="pre">myfun</span></code> followed by the <strong>docstring</strong> of <code class="docutils literal notranslate"><span class="pre">myfun</span></code>.
+Set <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">='signature'</span></code> or <code class="docutils literal notranslate"><span class="pre">'method</span> <span class="pre">=</span> <span class="pre">'docstring'</span></code> or <code class="docutils literal notranslate"><span class="pre">'method</span> <span class="pre">=</span> <span class="pre">'both'</span></code></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">print_graph(G)</span></code></strong></p>
+<p>Prints the vertices and edges of the graph <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">generator(A,</span> <span class="pre">rowsum=True)</span></code></strong></p>
+<p>Creates the generator matrix ‘Q’ from the adjacency matrix ‘A’. By default the sum along each row of ‘Q’ is zero (‘rowsum=True’).  For the sum along each column of ‘Q’ to be zero, set ‘rowsum=False’.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">hill_diagramatic_method(Q)</span></code></strong></p>
+<p>Returns the spanning tree polynomials rooted in each vertex.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_vertex_monomials(G=Graph</span> <span class="pre">on</span> <span class="pre">0</span> <span class="pre">vertices,</span> <span class="pre">method='integer',</span> <span class="pre">ring=False)</span></code></strong></p>
+<p>Add monomials to vertices of a graph.</p>
+<p>The add_vertex_monomials function takes a graph G, as well as optional parameters method and ring. The function creates a new graph H with vertices labeled by monomials. The monomials are chosen based on the number of vertices in G. If the method parameter is set to ‘alpha’ and the number of vertices in G is less than or equal to 10, the monomials are chosen as alphabetical letters (‘a’ to ‘k’). Otherwise, the monomials are chosen as strings of the form ‘a0’, ‘a1’, …, ‘an-1’, where n is the number of vertices in G. The function then adds the vertices from G to H using the monomials as labels, and adds the edges from G to H using the monomials as endpoints. If the ring parameter is set to True, the function also creates a polynomial ring V with the chosen monomials and ‘invlex’ order, and returns both H and V. Otherwise, it returns only H.</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as vertices</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G0,</span> <span class="pre">method='integer',</span> <span class="pre">edge_vars=['b',</span> <span class="pre">'c',</span> <span class="pre">'d',</span> <span class="pre">'e',</span> <span class="pre">'f',</span> <span class="pre">'g',</span> <span class="pre">'h',</span> <span class="pre">'i',</span> <span class="pre">'j',</span> <span class="pre">'k',</span> <span class="pre">'l',</span> <span class="pre">'m',</span> <span class="pre">'n',</span> <span class="pre">'o',</span> <span class="pre">'p',</span> <span class="pre">'q',</span> <span class="pre">'r',</span> <span class="pre">'s',</span> <span class="pre">'t',</span> <span class="pre">'u',</span> <span class="pre">'v',</span> <span class="pre">'w',</span> <span class="pre">'x',</span> <span class="pre">'y',</span> <span class="pre">'z'],</span> <span class="pre">ring=False,</span> <span class="pre">short_name=False)</span></code></strong></p>
+<p>Add monomials to edges of a graph.</p>
+<p>The add_edge_monomials function takes a graph G, as well as optional parameters method, edge_vars, ring, and short_name. If method is set to ‘integer’, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph. The edge variables can be represented either as ‘e’ followed by the first vertex label or the first and second vertex labels concatenated. If the vertex labels are integers and the short_name parameter is set to True, the edge variables are created using only the first vertex label. If method is set to ‘alpha’, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph in reverse order. The number of edge variables used is determined by the size of the graph. The ring parameter, if set to True, injects the polynomial variables into the global namespace and returns the graph and the polynomial ring. Otherwise, it simply returns the graph.</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as edges</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_edge_monomials_ver2(G,</span> <span class="pre">edge_labels='default',</span> <span class="pre">prefix='')</span></code></strong></p>
+<p>Add monomials to edges of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G=House</span> <span class="pre">Graph:</span> <span class="pre">Graph</span> <span class="pre">on</span> <span class="pre">5</span> <span class="pre">vertices,</span> <span class="pre">**kwargs)</span></code></strong></p>
+<p>Enumerate allosteric parameters of a receptor model.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as vertices</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical')</span></code></strong></p>
+<p>Construct Cartesian power of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
+<p>Construct reduced Cartesian power of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">combinatorial_laplacian(G,</span> <span class="pre">combinatorial_coefficients=False)</span></code></strong></p>
+<p>Construct the combinatorial Laplacian of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">tree_polynomial(G,</span> <span class="pre">combinatorial_coefficients=False)</span></code></strong></p>
+<p>Construct the tree polynomial of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
 </div>
 </div>
 <div class="cell docutils container">
@@ -455,7 +525,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5f01b4b3e748fd6d5c7cc873b8ddf83ef2f07730d1e9847b7120d0085b018c80.png" src="_images/5f01b4b3e748fd6d5c7cc873b8ddf83ef2f07730d1e9847b7120d0085b018c80.png" />
+<img alt="_images/5aa73a1e3cf8bda2882b74e77ba36e5863674678e61d7ee0e966886b227ef96b.png" src="_images/5aa73a1e3cf8bda2882b74e77ba36e5863674678e61d7ee0e966886b227ef96b.png" />
 </div>
 </div>
 <p>The following commands produces a spanning tree of the receptor model rooted in vertex 0.  The function <code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G)</span></code> defined variables from a polynomial ring and applies them edge labels to the graph.  The default method uses $e_1, e_2, \ldots$. Using <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> in <code class="docutils literal notranslate"><span class="pre">add_edge_monomials()</span></code> creates single digit edge labels ($b,c,\ldots$).</p>
@@ -481,7 +551,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The edge labels (e1, e2, e3, e4) are indeterminants in a Multivariate Polynomial Ring in e1, e2, e3, e4 over Integer Ring
 </pre></div>
 </div>
-<img alt="_images/01c8ba0e40c2b296f8f0df3670f449c6582b423ace03ca5dd6e846cd5523691e.png" src="_images/01c8ba0e40c2b296f8f0df3670f449c6582b423ace03ca5dd6e846cd5523691e.png" />
+<img alt="_images/c6dac98ccd76160c7b8e1796deaf20e87f149a8bbfa96e51b4dbc11ec83f6918.png" src="_images/c6dac98ccd76160c7b8e1796deaf20e87f149a8bbfa96e51b4dbc11ec83f6918.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1114,8 +1184,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/be2f6ecfb6e48ea0908dbf834f77f37b3c36f4211899ee29d8f6899a2820a86c.png" src="_images/be2f6ecfb6e48ea0908dbf834f77f37b3c36f4211899ee29d8f6899a2820a86c.png" />
-<img alt="_images/049a4157642980eb18431b979cd98e4e0da5871eaea4fbbafca761f20c094438.png" src="_images/049a4157642980eb18431b979cd98e4e0da5871eaea4fbbafca761f20c094438.png" />
+<img alt="_images/df0da30c0b4531cea156da689cd50f39ecc091f189336e977eddce3aabfd58ff.png" src="_images/df0da30c0b4531cea156da689cd50f39ecc091f189336e977eddce3aabfd58ff.png" />
+<img alt="_images/9eac45b70e1785a8c5e1e7f18254baa596d925e640e0f9818e9a1b024a2f4b09.png" src="_images/9eac45b70e1785a8c5e1e7f18254baa596d925e640e0f9818e9a1b024a2f4b09.png" />
 <div class="output text_html"><html>\(\displaystyle \newcommand{\Bold}[1]{\mathbf{#1}}\Bold{Z}[b, c, d, e]\)</html></div><div class="output text_html"><html>\(\displaystyle \left[0, b, c, d + c, e + d + c\right]\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;kappa_b&#39;, &#39;kappa_c&#39;, &#39;kappa_d&#39;, &#39;kappa_e&#39;]
 [&#39;\\kappa_{\\mathit{b}}&#39;, &#39;\\kappa_{\\mathit{c}}&#39;, &#39;\\kappa_{\\mathit{d}}&#39;, &#39;\\kappa_{\\mathit{e}}&#39;]
 </pre></div>
@@ -1250,7 +1320,47 @@ document.write(`
 [[1, 1, 1, 1, 1], [0, eta_bb, eta_bc, eta_bc*eta_bd, eta_bc*eta_bd*eta_be], [0, 0, eta_cc, eta_cc*eta_cd, eta_cc*eta_cd*eta_ce], [0, 0, 0, eta_cc*eta_cd^2*eta_dd, eta_cc*eta_cd^2*eta_dd*eta_ce*eta_de], [0, 0, 0, 0, eta_cc*eta_cd^2*eta_dd*eta_ce^2*eta_de^2*eta_ee]]
 </pre></div>
 </div>
-<div class="output text_html"><html>\(\displaystyle \left[\left[1, 2 \kappa_{\mathit{b}}, 2 \kappa_{\mathit{c}}, 2 \kappa_{\mathit{c}} \kappa_{\mathit{d}}, 2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}}\right], \left[0, \kappa_{\mathit{b}}^{2} \eta_{\mathit{bb}}, 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \eta_{\mathit{bc}}, 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \eta_{\mathit{bc}} \eta_{\mathit{bd}}, 2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} \eta_{\mathit{be}}\right], \left[0, 0, \kappa_{\mathit{c}}^{2} \eta_{\mathit{cc}}, 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \eta_{\mathit{cc}} \eta_{\mathit{cd}}, 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} \eta_{\mathit{ce}}\right], \left[0, 0, 0, \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}}, 2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{ce}} \eta_{\mathit{de}}\right], \left[0, 0, 0, 0, \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \kappa_{\mathit{e}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{ce}}^{2} \eta_{\mathit{de}}^{2} \eta_{\mathit{ee}}\right]\right]\)</html></div></div>
+<div class="output text_html"><div class="notruncate">
+<table  class="table_form">
+<tbody>
+<tr class ="row-a">
+<td style="text-align:left">\(1\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}}\)</td>
+</tr>
+<tr class ="row-b">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{b}}^{2} \eta_{\mathit{bb}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \eta_{\mathit{bc}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \eta_{\mathit{bc}} \eta_{\mathit{bd}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} \eta_{\mathit{be}}\)</td>
+</tr>
+<tr class ="row-a">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{c}}^{2} \eta_{\mathit{cc}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \eta_{\mathit{cc}} \eta_{\mathit{cd}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} \eta_{\mathit{ce}}\)</td>
+</tr>
+<tr class ="row-b">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \kappa_{\mathit{e}} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{ce}} \eta_{\mathit{de}}\)</td>
+</tr>
+<tr class ="row-a">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \kappa_{\mathit{e}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} \eta_{\mathit{ce}}^{2} \eta_{\mathit{de}}^{2} \eta_{\mathit{ee}}\)</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1259,7 +1369,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/be2f6ecfb6e48ea0908dbf834f77f37b3c36f4211899ee29d8f6899a2820a86c.png" src="_images/be2f6ecfb6e48ea0908dbf834f77f37b3c36f4211899ee29d8f6899a2820a86c.png" />
+<img alt="_images/df0da30c0b4531cea156da689cd50f39ecc091f189336e977eddce3aabfd58ff.png" src="_images/df0da30c0b4531cea156da689cd50f39ecc091f189336e977eddce3aabfd58ff.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1269,7 +1379,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/049a4157642980eb18431b979cd98e4e0da5871eaea4fbbafca761f20c094438.png" src="_images/049a4157642980eb18431b979cd98e4e0da5871eaea4fbbafca761f20c094438.png" />
+<img alt="_images/9eac45b70e1785a8c5e1e7f18254baa596d925e640e0f9818e9a1b024a2f4b09.png" src="_images/9eac45b70e1785a8c5e1e7f18254baa596d925e640e0f9818e9a1b024a2f4b09.png" />
 </div>
 </div>
 <div class="cell docutils container">

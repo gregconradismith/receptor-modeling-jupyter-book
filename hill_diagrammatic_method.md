@@ -12,7 +12,6 @@ kernelspec:
   language: sage
   name: sage-10.0
 ---
-
 # Hill's diagrammatic method
 
 As discusssed earlier [earlier](markov_chain_tree_theorem_intro), the [Markov chain tree theorem](https://en.wikipedia.org/wiki/Markov_chain_tree_theorem) (also called Hill's diagrammatic method) provides algebraic expressions for the steady-state probabilities of a receptor model.    The function `hill_diagramatic_method()` below takes a symbolic generator matrix for such a Markov chain as input and, using the Markov chain tree theorem, calculates the steady-state probability of each state.
@@ -37,7 +36,7 @@ The receptor models considered here have state-transition diagrams with the topo
 ## Receptor model with the topology of the cycle graph [{math}`C_3`](example_graphs:cycle_graph)
 
 To illustrate the function `hill_diagramatic_method()`, consider a three-state receptor model that has a [cycle](example_graphs:cycle_graph).
- 
+
 ```{code-cell}
 var('p0 p1 p2 a01 a10 a02 a20 a12 a21')
 d = {0: {1:a01, 2:a02}, 1: {0:a10, 2:a12}, 2: {1:a21, 0:a20}};
@@ -69,7 +68,7 @@ Each relative probability, when expanded, is a multinomial with three terms, bec
 ## Receptor model with topology of the House Graph 
 
 We conclude this section with a receptor model that has more than one cycle, namely, the [house graph](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generators/basic.html#sage.graphs.generators.basic.HouseGraph).
- 
+
 ```{code-cell}
 var('p0 p1 p2 p3 p4 a01 a10 a02 a20 a04 a40 a12 a21 a23 a32 a34 a43')
 d = {0: {1:a01, 2:a02, 4:a04}, 1: {0:a10, 2:a12}, 2: {1:a21, 0:a20, 3:a23}, 3: {2:a32, 4:a34}, 4: {3:a43, 0:a40}};
@@ -90,3 +89,4 @@ for i in range(5):
 ```
 
 In this case, each of the five relative probabilities is a multinomial with 10 terms because there are 10 rooted spanning trees associated to each state (vertex).  Each term has 4 factors because any spanning tree of the house graph has 4 edges.
+

@@ -164,16 +164,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_vertex_and_edge_labels.html">Tools and Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="my_tools_examples_enumerate_allosteric_parameters.html">Using receptor_tools.ipynb - Part 2 - Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Fitting of Allosteric Parameters in Receptor Dimers</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Allosteric Parameters in Receptor Dimers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-20-example-lmfit.html">example-lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-24-example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-08-25-plotting-hypercubes.html">plotting hypercube graphs</a></li>
@@ -181,6 +183,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-08-21-practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle fluxes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
 <ul class="nav bd-sidenav">
@@ -468,6 +475,49 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 </div>
 </div>
 <hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">rowsum</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Creates the generator matrix &#39;Q&#39; from the adjacency matrix &#39;A&#39;. By default the sum along each row of &#39;Q&#39; is zero (&#39;rowsum=True&#39;).  For the sum along each column of &#39;Q&#39; to be zero, set &#39;rowsum=False&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">rowsum</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">A</span><span class="o">-</span><span class="n">diagonal_matrix</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">A</span><span class="o">-</span><span class="n">diagonal_matrix</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+    
+<span class="n">mydoc</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">generator(A,</span> <span class="pre">rowsum=True)</span></code></strong></p>
+<p>Creates the generator matrix ‘Q’ from the adjacency matrix ‘A’. By default the sum along each row of ‘Q’ is zero (‘rowsum=True’).  For the sum along each column of ‘Q’ to be zero, set ‘rowsum=False’.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hill_diagramatic_method</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Returns the spanning tree polynomials rooted in each vertex.&quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">nrows</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">Q</span><span class="o">.</span><span class="n">ncols</span><span class="p">()</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">[</span> <span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">]</span>
+        <span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Q</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">determinant</span><span class="p">()</span><span class="o">.</span><span class="n">simplify_full</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">hill_diagramatic_method</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">hill_diagramatic_method(Q)</span></code></strong></p>
+<p>Returns the spanning tree polynomials rooted in each vertex.</p>
+</div>
+</div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -556,7 +606,7 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_edge_monomials</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_edge_monomials</span><span class="p">(</span><span class="n">G0</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span>
                        <span class="n">edge_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;l&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="s1">&#39;q&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="s1">&#39;t&#39;</span><span class="p">,</span><span class="s1">&#39;u&#39;</span><span class="p">,</span><span class="s1">&#39;v&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="c1"># no &quot;a&quot; here!</span>
                        <span class="n">ring</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">short_name</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
@@ -574,6 +624,7 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 <span class="sd">    </span>
 <span class="sd">    - The graph with monomials as edges</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">G0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">method</span><span class="o">==</span><span class="s1">&#39;integer&#39;</span><span class="p">:</span> <span class="c1"># method parameter is set to &#39;integer&#39;</span>
         <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># checking if the vertex labels are integers</span>
             <span class="k">if</span> <span class="n">short_name</span><span class="p">:</span>
@@ -617,7 +668,7 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><strong><code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G,</span> <span class="pre">method='integer',</span> <span class="pre">edge_vars=['b',</span> <span class="pre">'c',</span> <span class="pre">'d',</span> <span class="pre">'e',</span> <span class="pre">'f',</span> <span class="pre">'g',</span> <span class="pre">'h',</span> <span class="pre">'i',</span> <span class="pre">'j',</span> <span class="pre">'k',</span> <span class="pre">'l',</span> <span class="pre">'m',</span> <span class="pre">'n',</span> <span class="pre">'o',</span> <span class="pre">'p',</span> <span class="pre">'q',</span> <span class="pre">'r',</span> <span class="pre">'s',</span> <span class="pre">'t',</span> <span class="pre">'u',</span> <span class="pre">'v',</span> <span class="pre">'w',</span> <span class="pre">'x',</span> <span class="pre">'y',</span> <span class="pre">'z'],</span> <span class="pre">ring=False,</span> <span class="pre">short_name=False)</span></code></strong></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G0,</span> <span class="pre">method='integer',</span> <span class="pre">edge_vars=['b',</span> <span class="pre">'c',</span> <span class="pre">'d',</span> <span class="pre">'e',</span> <span class="pre">'f',</span> <span class="pre">'g',</span> <span class="pre">'h',</span> <span class="pre">'i',</span> <span class="pre">'j',</span> <span class="pre">'k',</span> <span class="pre">'l',</span> <span class="pre">'m',</span> <span class="pre">'n',</span> <span class="pre">'o',</span> <span class="pre">'p',</span> <span class="pre">'q',</span> <span class="pre">'r',</span> <span class="pre">'s',</span> <span class="pre">'t',</span> <span class="pre">'u',</span> <span class="pre">'v',</span> <span class="pre">'w',</span> <span class="pre">'x',</span> <span class="pre">'y',</span> <span class="pre">'z'],</span> <span class="pre">ring=False,</span> <span class="pre">short_name=False)</span></code></strong></p>
 <p>Add monomials to edges of a graph.</p>
 <p>The add_edge_monomials function takes a graph G, as well as optional parameters method, edge_vars, ring, and short_name. If method is set to ‘integer’, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph. The edge variables can be represented either as ‘e’ followed by the first vertex label or the first and second vertex labels concatenated. If the vertex labels are integers and the short_name parameter is set to True, the edge variables are created using only the first vertex label. If method is set to ‘alpha’, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph in reverse order. The number of edge variables used is determined by the size of the graph. The ring parameter, if set to True, injects the polynomial variables into the global namespace and returns the graph and the polynomial ring. Otherwise, it simply returns the graph.</p>
 <p>INPUT:</p>
@@ -1084,7 +1135,7 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cartesian_power_original</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cartesian_power</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Construct Cartesian power of a graph.</span>
 
@@ -1103,16 +1154,16 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
         <span class="n">vflat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
     <span class="n">Gk</span><span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="n">vflat</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">edge_labels</span><span class="o">==</span><span class="s1">&#39;cannonical&#39;</span><span class="p">:</span>
-        <span class="n">Gk</span> <span class="o">=</span> <span class="n">add_edge_labels_ver2</span><span class="p">(</span><span class="n">Gk</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">)</span>
+        <span class="n">Gk</span> <span class="o">=</span> <span class="n">add_edge_monomials_ver2</span><span class="p">(</span><span class="n">Gk</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">)</span>
         <span class="c1">#Gk = add_edge_monomials(Gk)</span>
     <span class="k">return</span> <span class="n">Gk</span>
 
-<span class="n">mydoc</span><span class="p">(</span><span class="n">Cartesian_power_original</span><span class="p">)</span>
+<span class="n">mydoc</span><span class="p">(</span><span class="n">cartesian_power</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><strong><code class="docutils literal notranslate"><span class="pre">Cartesian_power_original(G,</span> <span class="pre">k,</span> <span class="pre">edge_labels='cannonical')</span></code></strong></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical')</span></code></strong></p>
 <p>Construct Cartesian power of a graph.</p>
 <p>[NEED TO WRITE DESCRIPTION]</p>
 </div>
@@ -1120,14 +1171,14 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reduced_Cartesian_power_original</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">false</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reduced_cartesian_power</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;cannonical&#39;</span><span class="p">,</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">independent</span><span class="o">=</span><span class="n">false</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Construct reduced Cartesian power of a graph.</span>
 
 <span class="sd">    [NEED TO WRITE DESCRIPTION]</span>
 <span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">Gk</span> <span class="o">=</span> <span class="n">Cartesian_power_original</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">edge_labels</span><span class="p">)</span>
+    <span class="n">Gk</span> <span class="o">=</span> <span class="n">cartesian_power</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">edge_labels</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
             <span class="n">sv</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
@@ -1152,12 +1203,12 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
                         <span class="n">Gk</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">prefix</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">fr</span><span class="p">,</span><span class="n">to</span><span class="p">,</span><span class="n">ctxt</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">Gk</span>
 
-<span class="n">mydoc</span><span class="p">(</span><span class="n">reduced_Cartesian_power_original</span><span class="p">)</span>
+<span class="n">mydoc</span><span class="p">(</span><span class="n">reduced_cartesian_power</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_Cartesian_power_original(G,</span> <span class="pre">k,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
 <p>Construct reduced Cartesian power of a graph.</p>
 <p>[NEED TO WRITE DESCRIPTION]</p>
 </div>

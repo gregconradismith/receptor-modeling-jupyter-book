@@ -13,15 +13,16 @@ parts:
     - file: markov_chains
     - file: nonequilibrium
     - file: hill_diagrammatic_method
-    - file: my_tools_examples_vertex_and_edge_labels
+    - file: tools_and_examples_part1 
   - caption: Receptor Dimers
     chapters:
     - file: receptor_dimers_overview
     - file: reduced_graph_powers
-    - file: my_tools_examples_enumerate_allosteric_parameters
-  - caption: Automated Fitting of Allosteric Parameters in Receptor Dimers
+    - file: tools_and_examples_part2
+  - caption: Allosteric Parameters in Receptor Dimers
     chapters:
     - file: overview
+    - file: tools_and_examples_part3
     - file: 2023-08-20-example-lmfit
     - file: 2023-08-24-example-minimize-linear-regression
     - file: 2023-08-25-plotting-hypercubes
@@ -29,6 +30,10 @@ parts:
     - file: 2023-08-21-practicing-python
     - file: enumerate_allosteric_parameters
     - file: plot_binding_curves
+  - caption: Cycle fluxes
+    chapters:
+    - file: cycle_fluxes_overview
+    - file: cycle_fluxes
   - caption: Wang algebras
     chapters:
     - file: tree_polynomials

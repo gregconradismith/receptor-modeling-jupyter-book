@@ -16,7 +16,7 @@ kernelspec:
 
 In classical electrical network theory, algebraic approaches to enumerating spanning trees of graphs were popular.  This chapter of notes focuses on connections between one technique for enumerating tree and cotrees---referred to in the 1960s as a `Wang algebra` by Richard Duffin 
  {cite}`Duffin59` [(pdf)](https://www.ams.org/journals/tran/1959-093-01/S0002-9947-1959-0109161-6/S0002-9947-1959-0109161-6.pdf)
-and Wai-Kai Chen {cite}`Chen1966directed` [(pdf)](https://epubs.siam.org/doi/pdf/10.1137/0114048)---and my research interest in the biophysical theory of receptor oligomers {cite}`HammackSmith17,ConradiSmith19` [(pdf)](https://amc-journal.eu/index.php/amc/article/view/856).
+and Wai-Kai Chen {cite}`Chen1966directed` [(pdf)](https://epubs.siam.org/doi/pdf/10.1137/0114048)---and my research interest in the biophysical theory of receptor oligomers {cite}`HammackSmith17,ConradiSmith2020` [(pdf)](https://amc-journal.eu/index.php/amc/article/view/856).
 
 ## Co-spanning trees from cycle basis
 

@@ -55,15 +55,11 @@ G_undirected.plot(figsize=8,pos=vertex_positions,graph_border=True)
 
 The graph `G_undirected` is constructed by calling the Sagemath command [`Graph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html#supported-formats) with a dictionary that associates neighbors to each vertex.  The vertices of the graph `G` are the integers 1, 2, 3, and 4.  The method `plot()` shows the graph `G_undirected` using a dictionary `vertex_positions` that specifies the locations of each vertex.
 
-The adjacency matrix of this graph is
+The [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix) of this graph is
 ```{code-cell}
 G_undirected.adjacency_matrix()
 ```
-
-The incidence matrix of this graph is
-```{code-cell}
-G_undirected.incidence_matrix()
-```
+The elements of the adjacency matrix indicate whether pairs of vertices are adjacent or not in the graph. The adjacency matrix of a graph should be distinguished from its [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) and its [degree matrix](https://en.wikipedia.org/wiki/Degree_matrix).
 
 ```{note}
 The graphs used here to represent receptor states and transitions will be both connected and simple.
@@ -97,7 +93,7 @@ G = DiGraph(d,weighted=True)
 G.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
 ```
 
-In the code above, a directed graph `G` is constructed by calling the Sagemath command [`DiGraph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html#methods).  The input argument `d` is a [Python dictionary](https://doc.sagemath.org/html/en/thematic_tutorials/tutorial-programming-python.html) that assigns out-neighbors to each vertex and corresponding edge labels.
+In the code above, a directed graph `G` is constructed by calling the `Sagemath` command [`DiGraph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html#methods).  The input argument `d` is a [Python dictionary](https://doc.sagemath.org/html/en/thematic_tutorials/tutorial-programming-python.html) that assigns out-neighbors to each vertex and corresponding edge labels.
 The edge labels are not _strings_, but _symbolic variables_ defined using Sagemath's `var` command.
 For example, the symbolic variable `a12` stands for the rate of transition between state 1 and 2. 
 
@@ -113,7 +109,7 @@ One reason for using symbolic variables is that we can produce symbolic expressi
 G.weighted_adjacency_matrix()
 ```
 
-The Laplacian of `G` is
+The [Laplacian matrix](https://en.wikipedia.org/wiki/Laplacian_matrix) of `G` is
 ```{code-cell}
 G.laplacian_matrix()
 ```

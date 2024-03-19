@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'equilibrium';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Markov chain receptor models" href="markov_chains.html" />
+    <link rel="next" title="Tools and Examples - Part 1" href="tools_and_examples_part1.html" />
     <link rel="prev" title="Ligand binding" href="ligands.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -163,9 +163,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
@@ -173,9 +170,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -183,15 +177,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -201,6 +199,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -445,7 +444,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-each-state">Probability of each state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-equilibrium-constants-in-the-three-state-receptor-model">Two equilibrium constants in the three-state receptor model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-the-ligand-concentration-dependence-of-equilibrium-constants">Including the ligand concentration dependence of equilibrium constants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-probability-of-each-receptor-state">The probability of each receptor state</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-spanning-tree-to-relative-probabilities">From spanning tree to relative probabilities</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-binding-curve">Equilibrium binding curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
@@ -469,7 +470,10 @@ document.write(`
 \def\kappacstar{k_{\c}}\]</div>
 <section id="equilibrium-formalism">
 <span id="id1"></span><h1>Equilibrium formalism<a class="headerlink" href="#equilibrium-formalism" title="Permalink to this heading">#</a></h1>
-<p>To illustrate the equilibrium formalism for receptor models, we will repeat our analysis of sequential binding using a standard notation. We begin with the weighted rooted spanning tree that specifies the equilibrium receptor model.</p>
+<p>In preparation for our discussion of conformational coupling in <a class="reference internal" href="receptor_dimers_overview.html#receptor-dimers-overview"><span class="std std-ref">Receptor Dimers</span></a>), this section illustrates the <em>equilibrium formalism</em> for a monomeric receptor model.  In essence, we will repeat our analysis of sequential <a class="reference internal" href="ligands.html"><span class="doc std std-doc">Ligand Binding</span></a> and <a class="reference internal" href="ligands.html#equilibrium-binding-curves-and-rooted-spanning-trees"><span class="std std-ref">Equilibrium Binding Curves</span></a>, but we will do so using a helpful notation, developed in <span id="id2">[<a class="reference internal" href="wang_algebra.html#id12" title="Gregory Douglas Conradi Smith. Allostery in oligomeric receptor models. Mathematical Medicine and Biology, 37:313–333, 2020.">CS20</a>]</span> (see <a class="reference internal" href="intro.html#welcome-to-receptors"><span class="std std-ref">Welcome to Receptors</span></a>).</p>
+<section id="two-equilibrium-constants-in-the-three-state-receptor-model">
+<h2>Two equilibrium constants in the three-state receptor model<a class="headerlink" href="#two-equilibrium-constants-in-the-three-state-receptor-model" title="Permalink to this heading">#</a></h2>
+<p>The receptor model’s state-transition diagram has the topology of a symmetric directed <a class="reference internal" href="example_graphs.html#example-graphs-path-graph"><span class="std std-ref">path graph</span></a> on 3 vertices. The weighted rooted <a class="reference external" href="https://en.wikipedia.org/wiki/Spanning_tree">spanning tree</a> that specifies the parmaters of equilibrium receptor model is shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a b c kappa_b kappa_c&#39;</span><span class="p">)</span>
@@ -484,10 +488,13 @@ document.write(`
 <img alt="_images/afd2f83ea487787830014a69726b08018c0066caffb23d63c5582876d3dbcd16.png" src="_images/afd2f83ea487787830014a69726b08018c0066caffb23d63c5582876d3dbcd16.png" />
 </div>
 </div>
-<p>In the diagram above, <span class="math notranslate nohighlight">\(\kappab\)</span> and <span class="math notranslate nohighlight">\(\kappac\)</span> are dimensionless equilibrium constants.</p>
+<p>In this diagram, <code class="docutils literal notranslate"><span class="pre">kappa_c</span></code> and <code class="docutils literal notranslate"><span class="pre">kappa_c</span></code> are dimensionless equilibrium constants that will often be rendered as  <span class="math notranslate nohighlight">\(\kappab\)</span> and <span class="math notranslate nohighlight">\(\kappac\)</span> in the mathematical expressions below.</p>
 <p>The edges of the spanning tree are directed backwards, i.e., the forward reaction is against the direction of the arrow.  For example, the reaction labelled with the equilibrium constant <span class="math notranslate nohighlight">\(\kappab\)</span> has <span class="math notranslate nohighlight">\(a\)</span> as reactant and <span class="math notranslate nohighlight">\(b\)</span> as product; consequently, increasing <span class="math notranslate nohighlight">\(\kappab\)</span> decreases the equilibrium probability (relative fraction) of state <span class="math notranslate nohighlight">\(a\)</span> and increases the probability of state <span class="math notranslate nohighlight">\(b\)</span>.</p>
 <p>The three states are labelled so that the reactant comes before the product in dictionary order (<span class="math notranslate nohighlight">\(a\)</span> to <span class="math notranslate nohighlight">\(b\)</span> to <span class="math notranslate nohighlight">\(c\)</span>).  The subscript of the equilibrium constants <span class="math notranslate nohighlight">\(\kappab\)</span> and <span class="math notranslate nohighlight">\(\kappac\)</span> are chosen to match the label of the <em>products</em>.</p>
-<p>The dependence on ligand concentration is encorporated by defining <span class="math notranslate nohighlight">\(\kappab = \kappabstar x\)</span> and <span class="math notranslate nohighlight">\(\kappac = \kappacstar x\)</span> where <span class="math notranslate nohighlight">\(\kappabstar\)</span> and <span class="math notranslate nohighlight">\(\kappacstar\)</span> are association constants with physical dimension of inverse concentration, and <span class="math notranslate nohighlight">\(x\)</span> is ligand concentration.</p>
+</section>
+<section id="including-the-ligand-concentration-dependence-of-equilibrium-constants">
+<h2>Including the ligand concentration dependence of equilibrium constants<a class="headerlink" href="#including-the-ligand-concentration-dependence-of-equilibrium-constants" title="Permalink to this heading">#</a></h2>
+<p>The dependence of the two equilibrium constants on ligand concentration is encorporated by defining <span class="math notranslate nohighlight">\(\kappab = \kappabstar x\)</span> and <span class="math notranslate nohighlight">\(\kappac = \kappacstar x\)</span> where <span class="math notranslate nohighlight">\(\kappabstar\)</span> and <span class="math notranslate nohighlight">\(\kappacstar\)</span> are association constants with physical dimension of inverse concentration, and <span class="math notranslate nohighlight">\(x\)</span> is ligand concentration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a b c x kb kc&#39;</span><span class="p">)</span>
@@ -502,32 +509,33 @@ document.write(`
 <img alt="_images/21cf6ae174bc8f3aad51361547d71f4e717fce3cf6b565125476a460d3c6bb30.png" src="_images/21cf6ae174bc8f3aad51361547d71f4e717fce3cf6b565125476a460d3c6bb30.png" />
 </div>
 </div>
-<section id="probability-of-each-state">
-<h2>Probability of each state<a class="headerlink" href="#probability-of-each-state" title="Permalink to this heading">#</a></h2>
-<p>For the equilibrium receptor model above, the probability of state <span class="math notranslate nohighlight">\(i\)</span> is given by
+</section>
+<section id="the-probability-of-each-receptor-state">
+<h2>The probability of each receptor state<a class="headerlink" href="#the-probability-of-each-receptor-state" title="Permalink to this heading">#</a></h2>
+<p>For the receptor model above, the probability of state <span class="math notranslate nohighlight">\(i\)</span> is given by
 <span class="math notranslate nohighlight">\(\pi_i = z_i / z_T\)</span> where  <span class="math notranslate nohighlight">\(z_T= \textstyle \sum_i z_i\)</span>, and</p>
 <div class="math notranslate nohighlight" id="equation-equilibrium-z">
 <span class="eqno">(1)<a class="headerlink" href="#equation-equilibrium-z" title="Permalink to this equation">#</a></span>\[z_a = 1 \quad z_b = \kappab = \kappabstar x \quad  z_c =\kappab \kappac = \kappabstar \kappacstar x^2 \, .\]</div>
 <p>That is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-da35a8a9-2039-455a-89bf-d2e997ddfb72">
-<span class="eqno">(2)<a class="headerlink" href="#equation-da35a8a9-2039-455a-89bf-d2e997ddfb72" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b8ef7778-b73d-49ea-8ddf-7264f2a26740">
+<span class="eqno">(2)<a class="headerlink" href="#equation-b8ef7778-b73d-49ea-8ddf-7264f2a26740" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}\]</div>
 <p>It is helpful to  present this set of rational functions using the following compact notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa7f62ed-d24e-4548-85ed-a70d226f6f5a">
-<span class="eqno">(3)<a class="headerlink" href="#equation-fa7f62ed-d24e-4548-85ed-a70d226f6f5a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-09fae5be-1bd7-4a22-b2f0-3c2c6222e135">
+<span class="eqno">(3)<a class="headerlink" href="#equation-09fae5be-1bd7-4a22-b2f0-3c2c6222e135" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_a  :  \pi_b :  \pi_c ] = [1 :\kappab : \kappab \kappac ]  = [1 : \kappabstar x :\kappabstar \kappacstar x^2  ] \,  .
 \end{equation}\]</div>
 <p>In expressions of this kind,  it is understood that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb08ad15-1728-4ea3-a75a-a0b6f9fa7f12">
-<span class="eqno">(4)<a class="headerlink" href="#equation-fb08ad15-1728-4ea3-a75a-a0b6f9fa7f12" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b16d46a-f02a-4487-af81-ea5640f490a1">
+<span class="eqno">(4)<a class="headerlink" href="#equation-7b16d46a-f02a-4487-af81-ea5640f490a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 [ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ] = [ \lambda z_1 \! : \! \lambda  z_2 : \! \cdots \! : \! \lambda  z_n ]
 \end{equation}\]</div>
 <p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>.  Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.  Prior to normalization, we will refer to <span class="math notranslate nohighlight">\([ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ]\)</span> as <em>relative probabilites</em> for each receptor state.</p>
 </section>
 <section id="from-spanning-tree-to-relative-probabilities">
 <h2>From spanning tree to relative probabilities<a class="headerlink" href="#from-spanning-tree-to-relative-probabilities" title="Permalink to this heading">#</a></h2>
-<p>By using a spanning tree as the specification for the receptor model, it is straightforward to extract symbolic expressions for the fraction of receptors in each state.</p>
+<p>Using a spanning tree as the specification for the receptor model, the following <code class="docutils literal notranslate"><span class="pre">Sagemath</span></code> commands extract symbolic expressions for the fraction of receptors in each state.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">paths</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">all_simple_paths</span><span class="p">(</span><span class="n">starting_vertices</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">],</span><span class="n">ending_vertices</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">],</span><span class="n">trivial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -585,7 +593,7 @@ document.write(`
 </section>
 <section id="equilibrium-binding-curve">
 <h2>Equilibrium binding curve<a class="headerlink" href="#equilibrium-binding-curve" title="Permalink to this heading">#</a></h2>
-<p>After choosing values for <code class="docutils literal notranslate"><span class="pre">kb</span></code> and <code class="docutils literal notranslate"><span class="pre">kc</span></code>, the equilibrium binding curves can be calculated.</p>
+<p>After choosing values for the association constants <code class="docutils literal notranslate"><span class="pre">kb</span></code> and <code class="docutils literal notranslate"><span class="pre">kc</span></code>, equilibrium binding curves can be plotted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">;</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
@@ -605,13 +613,21 @@ p[1] = x/(x^2 + x + 1)
 p[2] = x^2/(x^2 + x + 1)
 </pre></div>
 </div>
-<img alt="_images/9629c90c38dd6d3474977f2bd504335432e8ed23b2b280d860371c06e0dab1c4.png" src="_images/9629c90c38dd6d3474977f2bd504335432e8ed23b2b280d860371c06e0dab1c4.png" />
+<img alt="_images/d1c087d0c395fe074eea0f4ee6fb041a2413faa29a89bb49b1e6941c2cc2eadc.png" src="_images/d1c087d0c395fe074eea0f4ee6fb041a2413faa29a89bb49b1e6941c2cc2eadc.png" />
 </div>
 </div>
+<p>The above plot can be compared to those in the previous section (<a class="reference internal" href="ligands.html"><span class="doc std std-doc">Ligand Binding</span></a>). The only distinction is the usage of the notation that is the focus of this section. This notation is especially helpful in the analysis of conformational coupling of <a class="reference internal" href="receptor_dimers_overview.html#receptor-dimers-overview"><span class="std std-ref">recepter dimers</span></a> and higher-order oligomers.</p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<span class="target" id="id2"></span></section>
+<div class="docutils container" id="id3">
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">CS20</a><span class="fn-bracket">]</span></span>
+<p>Gregory Douglas Conradi Smith. Allostery in oligomeric receptor models. <em>Mathematical Medicine and Biology</em>, 37:313–333, 2020.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -655,11 +671,11 @@ p[2] = x^2/(x^2 + x + 1)
       </div>
     </a>
     <a class="right-next"
-       href="markov_chains.html"
+       href="tools_and_examples_part1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markov chain receptor models</p>
+        <p class="prev-next-title">Tools and Examples - Part 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -681,7 +697,9 @@ p[2] = x^2/(x^2 + x + 1)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-each-state">Probability of each state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-equilibrium-constants-in-the-three-state-receptor-model">Two equilibrium constants in the three-state receptor model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#including-the-ligand-concentration-dependence-of-equilibrium-constants">Including the ligand concentration dependence of equilibrium constants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-probability-of-each-receptor-state">The probability of each receptor state</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-spanning-tree-to-relative-probabilities">From spanning tree to relative probabilities</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-binding-curve">Equilibrium binding curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
@@ -708,7 +726,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

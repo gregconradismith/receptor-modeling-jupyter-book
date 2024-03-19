@@ -22,14 +22,15 @@ kernelspec:
 \def\kappacstar{k_{\c}}
 ```
 
-% Does this get parsed?
-% def\kappabstar{\hat{\kappa}_{\b}}
-% \def\kappacstar{\hat{\kappa}_{\c}}
 
 (equilibrium_formalism)=
 # Equilibrium formalism  
 
-To illustrate the equilibrium formalism for receptor models, we will repeat our analysis of sequential binding using a standard notation. We begin with the weighted rooted spanning tree that specifies the equilibrium receptor model.
+In preparation for our discussion of conformational coupling in [Receptor Dimers](receptor_dimers_overview)), this section illustrates the _equilibrium formalism_ for a monomeric receptor model.  In essence, we will repeat our analysis of sequential [Ligand Binding](ligands) and [Equilibrium Binding Curves](equilibrium_binding_curves_and_rooted_spanning_trees), but we will do so using a helpful notation, developed in {cite:ps}`ConradiSmith2020` (see [Welcome to Receptors](welcome_to_receptors)).
+
+## Two equilibrium constants in the three-state receptor model
+
+The receptor model's state-transition diagram has the topology of a symmetric directed [path graph](example_graphs:path_graph) on 3 vertices. The weighted rooted [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) that specifies the parmaters of equilibrium receptor model is shown below.
 
 ```{code-cell}
 var('a b c kappa_b kappa_c')
@@ -39,13 +40,15 @@ T.set_edge_label(c,b,kappa_c)
 T.plot(figsize=6,pos={a:(0,0),b:(2,0),c:(4,0)},edge_labels=True,graph_border=True,vertex_size=1000)
 ```
 
-In the diagram above, {math}`\kappab` and {math}`\kappac` are dimensionless equilibrium constants.  
+In this diagram, `kappa_c` and `kappa_c` are dimensionless equilibrium constants that will often be rendered as  {math}`\kappab` and {math}`\kappac` in the mathematical expressions below.
 
 The edges of the spanning tree are directed backwards, i.e., the forward reaction is against the direction of the arrow.  For example, the reaction labelled with the equilibrium constant {math}`\kappab` has {math}`a` as reactant and {math}`b` as product; consequently, increasing {math}`\kappab` decreases the equilibrium probability (relative fraction) of state {math}`a` and increases the probability of state {math}`b`.
 
 The three states are labelled so that the reactant comes before the product in dictionary order ({math}`a` to {math}`b` to {math}`c`).  The subscript of the equilibrium constants {math}`\kappab` and {math}`\kappac` are chosen to match the label of the _products_.
 
-The dependence on ligand concentration is encorporated by defining {math}`\kappab = \kappabstar x` and {math}`\kappac = \kappacstar x` where {math}`\kappabstar` and {math}`\kappacstar` are association constants with physical dimension of inverse concentration, and {math}`x` is ligand concentration.  
+## Including the ligand concentration dependence of equilibrium constants 
+
+The dependence of the two equilibrium constants on ligand concentration is encorporated by defining {math}`\kappab = \kappabstar x` and {math}`\kappac = \kappacstar x` where {math}`\kappabstar` and {math}`\kappacstar` are association constants with physical dimension of inverse concentration, and {math}`x` is ligand concentration.  
 
 ```{code-cell}
 var('a b c x kb kc')
@@ -55,9 +58,9 @@ T.set_edge_label(c,b,kc*x)
 T.plot(figsize=6,pos={a:(0,0),b:(3,0),c:(6,0)},edge_labels=True,graph_border=True,vertex_size=1000)
 ```
 
-## Probability of each state 
+## The probability of each receptor state 
 
-For the equilibrium receptor model above, the probability of state {math}`i` is given by
+For the receptor model above, the probability of state {math}`i` is given by
 {math}`\pi_i = z_i / z_T` where  {math}`z_T= \textstyle \sum_i z_i`, and 
 
 ```{math}
@@ -83,7 +86,7 @@ for any {math}`\lambda \neq 0`.  Furthermore, {math}`\lambda = 1/\sum_i x_n` giv
 
 ## From spanning tree to relative probabilities
 
-By using a spanning tree as the specification for the receptor model, it is straightforward to extract symbolic expressions for the fraction of receptors in each state.
+Using a spanning tree as the specification for the receptor model, the following `Sagemath` commands extract symbolic expressions for the fraction of receptors in each state.
 
 ```{code-cell}
 paths = T.all_simple_paths(starting_vertices=[a,b,c],ending_vertices=[a],trivial=True)
@@ -118,7 +121,7 @@ print(prob)
 
 ## Equilibrium binding curve
 
-After choosing values for `kb` and `kc`, the equilibrium binding curves can be calculated.
+After choosing values for the association constants `kb` and `kc`, equilibrium binding curves can be plotted.
 
 ```{code-cell}
 xmin=0.01; xmax=100;
@@ -130,6 +133,8 @@ for i in range(3):
     print('p[%s] ='%i,prob[i].subs(params))
 show(sum(p))
 ```
+
+The above plot can be compared to those in the previous section ([Ligand Binding](ligands)). The only distinction is the usage of the notation that is the focus of this section. This notation is especially helpful in the analysis of conformational coupling of [recepter dimers](receptor_dimers_overview) and higher-order oligomers.
 
 
 ## References

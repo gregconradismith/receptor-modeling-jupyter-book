@@ -161,9 +161,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
@@ -171,9 +168,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -181,15 +175,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -199,6 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -410,7 +409,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="welcome-to-receptors">
-<h1>Welcome to <strong>Receptors</strong><a class="headerlink" href="#welcome-to-receptors" title="Permalink to this heading">#</a></h1>
+<span id="id1"></span><h1>Welcome to <strong>Receptors</strong><a class="headerlink" href="#welcome-to-receptors" title="Permalink to this heading">#</a></h1>
 <p>This <a class="reference external" href="https://jupyterbook.org">Jupyter Book</a> explores how cell surface receptors can be modeled using <a class="reference external" href="https://www.sagemath.org">Sagemath</a>, a free open-source mathematics software system (see <a class="reference external" href="https://www.sagemath.org">https://www.sagemath.org</a>).</p>
 <p>The focus is Markov chain models of receptors and symbolic algebraic calculations of equilibrium and steady-state kinetic occupancy measures (i.e., the probability of each state), as opposed to numerical methods to calculate steady states or time-dependent dynamics.</p>
 <p>After an brief introductory tutorial, we illustrate an approach to <strong>modeling conformational coupling of receptor dimers and higher-order oligomers</strong> that was introduced in the following two papers.</p>
@@ -437,9 +436,6 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 </div>
@@ -449,11 +445,6 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -463,17 +454,21 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
 </ul>
 </div>
 <div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
-<ul>
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -485,6 +480,7 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -500,172 +496,172 @@ Programs in <a class="reference external" href="https://www.wm.edu/as/neuroscien
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="2023-08-24-example-minimize-linear-regression.html"><span class="doc">2023-08-24-example-minimize-linear-regression</span></a></p></td>
-<td><p>2024-02-16 16:46</p></td>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="bfs_spanning_tree.html"><span class="doc">bfs_spanning_tree</span></a></p></td>
+<td><p>2024-03-19 19:18</p></td>
 <td><p>force</p></td>
-<td><p>16.98</p></td>
+<td><p>9.61</p></td>
 <td><p>✅</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="bfs_spanning_tree.html"><span class="doc">bfs_spanning_tree</span></a></p></td>
-<td><p>2024-02-16 16:46</p></td>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="cycle_fluxes.html"><span class="doc">cycle_fluxes</span></a></p></td>
+<td><p>2024-03-19 19:18</p></td>
 <td><p>force</p></td>
-<td><p>11.31</p></td>
+<td><p>13.9</p></td>
 <td><p>✅</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="cycle_fluxes.html"><span class="doc">cycle_fluxes</span></a></p></td>
-<td><p>2024-02-16 16:46</p></td>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="docstring_test.html"><span class="doc">docstring_test</span></a></p></td>
+<td><p>2024-03-19 19:18</p></td>
 <td><p>force</p></td>
-<td><p>18.25</p></td>
+<td><p>11.07</p></td>
 <td><p>✅</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="docstring_test.html"><span class="doc">docstring_test</span></a></p></td>
-<td><p>2024-02-16 16:46</p></td>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="enumerate_allosteric_parameters.html"><span class="doc">enumerate_allosteric_parameters</span></a></p></td>
+<td><p>2024-03-19 19:19</p></td>
 <td><p>force</p></td>
-<td><p>16.78</p></td>
+<td><p>8.96</p></td>
 <td><p>✅</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="enumerate_allosteric_parameters.html"><span class="doc">enumerate_allosteric_parameters</span></a></p></td>
-<td><p>2024-02-16 16:46</p></td>
-<td><p>force</p></td>
-<td><p>9.04</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="enumerate_allosteric_parameters-2.html"><span class="doc">enumerate_allosteric_parameters-2</span></a></p></td>
-<td><p>2024-02-16 16:47</p></td>
-<td><p>force</p></td>
-<td><p>7.53</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="equilibrium.html"><span class="doc">equilibrium</span></a></p></td>
-<td><p>2024-02-16 16:47</p></td>
-<td><p>force</p></td>
-<td><p>8.06</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="example-lmfit.html"><span class="doc">example-lmfit</span></a></p></td>
-<td><p>2024-02-16 16:47</p></td>
-<td><p>force</p></td>
-<td><p>17.0</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="example_graphs.html"><span class="doc">example_graphs</span></a></p></td>
-<td><p>2024-02-16 16:47</p></td>
-<td><p>force</p></td>
-<td><p>10.32</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="example_reduced_graph_powers.html"><span class="doc">example_reduced_graph_powers</span></a></p></td>
-<td><p>2024-02-16 16:47</p></td>
-<td><p>force</p></td>
-<td><p>9.42</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="hill_diagrammatic_method.html"><span class="doc">hill_diagrammatic_method</span></a></p></td>
-<td><p>2024-02-16 16:48</p></td>
-<td><p>force</p></td>
-<td><p>12.1</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="ligands.html"><span class="doc">ligands</span></a></p></td>
-<td><p>2024-02-16 16:48</p></td>
-<td><p>force</p></td>
-<td><p>10.4</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="markov_chains.html"><span class="doc">markov_chains</span></a></p></td>
-<td><p>2024-02-16 16:48</p></td>
-<td><p>force</p></td>
-<td><p>9.58</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="minimize-receptor-model-pade.html"><span class="doc">minimize-receptor-model-pade</span></a></p></td>
-<td><p>2024-02-16 16:48</p></td>
-<td><p>force</p></td>
-<td><p>8.4</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="my_struggle_with_docstrings.html"><span class="doc">my_struggle_with_docstrings</span></a></p></td>
-<td><p>2024-02-16 16:48</p></td>
-<td><p>force</p></td>
-<td><p>11.22</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="nonequilibrium.html"><span class="doc">nonequilibrium</span></a></p></td>
-<td><p>2024-02-16 16:48</p></td>
-<td><p>force</p></td>
-<td><p>11.18</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="plot_binding_curves.html"><span class="doc">plot_binding_curves</span></a></p></td>
-<td><p>2024-02-16 16:49</p></td>
-<td><p>force</p></td>
-<td><p>13.82</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="plotting-hypercubes.html"><span class="doc">plotting-hypercubes</span></a></p></td>
-<td><p>2024-02-16 16:49</p></td>
-<td><p>force</p></td>
-<td><p>8.57</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="practicing-python.html"><span class="doc">practicing-python</span></a></p></td>
-<td><p>2024-02-16 16:49</p></td>
-<td><p>force</p></td>
-<td><p>6.7</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="receptor_modeling_overview.html"><span class="doc">receptor_modeling_overview</span></a></p></td>
-<td><p>2024-02-16 16:49</p></td>
-<td><p>force</p></td>
-<td><p>6.55</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="receptor_tools.html"><span class="doc">receptor_tools</span></a></p></td>
-<td><p>2024-02-16 16:49</p></td>
-<td><p>force</p></td>
-<td><p>7.2</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="reduced_graph_powers.html"><span class="doc">reduced_graph_powers</span></a></p></td>
-<td><p>2024-02-16 16:49</p></td>
-<td><p>force</p></td>
-<td><p>9.09</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="states_and_transitions.html"><span class="doc">states_and_transitions</span></a></p></td>
-<td><p>2024-02-16 16:49</p></td>
-<td><p>force</p></td>
-<td><p>8.61</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="xref doc reference internal" href="tools_and_examples_part1.html"><span class="doc">tools_and_examples_part1</span></a></p></td>
-<td><p>2024-02-16 16:50</p></td>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="enumerate_allosteric_parameters-2.html"><span class="doc">enumerate_allosteric_parameters-2</span></a></p></td>
+<td><p>2024-03-19 19:19</p></td>
 <td><p>force</p></td>
 <td><p>9.21</p></td>
 <td><p>✅</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="xref doc reference internal" href="tools_and_examples_part2.html"><span class="doc">tools_and_examples_part2</span></a></p></td>
-<td><p>2024-02-16 16:50</p></td>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="equilibrium.html"><span class="doc">equilibrium</span></a></p></td>
+<td><p>2024-03-19 19:19</p></td>
 <td><p>force</p></td>
-<td><p>8.65</p></td>
+<td><p>9.84</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="example-lmfit.html"><span class="doc">example-lmfit</span></a></p></td>
+<td><p>2024-03-19 19:19</p></td>
+<td><p>force</p></td>
+<td><p>13.51</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="example-minimize-linear-regression.html"><span class="doc">example-minimize-linear-regression</span></a></p></td>
+<td><p>2024-03-19 19:19</p></td>
+<td><p>force</p></td>
+<td><p>9.34</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="example_graphs.html"><span class="doc">example_graphs</span></a></p></td>
+<td><p>2024-03-19 19:19</p></td>
+<td><p>force</p></td>
+<td><p>9.47</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="example_reduced_graph_powers.html"><span class="doc">example_reduced_graph_powers</span></a></p></td>
+<td><p>2024-03-19 19:20</p></td>
+<td><p>force</p></td>
+<td><p>7.85</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="hill_diagrammatic_method.html"><span class="doc">hill_diagrammatic_method</span></a></p></td>
+<td><p>2024-03-19 19:20</p></td>
+<td><p>force</p></td>
+<td><p>9.22</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="ligands.html"><span class="doc">ligands</span></a></p></td>
+<td><p>2024-03-19 19:20</p></td>
+<td><p>force</p></td>
+<td><p>10.72</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="markov_chains.html"><span class="doc">markov_chains</span></a></p></td>
+<td><p>2024-03-19 19:20</p></td>
+<td><p>force</p></td>
+<td><p>7.98</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="minimize-receptor-model-pade.html"><span class="doc">minimize-receptor-model-pade</span></a></p></td>
+<td><p>2024-03-19 19:20</p></td>
+<td><p>force</p></td>
+<td><p>7.84</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="my_struggle_with_docstrings.html"><span class="doc">my_struggle_with_docstrings</span></a></p></td>
+<td><p>2024-03-19 19:20</p></td>
+<td><p>force</p></td>
+<td><p>9.47</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="nonequilibrium.html"><span class="doc">nonequilibrium</span></a></p></td>
+<td><p>2024-03-19 19:20</p></td>
+<td><p>force</p></td>
+<td><p>9.41</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="plot_binding_curves.html"><span class="doc">plot_binding_curves</span></a></p></td>
+<td><p>2024-03-19 19:21</p></td>
+<td><p>force</p></td>
+<td><p>10.91</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="plotting-hypercubes.html"><span class="doc">plotting-hypercubes</span></a></p></td>
+<td><p>2024-03-19 19:21</p></td>
+<td><p>force</p></td>
+<td><p>7.24</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="practicing-python.html"><span class="doc">practicing-python</span></a></p></td>
+<td><p>2024-03-19 19:21</p></td>
+<td><p>force</p></td>
+<td><p>6.5</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="receptor_modeling_overview.html"><span class="doc">receptor_modeling_overview</span></a></p></td>
+<td><p>2024-03-19 19:21</p></td>
+<td><p>force</p></td>
+<td><p>6.74</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="receptor_tools.html"><span class="doc">receptor_tools</span></a></p></td>
+<td><p>2024-03-19 19:21</p></td>
+<td><p>force</p></td>
+<td><p>7.28</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="reduced_graph_powers.html"><span class="doc">reduced_graph_powers</span></a></p></td>
+<td><p>2024-03-19 19:21</p></td>
+<td><p>force</p></td>
+<td><p>10.37</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="states_and_transitions.html"><span class="doc">states_and_transitions</span></a></p></td>
+<td><p>2024-03-19 19:21</p></td>
+<td><p>force</p></td>
+<td><p>10.05</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="xref doc reference internal" href="tools_and_examples_part1.html"><span class="doc">tools_and_examples_part1</span></a></p></td>
+<td><p>2024-03-19 19:22</p></td>
+<td><p>force</p></td>
+<td><p>7.64</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="xref doc reference internal" href="tools_and_examples_part2.html"><span class="doc">tools_and_examples_part2</span></a></p></td>
+<td><p>2024-03-19 19:22</p></td>
+<td><p>force</p></td>
+<td><p>8.04</p></td>
 <td><p>✅</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="xref doc reference internal" href="tools_and_examples_part3.html"><span class="doc">tools_and_examples_part3</span></a></p></td>
-<td><p>2024-02-16 16:50</p></td>
+<td><p>2024-03-19 19:22</p></td>
 <td><p>force</p></td>
-<td><p>8.57</p></td>
+<td><p>8.58</p></td>
 <td><p>✅</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="xref doc reference internal" href="tree_polynomials.html"><span class="doc">tree_polynomials</span></a></p></td>
-<td><p>2024-02-16 16:50</p></td>
+<td><p>2024-03-19 19:22</p></td>
 <td><p>force</p></td>
-<td><p>17.15</p></td>
+<td><p>15.98</p></td>
 <td><p>✅</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="xref doc reference internal" href="wang_algebra.html"><span class="doc">wang_algebra</span></a></p></td>
-<td><p>2024-02-16 16:50</p></td>
+<td><p>2024-03-19 19:22</p></td>
 <td><p>force</p></td>
-<td><p>7.01</p></td>
+<td><p>6.98</p></td>
 <td><p>✅</p></td>
 </tr>
 </tbody>
@@ -757,7 +753,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

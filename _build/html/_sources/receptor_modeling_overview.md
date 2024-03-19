@@ -20,5 +20,5 @@ Quantitative pharmacologists construct models of relationship between ligand con
 
 * Kenakin, T. P. (2018). [A Pharmacology Primer: Techniques for More Effective and Strategic Drug Discovery.](https://www.amazon.com/Pharmacology-Primer-Techniques-Effective-Strategic/dp/0128139579/) Academic Press. {cite}`Kenakin2018`
 
-An introduction to this topic for undergraduate neuroscience majors is __Ligands, Receptors, and Rate Laws__, Chapter 4 of [Cellular Biophysics \& Modeling: a primer on the computational biology of excitable cells](https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F). Cambridge University Press, 2019.
+An accessible introduction to this topic for undergraduate neuroscience majors is __Ligands, Receptors, and Rate Laws__, Chapter 4 of [Cellular Biophysics \& Modeling: a primer on the computational biology of excitable cells](https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F). Cambridge University Press, 2019.
 

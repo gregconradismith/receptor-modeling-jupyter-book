@@ -162,9 +162,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
@@ -172,9 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -182,15 +176,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -200,6 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -510,7 +509,7 @@ document.write(`
 </div>
 </div>
 <p>The graph <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code> is constructed by calling the Sagemath command <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html#supported-formats"><code class="docutils literal notranslate"><span class="pre">Graph()</span></code></a> with a dictionary that associates neighbors to each vertex.  The vertices of the graph <code class="docutils literal notranslate"><span class="pre">G</span></code> are the integers 1, 2, 3, and 4.  The method <code class="docutils literal notranslate"><span class="pre">plot()</span></code> shows the graph <code class="docutils literal notranslate"><span class="pre">G_undirected</span></code> using a dictionary <code class="docutils literal notranslate"><span class="pre">vertex_positions</span></code> that specifies the locations of each vertex.</p>
-<p>The adjacency matrix of this graph is</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Adjacency_matrix">adjacency matrix</a> of this graph is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_undirected</span><span class="o">.</span><span class="n">adjacency_matrix</span><span class="p">()</span>
@@ -526,22 +525,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The incidence matrix of this graph is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_undirected</span><span class="o">.</span><span class="n">incidence_matrix</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 1 0 0]
-[1 0 1 0]
-[0 1 1 1]
-[0 0 0 1]
-</pre></div>
-</div>
-</div>
-</div>
+<p>The elements of the adjacency matrix indicate whether pairs of vertices are adjacent or not in the graph. The adjacency matrix of a graph should be distinguished from its <a class="reference external" href="https://en.wikipedia.org/wiki/Incidence_matrix">incidence matrix</a> and its <a class="reference external" href="https://en.wikipedia.org/wiki/Degree_matrix">degree matrix</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The graphs used here to represent receptor states and transitions will be both connected and simple.</p>
@@ -587,7 +571,7 @@ document.write(`
 <img alt="_images/16b445d09df12c9d7bcf4161aa03748ac10cea1217a2ea8c257e1ad015e2c588.png" src="_images/16b445d09df12c9d7bcf4161aa03748ac10cea1217a2ea8c257e1ad015e2c588.png" />
 </div>
 </div>
-<p>In the code above, a directed graph <code class="docutils literal notranslate"><span class="pre">G</span></code> is constructed by calling the Sagemath command <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html#methods"><code class="docutils literal notranslate"><span class="pre">DiGraph()</span></code></a>.  The input argument <code class="docutils literal notranslate"><span class="pre">d</span></code> is a <a class="reference external" href="https://doc.sagemath.org/html/en/thematic_tutorials/tutorial-programming-python.html">Python dictionary</a> that assigns out-neighbors to each vertex and corresponding edge labels.
+<p>In the code above, a directed graph <code class="docutils literal notranslate"><span class="pre">G</span></code> is constructed by calling the <code class="docutils literal notranslate"><span class="pre">Sagemath</span></code> command <a class="reference external" href="https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html#methods"><code class="docutils literal notranslate"><span class="pre">DiGraph()</span></code></a>.  The input argument <code class="docutils literal notranslate"><span class="pre">d</span></code> is a <a class="reference external" href="https://doc.sagemath.org/html/en/thematic_tutorials/tutorial-programming-python.html">Python dictionary</a> that assigns out-neighbors to each vertex and corresponding edge labels.
 The edge labels are not <em>strings</em>, but <em>symbolic variables</em> defined using Sagemath’s <code class="docutils literal notranslate"><span class="pre">var</span></code> command.
 For example, the symbolic variable <code class="docutils literal notranslate"><span class="pre">a12</span></code> stands for the rate of transition between state 1 and 2.</p>
 <p>Because these rate constants are symbolic variables, Sagemath will evaluate expressions such as</p>
@@ -620,7 +604,7 @@ For example, the symbolic variable <code class="docutils literal notranslate"><s
 </div>
 </div>
 </div>
-<p>The Laplacian of <code class="docutils literal notranslate"><span class="pre">G</span></code> is</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Laplacian_matrix">Laplacian matrix</a> of <code class="docutils literal notranslate"><span class="pre">G</span></code> is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">laplacian_matrix</span><span class="p">()</span>
@@ -733,7 +717,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

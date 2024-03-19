@@ -10,31 +10,30 @@ parts:
     - file: states_and_transitions
     - file: ligands
     - file: equilibrium
-    - file: markov_chains
-    - file: nonequilibrium
-    - file: hill_diagrammatic_method
     - file: tools_and_examples_part1 
   - caption: Receptor Dimers
     chapters:
     - file: receptor_dimers_overview
     - file: reduced_graph_powers
     - file: tools_and_examples_part2
-  - caption: Equilibrium Receptor Dimers and Allosteric Parameters
-    chapters:
     - file: allosteric_parameters_overview
     - file: enumerate_allosteric_parameters
     - file: minimize-receptor-model-pade
     - file: plot_binding_curves
     - file: tools_and_examples_part3
     - file: enumerate_allosteric_parameters-2
+  - caption: Nonequilibrium steady states
+    chapters:
+    - file: markov_chains
+    - file: nonequilibrium
+    - file: hill_diagrammatic_method
   - caption: Cycle Fluxes
     chapters:
     - file: cycle_fluxes_overview
     - file: cycle_fluxes
-  - caption: Wang Algebras
-    chapters:
     - file: tree_polynomials
     - file: wang_algebra
+    - file: further_reading
   - caption: Appendix
     chapters:
     - file: example_graphs

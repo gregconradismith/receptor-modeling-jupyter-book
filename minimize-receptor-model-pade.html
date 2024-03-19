@@ -162,19 +162,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
-<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Minimize receptor model pade</a></li>
@@ -182,15 +176,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -200,6 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -505,14 +504,14 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal q0: 1.0
-Optimal q1: 7.861450556010638
-Optimal q2: 2.0629930704993593
-Optimal q3: 0.0
-Optimal q4: 0.7593859580008727
-Optimal q5: 0.9936575180920932
+Optimal q1: 0.06702866003480047
+Optimal q2: 0.0
+Optimal q3: 9.990110186377336
+Optimal q4: 8.675117376218942
+Optimal q5: 6.143664249639895
 </pre></div>
 </div>
-<img alt="_images/c9781007ecdaaaaf13c63ad9e43d5ae734d90e7e170105da6de6de4faef5f795.png" src="_images/c9781007ecdaaaaf13c63ad9e43d5ae734d90e7e170105da6de6de4faef5f795.png" />
+<img alt="_images/3b4569ee156fefc8617e5d2e87986e28d5c5d159b2f26b5c21ef006fbb04cd19.png" src="_images/3b4569ee156fefc8617e5d2e87986e28d5c5d159b2f26b5c21ef006fbb04cd19.png" />
 </div>
 </div>
 </section>
@@ -594,7 +593,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

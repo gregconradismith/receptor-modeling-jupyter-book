@@ -162,9 +162,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
@@ -172,9 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -182,15 +176,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
-<ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -200,6 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -522,7 +521,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4f15536e2cf5c1cd1565d09937093c416264dd891fd1f02633d05a91280f943b.png" src="_images/4f15536e2cf5c1cd1565d09937093c416264dd891fd1f02633d05a91280f943b.png" />
+<img alt="_images/7a99af7c0dc923e949b34fdbc66999b21c2a2dda0cc98f37a7ea05d9d99d4766.png" src="_images/7a99af7c0dc923e949b34fdbc66999b21c2a2dda0cc98f37a7ea05d9d99d4766.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -533,7 +532,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1bcdf6a771030935307e3eae4febe257267b6595a958c5b331d4037c3b41bc01.png" src="_images/1bcdf6a771030935307e3eae4febe257267b6595a958c5b331d4037c3b41bc01.png" />
+<img alt="_images/f0c30929752bd4a4ffb705764fb11ba3d525cc7aef0d4b9eecea554f32c8852d.png" src="_images/f0c30929752bd4a4ffb705764fb11ba3d525cc7aef0d4b9eecea554f32c8852d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -549,7 +548,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/007f3bec8d26b8fec4e9c89a4fc82853a68c779833af27a17d58724cd63b8c62.png" src="_images/007f3bec8d26b8fec4e9c89a4fc82853a68c779833af27a17d58724cd63b8c62.png" />
+<img alt="_images/25d122e38d2ed35a09ea3234dca6e7551917fb76937b5ac9181f7261af4a20a0.png" src="_images/25d122e38d2ed35a09ea3234dca6e7551917fb76937b5ac9181f7261af4a20a0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[        a01 + a02              -a01              -a02                 0                 0                 0]
 [             -a01 2*a01 + a02 + a12              -a12              -a01              -a02                 0]
 [             -a02              -a12 a01 + 2*a02 + a12                 0              -a01              -a02]
@@ -577,7 +576,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/048c11be926c3c5d7a4c1cb1da8e20bbbe9b6da5d7d0dc33ff4601faa0855136.png" src="_images/048c11be926c3c5d7a4c1cb1da8e20bbbe9b6da5d7d0dc33ff4601faa0855136.png" />
+<img alt="_images/4c217ac9cfbb5487732fff4955e093f6077de17a78fdcf353314fd88658ef916.png" src="_images/4c217ac9cfbb5487732fff4955e093f6077de17a78fdcf353314fd88658ef916.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[        2*a01 + 2*a02                -2*a01                -2*a02                     0                     0                     0]
 [                 -a10 a01 + a02 + a10 + a12                  -a12                  -a01                  -a02                     0]
 [                 -a20                  -a21 a01 + a02 + a20 + a21                     0                  -a01                  -a02]
@@ -606,7 +605,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 1187343891269694642309198417406636743388000595418407837505224529723117873425106862080000000000000000000000000000 spanning trees.  Here is one:
 </pre></div>
 </div>
-<img alt="_images/538e025080e21026a47dab9d9140d61d298f80e7d0e09e04494d5ba7e7ac3f9b.png" src="_images/538e025080e21026a47dab9d9140d61d298f80e7d0e09e04494d5ba7e7ac3f9b.png" />
+<img alt="_images/2ac1b0374eb43783cfd8fcf8a8ae2e280d052b4ac806f6abb2cc445642654388.png" src="_images/2ac1b0374eb43783cfd8fcf8a8ae2e280d052b4ac806f6abb2cc445642654388.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -620,7 +619,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7513e5706e51339cc520d628ce10b9ae08d1916ccc5801aeb9586870554f72ae.png" src="_images/7513e5706e51339cc520d628ce10b9ae08d1916ccc5801aeb9586870554f72ae.png" />
+<img alt="_images/e75d9d608fc96f1e6e5c94d535fd1f3002268b6c4a0f9b79ec96eb4cec3669e8.png" src="_images/e75d9d608fc96f1e6e5c94d535fd1f3002268b6c4a0f9b79ec96eb4cec3669e8.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36*(2*a01^2 + 4*a01*a02 + 2*a02^2 + 4*a01*a10 + 5*a02*a10 + 2*a10^2 + 5*a01*a12 + 5*a02*a12 + 4*a10*a12 + 2*a12^2 + 5*a01*a20 + 4*a02*a20 + 5*a10*a20 + 5*a12*a20 + 2*a20^2 + 5*a01*a21 + 5*a02*a21 + 5*a10*a21 + 4*a12*a21 + 4*a20*a21 + 2*a21^2)*(a10*a20 + a12*a20 + a10*a21)^3*(a01 + a02 + a10 + a12 + a20 + a21)
 </pre></div>
 </div>
@@ -641,8 +640,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fdc18987ec4304f290c8241f83314e70754c9fad5d5a434207d95d43cde15eeb.png" src="_images/fdc18987ec4304f290c8241f83314e70754c9fad5d5a434207d95d43cde15eeb.png" />
-<img alt="_images/58152c2a16d984ebc7e10a867f1a0a8810142b459c404945ccb9b19f6e61e81b.png" src="_images/58152c2a16d984ebc7e10a867f1a0a8810142b459c404945ccb9b19f6e61e81b.png" />
+<img alt="_images/17c67373ef919bb372662c9a8079e16afae8f7ca963c14411867eafd98630f93.png" src="_images/17c67373ef919bb372662c9a8079e16afae8f7ca963c14411867eafd98630f93.png" />
+<img alt="_images/3e6aa53cf53b7fe3edc04ce6bfc2d03a7d0741a34bf8bbc72ece2226b508a553.png" src="_images/3e6aa53cf53b7fe3edc04ce6bfc2d03a7d0741a34bf8bbc72ece2226b508a553.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8*(a01*a02*a10 + a02^2*a10 + a02*a10^2 + a01^2*a12 + 2*a01*a02*a12 + a02^2*a12 + a01*a10*a12 + 2*a02*a10*a12 + a01*a12^2 + a02*a12^2 + a01^2*a20 + a01*a02*a20 + 2*a01*a10*a20 + 2*a02*a10*a20 + a10^2*a20 + 3*a01*a12*a20 + 2*a02*a12*a20 + 2*a10*a12*a20 + a12^2*a20 + a01*a20^2 + a10*a20^2 + a12*a20^2 + a01^2*a21 + 2*a01*a02*a21 + a02^2*a21 + 2*a01*a10*a21 + 3*a02*a10*a21 + a10^2*a21 + 2*a01*a12*a21 + 2*a02*a12*a21 + a10*a12*a21 + 2*a01*a20*a21 + a02*a20*a21 + 2*a10*a20*a21 + a12*a20*a21 + a01*a21^2 + a02*a21^2 + a10*a21^2 + a01^2*a23 + 2*a01*a02*a23 + a02^2*a23 + 2*a01*a10*a23 + 2*a02*a10*a23 + a10^2*a23 + 2*a01*a12*a23 + 2*a02*a12*a23 + 2*a10*a12*a23 + a12^2*a23 + 2*a01*a20*a23 + a02*a20*a23 + 2*a10*a20*a23 + 2*a12*a20*a23 + 2*a01*a21*a23 + 2*a02*a21*a23 + 2*a10*a21*a23 + a12*a21*a23 + a01*a23^2 + a02*a23^2 + a10*a23^2 + a12*a23^2 + a01^2*a32 + 2*a01*a02*a32 + a02^2*a32 + 2*a01*a10*a32 + 2*a02*a10*a32 + a10^2*a32 + 2*a01*a12*a32 + 2*a02*a12*a32 + 2*a10*a12*a32 + a12^2*a32 + 2*a01*a20*a32 + 2*a02*a20*a32 + 2*a10*a20*a32 + 2*a12*a20*a32 + a20^2*a32 + 2*a01*a21*a32 + 2*a02*a21*a32 + 2*a10*a21*a32 + 2*a12*a21*a32 + 2*a20*a21*a32 + a21^2*a32 + 2*a01*a23*a32 + 2*a02*a23*a32 + 2*a10*a23*a32 + 2*a12*a23*a32 + a20*a23*a32 + a21*a23*a32 + a01*a32^2 + a02*a32^2 + a10*a32^2 + a12*a32^2 + a20*a32^2 + a21*a32^2)*(a10*a20 + a12*a20 + a10*a21)^2*a32^2
 </pre></div>
 </div>
@@ -727,7 +726,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

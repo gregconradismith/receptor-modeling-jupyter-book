@@ -162,9 +162,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
@@ -172,9 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -182,15 +176,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -200,6 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -452,7 +451,7 @@ document.write(`
 <ul class="simple">
 <li><p>Kenakin, T. P. (2018). <a class="reference external" href="https://www.amazon.com/Pharmacology-Primer-Techniques-Effective-Strategic/dp/0128139579/">A Pharmacology Primer: Techniques for More Effective and Strategic Drug Discovery.</a> Academic Press. <span id="id1">[<a class="reference internal" href="allosteric_parameters_overview.html#id3" title="Terry P Kenakin. A pharmacology primer: techniques for more effective and strategic drug discovery. Academic Press, 2018.">Ken18</a>]</span></p></li>
 </ul>
-<p>An introduction to this topic for undergraduate neuroscience majors is <strong>Ligands, Receptors, and Rate Laws</strong>, Chapter 4 of <a class="reference external" href="https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F">Cellular Biophysics &amp; Modeling: a primer on the computational biology of excitable cells</a>. Cambridge University Press, 2019.</p>
+<p>An accessible introduction to this topic for undergraduate neuroscience majors is <strong>Ligands, Receptors, and Rate Laws</strong>, Chapter 4 of <a class="reference external" href="https://www.cambridge.org/core/books/cellular-biophysics-and-modeling/0C728F4C44D89D8F3BA62E41A0D7336F">Cellular Biophysics &amp; Modeling: a primer on the computational biology of excitable cells</a>. Cambridge University Press, 2019.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -532,7 +531,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

@@ -163,9 +163,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Ligand binding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
@@ -173,9 +170,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Equilibrium Receptor Dimers and Allosteric Parameters</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -183,15 +177,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang Algebras</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wang_algebra.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -201,6 +199,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
@@ -445,6 +444,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-sequential-binding">Analysis of sequential binding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-of-a-binding-curve">Plotting of a binding curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-association-constants">Equilibrium association constants</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-binding-curves-and-arborescences">Equilibrium binding curves and arborescences</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-binding-curves-and-rooted-spanning-trees">Equilibrium binding curves and rooted spanning trees</a></li>
@@ -460,12 +461,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="ligand-binding">
-<h1>Ligand binding<a class="headerlink" href="#ligand-binding" title="Permalink to this heading">#</a></h1>
-<p>Usually one or more of the transitions in receptor model involve ligand binding.  For example,
-consider a receptor model with two sequential ligand binding transitions.</p>
+<span id="id1"></span><h1>Ligand binding<a class="headerlink" href="#ligand-binding" title="Permalink to this heading">#</a></h1>
+<p>Usually one or more of the transitions in a receptor model involve <a class="reference external" href="https://en.wikipedia.org/wiki/Ligand_(biochemistry)">ligand binding</a>.  For example,
+consider a receptor model with two sequential transitions that involve ligand binding.</p>
 <div class="cell docutils container" id="ligands-three-state-model">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;R RL RLL L kap kam kbp kbm&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;R RL RLL kap kam kbp kbm L&#39;</span><span class="p">)</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">({</span><span class="n">R</span><span class="p">:</span> <span class="p">{</span><span class="n">RL</span><span class="p">:</span><span class="n">kap</span><span class="o">*</span><span class="n">L</span><span class="p">},</span> <span class="n">RL</span><span class="p">:</span> <span class="p">{</span><span class="n">R</span><span class="p">:</span><span class="n">kam</span><span class="p">,</span> <span class="n">RLL</span><span class="p">:</span><span class="n">kbp</span><span class="o">*</span><span class="n">L</span><span class="p">},</span> <span class="n">RLL</span><span class="p">:</span> <span class="p">{</span><span class="n">RL</span><span class="p">:</span><span class="n">kbm</span><span class="p">}})</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="n">R</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">RL</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">RLL</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)}</span>
 <span class="n">G</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
@@ -476,8 +477,21 @@ consider a receptor model with two sequential ligand binding transitions.</p>
 <img alt="_images/0d6cae26190144ba4c46e520f76d09bd84387fae811e32e8abb91e40b55db5f2.png" src="_images/0d6cae26190144ba4c46e520f76d09bd84387fae811e32e8abb91e40b55db5f2.png" />
 </div>
 </div>
-<p>This state-transition diagram has the topology of a symmetric directed <a class="reference internal" href="example_graphs.html#example-graphs-path-graph"><span class="std std-ref">path graph</span></a> on 3 vertices.  It can be shown that the steady-state fraction of receptors in each of these three states is given by</p>
-<div class="cell docutils container">
+<p>The receptor model’s state-transition diagram (above) has the topology of a symmetdfdic directed <a class="reference internal" href="example_graphs.html#example-graphs-path-graph"><span class="std std-ref">path graph</span></a> on 3 vertices.</p>
+<p>The transition <code class="docutils literal notranslate"><span class="pre">R</span></code> to <code class="docutils literal notranslate"><span class="pre">RL</span></code> occurs at rate <code class="docutils literal notranslate"><span class="pre">kap*L</span></code> where <code class="docutils literal notranslate"><span class="pre">L</span></code> is ligand concentration and <code class="docutils literal notranslate"><span class="pre">kap</span></code> is an association rate constant with physical dimensions of <span class="math notranslate nohighlight">\(\mbox{time}^{-1} \mbox{conc}^{-1}\)</span> where <span class="math notranslate nohighlight">\(\mbox{conc}\)</span> is concentration (i.e., number density, <span class="math notranslate nohighlight">\(\mbox{amount}/\mbox{length}^3\)</span>). The transition <code class="docutils literal notranslate"><span class="pre">RL</span></code> to <code class="docutils literal notranslate"><span class="pre">L</span></code> that involes unbinding of ligand is unimolecular, i.e., physical dimensions of rate (<span class="math notranslate nohighlight">\(\mbox{time}^{-1}\)</span>).  The interpretation of the edge weights <code class="docutils literal notranslate"><span class="pre">kbp*L</span></code> and <code class="docutils literal notranslate"><span class="pre">kbm</span></code> are similar.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The characters <code class="docutils literal notranslate"><span class="pre">kap</span></code> and <code class="docutils literal notranslate"><span class="pre">kam</span></code> stand for <span class="math notranslate nohighlight">\(k_a^+\)</span> and <span class="math notranslate nohighlight">\(k_a^-\)</span> (<code class="docutils literal notranslate"><span class="pre">p</span></code> for plus and <code class="docutils literal notranslate"><span class="pre">m</span></code> for minus). Similarly for <code class="docutils literal notranslate"><span class="pre">kbp</span></code> and <code class="docutils literal notranslate"><span class="pre">kbm</span></code>. The product of a bimolecular rate constant and ligand concentration <code class="docutils literal notranslate"><span class="pre">kap*L</span></code> stands for <span class="math notranslate nohighlight">\(k_a^+ [{\rm L}]\)</span> where <span class="math notranslate nohighlight">\({\rm L}\)</span> is a chemical species and the brackets indicate the concentration (number density) of that species.</p>
+</div>
+<section id="analysis-of-sequential-binding">
+<h2>Analysis of sequential binding<a class="headerlink" href="#analysis-of-sequential-binding" title="Permalink to this heading">#</a></h2>
+<p>As described in the section <a class="reference internal" href="equilibrium.html#equilibrium-formalism"><span class="std std-ref">Equilibrium Formalism</span></a>, a straightforward algebraic calculation reveals that the steady-state fraction of receptors in each of the three states (<code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">RL</span></code>, and <code class="docutils literal notranslate"><span class="pre">RLL</span></code>) is given by</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_R</span> <span class="o">=</span> <span class="n">kam</span><span class="o">*</span><span class="n">kbm</span><span class="p">;</span> <span class="n">z_RL</span> <span class="o">=</span> <span class="n">kap</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">kbm</span><span class="p">;</span> <span class="n">z_RLL</span> <span class="o">=</span> <span class="n">kap</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">kbp</span><span class="o">*</span><span class="n">L</span>
 
@@ -489,6 +503,7 @@ consider a receptor model with two sequential ligand binding transitions.</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R   = kam*kbm/(L^2*kap*kbp + L*kap*kbm + kam*kbm)
 RL  = L*kap*kbm/(L^2*kap*kbp + L*kap*kbm + kam*kbm)
@@ -497,12 +512,19 @@ RLL = L^2*kap*kbp/(L^2*kap*kbp + L*kap*kbm + kam*kbm)
 </div>
 </div>
 </div>
-<p>Next we substitute values for the four rate constants and plot the resulting binding curve(s).  Each binding curve gives the fraction of receptors in a particular state (<code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">RL</span></code>, <code class="docutils literal notranslate"><span class="pre">RLL</span></code>) as a function of ligand concentration (<code class="docutils literal notranslate"><span class="pre">L</span></code>)</p>
-<div class="cell docutils container">
+</section>
+<section id="plotting-of-a-binding-curve">
+<h2>Plotting of a binding curve<a class="headerlink" href="#plotting-of-a-binding-curve" title="Permalink to this heading">#</a></h2>
+<p>Using the above expressions, we can substitute values for the four rate constants and plot the resulting binding curve(s).  Each binding curve gives the fraction of receptors in a particular state (<code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">RL</span></code>, <code class="docutils literal notranslate"><span class="pre">RLL</span></code>) as a function of ligand concentration (<code class="docutils literal notranslate"><span class="pre">L</span></code>)</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">kap</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">kam</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">kbp</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="n">kbm</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">params</span><span class="p">);</span> <span class="n">RL</span> <span class="o">=</span> <span class="n">RL</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">params</span><span class="p">);</span> <span class="n">RLL</span> <span class="o">=</span> <span class="n">RLL</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R   =&#39;</span><span class="p">,</span><span class="n">R</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RL  =&#39;</span><span class="p">,</span><span class="n">RL</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RLL =&#39;</span><span class="p">,</span><span class="n">RLL</span><span class="p">)</span>
 
 <span class="n">Lmin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">;</span> <span class="n">Lmax</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
 
@@ -514,17 +536,34 @@ RLL = L^2*kap*kbp/(L^2*kap*kbp + L*kap*kbm + kam*kbm)
 </pre></div>
 </div>
 </div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/fc5229121696a800cc62094468d1fd29a1b22f28d13e1de103232c3f7a67145f.png" src="_images/fc5229121696a800cc62094468d1fd29a1b22f28d13e1de103232c3f7a67145f.png" />
+</div>
+</div>
+<p>At low ligand concentration most receptors are in the unbound form (<code class="docutils literal notranslate"><span class="pre">R</span></code>, red). At high concentrations most receptors are in the doubly bound form (<code class="docutils literal notranslate"><span class="pre">RLL</span></code>, blue).</p>
+<p>The expressions being plotted above are</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R   =&#39;</span><span class="p">,</span><span class="n">R</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RL  =&#39;</span><span class="p">,</span><span class="n">RL</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RLL =&#39;</span><span class="p">,</span><span class="n">RLL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R   = 1/(10*L^2 + L + 1)
 RL  = L/(10*L^2 + L + 1)
 RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/7440498f4c6d25bc7a6fb85e09f476d99bf4b38e535302e63fdd3713c52becb8.png" src="_images/7440498f4c6d25bc7a6fb85e09f476d99bf4b38e535302e63fdd3713c52becb8.png" />
 </div>
 </div>
-<p>At low ligand concentration most receptors are in the unbound form (<code class="docutils literal notranslate"><span class="pre">R</span></code>, red). At high concentrations most receptors are in the doubly bound form (<code class="docutils literal notranslate"><span class="pre">RLL</span></code>, blue).</p>
-<p>For any given ligand concentration, the fraction of receptors in each of the three states sums to 1.  This can be shown by asking Sagemath to solve for the values of <code class="docutils literal notranslate"><span class="pre">L</span></code> that satisfy <code class="docutils literal notranslate"><span class="pre">R+RL+RLL</span> <span class="pre">==</span> <span class="pre">1</span></code>, as follows:</p>
+<p>Note that for any given ligand concentration, the fraction of receptors in each of the three states sums to 1.  This can be shown by asking Sagemath to solve for the values of <code class="docutils literal notranslate"><span class="pre">L</span></code> that satisfy <code class="docutils literal notranslate"><span class="pre">R+RL+RLL</span> <span class="pre">==</span> <span class="pre">1</span></code>, as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">R</span><span class="o">+</span><span class="n">RL</span><span class="o">+</span><span class="n">RLL</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
@@ -538,9 +577,10 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <p>The answer indicates that <code class="docutils literal notranslate"><span class="pre">R+RL+RLL</span> <span class="pre">==</span> <span class="pre">1</span></code> whenever <code class="docutils literal notranslate"><span class="pre">[L</span> <span class="pre">==</span> <span class="pre">L]</span></code>, that is, for any value of <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p>
+</section>
 <section id="equilibrium-association-constants">
 <h2>Equilibrium association constants<a class="headerlink" href="#equilibrium-association-constants" title="Permalink to this heading">#</a></h2>
-<p>The receptor model presented above has the property that the fraction of receptors in each state satisfy detailed balance.  As a consequence, the fraction of receptors in each state can be written in terms of the equilibrium association constants <code class="docutils literal notranslate"><span class="pre">ka=kap/kam</span></code> and <code class="docutils literal notranslate"><span class="pre">kb=kbp/kbm</span></code>.</p>
+<p>The receptor model presented above has the property that the fraction of receptors in each state satisfy detailed balance (i.e., for both reaction <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, the forward and reverse rates balance.  As a consequence, the fraction of receptors in each state can be written in terms of the equilibrium association constants <code class="docutils literal notranslate"><span class="pre">ka=kap/kam</span></code> and <code class="docutils literal notranslate"><span class="pre">kb=kbp/kbm</span></code> which have physical dimensions of inverse concentration.</p>
 <p>To see this, divide the numberator and denominator of the expressions for <code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">RL</span></code>, <code class="docutils literal notranslate"><span class="pre">RLL</span></code> by <code class="docutils literal notranslate"><span class="pre">kam*kbm</span></code> to obtain</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -586,13 +626,13 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R   = 1/(10*L^2 + L + 1)  RL  = L/(10*L^2 + L + 1)  RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/8d0ba69f2c96274cc554bf330678ee6782f5bb0f7167a81754ac43824ce6fe5f.png" src="_images/8d0ba69f2c96274cc554bf330678ee6782f5bb0f7167a81754ac43824ce6fe5f.png" />
+<img alt="_images/2cf2f388f25d3968747659782a5dc7314c12a6533e7ae49a10a77ae9319bea97.png" src="_images/2cf2f388f25d3968747659782a5dc7314c12a6533e7ae49a10a77ae9319bea97.png" />
 </div>
 </div>
 </section>
 <section id="equilibrium-binding-curves-and-arborescences">
 <h2>Equilibrium binding curves and arborescences<a class="headerlink" href="#equilibrium-binding-curves-and-arborescences" title="Permalink to this heading">#</a></h2>
-<p>Receptor models and equilibrium binding curves can be compactly specified as an (<em>arborescence</em>)[https://en.wikipedia.org/wiki/Arborescence_(graph_theory)] with directed edges (arcs) weighted by association constants and ligand concentrations. In graph theory, an arborescence is a directed graph having a distinguished vertex <code class="docutils literal notranslate"><span class="pre">u</span></code> (called the root) such that, for any other vertex <code class="docutils literal notranslate"><span class="pre">v</span></code>, there is exactly one directed path from <code class="docutils literal notranslate"><span class="pre">u</span></code> to <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
+<p>Receptor models and equilibrium binding curves can be compactly specified as an <a class="reference external" href="https://en.wikipedia.org/wiki/Arborescence_(graph_theory)">arborescence</a> with directed edges (arcs) weighted by association constants and ligand concentrations. In graph theory, an arborescence is a directed graph having a distinguished vertex <code class="docutils literal notranslate"><span class="pre">u</span></code> (called the root) such that, for any other vertex <code class="docutils literal notranslate"><span class="pre">v</span></code>, there is exactly one directed path from <code class="docutils literal notranslate"><span class="pre">u</span></code> to <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">({</span><span class="s1">&#39;R&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;RL&#39;</span><span class="p">:</span><span class="n">ka</span><span class="o">*</span><span class="n">L</span><span class="p">},</span> <span class="s1">&#39;RL&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;RLL&#39;</span><span class="p">:</span><span class="n">kb</span><span class="o">*</span><span class="n">L</span><span class="p">}})</span>
@@ -602,14 +642,14 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9577ed8dda4da378b78a8941d427c1748429ff2beef4c8c664d7f419dc45403e.png" src="_images/9577ed8dda4da378b78a8941d427c1748429ff2beef4c8c664d7f419dc45403e.png" />
+<img alt="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" src="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" />
 </div>
 </div>
-<p>In the arborescence shown above, the root is state <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
+<p>In the arborescence shown above, the root is state <code class="docutils literal notranslate"><span class="pre">R</span></code>. The edge label <code class="docutils literal notranslate"><span class="pre">ka*L</span></code> is the product of an equilibrium association constant <code class="docutils literal notranslate"><span class="pre">ka</span></code> and ligand concentration <code class="docutils literal notranslate"><span class="pre">L</span></code>, and similarly for reaction <code class="docutils literal notranslate"><span class="pre">b</span></code>.  Comparing to the diagram above, we see that <code class="docutils literal notranslate"><span class="pre">kappa_a</span> <span class="pre">=</span> <span class="pre">ka*L</span></code> and <code class="docutils literal notranslate"><span class="pre">kappa_b</span> <span class="pre">=</span> <span class="pre">kb*L</span></code>.</p>
 </section>
 <section id="equilibrium-binding-curves-and-rooted-spanning-trees">
-<h2>Equilibrium binding curves and rooted spanning trees<a class="headerlink" href="#equilibrium-binding-curves-and-rooted-spanning-trees" title="Permalink to this heading">#</a></h2>
-<p>An arborescence is a <em>rooted spanning tree</em> of the state-transtion diagram with arrows reversed.</p>
+<span id="id2"></span><h2>Equilibrium binding curves and rooted spanning trees<a class="headerlink" href="#equilibrium-binding-curves-and-rooted-spanning-trees" title="Permalink to this heading">#</a></h2>
+<p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Arborescence_(graph_theory)">arborescence</a> is a <em>rooted</em> <a class="reference external" href="https://en.wikipedia.org/wiki/Spanning_tree">spanning tree</a> of the state-transtion diagram with arrows reversed.</p>
 <p>When specifying a receptor model and equilibrium binding curve as a rooted spanning tree, the orientation of the arcs specify the reverse direction of each tansition (reactant <span class="math notranslate nohighlight">\(\leftarrow\)</span> product).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -620,14 +660,14 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3d9449e298f19c233f291a320f50598c0b5c81ab8bd3ebb629c2193eeaedee95.png" src="_images/3d9449e298f19c233f291a320f50598c0b5c81ab8bd3ebb629c2193eeaedee95.png" />
+<img alt="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" src="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" />
 </div>
 </div>
-<p>:::{admonition} arborescence vs. rooted spanning tree
-:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">arborescence vs. rooted spanning tree</p>
 <p>A receptor model and its equilibrium binding curve can be specifed either as an arborescence or a rooted spanning tree. The two approaches are equivalent.</p>
-<p>However, the rooted spanning tree formulation is helpful in the analysis of conformation coupling of receptors. For this reason, in the sections that follow, we will specify receptor models as rooted spanning trees.
-:::</p>
+<p>However, the rooted spanning tree formulation is helpful in the analysis of conformation coupling of receptors. For this reason, in the sections that follow, we will specify receptor models as rooted spanning trees.</p>
+</div>
 </section>
 </section>
 
@@ -698,6 +738,8 @@ RLL = 10*L^2/(10*L^2 + L + 1)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-sequential-binding">Analysis of sequential binding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-of-a-binding-curve">Plotting of a binding curve</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-association-constants">Equilibrium association constants</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-binding-curves-and-arborescences">Equilibrium binding curves and arborescences</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-binding-curves-and-rooted-spanning-trees">Equilibrium binding curves and rooted spanning trees</a></li>
@@ -724,7 +766,7 @@ By Greg Conradi Smith
     
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

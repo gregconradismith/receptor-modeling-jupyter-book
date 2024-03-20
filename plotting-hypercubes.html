@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="practicing python" href="practicing-python.html" />
-    <link rel="prev" title="example-minimize-linear-regression.ipynb" href="example-minimize-linear-regression.html" />
+    <link rel="prev" title="Plot Binding Curves" href="plot_binding_curves.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,18 +168,21 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
@@ -196,11 +199,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -438,7 +440,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7f486eb6693b96777e016dc86a5aa6c4d2557b2c5349682fb40d814bedc29e24.png" src="_images/7f486eb6693b96777e016dc86a5aa6c4d2557b2c5349682fb40d814bedc29e24.png" />
+<img alt="_images/04208dfb0747f47d4daefa1db371e92a5874897894b6bdc8600b40160fe5fd06.png" src="_images/04208dfb0747f47d4daefa1db371e92a5874897894b6bdc8600b40160fe5fd06.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -454,9 +456,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4b448b904b1ed801605a2d19096abf2b96d8d2b6b6ea72908f976422d8be2a37.png" src="_images/4b448b904b1ed801605a2d19096abf2b96d8d2b6b6ea72908f976422d8be2a37.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;000000&#39;, &#39;000010&#39;, &#39;001000&#39;, &#39;000100&#39;, &#39;100000&#39;, &#39;000001&#39;, &#39;010000&#39;, &#39;001010&#39;, &#39;000110&#39;, &#39;100010&#39;, &#39;000011&#39;, &#39;010010&#39;, &#39;001100&#39;, &#39;101000&#39;, &#39;001001&#39;, &#39;011000&#39;, &#39;100100&#39;, &#39;000101&#39;, &#39;010100&#39;, &#39;100001&#39;, &#39;110000&#39;, &#39;010001&#39;, &#39;001110&#39;, &#39;101010&#39;, &#39;001011&#39;, &#39;011010&#39;, &#39;100110&#39;, &#39;000111&#39;, &#39;010110&#39;, &#39;100011&#39;, &#39;110010&#39;, &#39;010011&#39;, &#39;101100&#39;, &#39;001101&#39;, &#39;011100&#39;, &#39;101001&#39;, &#39;111000&#39;, &#39;011001&#39;, &#39;100101&#39;, &#39;110100&#39;, &#39;010101&#39;, &#39;110001&#39;, &#39;101110&#39;, &#39;001111&#39;, &#39;011110&#39;, &#39;101011&#39;, &#39;111010&#39;, &#39;011011&#39;, &#39;100111&#39;, &#39;110110&#39;, &#39;010111&#39;, &#39;110011&#39;, &#39;101101&#39;, &#39;111100&#39;, &#39;011101&#39;, &#39;111001&#39;, &#39;110101&#39;, &#39;101111&#39;, &#39;111110&#39;, &#39;011111&#39;, &#39;111011&#39;, &#39;110111&#39;, &#39;111101&#39;, &#39;111111&#39;]
-{&#39;000000&#39;: 0, &#39;000010&#39;: 1, &#39;001000&#39;: 2, &#39;000100&#39;: 3, &#39;100000&#39;: 4, &#39;000001&#39;: 5, &#39;010000&#39;: 6, &#39;001010&#39;: 7, &#39;000110&#39;: 8, &#39;100010&#39;: 9, &#39;000011&#39;: 10, &#39;010010&#39;: 11, &#39;001100&#39;: 12, &#39;101000&#39;: 13, &#39;001001&#39;: 14, &#39;011000&#39;: 15, &#39;100100&#39;: 16, &#39;000101&#39;: 17, &#39;010100&#39;: 18, &#39;100001&#39;: 19, &#39;110000&#39;: 20, &#39;010001&#39;: 21, &#39;001110&#39;: 22, &#39;101010&#39;: 23, &#39;001011&#39;: 24, &#39;011010&#39;: 25, &#39;100110&#39;: 26, &#39;000111&#39;: 27, &#39;010110&#39;: 28, &#39;100011&#39;: 29, &#39;110010&#39;: 30, &#39;010011&#39;: 31, &#39;101100&#39;: 32, &#39;001101&#39;: 33, &#39;011100&#39;: 34, &#39;101001&#39;: 35, &#39;111000&#39;: 36, &#39;011001&#39;: 37, &#39;100101&#39;: 38, &#39;110100&#39;: 39, &#39;010101&#39;: 40, &#39;110001&#39;: 41, &#39;101110&#39;: 42, &#39;001111&#39;: 43, &#39;011110&#39;: 44, &#39;101011&#39;: 45, &#39;111010&#39;: 46, &#39;011011&#39;: 47, &#39;100111&#39;: 48, &#39;110110&#39;: 49, &#39;010111&#39;: 50, &#39;110011&#39;: 51, &#39;101101&#39;: 52, &#39;111100&#39;: 53, &#39;011101&#39;: 54, &#39;111001&#39;: 55, &#39;110101&#39;: 56, &#39;101111&#39;: 57, &#39;111110&#39;: 58, &#39;011111&#39;: 59, &#39;111011&#39;: 60, &#39;110111&#39;: 61, &#39;111101&#39;: 62, &#39;111111&#39;: 63}
+<img alt="_images/e1ef2d627e0e1a33eca2745f08351b80c611df31b524351d0c872e533fa31d96.png" src="_images/e1ef2d627e0e1a33eca2745f08351b80c611df31b524351d0c872e533fa31d96.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;000000&#39;, &#39;010000&#39;, &#39;000010&#39;, &#39;000100&#39;, &#39;001000&#39;, &#39;000001&#39;, &#39;100000&#39;, &#39;010010&#39;, &#39;010100&#39;, &#39;011000&#39;, &#39;010001&#39;, &#39;110000&#39;, &#39;000110&#39;, &#39;001010&#39;, &#39;000011&#39;, &#39;100010&#39;, &#39;001100&#39;, &#39;000101&#39;, &#39;100100&#39;, &#39;001001&#39;, &#39;101000&#39;, &#39;100001&#39;, &#39;010110&#39;, &#39;011010&#39;, &#39;010011&#39;, &#39;110010&#39;, &#39;011100&#39;, &#39;010101&#39;, &#39;110100&#39;, &#39;011001&#39;, &#39;111000&#39;, &#39;110001&#39;, &#39;001110&#39;, &#39;000111&#39;, &#39;100110&#39;, &#39;001011&#39;, &#39;101010&#39;, &#39;100011&#39;, &#39;001101&#39;, &#39;101100&#39;, &#39;100101&#39;, &#39;101001&#39;, &#39;011110&#39;, &#39;010111&#39;, &#39;110110&#39;, &#39;011011&#39;, &#39;111010&#39;, &#39;110011&#39;, &#39;011101&#39;, &#39;111100&#39;, &#39;110101&#39;, &#39;111001&#39;, &#39;001111&#39;, &#39;101110&#39;, &#39;100111&#39;, &#39;101011&#39;, &#39;101101&#39;, &#39;011111&#39;, &#39;111110&#39;, &#39;110111&#39;, &#39;111011&#39;, &#39;111101&#39;, &#39;101111&#39;, &#39;111111&#39;]
+{&#39;000000&#39;: 0, &#39;010000&#39;: 1, &#39;000010&#39;: 2, &#39;000100&#39;: 3, &#39;001000&#39;: 4, &#39;000001&#39;: 5, &#39;100000&#39;: 6, &#39;010010&#39;: 7, &#39;010100&#39;: 8, &#39;011000&#39;: 9, &#39;010001&#39;: 10, &#39;110000&#39;: 11, &#39;000110&#39;: 12, &#39;001010&#39;: 13, &#39;000011&#39;: 14, &#39;100010&#39;: 15, &#39;001100&#39;: 16, &#39;000101&#39;: 17, &#39;100100&#39;: 18, &#39;001001&#39;: 19, &#39;101000&#39;: 20, &#39;100001&#39;: 21, &#39;010110&#39;: 22, &#39;011010&#39;: 23, &#39;010011&#39;: 24, &#39;110010&#39;: 25, &#39;011100&#39;: 26, &#39;010101&#39;: 27, &#39;110100&#39;: 28, &#39;011001&#39;: 29, &#39;111000&#39;: 30, &#39;110001&#39;: 31, &#39;001110&#39;: 32, &#39;000111&#39;: 33, &#39;100110&#39;: 34, &#39;001011&#39;: 35, &#39;101010&#39;: 36, &#39;100011&#39;: 37, &#39;001101&#39;: 38, &#39;101100&#39;: 39, &#39;100101&#39;: 40, &#39;101001&#39;: 41, &#39;011110&#39;: 42, &#39;010111&#39;: 43, &#39;110110&#39;: 44, &#39;011011&#39;: 45, &#39;111010&#39;: 46, &#39;110011&#39;: 47, &#39;011101&#39;: 48, &#39;111100&#39;: 49, &#39;110101&#39;: 50, &#39;111001&#39;: 51, &#39;001111&#39;: 52, &#39;101110&#39;: 53, &#39;100111&#39;: 54, &#39;101011&#39;: 55, &#39;101101&#39;: 56, &#39;011111&#39;: 57, &#39;111110&#39;: 58, &#39;110111&#39;: 59, &#39;111011&#39;: 60, &#39;111101&#39;: 61, &#39;101111&#39;: 62, &#39;111111&#39;: 63}
 </pre></div>
 </div>
 </div>
@@ -509,12 +511,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="example-minimize-linear-regression.html"
+       href="plot_binding_curves.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">example-minimize-linear-regression.ipynb</p>
+        <p class="prev-next-title">Plot Binding Curves</p>
       </div>
     </a>
     <a class="right-next"

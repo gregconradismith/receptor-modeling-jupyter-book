@@ -169,18 +169,21 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
@@ -197,11 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -516,18 +518,18 @@ document.write(`
 <div class="math notranslate nohighlight" id="equation-equilibrium-z">
 <span class="eqno">(1)<a class="headerlink" href="#equation-equilibrium-z" title="Permalink to this equation">#</a></span>\[z_a = 1 \quad z_b = \kappab = \kappabstar x \quad  z_c =\kappab \kappac = \kappabstar \kappacstar x^2 \, .\]</div>
 <p>That is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0cdd3f14-ef0a-4622-a4a2-fa3a6bb8e282">
-<span class="eqno">(2)<a class="headerlink" href="#equation-0cdd3f14-ef0a-4622-a4a2-fa3a6bb8e282" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6892cb75-c704-4e78-8f20-94366b75ef1d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-6892cb75-c704-4e78-8f20-94366b75ef1d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}\]</div>
 <p>It is helpful to  present this set of rational functions using the following compact notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a66a5db4-70af-4232-af75-128fe7b4521b">
-<span class="eqno">(3)<a class="headerlink" href="#equation-a66a5db4-70af-4232-af75-128fe7b4521b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4805942a-3330-4ac4-a285-8f07a171e569">
+<span class="eqno">(3)<a class="headerlink" href="#equation-4805942a-3330-4ac4-a285-8f07a171e569" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_a  :  \pi_b :  \pi_c ] = [1 :\kappab : \kappab \kappac ]  = [1 : \kappabstar x :\kappabstar \kappacstar x^2  ] \,  .
 \end{equation}\]</div>
 <p>In expressions of this kind,  it is understood that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b987c19-4d3d-4104-bdd4-df4d1fb0c5d4">
-<span class="eqno">(4)<a class="headerlink" href="#equation-2b987c19-4d3d-4104-bdd4-df4d1fb0c5d4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-518ed95e-b550-4dea-af03-3ed07b984885">
+<span class="eqno">(4)<a class="headerlink" href="#equation-518ed95e-b550-4dea-af03-3ed07b984885" title="Permalink to this equation">#</a></span>\[\begin{equation}
 [ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ] = [ \lambda z_1 \! : \! \lambda  z_2 : \! \cdots \! : \! \lambda  z_n ]
 \end{equation}\]</div>
 <p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>.  Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.  Prior to normalization, we will refer to <span class="math notranslate nohighlight">\([ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ]\)</span> as <em>relative probabilites</em> for each receptor state.</p>
@@ -612,7 +614,7 @@ p[1] = x/(x^2 + x + 1)
 p[2] = x^2/(x^2 + x + 1)
 </pre></div>
 </div>
-<img alt="_images/4de06d0b85b87e914ec81237d3a872e04bb39849110d2961c1783beb3dd2d24c.png" src="_images/4de06d0b85b87e914ec81237d3a872e04bb39849110d2961c1783beb3dd2d24c.png" />
+<img alt="_images/4490a1db14d1d8a3e83249e03900c3d692085ca80f210b97ff06c52f3d502e6a.png" src="_images/4490a1db14d1d8a3e83249e03900c3d692085ca80f210b97ff06c52f3d502e6a.png" />
 </div>
 </div>
 <p>The above plot can be compared to those in the previous section (<a class="reference internal" href="ligands.html"><span class="doc std std-doc">Ligand Binding</span></a>). The only distinction is the usage of the notation that is the focus of this section. This notation is especially helpful in the analysis of conformational coupling of <a class="reference internal" href="receptor_dimers_overview.html#receptor-dimers-overview"><span class="std std-ref">recepter dimers</span></a> and higher-order oligomers.</p>

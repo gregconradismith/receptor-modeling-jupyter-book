@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'minimize-receptor-model-pade';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Plot Binding Curves" href="plot_binding_curves.html" />
-    <link rel="prev" title="Enumerating allosteric parameters in receptor dimers" href="enumerate_allosteric_parameters.html" />
+    <link rel="next" title="Markov chain receptor models" href="markov_chains.html" />
+    <link rel="prev" title="example-minimize-linear-regression.ipynb" href="example-minimize-linear-regression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -165,21 +165,24 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Minimize receptor model pade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Minimize receptor model pade</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
@@ -196,11 +199,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -503,14 +505,14 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal q0: 1.0
-Optimal q1: 8.472107311260585
-Optimal q2: 7.019013299733513
-Optimal q3: 8.372832561443431
-Optimal q4: 5.977659300681898
-Optimal q5: 10.034379294360798
+Optimal q1: 3.640216621326988
+Optimal q2: 8.199509935566592
+Optimal q3: 0.07276858301373629
+Optimal q4: 10.933887050748776
+Optimal q5: 0.08966819804984207
 </pre></div>
 </div>
-<img alt="_images/ee756c997a6613cd061f1f51ebc398af66589bce4d2f4a74a5836b7e1e75f909.png" src="_images/ee756c997a6613cd061f1f51ebc398af66589bce4d2f4a74a5836b7e1e75f909.png" />
+<img alt="_images/182dfdc8a1adbbf91d09dfe97905ed00de94a6b0c0f5d8336c3c25cbc9f2b3ce.png" src="_images/182dfdc8a1adbbf91d09dfe97905ed00de94a6b0c0f5d8336c3c25cbc9f2b3ce.png" />
 </div>
 </div>
 </section>
@@ -547,20 +549,20 @@ Optimal q5: 10.034379294360798
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="enumerate_allosteric_parameters.html"
+       href="example-minimize-linear-regression.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Enumerating allosteric parameters in receptor dimers</p>
+        <p class="prev-next-title">example-minimize-linear-regression.ipynb</p>
       </div>
     </a>
     <a class="right-next"
-       href="plot_binding_curves.html"
+       href="markov_chains.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Plot Binding Curves</p>
+        <p class="prev-next-title">Markov chain receptor models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

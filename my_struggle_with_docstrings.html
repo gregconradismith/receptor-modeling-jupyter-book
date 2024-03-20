@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'my_struggle_with_docstrings';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Example lmfit" href="example-lmfit.html" />
+    <link rel="next" title="Plot Binding Curves" href="plot_binding_curves.html" />
     <link rel="prev" title="docstring test" href="docstring_test.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,18 +168,21 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
@@ -196,11 +199,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -490,6 +492,10 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 <p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
 <p>Construct reduced Cartesian power of a graph.</p>
 <p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power_ver2(G,</span> <span class="pre">k,</span> <span class="pre">contexts=True,</span> <span class="pre">edge_labels=True)</span></code></strong></p>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
 <p><strong><code class="docutils literal notranslate"><span class="pre">combinatorial_laplacian(G,</span> <span class="pre">combinatorial_coefficients=False)</span></code></strong></p>
 <p>Construct the combinatorial Laplacian of a graph.</p>
 <p>[NEED TO WRITE DESCRIPTION]</p>
@@ -595,11 +601,11 @@ add_vertex_monomials(G=Graph on 0 vertices, method=&#39;integer&#39;, ring=False
       </div>
     </a>
     <a class="right-next"
-       href="example-lmfit.html"
+       href="plot_binding_curves.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Example lmfit</p>
+        <p class="prev-next-title">Plot Binding Curves</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -61,10 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tools_and_examples_part2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Enumerating allosteric parameters in receptor dimers" href="enumerate_allosteric_parameters.html" />
+    <link rel="next" title="Enumerating allosteric parameters" href="enumerate_allosteric_parameters.html" />
     <link rel="prev" title="Reduced Graph Powers" href="reduced_graph_powers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
@@ -425,7 +426,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-powers-and-reduced-graph-powers">Graph powers and reduced graph powers</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-graph-powers">Reduced graph powers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#under-construction">UNDER CONSTRUCTION</a></li>
 </ul>
 </li>
@@ -442,9 +443,9 @@ document.write(`
                   
   <section id="tools-and-examples-part-2">
 <h1>Tools and Examples - Part 2<a class="headerlink" href="#tools-and-examples-part-2" title="Permalink to this heading">#</a></h1>
-<section id="graph-powers-and-reduced-graph-powers">
-<h2>Graph powers and reduced graph powers<a class="headerlink" href="#graph-powers-and-reduced-graph-powers" title="Permalink to this heading">#</a></h2>
-<p>The notebook  in <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> (see Appendix) contains function definitions that will prove useful as we further explore receptor modeling.  The command <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">receptor_tools.ipynb</span></code> loads these function definitions, and the remainder of this notebook illustrates how to use some of them.  The focus here is on tools that faciliate constructoin of graph powers and reduced graph powers.</p>
+<section id="reduced-graph-powers">
+<h2>Reduced graph powers<a class="headerlink" href="#reduced-graph-powers" title="Permalink to this heading">#</a></h2>
+<p>The notebook titled <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> (see Appendix) contains function definitions that will prove useful as we further explore receptor modeling.  The command <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">receptor_tools.ipynb</span></code> loads these function definitions, and the remainder of this notebook illustrates how to use some of them.  The focus here is on tools that faciliate constructoin of graph powers and reduced graph powers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
@@ -467,7 +468,7 @@ document.write(`
 <img alt="_images/f6f41c9cbd9dd393f914eb882e2e8bb27c90effa7a1434194da9fdb03dbe1f67.png" src="_images/f6f41c9cbd9dd393f914eb882e2e8bb27c90effa7a1434194da9fdb03dbe1f67.png" />
 </div>
 </div>
-<p>Next we produce the reduced graph power $G^{(2)}$.  Each vertex is a monomial where the indeterminants are given by the vertices of $G$.</p>
+<p>Next we produce the reduced graph power <span class="math notranslate nohighlight">\(G^{(2)}\)</span><code class="docutils literal notranslate"><span class="pre">.</span>&#160; <span class="pre">Each</span> <span class="pre">vertex</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">monomial</span> <span class="pre">where</span> <span class="pre">the</span> <span class="pre">indeterminants</span> <span class="pre">are</span> <span class="pre">given</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">vertices</span> <span class="pre">of</span> <span class="pre">{math}</span></code>G`.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G2</span> <span class="o">=</span> <span class="n">reduced_cartesian_power_ver2</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -476,7 +477,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13593bedf97a3a0b8f553986fd18274089e8cc923a77cbc2e7511b3c7a0b4603.png" src="_images/13593bedf97a3a0b8f553986fd18274089e8cc923a77cbc2e7511b3c7a0b4603.png" />
+<img alt="_images/1d3cd7c186f10ffbac6ec5d1c2c848ce079b667e7ce0b6eef992d57402a556a5.png" src="_images/1d3cd7c186f10ffbac6ec5d1c2c848ce079b667e7ce0b6eef992d57402a556a5.png" />
 </div>
 </div>
 <p>Next, we repeat the above example using a different choice of vertex labels.</p>
@@ -499,10 +500,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e804ce8dac791dd14fae71347092c94fda83ba3c20c8e653fdfbde03ece0ba8d.png" src="_images/e804ce8dac791dd14fae71347092c94fda83ba3c20c8e653fdfbde03ece0ba8d.png" />
+<img alt="_images/7bf0542c9ab324264b0555e08d602bd0b760438524eb92a8b0e89625d9240aa3.png" src="_images/7bf0542c9ab324264b0555e08d602bd0b760438524eb92a8b0e89625d9240aa3.png" />
 </div>
 </div>
-<p>This next example shows the reduced graph power $P_3^{(4)}$.</p>
+<p>This next example shows the reduced graph power <span class="math notranslate nohighlight">\(P_3^{(4)}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P3</span> <span class="o">=</span> <span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -523,7 +524,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b76a8cabe796113c26c69aebefa7981fa8e451fe0f1dd1af9010349662aef5e0.png" src="_images/b76a8cabe796113c26c69aebefa7981fa8e451fe0f1dd1af9010349662aef5e0.png" />
+<img alt="_images/be047c7871802ff2e053b0f211d664435e91993b91503c1c5e0022588c038931.png" src="_images/be047c7871802ff2e053b0f211d664435e91993b91503c1c5e0022588c038931.png" />
 </div>
 </div>
 <p>The edge labels are 3-tuples.</p>
@@ -540,7 +541,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8829730b3786eff61cf4b7d24231369e38884835d10ee77d177a4312bb862f38.png" src="_images/8829730b3786eff61cf4b7d24231369e38884835d10ee77d177a4312bb862f38.png" />
+<img alt="_images/2067eb8a8a7fe01c67826edbb011a310568d528f1c479a9511180b5e4c2a9058.png" src="_images/2067eb8a8a7fe01c67826edbb011a310568d528f1c479a9511180b5e4c2a9058.png" />
 </div>
 </div>
 </section>
@@ -592,7 +593,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Enumerating allosteric parameters in receptor dimers</p>
+        <p class="prev-next-title">Enumerating allosteric parameters</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -614,7 +615,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-powers-and-reduced-graph-powers">Graph powers and reduced graph powers</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-graph-powers">Reduced graph powers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#under-construction">UNDER CONSTRUCTION</a></li>
 </ul>
 </li>

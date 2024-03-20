@@ -11,7 +11,7 @@ When receptors function as two or more similar protein subunits working in conce
 * satisfy thermodynamic constraints, and
 * properly account for subunit interactions (allostery) mediated by conformational coupling.
 
-This section illustrates an approach to **modeling conformational coupling of receptor dimers ** that was introduced in {cite:p}`HammackSmith2017 and {cite:p}`ConradiSmith2020`.
+This section illustrates an approach to modeling conformational coupling of receptor dimers that was introduced in {cite:p}`HammackSmith2017` and {cite:p}`ConradiSmith2020`.
 
 * Gregory Douglas Conradi Smith, **Allostery in oligomeric receptor models**, *Mathematical Medicine and Biology: A Journal of the IMA*, 37(3):313-333, 2020. [doi: 10.1093/imammb/dqz016](https://doi.org/10.1093/imammb/dqz016)
 

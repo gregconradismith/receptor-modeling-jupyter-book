@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'tools_and_examples_part2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="allosteric_parameters_overview.html" />
+    <link rel="next" title="Enumerating allosteric parameters in receptor dimers" href="enumerate_allosteric_parameters.html" />
     <link rel="prev" title="Reduced Graph Powers" href="reduced_graph_powers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,7 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
@@ -201,7 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -426,8 +425,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-powers-and-reduced-graph-powers">Graph powers and reduced graph powers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-ffeb3b-under-construction-span"><span style="color:#ffeb3b">UNDER CONSTRUCTION</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-powers-and-reduced-graph-powers">Graph powers and reduced graph powers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#under-construction">UNDER CONSTRUCTION</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -444,9 +445,6 @@ document.write(`
 <section id="graph-powers-and-reduced-graph-powers">
 <h2>Graph powers and reduced graph powers<a class="headerlink" href="#graph-powers-and-reduced-graph-powers" title="Permalink to this heading">#</a></h2>
 <p>The notebook  in <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> (see Appendix) contains function definitions that will prove useful as we further explore receptor modeling.  The command <code class="docutils literal notranslate"><span class="pre">%run</span> <span class="pre">receptor_tools.ipynb</span></code> loads these function definitions, and the remainder of this notebook illustrates how to use some of them.  The focus here is on tools that faciliate constructoin of graph powers and reduced graph powers.</p>
-</section>
-<section id="span-style-color-ffeb3b-under-construction-span">
-<h2><span style='color:#ffeb3b'>UNDER CONSTRUCTION</span><a class="headerlink" href="#span-style-color-ffeb3b-under-construction-span" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
@@ -455,65 +453,97 @@ document.write(`
 </div>
 </div>
 </div>
-<p>To begin we specify the states and transitions of a receptor model as an undirected graph. For simplicity, we will use a three-state model.</p>
+<p>To begin, we specify the states and transitions of a receptor model as an undirected graph.  As an example, will use the following four-state model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)}</span> <span class="c1"># vertex positions</span>
-<span class="n">G0</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]},</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span>
-<span class="n">G0</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;G0&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span> <span class="c1"># vertex positions</span>
+<span class="n">G0</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">]},</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">add_vertex_monomials</span><span class="p">(</span><span class="n">G0</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9a5f4538a2c589d531cd47672618fe3fd6d1875e990bae7414be095a2513602c.png" src="_images/9a5f4538a2c589d531cd47672618fe3fd6d1875e990bae7414be095a2513602c.png" />
+<img alt="_images/f6f41c9cbd9dd393f914eb882e2e8bb27c90effa7a1434194da9fdb03dbe1f67.png" src="_images/f6f41c9cbd9dd393f914eb882e2e8bb27c90effa7a1434194da9fdb03dbe1f67.png" />
 </div>
 </div>
+<p>Next we produce the reduced graph power $G^{(2)}$.  Each vertex is a monomial where the indeterminants are given by the vertices of $G$.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydoc</span><span class="p">(</span><span class="n">cartesian_power</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G2</span> <span class="o">=</span> <span class="n">reduced_cartesian_power_ver2</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">G2</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><strong><code class="docutils literal notranslate"><span class="pre">cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical')</span></code></strong></p>
-<p>Construct Cartesian power of a graph.</p>
-<p>[NEED TO WRITE DESCRIPTION]</p>
+<img alt="_images/13593bedf97a3a0b8f553986fd18274089e8cc923a77cbc2e7511b3c7a0b4603.png" src="_images/13593bedf97a3a0b8f553986fd18274089e8cc923a77cbc2e7511b3c7a0b4603.png" />
 </div>
 </div>
+<p>Next, we repeat the above example using a different choice of vertex labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PP</span> <span class="o">=</span> <span class="n">cartesian_power</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">PP</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="o">=</span><span class="n">add_vertex_monomials</span><span class="p">(</span><span class="n">G0</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
+<span class="n">H</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a8434cfabd48c7a66c94933084cc129c6e4b7b128fa330d289db23344b6f7c29.png" src="_images/a8434cfabd48c7a66c94933084cc129c6e4b7b128fa330d289db23344b6f7c29.png" />
+<img alt="_images/4477ca12e2e2d7215a80e3196d7eddb26afb966d89a459ec1389ca29b20f33a6.png" src="_images/4477ca12e2e2d7215a80e3196d7eddb26afb966d89a459ec1389ca29b20f33a6.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydoc</span><span class="p">(</span><span class="n">reduced_cartesian_power</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H3</span> <span class="o">=</span> <span class="n">reduced_cartesian_power_ver2</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">H3</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
-<p>Construct reduced Cartesian power of a graph.</p>
-<p>[NEED TO WRITE DESCRIPTION]</p>
+<img alt="_images/e804ce8dac791dd14fae71347092c94fda83ba3c20c8e653fdfbde03ece0ba8d.png" src="_images/e804ce8dac791dd14fae71347092c94fda83ba3c20c8e653fdfbde03ece0ba8d.png" />
+</div>
+</div>
+<p>This next example shows the reduced graph power $P_3^{(4)}$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P3</span> <span class="o">=</span> <span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">P3</span> <span class="o">=</span> <span class="n">add_vertex_monomials</span><span class="p">(</span><span class="n">P3</span><span class="p">)</span>
+<span class="n">P3</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;P3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/636536df9817304b1a2fbecf8e5212ebec73c1ffec3ca65c8f87322f632d5988.png" src="_images/636536df9817304b1a2fbecf8e5212ebec73c1ffec3ca65c8f87322f632d5988.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G2</span> <span class="o">=</span> <span class="n">reduced_cartesian_power</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">G2</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P3_4</span> <span class="o">=</span> <span class="n">reduced_cartesian_power_ver2</span><span class="p">(</span><span class="n">P3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">P3_4</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ed5eef5d9e191b3adbb66cc0900c9347bfe5618bf647e2ed5112277c468b2582.png" src="_images/ed5eef5d9e191b3adbb66cc0900c9347bfe5618bf647e2ed5112277c468b2582.png" />
+<img alt="_images/b76a8cabe796113c26c69aebefa7981fa8e451fe0f1dd1af9010349662aef5e0.png" src="_images/b76a8cabe796113c26c69aebefa7981fa8e451fe0f1dd1af9010349662aef5e0.png" />
 </div>
 </div>
+<p>The edge labels are 3-tuples.</p>
+<p>The first element is a combinatorial coefficient.</p>
+<p>The second element is a tuple indicating the monomeric transition associated with the edge.</p>
+<p>The third element is the context.</p>
+<section id="under-construction">
+<h3>UNDER CONSTRUCTION<a class="headerlink" href="#under-construction" title="Permalink to this heading">#</a></h3>
+<p>The edge labels are not yet working.  Do I need this?  Should it be a directed graph?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P3_4</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8829730b3786eff61cf4b7d24231369e38884835d10ee77d177a4312bb862f38.png" src="_images/8829730b3786eff61cf4b7d24231369e38884835d10ee77d177a4312bb862f38.png" />
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -558,11 +588,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="allosteric_parameters_overview.html"
+       href="enumerate_allosteric_parameters.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Overview</p>
+        <p class="prev-next-title">Enumerating allosteric parameters in receptor dimers</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -584,8 +614,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-powers-and-reduced-graph-powers">Graph powers and reduced graph powers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-ffeb3b-under-construction-span"><span style="color:#ffeb3b">UNDER CONSTRUCTION</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-powers-and-reduced-graph-powers">Graph powers and reduced graph powers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#under-construction">UNDER CONSTRUCTION</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

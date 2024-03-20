@@ -16,7 +16,6 @@ parts:
     - file: receptor_dimers_overview
     - file: reduced_graph_powers
     - file: tools_and_examples_part2
-    - file: allosteric_parameters_overview
     - file: enumerate_allosteric_parameters
     - file: minimize-receptor-model-pade
     - file: plot_binding_curves

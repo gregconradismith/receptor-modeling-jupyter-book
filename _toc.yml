@@ -19,6 +19,8 @@ parts:
     - file: enumerate_allosteric_parameters
   - caption: Fitting Allosteric Parameters
     chapters:
+    - file: fitting_allosteric_parameters_overview
+    - file: fitting_allosteric_parameters
     - file: example-lmfit
     - file: example-minimize-linear-regression
     - file: minimize-receptor-model-pade
@@ -42,7 +44,6 @@ parts:
     - file: bfs_spanning_tree
     - file: docstring_test
     - file: my_struggle_with_docstrings
-    - file: plot_binding_curves
     - file: plotting-hypercubes
     - file: practicing-python
     - file: receptor_tools

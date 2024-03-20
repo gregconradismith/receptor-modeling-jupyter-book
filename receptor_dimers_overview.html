@@ -173,6 +173,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters.html">Fitting allosteric parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -199,7 +201,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
@@ -417,7 +418,7 @@ document.write(`
 <li><p>satisfy thermodynamic constraints, and</p></li>
 <li><p>properly account for subunit interactions (allostery) mediated by conformational coupling.</p></li>
 </ul>
-<p>This section illustrates an approach to **modeling conformational coupling of receptor dimers ** that was introduced in <span id="id1">[]</span>ConradiSmith2020`.</p>
+<p>This section illustrates an approach to modeling conformational coupling of receptor dimers that was introduced in <span id="id1">[<a class="reference internal" href="#id5" title="RH Hammack and GD Smith. Cycle bases of reduced powers of graphs. ARS Mathematica Contemporanea, 12(1):183–203, 2017.">HS17</a>]</span> and <span id="id2">[<a class="reference internal" href="#id6" title="Gregory Douglas Conradi Smith. Allostery in oligomeric receptor models. Mathematical Medicine and Biology, 37:313–333, 2020.">CS20</a>]</span>.</p>
 <ul class="simple">
 <li><p>Gregory Douglas Conradi Smith, <strong>Allostery in oligomeric receptor models</strong>, <em>Mathematical Medicine and Biology: A Journal of the IMA</em>, 37(3):313-333, 2020. <a class="reference external" href="https://doi.org/10.1093/imammb/dqz016">doi: 10.1093/imammb/dqz016</a></p></li>
 <li><p>Richard H. Hammack and Gregory D. Smith, <strong>Cycle bases of reduced powers of graphs</strong>, <em>ARS Mathematica Contemporanea</em>, 12(1):183–203, 2017. <a class="reference external" href="https://doi.org/10.26493/1855-3974.856.4d2">doi: 10.26493/1855-3974.856.4d2</a></p></li>
@@ -426,7 +427,18 @@ document.write(`
 <p>Our first step is to introduce the concept of a <a class="reference external" href="https://en.wikipedia.org/wiki/Cartesian_product_of_graphs">Cartesian product graph</a>, because this clarifies the structure of the state-transition diagram of a homodimer composed of two identical (but not necessarily independent) monomeric subunits.</p>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<span class="target" id="id2"></span></section>
+<div class="docutils container" id="id3">
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">CS20</a><span class="fn-bracket">]</span></span>
+<p>Gregory Douglas Conradi Smith. Allostery in oligomeric receptor models. <em>Mathematical Medicine and Biology</em>, 37:313–333, 2020.</p>
+</div>
+<div class="citation" id="id5" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">HS17</a><span class="fn-bracket">]</span></span>
+<p>RH Hammack and GD Smith. Cycle bases of reduced powers of graphs. <em>ARS Mathematica Contemporanea</em>, 12(1):183–203, 2017.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

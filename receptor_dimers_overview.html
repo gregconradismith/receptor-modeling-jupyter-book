@@ -168,11 +168,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
@@ -372,7 +371,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -388,6 +389,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -399,14 +408,23 @@ document.write(`
                   
   <section id="overview">
 <span id="receptor-dimers-overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
-<p>When receptors function as two or more similar protein subunits working in concert (i.e., homodimers or oligomers), a composite receptor models must</p>
+<p>Quantitative pharmacologists construct Markov chain models to give insight into the relationship between ligand concentration and the fraction of cell surface receptors in each of several molecular conformations. Pharmacologists use these stochastic models to understand the action of natural ligands and drugs on receptor-mediated cell responses.</p>
+<p>When receptors function as two or more similar protein subunits working in concert (i.e., homodimers or oligomers), a composite receptor model must</p>
 <ul class="simple">
 <li><p>account for symmetry,</p></li>
 <li><p>satisfy thermodynamic constraints, and</p></li>
 <li><p>properly account for subunit interactions (allostery) mediated by conformational coupling.</p></li>
 </ul>
+<p>This section illustrates an approach to **modeling conformational coupling of receptor dimers ** that was introduced in <span id="id1">[]</span>ConradiSmith2020`.</p>
+<ul class="simple">
+<li><p>Gregory Douglas Conradi Smith, <strong>Allostery in oligomeric receptor models</strong>, <em>Mathematical Medicine and Biology: A Journal of the IMA</em>, 37(3):313-333, 2020. <a class="reference external" href="https://doi.org/10.1093/imammb/dqz016">doi: 10.1093/imammb/dqz016</a></p></li>
+<li><p>Richard H. Hammack and Gregory D. Smith, <strong>Cycle bases of reduced powers of graphs</strong>, <em>ARS Mathematica Contemporanea</em>, 12(1):183–203, 2017. <a class="reference external" href="https://doi.org/10.26493/1855-3974.856.4d2">doi: 10.26493/1855-3974.856.4d2</a></p></li>
+</ul>
 <p>For equilibrium models of receptor dimers, this approach facilitates the inference of a parsimonious subset of allosteric interactions leading to conformational coupling and dependence of receptor subunits.</p>
 <p>Our first step is to introduce the concept of a <a class="reference external" href="https://en.wikipedia.org/wiki/Cartesian_product_of_graphs">Cartesian product graph</a>, because this clarifies the structure of the state-transition diagram of a homodimer composed of two identical (but not necessarily independent) monomeric subunits.</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<span class="target" id="id2"></span></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -467,6 +485,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>My Tools &#8212; Receptors</title>
+    <title>Receptor Tools &#8212; Receptors</title>
   
   
   
@@ -168,7 +168,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
@@ -200,7 +199,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">My Tools</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -413,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>My Tools</h1>
+    <h1>Receptor Tools</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -427,8 +426,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="my-tools">
-<h1>My Tools<a class="headerlink" href="#my-tools" title="Permalink to this heading">#</a></h1>
+  <section id="receptor-tools">
+<h1>Receptor Tools<a class="headerlink" href="#receptor-tools" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mydoc</span><span class="p">(</span><span class="n">myfun</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">):</span>
@@ -1210,6 +1209,74 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 <p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
 <p>Construct reduced Cartesian power of a graph.</p>
 <p>[NEED TO WRITE DESCRIPTION]</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reduced_cartesian_power_ver2</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">contexts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">V</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span> <span class="c1"># construct reduced Cartesian power using monomials</span>
+        <span class="n">f</span><span class="o">=</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="n">fmon</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">monomials</span><span class="p">()</span>
+        <span class="n">fmon</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">is_directed</span><span class="p">():</span>
+            <span class="n">Gk</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="n">Gk</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">fmon</span><span class="p">:</span> 
+            <span class="k">for</span> <span class="n">fj</span> <span class="ow">in</span> <span class="n">fmon</span><span class="p">:</span>
+                <span class="n">df</span><span class="o">=</span><span class="n">fj</span><span class="o">/</span><span class="n">fi</span>
+                <span class="n">aj</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">numerator</span><span class="p">()</span>
+                <span class="n">ai</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">denominator</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">ai</span><span class="p">,</span><span class="n">aj</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">is_directed</span><span class="p">():</span>
+                        <span class="n">coeff</span><span class="o">=</span><span class="n">fi</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">ai</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">coeff</span><span class="o">=</span><span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">ai</span><span class="p">,</span><span class="n">aj</span><span class="p">):</span>
+                        <span class="c1"># tuple</span>
+                        <span class="c1"># Gk.add_edge(fi,fj,(coeff,G.edge_label(ai,aj),fj.gcd(fi)))</span>
+                        <span class="c1"># product </span>
+                        <span class="k">if</span> <span class="n">contexts</span><span class="p">:</span>
+                            <span class="n">Gk</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">fj</span><span class="p">,</span><span class="n">coeff</span><span class="o">*</span><span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">ai</span><span class="p">,</span><span class="n">aj</span><span class="p">)</span><span class="o">*</span><span class="n">fj</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">fi</span><span class="p">))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">Gk</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">fj</span><span class="p">,</span><span class="n">coeff</span><span class="o">*</span><span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">ai</span><span class="p">,</span><span class="n">aj</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">Gk</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span><span class="n">fj</span><span class="p">,(</span><span class="n">coeff</span><span class="p">,(</span><span class="n">ai</span><span class="p">,</span><span class="n">aj</span><span class="p">),</span><span class="n">fj</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">fi</span><span class="p">)))</span>
+                        <span class="c1">#print(fi,fj,(ai,aj),fj.gcd(fi))</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># construct reduced Cartesian power using tuples of integers </span>
+        <span class="n">Gk</span> <span class="o">=</span> <span class="n">cartesian_power</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> 
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span> <span class="c1"># do reduction by merging vertices  </span>
+            <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="n">sv</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+                <span class="n">su</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">v</span><span class="o">!=</span><span class="n">u</span> <span class="ow">and</span> <span class="n">sv</span><span class="o">==</span><span class="n">su</span> <span class="ow">and</span> <span class="n">v</span><span class="o">&lt;</span><span class="n">u</span> <span class="ow">and</span> <span class="n">Gk</span><span class="o">.</span><span class="n">has_vertex</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="ow">and</span> <span class="n">Gk</span><span class="o">.</span><span class="n">has_vertex</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+                    <span class="n">Gk</span><span class="o">.</span><span class="n">merge_vertices</span><span class="p">([</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">])</span>
+        <span class="n">vcount</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Gk</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Gk</span><span class="o">.</span><span class="n">order</span><span class="p">()):</span>
+            <span class="n">vc</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="c1"># yes, G, not Gk, the number of vertices in monomial model </span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">vc</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">vc</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">vcount</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">vc</span><span class="p">)</span> 
+        <span class="n">Gk</span><span class="o">.</span><span class="n">relabel</span><span class="p">(</span><span class="n">vcount</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">edge_labels</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">Gk</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="c1">#print(e[0],e[1],coefficient_transition_context_from_tuple(e[0],e[1]))</span>
+                <span class="n">Gk</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">coefficient_transition_context_from_tuple</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">Gk</span>
+
+<span class="n">mydoc</span><span class="p">(</span><span class="n">reduced_cartesian_power_ver2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power_ver2(G,</span> <span class="pre">k,</span> <span class="pre">contexts=True,</span> <span class="pre">edge_labels=True)</span></code></strong></p>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <hr class="docutils" />

@@ -169,11 +169,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
@@ -523,8 +522,8 @@ a_{31} & a_{32} & -a_{31} - a_{32} - a_{34} & a_{34} \\
 <section id="the-probability-distribution-solves-a-linear-system-of-ordinary-differential-equations">
 <h2>The probability distribution solves a linear system of ordinary differential equations<a class="headerlink" href="#the-probability-distribution-solves-a-linear-system-of-ordinary-differential-equations" title="Permalink to this heading">#</a></h2>
 <p>The relationship between the adjacency matrix <span class="math notranslate nohighlight">\(A\)</span> and generator matrix <span class="math notranslate nohighlight">\(Q\)</span> can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-70f616ea-07d9-4acc-af18-a345aa1fc0c8">
-<span class="eqno">(6)<a class="headerlink" href="#equation-70f616ea-07d9-4acc-af18-a345aa1fc0c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0a14711-37c1-4a00-9d43-edd067a011e4">
+<span class="eqno">(6)<a class="headerlink" href="#equation-d0a14711-37c1-4a00-9d43-edd067a011e4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q = A - \text{diag}(A\be)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\be\)</span> is a commensurate column vector of 1s. The following code confirms that <span class="math notranslate nohighlight">\(Q \be = \bzero\)</span>, i.e., each row of <span class="math notranslate nohighlight">\(Q\)</span> sums to zero.</p>
@@ -672,8 +671,8 @@ z_4 &amp; = a_{12} a_{23} a_{34} \, .
 <p>This distribution satisfies detailed balance, i.e., <span class="math notranslate nohighlight">\(a_{ij} \pi_i = a_{ji} \pi_j\)</span>.  As discussed previously, detailed balance implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define <span class="math notranslate nohighlight">\(\kappa_{j}=a_{ij}/a_{ji}\)</span> for <span class="math notranslate nohighlight">\(i &lt; j\)</span> whenever vertex <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are adjacent.
 Dividing the numerator and denominator of each <span class="math notranslate nohighlight">\(\pi_i\)</span> by <span class="math notranslate nohighlight">\(a_{12}a_{23}a_{34}\)</span> yields the relative probabilities <span class="math notranslate nohighlight">\(z_1 = 1\)</span>,   <span class="math notranslate nohighlight">\(z_2 = \kappa_{2}\)</span>,  <span class="math notranslate nohighlight">\(z_3 = \kappa_{2}\kappa_{3}\)</span>, and <span class="math notranslate nohighlight">\(z_4 =  \kappa_{2} \kappa_{3} \kappa_{4}\)</span>.  Substituting these values into <a class="reference internal" href="#equation-eq-p1234">(8)</a> gives the solution in terms of the equilibrium constants <span class="math notranslate nohighlight">\(\kappa_{2}\)</span>, <span class="math notranslate nohighlight">\(\kappa_{3}\)</span>, and <span class="math notranslate nohighlight">\(\kappa_{4}\)</span>.</p>
 <p>In the notation of the <a class="reference internal" href="equilibrium.html"><span class="doc std std-doc">equilibrium formulation</span></a>, this probability distribution,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-11f947b5-a15c-4af0-b761-627d0beb71ca">
-<span class="eqno">(9)<a class="headerlink" href="#equation-11f947b5-a15c-4af0-b761-627d0beb71ca" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f4039315-c880-41bf-bd72-21ad1f8491a4">
+<span class="eqno">(9)<a class="headerlink" href="#equation-f4039315-c880-41bf-bd72-21ad1f8491a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_1  :  \pi_2 :  \pi_3 :  \pi_4] = [1 :\kappa_{2} : \kappa_{2} \kappa_{3} :  \kappa_{2} \kappa_{3} \kappa_{4} ]  \, ,
 \end{equation}\]</div>
 <p>corresponds to the following spanning tree rooted in state 1.</p>

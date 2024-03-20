@@ -169,11 +169,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
@@ -643,8 +642,8 @@ In this case, each relative probability is a monomial with two factors.</p>
 </div>
 <p>This three-state receptor model has no cycles.  For this reason the steady-state probabilities will satisfy detailed balance. This  implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define equilibrium constants as <span class="math notranslate nohighlight">\(\kappa_{j}=a_{ij}/a_{ji}\)</span> for <span class="math notranslate nohighlight">\(i &lt; j\)</span> whenever vertex <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are adjacent.
 Dividing the numerator and denominator of each <span class="math notranslate nohighlight">\(p_i\)</span> by <span class="math notranslate nohighlight">\(a_{10}a_{21}\)</span> yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a198f5b-2bbc-4fcd-aa47-13d6d72588aa">
-<span class="eqno">(5)<a class="headerlink" href="#equation-4a198f5b-2bbc-4fcd-aa47-13d6d72588aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-554a0d1b-0c5d-46a7-9a0d-4d35480cd5b7">
+<span class="eqno">(5)<a class="headerlink" href="#equation-554a0d1b-0c5d-46a7-9a0d-4d35480cd5b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p_0 = \frac{1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_1 = \frac{\kappa_1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_2 = \frac{\kappa_1 \kappa_2}{1+\kappa_1+\kappa_1\kappa_2}
 \end{equation}\]</div>
 <p>This confirms that the steady-state probabilities of this three-state receptor model can be written in terms of equilibrium constants.</p>

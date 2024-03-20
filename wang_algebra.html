@@ -169,11 +169,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="allosteric_parameters_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
@@ -462,7 +461,7 @@ document.write(`
 <h1>Wang algebra<a class="headerlink" href="#wang-algebra" title="Permalink to this heading">#</a></h1>
 <p>In classical electrical network theory, algebraic approaches to enumerating spanning trees of graphs were popular.  This chapter of notes focuses on connections between one technique for enumerating tree and cotrees—referred to in the 1960s as a <code class="docutils literal notranslate"><span class="pre">Wang</span> <span class="pre">algebra</span></code> by Richard Duffin
 <span id="id1">[<a class="reference internal" href="#id14" title="R J Duffin. An analysis of the Wang algebra of networks. Transactions of the American Mathematical Society, 93(1):114–131, 1959.">Duf59</a>]</span> <a class="reference external" href="https://www.ams.org/journals/tran/1959-093-01/S0002-9947-1959-0109161-6/S0002-9947-1959-0109161-6.pdf">(pdf)</a>
-and Wai-Kai Chen <span id="id2">[<a class="reference internal" href="#id15" title="Wai-Kai Chen. On directed trees and directed k-trees of a digraph and their generation. SIAM Journal on Applied Mathematics, 14(3):550–560, 1966.">Che66</a>]</span> <a class="reference external" href="https://epubs.siam.org/doi/pdf/10.1137/0114048">(pdf)</a>—and my research interest in the biophysical theory of receptor oligomers <span id="id3">[<a class="reference internal" href="#id12" title="Gregory Douglas Conradi Smith. Allostery in oligomeric receptor models. Mathematical Medicine and Biology, 37:313–333, 2020.">CS20</a>, <a class="reference internal" href="#id11" title="RH Hammack and GD Smith. Cycle bases of reduced powers of graphs. ARS Mathematica Contemporanea, 12(1):183–203, 2017.">HS17</a>]</span> <a class="reference external" href="https://amc-journal.eu/index.php/amc/article/view/856">(pdf)</a>.</p>
+and Wai-Kai Chen <span id="id2">[<a class="reference internal" href="#id15" title="Wai-Kai Chen. On directed trees and directed k-trees of a digraph and their generation. SIAM Journal on Applied Mathematics, 14(3):550–560, 1966.">Che66</a>]</span> <a class="reference external" href="https://epubs.siam.org/doi/pdf/10.1137/0114048">(pdf)</a>—and my research interest in the biophysical theory of receptor oligomers <span id="id3">[<a class="reference internal" href="#id12" title="Gregory Douglas Conradi Smith. Allostery in oligomeric receptor models. Mathematical Medicine and Biology, 37:313–333, 2020.">CS20</a>]</span> <a class="reference external" href="https://amc-journal.eu/index.php/amc/article/view/856">(pdf)</a>.</p>
 <section id="co-spanning-trees-from-cycle-basis">
 <h2>Co-spanning trees from cycle basis<a class="headerlink" href="#co-spanning-trees-from-cycle-basis" title="Permalink to this heading">#</a></h2>
 <p>In ref. <span id="id4">[<a class="reference internal" href="#id14" title="R J Duffin. An analysis of the Wang algebra of networks. Transactions of the American Mathematical Society, 93(1):114–131, 1959.">Duf59</a>]</span>,
@@ -471,17 +470,16 @@ Richard Duffin  states that a commutative algebra with the property that</p>
 \[x+x = 0 \quad \mbox{and} \quad x\cdot x = 0 \]</div>
 <p>for each element $x$ is termed a <code class="docutils literal notranslate"><span class="pre">Wang</span> <span class="pre">algebra</span></code>.
 Classical electrical network theory discusses using Wang algebra’s to obtain co-spanning trees of an undirected simple  graph G from a cycle basis <span id="id5">[<a class="reference internal" href="#id14" title="R J Duffin. An analysis of the Wang algebra of networks. Transactions of the American Mathematical Society, 93(1):114–131, 1959.">Duf59</a>, <a class="reference internal" href="#id16" title="RJ Duffin. Some problems of mathematics and science. Bulletin of the American Mathematical Society, 80(6):1053–1070, 1974.">Duf74</a>]</span>.  A similar method involves obtaining directed spanning trees from the stars of G centered on each vertex save an arbitrary root <span id="id6">[<a class="reference internal" href="#id15" title="Wai-Kai Chen. On directed trees and directed k-trees of a digraph and their generation. SIAM Journal on Applied Mathematics, 14(3):550–560, 1966.">Che66</a>]</span>.    I will focus on the undirected case, because I wish to use the minimal cycle basis construction for reduced graph powers <span id="id7">[<a class="reference internal" href="#id11" title="RH Hammack and GD Smith. Cycle bases of reduced powers of graphs. ARS Mathematica Contemporanea, 12(1):183–203, 2017.">HS17</a>]</span>.</p>
-<p>Let $G = (V,E)$ be an undirected simple graph of  order $|V|=m$ and size $|E|=n$  with $V(G)= { v_1, v_2, \ldots, v_m } $ and $E(G) = { e_1 , e_2, \ldots , e_n}$.
-For $1\leq i \leq n$ let $x_i$ be an indeterminant corresponding to edge $e_i$ of $G$.
-Let $R=\mathbb{F}_2[x_1, x_2, \ldots, x_n]$ be a polynomial ring over the field $\mathbb{F}_2$.  Define $S$ to be the quotient ring</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">R</span><span class="o">/</span><span class="n">I</span> \<span class="n">quad</span> \<span class="n">mbox</span><span class="p">{</span><span class="n">where</span> <span class="n">the</span> <span class="n">ideal</span><span class="p">}</span> \<span class="n">quad</span>  <span class="n">I</span> <span class="o">=</span> \<span class="n">langle</span> <span class="n">x_1</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">x_2</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> \<span class="n">ldots</span><span class="p">,</span> <span class="n">x_n</span><span class="o">^</span><span class="mi">2</span> \<span class="n">rangle</span> 
-</pre></div>
-</div>
-<p>is generated by squares of  indeterminants.</p>
-<p>If $C_1,C_2,\ldots,C_\beta$ are $\beta$ independent circuits of $G$,
-and $h_{i} = \sum_{j: e_j \in C_i} x_j$  are polynomials in $S$ corresponding to these circuits,
-then the co-trees (spanning tree complements) of $G$ correspond to the surviving monomials of the product $\Phi^*<em>G(x_1, \ldots, x_n) = h</em>{C_1} h_{C_2} \cdots h_{C_\beta}$, which is dual to<br />
-the Kirchhoff polynomial $\Phi_G$.
+<p>Let <span class="math notranslate nohighlight">\(G = (V,E)\)</span> be an undirected simple graph of  order <span class="math notranslate nohighlight">\(|V|=m\)</span> and size <span class="math notranslate nohighlight">\(|E|=n\)</span>  with <span class="math notranslate nohighlight">\(V(G)= \{ v_1, v_2, \ldots, v_m \}\)</span> and <span class="math notranslate nohighlight">\(E(G) = \{ e_1 , e_2, \ldots , e_n\}\)</span>.
+For <span class="math notranslate nohighlight">\(1\leq i \leq n\)</span> let <span class="math notranslate nohighlight">\(x_i\)</span> be an indeterminant corresponding to edge <span class="math notranslate nohighlight">\(e_i\)</span> of <span class="math notranslate nohighlight">\(G\)</span>.
+Let <span class="math notranslate nohighlight">\(R=\mathbb{F}_2[x_1, x_2, \ldots, x_n]\)</span> be a polynomial ring over the field <span class="math notranslate nohighlight">\(\mathbb{F}_2\)</span>.  Define <span class="math notranslate nohighlight">\(S\)</span> to be the quotient ring</p>
+<div class="math notranslate nohighlight">
+\[S = R/I \quad \mbox{where the ideal} \quad  I = \langle x_1^2, x_2^2, \ldots, x_n^2 \rangle \]</div>
+<p>generated by squares of  indeterminants.</p>
+<p>If <span class="math notranslate nohighlight">\(C_1,C_2,\ldots,C_\beta\)</span> are <span class="math notranslate nohighlight">\(\beta\)</span> independent circuits of <span class="math notranslate nohighlight">\(G\)</span>,
+and <span class="math notranslate nohighlight">\(h_{i} = \sum_{j: e_j \in C_i} x_j\)</span> are polynomials in <span class="math notranslate nohighlight">\(S\)</span> corresponding to these circuits,
+then the co-trees (spanning tree complements) of $G$ correspond to the surviving monomials of the product <span class="math notranslate nohighlight">\(\Phi^*_G(x_1, \ldots, x_n) = h_{C_1} h_{C_2} \cdots h_{C_\beta}\)</span>, which is dual to<br />
+the Kirchhoff polynomial <span class="math notranslate nohighlight">\(\Phi_G\)</span>.
 This fact is
 attributed to Wang and Ting in <span id="id8">[<a class="reference internal" href="#id15" title="Wai-Kai Chen. On directed trees and directed k-trees of a digraph and their generation. SIAM Journal on Applied Mathematics, 14(3):550–560, 1966.">Che66</a>]</span>.</p>
 <div class="admonition note">
@@ -491,21 +489,21 @@ attributed to Wang and Ting in <span id="id8">[<a class="reference internal" hre
 </section>
 <section id="example-co-spanning-trees-of-k-4">
 <h2>Example: Co-spanning trees of $K_4$<a class="headerlink" href="#example-co-spanning-trees-of-k-4" title="Permalink to this heading">#</a></h2>
-<p>Consider $K_4$, the complete graph of four vertices.
-The polynomials in the Wang algebra corresponding to the cycle basis $\mathcal{C}(K_4)$ are {adf, bde, cef}. Thus,</p>
+<p>Consider <span class="math notranslate nohighlight">\(K_4\)</span>, the complete graph of four vertices.
+The polynomials in the Wang algebra corresponding to the cycle basis <span class="math notranslate nohighlight">\(\mathcal{C}(K_4)\)</span> are <code class="docutils literal notranslate"><span class="pre">{adf,</span> <span class="pre">bde,</span> <span class="pre">cef}</span></code> OR <span class="math notranslate nohighlight">\(\{adf, bde, cef\}\)</span>. Thus,</p>
 <div class="math notranslate nohighlight">
 \[h_1 = a + d +f \quad h_2 = b+d+e \quad h_3 = c+e+f \, . \]</div>
-<p>The product $h_1h_2$ is</p>
+<p>The product <span class="math notranslate nohighlight">\(h_1h_2\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[h_1 h_2 = \mathrm{ab}+ad+ae+bd+0+de+bf+df+\mathrm{ef} \, .\]</div>
-<p>Multiplying by $h_3$ gives</p>
+<p>Multiplying by <span class="math notranslate nohighlight">\(h_3\)</span> gives</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray} 
 h_1 h_2 h_3 &amp;=&amp; abc + acd + ace+bcd+cde+bcf+cdf+cef  \nonumber \\
 &amp;+ &amp;abe + ade + 0+bde+0+bef+[def]+0  \nonumber \\
 &amp;+&amp;  abf + adf + aef+bdf+[def]+0+0+0 \, , \nonumber
 \end{eqnarray}\end{split}\]</div>
-<p>which is $18-2=16$ terms because $def+def=0$.  Each surviving term of $h_1 h_2 h_3$ corresponds to a co-tree of $K_4$ (e.g., the co-tree $abc$ corresponds to the spanning tree $def$).  Note that $\binom{abcdef}{3}$ corresponds total of 20 possible triples, all of which are co-trees of $K_4$ except $abd$, $acf$, $bce$ and $de!f$.</p>
+<p>which is <span class="math notranslate nohighlight">\(18-2=16\)</span> terms because <code class="docutils literal notranslate"><span class="pre">def+def=0</span></code>.  Each surviving term of <span class="math notranslate nohighlight">\(h_1 h_2 h_3\)</span> corresponds to a co-tree of <span class="math notranslate nohighlight">\(K_4\)</span> (e.g., the co-tree <code class="docutils literal notranslate"><span class="pre">abc</span></code> corresponds to the spanning tree <code class="docutils literal notranslate"><span class="pre">def</span></code>).  Note that <span class="math notranslate nohighlight">\(\binom{abcdef}{3}\)</span> corresponds total of 20 possible triples, all of which are co-trees of <span class="math notranslate nohighlight">\(K_4\)</span> except <code class="docutils literal notranslate"><span class="pre">abd</span></code>, <code class="docutils literal notranslate"><span class="pre">acf</span></code>, <code class="docutils literal notranslate"><span class="pre">bce</span></code> and <code class="docutils literal notranslate"><span class="pre">def</span></code>$.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>I haven’t been able to get latex definitions such as
@@ -534,8 +532,7 @@ h_1 h_2 h_3 &amp;=&amp; abc + acd + ace+bcd+cde+bcf+cdf+cef  \nonumber \\
 <p>RJ Duffin. Some problems of mathematics and science. <em>Bulletin of the American Mathematical Society</em>, 80(6):1053–1070, 1974.</p>
 </div>
 <div class="citation" id="id11" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>HS17<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">HS17</a><span class="fn-bracket">]</span></span>
 <p>RH Hammack and GD Smith. Cycle bases of reduced powers of graphs. <em>ARS Mathematica Contemporanea</em>, 12(1):183–203, 2017.</p>
 </div>
 </div>

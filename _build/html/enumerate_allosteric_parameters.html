@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Enumerating allosteric parameters in receptor dimers &#8212; Receptors</title>
+    <title>Enumerating allosteric parameters &#8212; Receptors</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Minimize receptor model pade" href="minimize-receptor-model-pade.html" />
-    <link rel="prev" title="Reduced Graph Powers" href="reduced_graph_powers.html" />
+    <link rel="prev" title="Tools and Examples - Part 2" href="tools_and_examples_part2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,10 +169,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Enumerating allosteric parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
@@ -201,7 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -403,7 +403,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -414,11 +416,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Enumerating allosteric parameters in receptor dimers</h1>
+    <h1>Enumerating allosteric parameters</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cubic-ternary-complex-model">The cubic ternary complex model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#larger-example">Larger example</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -428,9 +439,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="enumerating-allosteric-parameters-in-receptor-dimers">
-<h1>Enumerating allosteric parameters in receptor dimers<a class="headerlink" href="#enumerating-allosteric-parameters-in-receptor-dimers" title="Permalink to this heading">#</a></h1>
-<p>The file <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> includes the function <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G)</span></code> which takes a graph G and returns the <span class="math notranslate nohighlight">\(\kappa\)</span> and <span class="math notranslate nohighlight">\(\eta\)</span> values for a dimer model with the topology of the reduced graph power <span class="math notranslate nohighlight">\(G^{(2)}\)</span>.  The default method uses <span class="math notranslate nohighlight">\(e_1, e_2, \ldots , e_v\)</span> while <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> gives single digit edge labels (<span class="math notranslate nohighlight">\(b,c,\ldots\)</span>).</p>
+  <section id="enumerating-allosteric-parameters">
+<h1>Enumerating allosteric parameters<a class="headerlink" href="#enumerating-allosteric-parameters" title="Permalink to this heading">#</a></h1>
+<p>The notebook titled  <code class="docutils literal notranslate"><span class="pre">receptor_tools.ipynb</span></code> includes the function <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G)</span></code> which takes a graph G and returns the <span class="math notranslate nohighlight">\(\kappa\)</span> and <span class="math notranslate nohighlight">\(\eta\)</span> values for a dimer model with the topology of the reduced graph power <span class="math notranslate nohighlight">\(G^{(2)}\)</span>.  The default method uses <span class="math notranslate nohighlight">\(e_1, e_2, \ldots , e_v\)</span> while <code class="docutils literal notranslate"><span class="pre">method='alpha'</span></code> gives single digit edge labels (<span class="math notranslate nohighlight">\(b,c,\ldots\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
@@ -439,7 +450,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Below we will consider a receptor model with the topology of the house graph.  Note that <code class="docutils literal notranslate"><span class="pre">G=graph.HouseGraph()</span></code> constructs a graph <code class="docutils literal notranslate"><span class="pre">G</span></code> with integer vertices.</p>
+<p>Below we will consider a receptor model with the topology of the house graph.   To begin, we construct the graph <code class="docutils literal notranslate"><span class="pre">G</span></code> with integer vertices.  This graph is the input argument for  <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G)</span></code>, which returns the 4-tuple <code class="docutils literal notranslate"><span class="pre">(H,</span> <span class="pre">T,</span> <span class="pre">KappaEta,</span> <span class="pre">A)</span></code>.  The following code blocks describe each element of this tuple of outputs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">graphs</span><span class="o">.</span><span class="n">HouseGraph</span><span class="p">()</span>
@@ -451,16 +462,76 @@ document.write(`
 <img alt="_images/c6d4d2fef1672ca1ac6d813ea8ecae446f4adce7a2f6628f153cc4ec04b6efb5.png" src="_images/c6d4d2fef1672ca1ac6d813ea8ecae446f4adce7a2f6628f153cc4ec04b6efb5.png" />
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">alpha</span></code> has replaces the vertices with  monomials.  The spanning tree is constructed with BFS labeling.  KappaEta is a list of lists giving the probability of each state as a symbolic expression which is displayed in LaTeX format.  The polynomial ring <code class="docutils literal notranslate"><span class="pre">A</span></code> has the <span class="math notranslate nohighlight">\(\kappa_i\)</span> and <span class="math notranslate nohighlight">\(\eta_{ij}\)</span> as symbolic variables for <span class="math notranslate nohighlight">\(0 \leq i,j \leq v-1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">alpha</span></code>  in  <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G)</span></code> evokes the construction of the corresponding graph with monomial vertices.  The resulting graph is returned as first element of a 4-tuple output, which in this case is <code class="docutils literal notranslate"><span class="pre">H</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/df0da30c0b4531cea156da689cd50f39ecc091f189336e977eddce3aabfd58ff.png" src="_images/df0da30c0b4531cea156da689cd50f39ecc091f189336e977eddce3aabfd58ff.png" />
-<img alt="_images/9eac45b70e1785a8c5e1e7f18254baa596d925e640e0f9818e9a1b024a2f4b09.png" src="_images/9eac45b70e1785a8c5e1e7f18254baa596d925e640e0f9818e9a1b024a2f4b09.png" />
+<img alt="_images/193c71f56ce5346325ed639c3f075ebd6eaebdc829e9ff486bf4ac7a88099330.png" src="_images/193c71f56ce5346325ed639c3f075ebd6eaebdc829e9ff486bf4ac7a88099330.png" />
+</div>
+</div>
+<p>The 2nd element of the 4-tuple output is a spanning tree <code class="docutils literal notranslate"><span class="pre">T</span></code> of <code class="docutils literal notranslate"><span class="pre">G</span></code> constructed by  <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> so that the vertex labels are consistent with a breadth first traversal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f0f59b6a0d2ee67bba61af1aba5711dd8cc176fe5425e837df6087b686ee7c77.png" src="_images/f0f59b6a0d2ee67bba61af1aba5711dd8cc176fe5425e837df6087b686ee7c77.png" />
+</div>
+</div>
+<p>The 3rd element of the output, <code class="docutils literal notranslate"><span class="pre">KappaEta</span></code>, is a list of lists of the relative probability of each state.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">KappaEta</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 2*kappa_b, 2*kappa_c, 2*kappa_c*kappa_d, 2*kappa_c*kappa_d*kappa_e],
+ [0,
+  kappa_b^2*eta_bb,
+  2*kappa_b*kappa_c*eta_bc,
+  2*kappa_b*kappa_c*kappa_d*eta_bc*eta_bd,
+  2*kappa_b*kappa_c*kappa_d*kappa_e*eta_bc*eta_bd*eta_be],
+ [0,
+  0,
+  kappa_c^2*eta_cc,
+  2*kappa_c^2*kappa_d*eta_cc*eta_cd,
+  2*kappa_c^2*kappa_d*kappa_e*eta_cc*eta_cd*eta_ce],
+ [0,
+  0,
+  0,
+  kappa_c^2*kappa_d^2*eta_cc*eta_cd^2*eta_dd,
+  2*kappa_c^2*kappa_d^2*kappa_e*eta_cc*eta_cd^2*eta_dd*eta_ce*eta_de],
+ [0,
+  0,
+  0,
+  0,
+  kappa_c^2*kappa_d^2*kappa_e^2*eta_cc*eta_cd^2*eta_dd*eta_ce^2*eta_de^2*eta_ee]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The command <code class="docutils literal notranslate"><span class="pre">show(table(KappaEta))</span></code>  displays these symbolic expressions as a table with LaTeX formated entries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">KappaEta</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -503,6 +574,18 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<p>The 4th element of the output is the relevant polynomial ring where the indeterminants are the <span class="math notranslate nohighlight">\(\kappa_i\)</span> and <span class="math notranslate nohighlight">\(\eta_{ij}\)</span> as symbolic variables for <span class="math notranslate nohighlight">\(0 \leq i,j \leq v-1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><html>\(\displaystyle \newcommand{\Bold}[1]{\mathbf{#1}}\Bold{Z}[\kappa_{\mathit{b}}, \kappa_{\mathit{c}}, \kappa_{\mathit{d}}, \kappa_{\mathit{e}}, \eta_{\mathit{bb}}, \eta_{\mathit{bc}}, \eta_{\mathit{cc}}, \eta_{\mathit{bd}}, \eta_{\mathit{cd}}, \eta_{\mathit{dd}}, \eta_{\mathit{be}}, \eta_{\mathit{ce}}, \eta_{\mathit{de}}, \eta_{\mathit{ee}}]\)</html></div></div>
+</div>
+<section id="the-cubic-ternary-complex-model">
+<h2>The cubic ternary complex model<a class="headerlink" href="#the-cubic-ternary-complex-model" title="Permalink to this heading">#</a></h2>
 <p>The next example is reminicent of the  <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0022519396900144">cubic ternary complex model</a>.  Note that <code class="docutils literal notranslate"><span class="pre">graphs.GridGraph([2,2,2])</span></code> has tuples as vertices.  We use <code class="docutils literal notranslate"><span class="pre">cannonical_label()</span></code> to make the vertices <code class="docutils literal notranslate"><span class="pre">integers</span></code>.  This is necessary because <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> requires a graph <code class="docutils literal notranslate"><span class="pre">G</span></code> with <code class="docutils literal notranslate"><span class="pre">integer</span></code> vertices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -512,29 +595,30 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2d1e61434b4a01ebd0e6530ea8e395afe0e91b632942ec019cdc7ff11f3f0a2e.png" src="_images/2d1e61434b4a01ebd0e6530ea8e395afe0e91b632942ec019cdc7ff11f3f0a2e.png" />
+<img alt="_images/59d3e8dd0804542183220c9c51a3830c1fe00303e70a68ce6f6e69b51b97efa3.png" src="_images/59d3e8dd0804542183220c9c51a3830c1fe00303e70a68ce6f6e69b51b97efa3.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">canonical_label</span><span class="p">()</span>
-<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/309a9641ef1bb3a9a2c49dd1ea991b1c17904612769b4361a771d1e9301acf5c.png" src="_images/309a9641ef1bb3a9a2c49dd1ea991b1c17904612769b4361a771d1e9301acf5c.png" />
+<img alt="_images/820d70d13fc963b25f6cc96128bf822d85917d4b81decacaac1300f36cbd22a1.png" src="_images/820d70d13fc963b25f6cc96128bf822d85917d4b81decacaac1300f36cbd22a1.png" />
 </div>
 </div>
+<p>Using the cube <span class="math notranslate nohighlight">\(Q_3\)</span> as the topology of a receptor monomer,  <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> enumerates the allosteric parameters for the receptor dimer with topology <span class="math notranslate nohighlight">\(Q_3^{(2)}\)</span>. The argument <code class="docutils literal notranslate"><span class="pre">show=True</span></code> in <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> causes the display of <code class="docutils literal notranslate"><span class="pre">H</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code>and <code class="docutils literal notranslate"><span class="pre">KappaEta</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8f883a9e6afaefb79d683b9d95f57b3c5d7b6e59becf1be45c24090b1234eb42.png" src="_images/8f883a9e6afaefb79d683b9d95f57b3c5d7b6e59becf1be45c24090b1234eb42.png" />
-<img alt="_images/a77a9c59072a9d7216930cee3a6ccab6a9e9cc14736977a4e99764baab50b7d5.png" src="_images/a77a9c59072a9d7216930cee3a6ccab6a9e9cc14736977a4e99764baab50b7d5.png" />
+<img alt="_images/8fa39c0a1e2bbb247f03ec43c628b5f0f9d94c323e212902d6d3346ed5fef2ea.png" src="_images/8fa39c0a1e2bbb247f03ec43c628b5f0f9d94c323e212902d6d3346ed5fef2ea.png" />
+<img alt="_images/21d7db7ed2f2d934b474fca07d48621cc6758c814a695b976ced6f0177aefb5e.png" src="_images/21d7db7ed2f2d934b474fca07d48621cc6758c814a695b976ced6f0177aefb5e.png" />
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -622,7 +706,10 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>An example of a receptor model with more states.  Using <code class="docutils literal notranslate"><span class="pre">show=False</span></code> suppresses the output.  One can still work with the ring <code class="docutils literal notranslate"><span class="pre">A</span></code>, show the BFS spanning tree, and list the probability of each state.</p>
+</section>
+<section id="larger-example">
+<h2>Larger example<a class="headerlink" href="#larger-example" title="Permalink to this heading">#</a></h2>
+<p>We conclude with an example of a receptor model with more states.  The topology used for the monomer model is given by the Petersen graph.  Here we use the method <code class="docutils literal notranslate"><span class="pre">integer</span></code>  rather than <code class="docutils literal notranslate"><span class="pre">alpha</span></code>.  Using <code class="docutils literal notranslate"><span class="pre">show=False</span></code> suppresses the output.  One can still work with the ring <code class="docutils literal notranslate"><span class="pre">A</span></code>, show the BFS spanning tree, and list the probability of each state.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">graphs</span><span class="o">.</span><span class="n">PetersenGraph</span><span class="p">(),</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -652,6 +739,7 @@ document.write(`
 <img alt="_images/e93cd4800a47938e5e93628c06492857a2ecbe82bba2023f2dd7fb189a383a5d.png" src="_images/e93cd4800a47938e5e93628c06492857a2ecbe82bba2023f2dd7fb189a383a5d.png" />
 </div>
 </div>
+<p>The code block below shows how one can list the symbolic expressions for the relative probabilities of each state in the model receptor dimer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
@@ -775,6 +863,7 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -808,12 +897,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="reduced_graph_powers.html"
+       href="tools_and_examples_part2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Reduced Graph Powers</p>
+        <p class="prev-next-title">Tools and Examples - Part 2</p>
       </div>
     </a>
     <a class="right-next"
@@ -834,6 +923,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cubic-ternary-complex-model">The cubic ternary complex model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#larger-example">Larger example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

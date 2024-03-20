@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Non-equilibrium steady states" href="nonequilibrium.html" />
-    <link rel="prev" title="Enumerating allosteric parameters in receptor dimers" href="enumerate_allosteric_parameters-2.html" />
+    <link rel="prev" title="Minimize receptor model pade" href="minimize-receptor-model-pade.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,18 +169,21 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
@@ -197,11 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -642,8 +644,8 @@ In this case, each relative probability is a monomial with two factors.</p>
 </div>
 <p>This three-state receptor model has no cycles.  For this reason the steady-state probabilities will satisfy detailed balance. This  implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define equilibrium constants as <span class="math notranslate nohighlight">\(\kappa_{j}=a_{ij}/a_{ji}\)</span> for <span class="math notranslate nohighlight">\(i &lt; j\)</span> whenever vertex <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are adjacent.
 Dividing the numerator and denominator of each <span class="math notranslate nohighlight">\(p_i\)</span> by <span class="math notranslate nohighlight">\(a_{10}a_{21}\)</span> yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-554a0d1b-0c5d-46a7-9a0d-4d35480cd5b7">
-<span class="eqno">(5)<a class="headerlink" href="#equation-554a0d1b-0c5d-46a7-9a0d-4d35480cd5b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa1b86ba-d2f4-4428-8622-9bbc3d7191bc">
+<span class="eqno">(5)<a class="headerlink" href="#equation-aa1b86ba-d2f4-4428-8622-9bbc3d7191bc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p_0 = \frac{1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_1 = \frac{\kappa_1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_2 = \frac{\kappa_1 \kappa_2}{1+\kappa_1+\kappa_1\kappa_2}
 \end{equation}\]</div>
 <p>This confirms that the steady-state probabilities of this three-state receptor model can be written in terms of equilibrium constants.</p>
@@ -682,12 +684,12 @@ p_0 = \frac{1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_1 = \frac{\kappa_1}{1+\kappa
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="enumerate_allosteric_parameters-2.html"
+       href="minimize-receptor-model-pade.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Enumerating allosteric parameters in receptor dimers</p>
+        <p class="prev-next-title">Minimize receptor model pade</p>
       </div>
     </a>
     <a class="right-next"

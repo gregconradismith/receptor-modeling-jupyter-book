@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'enumerate_allosteric_parameters';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Minimize receptor model pade" href="minimize-receptor-model-pade.html" />
+    <link rel="next" title="Example lmfit" href="example-lmfit.html" />
     <link rel="prev" title="Tools and Examples - Part 2" href="tools_and_examples_part2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,16 +171,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
@@ -197,8 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
@@ -595,7 +597,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/59d3e8dd0804542183220c9c51a3830c1fe00303e70a68ce6f6e69b51b97efa3.png" src="_images/59d3e8dd0804542183220c9c51a3830c1fe00303e70a68ce6f6e69b51b97efa3.png" />
+<img alt="_images/8dd04b8e70dd85325142e89183d5a37d03917ae7cddf847492fb0ece4fd75116.png" src="_images/8dd04b8e70dd85325142e89183d5a37d03917ae7cddf847492fb0ece4fd75116.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -606,7 +608,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/820d70d13fc963b25f6cc96128bf822d85917d4b81decacaac1300f36cbd22a1.png" src="_images/820d70d13fc963b25f6cc96128bf822d85917d4b81decacaac1300f36cbd22a1.png" />
+<img alt="_images/0b98c91ac719cffb23afbea18a487b09cf8185d1c9d4da09a88abec0f8e00f8e.png" src="_images/0b98c91ac719cffb23afbea18a487b09cf8185d1c9d4da09a88abec0f8e00f8e.png" />
 </div>
 </div>
 <p>Using the cube <span class="math notranslate nohighlight">\(Q_3\)</span> as the topology of a receptor monomer,  <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> enumerates the allosteric parameters for the receptor dimer with topology <span class="math notranslate nohighlight">\(Q_3^{(2)}\)</span>. The argument <code class="docutils literal notranslate"><span class="pre">show=True</span></code> in <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> causes the display of <code class="docutils literal notranslate"><span class="pre">H</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code>and <code class="docutils literal notranslate"><span class="pre">KappaEta</span></code>.</p>
@@ -617,8 +619,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8fa39c0a1e2bbb247f03ec43c628b5f0f9d94c323e212902d6d3346ed5fef2ea.png" src="_images/8fa39c0a1e2bbb247f03ec43c628b5f0f9d94c323e212902d6d3346ed5fef2ea.png" />
-<img alt="_images/21d7db7ed2f2d934b474fca07d48621cc6758c814a695b976ced6f0177aefb5e.png" src="_images/21d7db7ed2f2d934b474fca07d48621cc6758c814a695b976ced6f0177aefb5e.png" />
+<img alt="_images/96b581e7c684dec5f6f37bdd8a89ba8e65c8637b9c7a7712e988b1e4b3dd1a62.png" src="_images/96b581e7c684dec5f6f37bdd8a89ba8e65c8637b9c7a7712e988b1e4b3dd1a62.png" />
+<img alt="_images/376bc153826334e30f418233417c24de5b1403194b91b6f1c01337a23297db04.png" src="_images/376bc153826334e30f418233417c24de5b1403194b91b6f1c01337a23297db04.png" />
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -906,11 +908,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="minimize-receptor-model-pade.html"
+       href="example-lmfit.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Minimize receptor model pade</p>
+        <p class="prev-next-title">Example lmfit</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

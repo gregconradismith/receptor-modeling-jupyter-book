@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'tools_and_examples_part3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Enumerating allosteric parameters in receptor dimers" href="enumerate_allosteric_parameters-2.html" />
-    <link rel="prev" title="Tools and Examples - Part 2" href="tools_and_examples_part2.html" />
+    <link rel="next" title="Overview" href="cycle_fluxes_overview.html" />
+    <link rel="prev" title="Hill’s diagrammatic method" href="hill_diagrammatic_method.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,21 +166,24 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools and Examples - Part 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
@@ -197,11 +200,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -476,8 +478,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/df0da30c0b4531cea156da689cd50f39ecc091f189336e977eddce3aabfd58ff.png" src="_images/df0da30c0b4531cea156da689cd50f39ecc091f189336e977eddce3aabfd58ff.png" />
-<img alt="_images/9eac45b70e1785a8c5e1e7f18254baa596d925e640e0f9818e9a1b024a2f4b09.png" src="_images/9eac45b70e1785a8c5e1e7f18254baa596d925e640e0f9818e9a1b024a2f4b09.png" />
+<img alt="_images/1c19af93d57b9bba8f2757622d2168567ece921a5eb66c71aa7a037102d88eb3.png" src="_images/1c19af93d57b9bba8f2757622d2168567ece921a5eb66c71aa7a037102d88eb3.png" />
+<img alt="_images/59ef7cb4851bd2bfb9bf8c9b8928274fe8fa41929c4a9ebdcd8dbcdbc6507a15.png" src="_images/59ef7cb4851bd2bfb9bf8c9b8928274fe8fa41929c4a9ebdcd8dbcdbc6507a15.png" />
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -529,7 +531,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7630ba251a4d67eedb7c4931efa1db9839632ea1c0c029cc113a4273d601f2b8.png" src="_images/7630ba251a4d67eedb7c4931efa1db9839632ea1c0c029cc113a4273d601f2b8.png" />
+<img alt="_images/3d6d8824499212cc20fd09e0257e158b3b6ab0e586e4bc040e172d8c00da7eeb.png" src="_images/3d6d8824499212cc20fd09e0257e158b3b6ab0e586e4bc040e172d8c00da7eeb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -540,7 +542,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cbf93532ed8f06290d8f9d4e3b90732ed013b886beafceece0177888563c2ab5.png" src="_images/cbf93532ed8f06290d8f9d4e3b90732ed013b886beafceece0177888563c2ab5.png" />
+<img alt="_images/cce6e3c25268bb7cd4b91f45c2d5359892dd5c54b086fc7f96f80855133040d3.png" src="_images/cce6e3c25268bb7cd4b91f45c2d5359892dd5c54b086fc7f96f80855133040d3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -550,8 +552,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e2befe238db42ccb56ee5047d2537681cabcb8211469262eb9d64de964374fe3.png" src="_images/e2befe238db42ccb56ee5047d2537681cabcb8211469262eb9d64de964374fe3.png" />
-<img alt="_images/dd078b46a9d60f4442680a75b7320592e3b5e8207df7038e32ee4a4baae13ba8.png" src="_images/dd078b46a9d60f4442680a75b7320592e3b5e8207df7038e32ee4a4baae13ba8.png" />
+<img alt="_images/2285b1ec7eb7d5134658bb0aa9042cf9c726c859ffeb29efe1253b0645700f12.png" src="_images/2285b1ec7eb7d5134658bb0aa9042cf9c726c859ffeb29efe1253b0645700f12.png" />
+<img alt="_images/62a354408d8e83190d2600944e9bec414120d1de34f06569a3da97eca5bac5a6.png" src="_images/62a354408d8e83190d2600944e9bec414120d1de34f06569a3da97eca5bac5a6.png" />
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -826,20 +828,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="tools_and_examples_part2.html"
+       href="hill_diagrammatic_method.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tools and Examples - Part 2</p>
+        <p class="prev-next-title">Hill’s diagrammatic method</p>
       </div>
     </a>
     <a class="right-next"
-       href="enumerate_allosteric_parameters-2.html"
+       href="cycle_fluxes_overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Enumerating allosteric parameters in receptor dimers</p>
+        <p class="prev-next-title">Overview</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

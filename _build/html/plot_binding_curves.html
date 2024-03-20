@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'plot_binding_curves';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tools and Examples - Part 2" href="tools_and_examples_part2.html" />
-    <link rel="prev" title="Minimize receptor model pade" href="minimize-receptor-model-pade.html" />
+    <link rel="next" title="Plotting hypercube graphs" href="plotting-hypercubes.html" />
+    <link rel="prev" title="My struggle with docstrings" href="my_struggle_with_docstrings.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,21 +166,24 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters in receptor dimers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters-2.html">Enumerating allosteric parameters in receptor dimers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
 <ul class="nav bd-sidenav">
@@ -191,17 +194,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">My Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
 </ul>
 
     </div>
@@ -503,6 +505,10 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 <p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
 <p>Construct reduced Cartesian power of a graph.</p>
 <p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power_ver2(G,</span> <span class="pre">k,</span> <span class="pre">contexts=True,</span> <span class="pre">edge_labels=True)</span></code></strong></p>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
 <p><strong><code class="docutils literal notranslate"><span class="pre">combinatorial_laplacian(G,</span> <span class="pre">combinatorial_coefficients=False)</span></code></strong></p>
 <p>Construct the combinatorial Laplacian of a graph.</p>
 <p>[NEED TO WRITE DESCRIPTION]</p>
@@ -566,8 +572,8 @@ Set <code class="docutils literal notranslate"><span class="pre">method</span> <
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kappa_list = [kappa_b, kappa_c, kappa_d]
 eta_list = [eta_bb, eta_bc, eta_cc, eta_bd, eta_cd, eta_dd]
-phi = [0.25 0.25 0.25 0.25]
-Phi = [[0.125, 0.0625, 0.0625, 0.0625], [0, 0.125, 0.0625, 0.0625], [0, 0, 0.125, 0.0625], [0, 0, 0, 0.125]]
+phi = [0.33333333 0.33333333 0.33333333 0.        ]
+Phi = [[0.2222222222222222, 0.1111111111111111, 0.1111111111111111, 0.0], [0, 0.2222222222222222, 0.1111111111111111, 0.0], [0, 0, 0.2222222222222222, 0.0], [0, 0, 0, 0.0]]
 KappaEta = [[1, 2*kappa_b, 2*kappa_b*kappa_c, 2*kappa_b*kappa_c*kappa_d], [0, kappa_b^2*eta_bb, 2*kappa_b^2*kappa_c*eta_bb*eta_bc, 2*kappa_b^2*kappa_c*kappa_d*eta_bb*eta_bc*eta_bd], [0, 0, kappa_b^2*kappa_c^2*eta_bb*eta_bc^2*eta_cc, 2*kappa_b^2*kappa_c^2*kappa_d*eta_bb*eta_bc^2*eta_cc*eta_bd*eta_cd], [0, 0, 0, kappa_b^2*kappa_c^2*kappa_d^2*eta_bb*eta_bc^2*eta_cc*eta_bd^2*eta_cd^2*eta_dd]]
 </pre></div>
 </div>
@@ -582,7 +588,7 @@ KappaEta = [[1, 2*kappa_b, 2*kappa_b*kappa_c, 2*kappa_b*kappa_c*kappa_d], [0, ka
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><html>\(\displaystyle \frac{0.125 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.125 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + 0.125 \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.125 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.125 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.125 \kappa_{b} \kappa_{c} \kappa_{d} + 0.125 \kappa_{b}^{2} \eta_{\mathit{bb}} + 0.125 \kappa_{b} \kappa_{c} + 0.125 \kappa_{b} + 0.125}{\kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 2.0 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 2.0 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 2.0 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 2.0 \kappa_{b} \kappa_{c} \kappa_{d} + \kappa_{b}^{2} \eta_{\mathit{bb}} + 2.0 \kappa_{b} \kappa_{c} + 2.0 \kappa_{b} + 1.0}\)</html></div></div>
+<div class="output text_html"><html>\(\displaystyle \frac{0.2222222222222222 \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.2222222222222222 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.2222222222222222 \kappa_{b}^{2} \eta_{\mathit{bb}} + 0.2222222222222222 \kappa_{b} \kappa_{c} + 0.2222222222222222 \kappa_{b} + 0.2222222222222222}{\kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 2.0 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 2.0 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 2.0 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 2.0 \kappa_{b} \kappa_{c} \kappa_{d} + \kappa_{b}^{2} \eta_{\mathit{bb}} + 2.0 \kappa_{b} \kappa_{c} + 2.0 \kappa_{b} + 1.0}\)</html></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -612,10 +618,10 @@ KappaEta = [[1, 2*kappa_b, 2*kappa_b*kappa_c, 2*kappa_b*kappa_c*kappa_d], [0, ka
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{kappa_b: 1.9, kappa_c: 0.34, kappa_d: 1.31*X}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{kappa_b: 0.171*X, kappa_c: 0.364, kappa_d: 0.6*X}
 </pre></div>
 </div>
-<div class="output text_html"><html>\(\displaystyle \frac{0.08951949845000003 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.06833549500000001 \, X \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 0.20098675000000002 \, X \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.05216450000000001 \, \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.153425 \, \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.1057825 \, X + 0.45125 \, \eta_{\mathit{bb}} + 0.44325}{0.7161559876000002 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 1.0933679200000002 \, X \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 3.2157880000000003 \, X \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.4173160000000001 \, \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 2.4548 \, \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 1.69252 \, X + 3.61 \, \eta_{\mathit{bb}} + 6.092}\)</html></div></div>
+<div class="output text_html"><html>\(\displaystyle \frac{0.0008609590080000001 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.002365272 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.006498 \, X^{2} \eta_{\mathit{bb}} + 0.051831999999999996 \, X + 0.2222222222222222}{0.0013947535929600002 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.0046491786432000005 \, X^{3} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 0.0127724688 \, X^{3} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.0038743155360000006 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.021287448 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.029241000000000003 \, X^{2} \eta_{\mathit{bb}} + 0.0746928 \, X^{2} + 0.466488 \, X + 1.0}\)</html></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -786,74 +792,90 @@ KappaEta = [[1, 2*kappa_b, 2*kappa_b*kappa_c, 2*kappa_b*kappa_c*kappa_d], [0, ka
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 1.]
+[1.33 1.   1.   1.   1.   1.  ]
+[1.   1.03 1.   1.   1.   1.  ]
 [1. 1. 1. 1. 1. 1.]
-[1.   0.94 1.   1.   1.   1.  ]
-[1.   1.   0.93 1.   1.   1.  ]
-[1.   1.   1.   0.95 1.   1.  ]
+[1.   1.   1.   1.01 1.   1.  ]
 [1.   1.   1.   1.   0.97 1.  ]
-[1.   1.   1.   1.   1.   0.94]
-[1.03 0.93 1.   1.   1.   1.  ]
-[1.08 1.   0.9  1.   1.   1.  ]
-[1.06 1.   1.   0.94 1.   1.  ]
-[1.06 1.   1.   1.   0.96 1.  ]
-[1.06 1.   1.   1.   1.   0.92]
-[1.   0.89 1.09 1.   1.   1.  ]
-[1.   0.97 1.   0.97 1.   1.  ]
-[1.   0.87 1.   1.   1.05 1.  ]
-[1.   0.86 1.   1.   1.   1.11]
-[1.   1.   1.25 0.83 1.   1.  ]
-[1.   1.   0.99 1.   0.97 1.  ]
-[1.   1.   0.97 1.   1.   0.96]
+[1. 1. 1. 1. 1. 1.]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   0.98 0.98 1.  ]
-[1.   1.   1.   0.97 1.   0.98]
-[1.   1.   1.   1.   0.97 0.99]
-[1.03 0.94 0.98 1.   1.   1.  ]
-[1.04 0.96 1.   0.97 1.   1.  ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.11 0.81 1.   1.   1.   1.  ]
+[2.54 1.   0.52 1.   1.   1.  ]
+[2.61 1.   1.   0.84 1.   1.  ]
+[2.27 1.   1.   1.   0.74 1.  ]
+[2.3  1.   1.   1.   1.   0.38]
+[1.   2.33 0.   1.   1.   1.  ]
+[1.   2.82 1.   0.42 1.   1.  ]
+[1.   2.42 1.   1.   0.2  1.  ]
+[1.  1.6 1.  1.  1.  0. ]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.04 0.96 1.   1.   0.98 1.  ]
-[1.04 0.95 1.   1.   1.   0.98]
-[1.06 1.   0.99 0.94 1.   1.  ]
-[1.06 1.   0.99 1.   0.96 1.  ]
-[1.07 1.   0.97 1.   1.   0.95]
-[1.06 1.   1.   0.97 0.98 1.  ]
-[1.06 1.   1.   0.95 1.   0.98]
-[1.06 1.   1.   1.   0.96 0.98]
-[1.   0.88 1.09 1.   1.   1.  ]
-[1.   0.87 1.05 1.   1.03 1.  ]
-[1.   0.89 1.05 1.   1.   1.03]
-[1.   0.87 1.   0.98 1.07 1.  ]
-[1.   0.86 1.   1.02 1.   1.09]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.   2.08 1.   1.  ]
+[1.   1.   5.05 1.   0.46 1.  ]
+[1.   1.   5.13 1.   1.   0.  ]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.86 1.   1.   1.04 1.03]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   2.22 0.   1.  ]
+[1.   1.   1.   1.62 1.   0.  ]
+[1.   1.   1.   1.   3.25 0.  ]
+[0.63 2.98 0.   1.   1.   1.  ]
+[1.97 1.4  1.   0.65 1.   1.  ]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.19 0.81 1.04 1.  ]
-[1.   1.   1.2  0.81 1.   1.06]
-[1.   1.   0.99 1.   0.98 0.99]
-[1.   1.   1.   0.98 0.98 0.99]
-[1.04 0.96 1.   0.97 1.   1.  ]
-[1.04 0.96 1.   1.   0.98 1.  ]
-[1.04 0.95 0.99 1.   1.   0.99]
-[1.04 0.96 1.   0.98 0.99 1.  ]
-[1.04 0.96 1.   0.98 1.   0.99]
-[1.04 0.96 1.   1.   0.99 0.99]
-[1.06 1.   1.   0.97 0.98 1.  ]
-[1.06 1.   0.99 0.95 1.   0.98]
-[1.06 1.   1.   1.   0.97 0.98]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.69 3.12 1.   1.   0.18 1.  ]
+[0.75 1.79 1.   1.   1.   0.  ]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.06 1.   1.   0.97 0.98 0.99]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.2  1.   0.   1.94 1.   1.  ]
+[2.22 1.   1.04 1.   0.73 1.  ]
+[1.25 1.   3.77 1.   1.   0.  ]
+[1.15 1.   1.   2.1  0.   1.  ]
+[1.15 1.   1.   1.55 1.   0.  ]
+[1.14 1.   1.   1.   3.02 0.  ]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.88 1.06 0.97 1.04 1.  ]
-[1.   0.88 1.07 0.98 1.   1.04]
-[1.   0.87 1.05 1.   1.02 1.02]
-[1.   0.87 1.   0.97 1.05 1.04]
-[1.   1.   1.   0.98 0.98 0.99]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.53 0.   1.44 1.   1.  ]
+[1.   2.35 0.07 1.   0.   1.  ]
+[1.   1.84 0.53 1.   1.   0.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.36 1.   1.77 0.   1.  ]
+[1.   1.19 1.   1.36 1.   0.  ]
+[1.   1.42 1.   1.   1.4  0.  ]
+[1.   1.   0.76 2.17 0.   1.  ]
+[1.   1.   0.67 1.75 1.   0.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   2.43 1.   1.61 0.  ]
+[1.   1.   1.   2.23 0.   0.1 ]
+[1.26 0.89 0.   2.12 1.   1.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.67 2.85 0.   1.   0.04 1.  ]
+[0.74 1.81 1.   1.   1.   0.  ]
+[9.74e-01 1.23e+00 1.00e+00 1.91e+00 1.47e-03 1.00e+00]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.97 1.33 1.   1.23 1.   0.  ]
+[0.58 2.45 1.   1.   0.62 0.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.15 1.   0.68 2.06 0.   1.  ]
+[1.1  1.   1.07 1.55 1.   0.  ]
+[1.07 1.   2.   1.   1.77 0.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.13 1.   1.   2.11 0.   0.05]
+[1.   1.32 0.44 1.7  0.   1.  ]
+[1.   1.21 0.69 1.43 1.   0.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.53 0.34 1.   2.63 0.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.22 1.   1.91 0.   0.14]
+[1.   1.   0.75 2.19 0.   0.11]
 </pre></div>
 </div>
 </div>
@@ -865,7 +887,7 @@ KappaEta = [[1, 2*kappa_b, 2*kappa_b*kappa_c, 2*kappa_b*kappa_c*kappa_d], [0, ka
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111111&#39;: &#39;-209.495&#39;, &#39;011111&#39;: &#39;-206.469&#39;, &#39;101111&#39;: &#39;-206.653&#39;, &#39;110111&#39;: &#39;-206.559&#39;, &#39;111011&#39;: &#39;-206.612&#39;, &#39;111101&#39;: &#39;-206.589&#39;, &#39;111110&#39;: &#39;-206.584&#39;, &#39;001111&#39;: &#39;-203.595&#39;, &#39;010111&#39;: &#39;-203.581&#39;, &#39;011011&#39;: &#39;-203.595&#39;, &#39;011101&#39;: &#39;-203.580&#39;, &#39;011110&#39;: &#39;-203.577&#39;, &#39;100111&#39;: &#39;-203.602&#39;, &#39;101011&#39;: &#39;-203.554&#39;, &#39;101101&#39;: &#39;-203.605&#39;, &#39;101110&#39;: &#39;-203.606&#39;, &#39;110011&#39;: &#39;-203.607&#39;, &#39;110101&#39;: &#39;-203.505&#39;, &#39;110110&#39;: &#39;-203.494&#39;, &#39;111001&#39;: &#39;-203.517&#39;, &#39;111010&#39;: &#39;-203.523&#39;, &#39;111100&#39;: &#39;-203.506&#39;, &#39;000111&#39;: &#39;-200.449&#39;, &#39;001011&#39;: &#39;-200.452&#39;, &#39;001101&#39;: &#39;-200.447&#39;, &#39;001110&#39;: &#39;-200.449&#39;, &#39;010011&#39;: &#39;-200.451&#39;, &#39;010101&#39;: &#39;-200.437&#39;, &#39;010110&#39;: &#39;-200.435&#39;, &#39;011001&#39;: &#39;-200.446&#39;, &#39;011010&#39;: &#39;-200.448&#39;, &#39;011100&#39;: &#39;-200.436&#39;, &#39;100011&#39;: &#39;-200.459&#39;, &#39;100101&#39;: &#39;-200.460&#39;, &#39;100110&#39;: &#39;-200.460&#39;, &#39;101001&#39;: &#39;-200.463&#39;, &#39;101010&#39;: &#39;-200.461&#39;, &#39;101100&#39;: &#39;-200.462&#39;, &#39;110001&#39;: &#39;-200.463&#39;, &#39;110010&#39;: &#39;-200.464&#39;, &#39;110100&#39;: &#39;-200.361&#39;, &#39;111000&#39;: &#39;-200.372&#39;, &#39;000011&#39;: &#39;-197.240&#39;, &#39;000101&#39;: &#39;-197.235&#39;, &#39;000110&#39;: &#39;-197.236&#39;, &#39;001001&#39;: &#39;-197.238&#39;, &#39;001010&#39;: &#39;-197.239&#39;, &#39;001100&#39;: &#39;-197.235&#39;, &#39;010001&#39;: &#39;-197.233&#39;, &#39;010010&#39;: &#39;-197.236&#39;, &#39;010100&#39;: &#39;-197.224&#39;, &#39;011000&#39;: &#39;-197.233&#39;, &#39;100001&#39;: &#39;-197.249&#39;, &#39;100010&#39;: &#39;-197.249&#39;, &#39;100100&#39;: &#39;-197.248&#39;, &#39;101000&#39;: &#39;-197.251&#39;, &#39;110000&#39;: &#39;-197.157&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111111&#39;: &#39;-198.910&#39;, &#39;011111&#39;: &#39;-196.275&#39;, &#39;101111&#39;: &#39;-195.927&#39;, &#39;110111&#39;: &#39;-195.884&#39;, &#39;111011&#39;: &#39;-195.894&#39;, &#39;111101&#39;: &#39;-195.905&#39;, &#39;111110&#39;: &#39;-195.884&#39;, &#39;001111&#39;: &#39;-194.022&#39;, &#39;010111&#39;: &#39;-194.379&#39;, &#39;011011&#39;: &#39;-194.025&#39;, &#39;011101&#39;: &#39;-194.432&#39;, &#39;011110&#39;: &#39;-194.795&#39;, &#39;100111&#39;: &#39;-197.260&#39;, &#39;101011&#39;: &#39;-194.037&#39;, &#39;101101&#39;: &#39;-195.738&#39;, &#39;101110&#39;: &#39;-197.564&#39;, &#39;110011&#39;: &#39;-197.650&#39;, &#39;110101&#39;: &#39;-193.539&#39;, &#39;110110&#39;: &#39;-197.674&#39;, &#39;111001&#39;: &#39;-197.698&#39;, &#39;111010&#39;: &#39;-197.699&#39;, &#39;111100&#39;: &#39;-197.687&#39;, &#39;000111&#39;: &#39;-194.399&#39;, &#39;001011&#39;: &#39;-190.888&#39;, &#39;001101&#39;: &#39;-192.734&#39;, &#39;001110&#39;: &#39;-194.527&#39;, &#39;010011&#39;: &#39;-194.558&#39;, &#39;010101&#39;: &#39;-191.284&#39;, &#39;010110&#39;: &#39;-194.419&#39;, &#39;011001&#39;: &#39;-194.572&#39;, &#39;011010&#39;: &#39;-194.572&#39;, &#39;011100&#39;: &#39;-194.570&#39;, &#39;100011&#39;: &#39;-194.492&#39;, &#39;100101&#39;: &#39;-194.037&#39;, &#39;100110&#39;: &#39;-194.337&#39;, &#39;101001&#39;: &#39;-194.527&#39;, &#39;101010&#39;: &#39;-194.559&#39;, &#39;101100&#39;: &#39;-194.509&#39;, &#39;110001&#39;: &#39;-194.545&#39;, &#39;110010&#39;: &#39;-194.542&#39;, &#39;110100&#39;: &#39;-194.593&#39;, &#39;111000&#39;: &#39;-194.555&#39;, &#39;000011&#39;: &#39;-191.362&#39;, &#39;000101&#39;: &#39;-191.174&#39;, &#39;000110&#39;: &#39;-191.315&#39;, &#39;001001&#39;: &#39;-191.343&#39;, &#39;001010&#39;: &#39;-191.332&#39;, &#39;001100&#39;: &#39;-191.300&#39;, &#39;010001&#39;: &#39;-191.357&#39;, &#39;010010&#39;: &#39;-191.364&#39;, &#39;010100&#39;: &#39;-191.373&#39;, &#39;011000&#39;: &#39;-191.361&#39;, &#39;100001&#39;: &#39;-191.321&#39;, &#39;100010&#39;: &#39;-191.338&#39;, &#39;100100&#39;: &#39;-191.276&#39;, &#39;101000&#39;: &#39;-191.343&#39;, &#39;110000&#39;: &#39;-191.332&#39;}
 </pre></div>
 </div>
 </div>
@@ -879,7 +901,7 @@ KappaEta = [[1, 2*kappa_b, 2*kappa_b*kappa_c, 2*kappa_b*kappa_c*kappa_d], [0, ka
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d66faab178110cc08f186cc9d6d002692ff38f207078eef6142dce36796ba1a5.png" src="_images/d66faab178110cc08f186cc9d6d002692ff38f207078eef6142dce36796ba1a5.png" />
+<img alt="_images/6dfedcde7d64cbb0dce8996deb6960a282eccbda68d05275753052a8577b60df.png" src="_images/6dfedcde7d64cbb0dce8996deb6960a282eccbda68d05275753052a8577b60df.png" />
 <img alt="_images/d8c72dc81fbee581cd330f63feb098652d22c78665cf963a3c7d34c6e1a27a84.png" src="_images/d8c72dc81fbee581cd330f63feb098652d22c78665cf963a3c7d34c6e1a27a84.png" />
 </div>
 </div>
@@ -917,20 +939,20 @@ KappaEta = [[1, 2*kappa_b, 2*kappa_b*kappa_c, 2*kappa_b*kappa_c*kappa_d], [0, ka
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="minimize-receptor-model-pade.html"
+       href="my_struggle_with_docstrings.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Minimize receptor model pade</p>
+        <p class="prev-next-title">My struggle with docstrings</p>
       </div>
     </a>
     <a class="right-next"
-       href="tools_and_examples_part2.html"
+       href="plotting-hypercubes.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tools and Examples - Part 2</p>
+        <p class="prev-next-title">Plotting hypercube graphs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

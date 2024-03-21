@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'enumerate_allosteric_parameters';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Example lmfit" href="example-lmfit.html" />
+    <link rel="next" title="Overview" href="fitting_allosteric_parameters_overview.html" />
     <link rel="prev" title="Tools and Examples - Part 2" href="tools_and_examples_part2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -174,6 +174,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters.html">Fitting allosteric parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -200,7 +202,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
@@ -597,7 +598,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8dd04b8e70dd85325142e89183d5a37d03917ae7cddf847492fb0ece4fd75116.png" src="_images/8dd04b8e70dd85325142e89183d5a37d03917ae7cddf847492fb0ece4fd75116.png" />
+<img alt="_images/7ff16973b01fd9146f1ada473f6239aa6eb9956ecf33a2f35bfe69a7dd1474f2.png" src="_images/7ff16973b01fd9146f1ada473f6239aa6eb9956ecf33a2f35bfe69a7dd1474f2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -608,7 +609,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0b98c91ac719cffb23afbea18a487b09cf8185d1c9d4da09a88abec0f8e00f8e.png" src="_images/0b98c91ac719cffb23afbea18a487b09cf8185d1c9d4da09a88abec0f8e00f8e.png" />
+<img alt="_images/5aabb160faf1fd15dc5626f0422f4e89e9585f69595583d190d4c87b28d0e58e.png" src="_images/5aabb160faf1fd15dc5626f0422f4e89e9585f69595583d190d4c87b28d0e58e.png" />
 </div>
 </div>
 <p>Using the cube <span class="math notranslate nohighlight">\(Q_3\)</span> as the topology of a receptor monomer,  <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> enumerates the allosteric parameters for the receptor dimer with topology <span class="math notranslate nohighlight">\(Q_3^{(2)}\)</span>. The argument <code class="docutils literal notranslate"><span class="pre">show=True</span></code> in <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> causes the display of <code class="docutils literal notranslate"><span class="pre">H</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code>and <code class="docutils literal notranslate"><span class="pre">KappaEta</span></code>.</p>
@@ -619,8 +620,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/96b581e7c684dec5f6f37bdd8a89ba8e65c8637b9c7a7712e988b1e4b3dd1a62.png" src="_images/96b581e7c684dec5f6f37bdd8a89ba8e65c8637b9c7a7712e988b1e4b3dd1a62.png" />
-<img alt="_images/376bc153826334e30f418233417c24de5b1403194b91b6f1c01337a23297db04.png" src="_images/376bc153826334e30f418233417c24de5b1403194b91b6f1c01337a23297db04.png" />
+<img alt="_images/6770a84e1c487e98d5e011f15730bf831523259ff930af3170b1e4ad15de3e22.png" src="_images/6770a84e1c487e98d5e011f15730bf831523259ff930af3170b1e4ad15de3e22.png" />
+<img alt="_images/87ed56a2b6f93f35c126d1a183404844be3d2ea065855121c1b80c9011913f71.png" src="_images/87ed56a2b6f93f35c126d1a183404844be3d2ea065855121c1b80c9011913f71.png" />
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -908,11 +909,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="example-lmfit.html"
+       href="fitting_allosteric_parameters_overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Example lmfit</p>
+        <p class="prev-next-title">Overview</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

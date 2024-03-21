@@ -174,6 +174,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters.html">Fitting allosteric parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
@@ -200,7 +202,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
 <li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_binding_curves.html">Plot Binding Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
@@ -539,7 +540,7 @@ RLL = L^2*kap*kbp/(L^2*kap*kbp + L*kap*kbm + kam*kbm)
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/5361ac456ab9345a3a2ba4a60bd28a878398f14c1766f28648a57cbbfc04e5fd.png" src="_images/5361ac456ab9345a3a2ba4a60bd28a878398f14c1766f28648a57cbbfc04e5fd.png" />
+<img alt="_images/d7173fdd932ed0eeeee5e128dfcddbd9d27be1c342bd8b70c89ace1d2fcffaee.png" src="_images/d7173fdd932ed0eeeee5e128dfcddbd9d27be1c342bd8b70c89ace1d2fcffaee.png" />
 </div>
 </div>
 <p>At low ligand concentration most receptors are in the unbound form (<code class="docutils literal notranslate"><span class="pre">R</span></code>, red). At high concentrations most receptors are in the doubly bound form (<code class="docutils literal notranslate"><span class="pre">RLL</span></code>, blue).</p>
@@ -627,7 +628,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R   = 1/(10*L^2 + L + 1)  RL  = L/(10*L^2 + L + 1)  RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/1ae1251c8a1712452e31b2ac51ea02680ec530372f6dece622c6e2d7250cd99b.png" src="_images/1ae1251c8a1712452e31b2ac51ea02680ec530372f6dece622c6e2d7250cd99b.png" />
+<img alt="_images/2dd26a9a12ece623fe49170f8d2f5e8d328ff42230ab828d2b663b530d65aed7.png" src="_images/2dd26a9a12ece623fe49170f8d2f5e8d328ff42230ab828d2b663b530d65aed7.png" />
 </div>
 </div>
 </section>
@@ -643,7 +644,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" src="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" />
+<img alt="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" src="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" />
 </div>
 </div>
 <p>In the arborescence shown above, the root is state <code class="docutils literal notranslate"><span class="pre">R</span></code>. The edge label <code class="docutils literal notranslate"><span class="pre">ka*L</span></code> is the product of an equilibrium association constant <code class="docutils literal notranslate"><span class="pre">ka</span></code> and ligand concentration <code class="docutils literal notranslate"><span class="pre">L</span></code>, and similarly for reaction <code class="docutils literal notranslate"><span class="pre">b</span></code>.  Comparing to the diagram above, we see that <code class="docutils literal notranslate"><span class="pre">kappa_a</span> <span class="pre">=</span> <span class="pre">ka*L</span></code> and <code class="docutils literal notranslate"><span class="pre">kappa_b</span> <span class="pre">=</span> <span class="pre">kb*L</span></code>.</p>
@@ -661,7 +662,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/143a04ddd6568fc73bc635323ba08e7929f7cd6dee2dbae70fa5f464a22c6674.png" src="_images/143a04ddd6568fc73bc635323ba08e7929f7cd6dee2dbae70fa5f464a22c6674.png" />
+<img alt="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" src="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" />
 </div>
 </div>
 <div class="tip admonition">

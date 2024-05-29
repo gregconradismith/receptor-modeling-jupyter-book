@@ -20,7 +20,7 @@ kernelspec:
 \def\be{\boldsymbol{e}}
 ```
 
-(nonequilibrium=)
+(nonequilibrium)=
 # Non-equilibrium steady states
 
 The equilibrium formulation assumes detailed balance. However, when the state-transition diagram of a receptor model includes cycles, the steady-state probability distribution may not satisfy detailed balance.

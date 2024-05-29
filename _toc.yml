@@ -35,8 +35,13 @@ parts:
     - file: cycle_fluxes_overview
     - file: cycle_fluxes
     - file: tree_polynomials
-    - file: wang_algebra
+
     - file: further_reading
+  - caption: Wang algebras
+    chapters:
+    - file: wang_algebra_overview
+    - file: wang_algebra_undirected_graph
+    - file: wang_algebra_directed_graph
   - caption: Appendix
     chapters:
     - file: example_graphs

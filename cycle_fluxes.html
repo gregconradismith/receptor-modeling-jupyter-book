@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamic_constraints_and_allosteric_parameters.html">Thermodynamic constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
@@ -230,6 +231,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
 </ul>
 
     </div>
@@ -566,7 +568,7 @@ z[4] = a04*a10*a20*a32 + a04*a12*a20*a32 + a04*a10*a21*a32 + a04*a10*a20*a34 + a
 Defining a, b, c, d, e, f, A, B, C, D, E, F
 </pre></div>
 </div>
-<img alt="_images/af07f238de3de0c95851f067b3371bdcc71f074c06190ec6c8c3cf650de325d0.png" src="_images/af07f238de3de0c95851f067b3371bdcc71f074c06190ec6c8c3cf650de325d0.png" />
+<img alt="_images/8165a5ff40a9c8d08b5d319db31d90f790ab3437482cb0bd8d1bed245041a291.png" src="_images/8165a5ff40a9c8d08b5d319db31d90f790ab3437482cb0bd8d1bed245041a291.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -766,43 +768,44 @@ T[4] =  a*b*d*e + b*c*d*e + b*d*e*f + c*d*e*A + d*e*f*A + e*f*A*B + b*e*f*C + e*
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total of 6 + 2 * 3 cycles.
-
-0 =&gt; [a0, a1, a2, a0] - [a0, a2, a1, a0] =&gt; [a, b, C] - [c, B, A] =&gt; (-1) * (-a*b*C + c*A*B) @ ( e*F + D*E + D*F )
 </pre></div>
 </div>
-<img alt="_images/8d911f4ae95c2243e2d9271b4fbb35e6c2825d128eda13d873fb78b8f8e2e92c.png" src="_images/8d911f4ae95c2243e2d9271b4fbb35e6c2825d128eda13d873fb78b8f8e2e92c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 =&gt; [a0, a1, a2, a0] - [a0, a2, a1, a0] =&gt; [a, b, C] - [c, B, A] =&gt; (-1) * (-a*b*C + c*A*B) @ ( e*F + D*E + D*F )
+</pre></div>
+</div>
+<img alt="_images/fd864013636ee97b98293298a3b951f4d85de72f23eb67874622cabac5bf6ac1.png" src="_images/fd864013636ee97b98293298a3b951f4d85de72f23eb67874622cabac5bf6ac1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 =&gt; [a0, a2, a3, a4, a0] - [a0, a4, a3, a2, a0] =&gt; [c, d, e, F] - [f, E, D, C] =&gt; (-1) * (-c*d*e*F + f*C*D*E) @ ( b + A )
 </pre></div>
 </div>
-<img alt="_images/43247da066b43ddd66c34f4c5d3f24f7fcf2c42d25db4b2ae0c297ea8c8f6c2f.png" src="_images/43247da066b43ddd66c34f4c5d3f24f7fcf2c42d25db4b2ae0c297ea8c8f6c2f.png" />
+<img alt="_images/b8126177a976b0a6e225b88b47149a566841df07f9f3df434c0d16d67b7d7191.png" src="_images/b8126177a976b0a6e225b88b47149a566841df07f9f3df434c0d16d67b7d7191.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 =&gt; [a0, a1, a2, a3, a4, a0] - [a0, a4, a3, a2, a1, a0] =&gt; [a, b, d, e, F] - [f, E, D, B, A] =&gt; (-1) * (-a*b*d*e*F + f*A*B*D*E) @ ( 1 )
 </pre></div>
 </div>
-<img alt="_images/4f8e89ebba26d37bb4daa32be7a29080346ae0ee2f4cc1eb2d1d5579882040d7.png" src="_images/4f8e89ebba26d37bb4daa32be7a29080346ae0ee2f4cc1eb2d1d5579882040d7.png" />
+<img alt="_images/07d561f11e275aaae2516ca09e6e714de18765797ab2512055f756d59f918d14.png" src="_images/07d561f11e275aaae2516ca09e6e714de18765797ab2512055f756d59f918d14.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 =&gt; [a0, a1, a0] - [a0, a1, a0] =&gt; [a, A] - [a, A] =&gt; 0 @ ( d*e*F + e*B*F + e*C*F + B*D*E + B*D*F + C*D*E + C*D*F )
 </pre></div>
 </div>
-<img alt="_images/25ed0acbc8cdaad9bbf34484e43369430c68039f1813760af04b496c0c67e5d0.png" src="_images/25ed0acbc8cdaad9bbf34484e43369430c68039f1813760af04b496c0c67e5d0.png" />
+<img alt="_images/dbc4faf90f6bb2a647458648f157c1a11ad0c71ea54261bbf61eb49850190825.png" src="_images/dbc4faf90f6bb2a647458648f157c1a11ad0c71ea54261bbf61eb49850190825.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 =&gt; [a0, a2, a0] - [a0, a2, a0] =&gt; [c, C] - [c, C] =&gt; 0 @ ( b*e*F + b*D*E + b*D*F + e*A*F + A*D*E + A*D*F )
 </pre></div>
 </div>
-<img alt="_images/b477a6ecc169082b744afce72056a7ca8a9eaeed928260fc056ed149dba3a086.png" src="_images/b477a6ecc169082b744afce72056a7ca8a9eaeed928260fc056ed149dba3a086.png" />
+<img alt="_images/32405c5f471454e3f3cede9be14eede769641f25d20a4c481112bdba47490c14.png" src="_images/32405c5f471454e3f3cede9be14eede769641f25d20a4c481112bdba47490c14.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 =&gt; [a0, a4, a0] - [a0, a4, a0] =&gt; [f, F] - [f, F] =&gt; 0 @ ( b*d*e + b*e*C + b*C*D + d*e*A + e*A*B + e*A*C + A*B*D + A*C*D )
 </pre></div>
 </div>
-<img alt="_images/c4404090b38f6052bca45e32d25ed8ea9ab8e3bb44fa134b71619216ee2016a9.png" src="_images/c4404090b38f6052bca45e32d25ed8ea9ab8e3bb44fa134b71619216ee2016a9.png" />
+<img alt="_images/e52c1e9464fcaa5fc6829c68d2505db9c7db733931f276c5356082f04f0ff46e.png" src="_images/e52c1e9464fcaa5fc6829c68d2505db9c7db733931f276c5356082f04f0ff46e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 =&gt; [a1, a2, a1] - [a1, a2, a1] =&gt; [b, B] - [b, B] =&gt; 0 @ ( a*e*F + a*D*E + a*D*F + c*e*F + c*D*E + c*D*F + f*D*E )
 </pre></div>
 </div>
-<img alt="_images/0ac50972522d09fe220b956ad188d5a30f5e252d754b1509a4eb0f3ad7a7e3bb.png" src="_images/0ac50972522d09fe220b956ad188d5a30f5e252d754b1509a4eb0f3ad7a7e3bb.png" />
+<img alt="_images/c189681c42f1ac6fc399f700547e72881a8f343d0764b45c1d229cdb8f4b92d9.png" src="_images/c189681c42f1ac6fc399f700547e72881a8f343d0764b45c1d229cdb8f4b92d9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 =&gt; [a2, a3, a2] - [a2, a3, a2] =&gt; [d, D] - [d, D] =&gt; 0 @ ( a*b*E + a*b*F + b*c*E + b*c*F + b*f*E + c*A*E + c*A*F + f*A*E )
 </pre></div>
 </div>
-<img alt="_images/cfd3eccac4c5681de08a0d715c698029d10f07e2b8776414c7eba5ce0af555b5.png" src="_images/cfd3eccac4c5681de08a0d715c698029d10f07e2b8776414c7eba5ce0af555b5.png" />
+<img alt="_images/62144f1990717352aef799c61f99e138091d2900ec436db3d1d4855c52085e7e.png" src="_images/62144f1990717352aef799c61f99e138091d2900ec436db3d1d4855c52085e7e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 =&gt; [a3, a4, a3] - [a3, a4, a3] =&gt; [e, E] - [e, E] =&gt; 0 @ ( a*b*d + b*c*d + b*d*f + b*f*C + c*d*A + d*f*A + f*A*B + f*A*C )
 </pre></div>
 </div>
-<img alt="_images/601cc17c5c82c66edd1a1d94b7e3ed393aaa37b29fc6585cf61e897997007a25.png" src="_images/601cc17c5c82c66edd1a1d94b7e3ed393aaa37b29fc6585cf61e897997007a25.png" />
+<img alt="_images/917aea8b7c3ff0f2762c05d67b1023d8dbdaebc631edb3ad895db5a907cafbb9.png" src="_images/917aea8b7c3ff0f2762c05d67b1023d8dbdaebc631edb3ad895db5a907cafbb9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>( a*b*C - c*A*B ) @ ( e*F + D*E + D*F )
 ( c*d*e*F - f*C*D*E ) @ ( b + A )
 ( a*b*d*e*F - f*A*B*D*E ) @ ( 1 )

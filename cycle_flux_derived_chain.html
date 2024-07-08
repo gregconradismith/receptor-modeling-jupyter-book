@@ -1,0 +1,1404 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Double Derived Markov chain w/ contexts &#8212; Receptors</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cycle_flux_derived_chain';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Doodle.png" class="logo__image only-light" alt="Receptors - Home"/>
+    <script>document.write(`<img src="_static/Doodle.png" class="logo__image only-dark" alt="Receptors - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Receptors
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamic_constraints_and_allosteric_parameters.html">Thermodynamic constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters.html">Fitting allosteric parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra_overview.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra_undirected_graph.html">Wang algebra - undirected graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra_directed_graph.html">Wang algebra - directed graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/cycle_flux_derived_chain.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcycle_flux_derived_chain.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/cycle_flux_derived_chain.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Double Derived Markov chain w/ contexts</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="double-derived-markov-chain-w-contexts">
+<h1>Double Derived Markov chain w/ contexts<a class="headerlink" href="#double-derived-markov-chain-w-contexts" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_first_cycle</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span><span class="n">cycle_shift</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">seen</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">seen</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">seen</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+
+    <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cycle_shift</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cyclic_shift</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="o">+</span><span class="mi">1</span><span class="p">]),</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">start</span><span class="p">]</span><span class="o">+</span><span class="n">sequence</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">sequence</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">start</span><span class="p">]</span><span class="o">+</span><span class="n">sequence</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sequence</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derived_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">r</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">doit</span><span class="p">(</span><span class="n">DerG</span><span class="p">):</span>
+        <span class="n">sink_list</span> <span class="o">=</span> <span class="n">DerG</span><span class="o">.</span><span class="n">sinks</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sink_list</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">DerG</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">sink_list</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">neighbor_out_iterator</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+                    <span class="n">cyc</span><span class="p">,</span> <span class="n">seq</span> <span class="o">=</span> <span class="n">extract_first_cycle</span><span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="p">(</span><span class="n">u</span><span class="p">,),</span><span class="n">cycle_shift</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">cyc</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+                        <span class="n">cyc</span><span class="o">=</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">edge_labels</span><span class="o">==</span><span class="s1">&#39;cyc&#39;</span><span class="p">:</span>
+                        <span class="n">DerG</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">seq</span><span class="p">,</span><span class="n">cyc</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">edge_labels</span><span class="o">==</span><span class="s1">&#39;rate&#39;</span><span class="p">:</span>
+                        <span class="n">DerG</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">seq</span><span class="p">,</span><span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">seq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="k">elif</span> <span class="n">edge_labels</span><span class="o">==</span><span class="s1">&#39;both&#39;</span><span class="p">:</span>
+                        <span class="n">DerG</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">seq</span><span class="p">,(</span><span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">seq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="n">cyc</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">doit</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
+    <span class="n">DerG</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">()</span>
+    <span class="n">DerG</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">((</span><span class="n">r</span><span class="p">,))</span>
+    <span class="k">return</span> <span class="n">doit</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cartesian_edge_color</span><span class="p">(</span><span class="n">GH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># Define edge colors</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">rainbow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">edge_colors</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">edge_colors</span><span class="p">[</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Apply edge colors</span>
+    <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">GH</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">edge</span>
+        <span class="k">if</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">edge_colors</span><span class="p">[</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">edge_colors</span><span class="p">[</span><span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+
+    <span class="c1"># Plot the Cartesian product with edge colors</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">GH</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_colors</span><span class="o">=</span><span class="n">edge_colors</span><span class="p">)</span>
+        <span class="c1">#GH.graphplot(vertex_labels=False, vertex_size=0,edge_colors=edge_colors).show()</span>
+    <span class="k">return</span> <span class="n">edge_colors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_derived_graph_with_context</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">Vg</span> <span class="o">=</span> <span class="n">edge_ring_from_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
+    <span class="n">Vh</span> <span class="o">=</span> <span class="n">edge_ring_from_derived_graph</span><span class="p">(</span><span class="n">DerH</span><span class="p">)</span>
+    <span class="n">groot</span> <span class="o">=</span> <span class="n">DerG</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># first element of tuple vertex = (0,) ==&gt; groot = 0</span>
+    <span class="n">hroot</span> <span class="o">=</span> <span class="n">DerH</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">gh_vars</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="n">g_var</span> <span class="ow">in</span> <span class="n">Vg</span><span class="o">.</span><span class="n">gens</span><span class="p">():</span>
+        <span class="n">gh_vars</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">g_var</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">hroot</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">order</span><span class="p">())</span> <span class="p">]</span>
+    <span class="k">for</span> <span class="n">h_var</span> <span class="ow">in</span> <span class="n">Vh</span><span class="o">.</span><span class="n">gens</span><span class="p">():</span>
+        <span class="n">gh_vars</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">h_var</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">groot</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">())</span> <span class="p">]</span>
+    <span class="n">gh_vars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">gh_vars</span><span class="p">))</span>
+    <span class="n">Vgh</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">gh_vars</span><span class="p">)</span>
+    <span class="n">DDerGH</span> <span class="o">=</span> <span class="n">DerG</span><span class="o">.</span><span class="n">cartesian_product</span><span class="p">(</span><span class="n">DerH</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">DDerGH</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">DDerGH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">hfr</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">hto</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;h changed:&#39;</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">hfr</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">hto</span><span class="p">)</span>
+            <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">hfr</span><span class="p">,</span><span class="n">hto</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">hfr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
+            <span class="n">new_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">gh_var</span><span class="p">,</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">hfr</span><span class="p">,</span><span class="n">hto</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">DDerGH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">new_label</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">gfr</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">gto</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;g changed:&#39;</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">gfr</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">gto</span><span class="p">)</span>
+            <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">gfr</span><span class="p">,</span><span class="n">gto</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">gfr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
+            <span class="n">new_label</span> <span class="o">=</span> <span class="p">(</span> <span class="n">gh_var</span><span class="p">,</span> <span class="n">DerG</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">gfr</span><span class="p">,</span><span class="n">gto</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">DDerGH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">new_label</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">DDerGH</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_derived_graph_without_context</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">DDerGH</span> <span class="o">=</span> <span class="n">DerG</span><span class="o">.</span><span class="n">cartesian_product</span><span class="p">(</span><span class="n">DerH</span><span class="p">)</span>
+    <span class="n">Vg</span> <span class="o">=</span> <span class="n">edge_ring_from_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
+    <span class="n">Vh</span> <span class="o">=</span> <span class="n">edge_ring_from_derived_graph</span><span class="p">(</span><span class="n">DerH</span><span class="p">)</span>
+    <span class="n">Vgh</span> <span class="o">=</span> <span class="n">merge_edge_rings</span><span class="p">(</span><span class="n">Vg</span><span class="p">,</span><span class="n">Vh</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">DDerGH</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+        <span class="n">DDerGH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">hfr</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">hto</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;h changed:&#39;</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">hfr</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">hto</span><span class="p">)</span>
+            <span class="n">new_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vgh</span><span class="p">(</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">hfr</span><span class="p">,</span><span class="n">hto</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">hfr</span><span class="p">,</span><span class="n">hto</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">DDerGH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">new_label</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">gfr</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">gto</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;g changed:&#39;</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">gfr</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">gto</span><span class="p">)</span>
+            <span class="n">new_label</span> <span class="o">=</span> <span class="p">(</span> <span class="n">Vgh</span><span class="p">(</span><span class="n">DerG</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">gfr</span><span class="p">,</span><span class="n">gto</span><span class="p">)[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">DerG</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">gfr</span><span class="p">,</span><span class="n">gto</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">DDerGH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">new_label</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">DDerGH</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">reduce</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
+        <span class="n">DDerGH</span> <span class="o">=</span> <span class="n">double_derived_graph_with_context</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">DDerGH</span> <span class="o">=</span> <span class="n">double_derived_graph_without_context</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">reduce</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">DerG</span> <span class="o">==</span> <span class="n">DerH</span><span class="p">:</span>
+            <span class="n">DDerGH</span> <span class="o">=</span> <span class="n">symmetrize</span><span class="p">(</span><span class="n">DDerGH</span><span class="p">,</span><span class="n">rates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning: Cannot reduce when DerG not equal to DerH&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">DDerGH</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_edge_rings</span><span class="p">(</span><span class="n">Vg</span><span class="p">,</span><span class="n">Vh</span><span class="p">):</span>
+    <span class="n">gh_vars</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">str</span><span class="p">(</span><span class="n">g_var</span><span class="p">)</span> <span class="k">for</span> <span class="n">g_var</span> <span class="ow">in</span> <span class="n">Vg</span><span class="o">.</span><span class="n">gens</span><span class="p">()</span> <span class="p">]</span> <span class="o">+</span> <span class="p">[</span> <span class="nb">str</span><span class="p">(</span><span class="n">h_var</span><span class="p">)</span> <span class="k">for</span> <span class="n">h_var</span> <span class="ow">in</span> <span class="n">Vh</span><span class="o">.</span><span class="n">gens</span><span class="p">()</span> <span class="p">]</span>
+    <span class="n">gh_vars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">gh_vars</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">gh_vars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cartesian_product_without_context</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">):</span>
+    <span class="n">GH</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">cartesian_product</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    <span class="n">Vg</span> <span class="o">=</span> <span class="n">edge_ring_from_graph</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">Vh</span> <span class="o">=</span> <span class="n">edge_ring_from_graph</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    <span class="n">Vgh</span> <span class="o">=</span> <span class="n">merge_edge_rings</span><span class="p">(</span><span class="n">Vg</span><span class="p">,</span><span class="n">Vh</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">GH</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">GH</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">!=</span><span class="n">u</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">H</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                    <span class="n">GH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">Vgh</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">H</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                    <span class="n">GH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">Vgh</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">G</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">GH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">Vgh</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">G</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">GH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">Vgh</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+    <span class="k">return</span> <span class="n">GH</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cartesian_product_with_context</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">):</span>
+    <span class="n">Vg</span> <span class="o">=</span> <span class="n">edge_ring_from_graph</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">Vh</span> <span class="o">=</span> <span class="n">edge_ring_from_graph</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    <span class="n">groot</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">hroot</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">gh_vars</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="n">g_var</span> <span class="ow">in</span> <span class="n">Vg</span><span class="o">.</span><span class="n">gens</span><span class="p">():</span>
+        <span class="n">gh_vars</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">g_var</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">hroot</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">order</span><span class="p">())</span> <span class="p">]</span>
+    <span class="k">for</span> <span class="n">h_var</span> <span class="ow">in</span> <span class="n">Vh</span><span class="o">.</span><span class="n">gens</span><span class="p">():</span>
+        <span class="n">gh_vars</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">h_var</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">groot</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">())</span> <span class="p">]</span>
+    <span class="n">gh_vars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">gh_vars</span><span class="p">))</span>
+    <span class="n">Vgh</span> <span class="o">=</span> <span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">gh_vars</span><span class="p">)</span>
+    <span class="n">GH</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">cartesian_product</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">GH</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">GH</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">!=</span><span class="n">u</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">H</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                    <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                    <span class="n">GH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">gh_var</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">H</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                    <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                    <span class="n">GH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">gh_var</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">G</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="n">GH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">gh_var</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">G</span><span class="o">.</span><span class="n">has_edge</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                    <span class="n">GH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">gh_var</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">GH</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cartesian_product</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">context</span><span class="p">:</span>
+        <span class="n">GH</span> <span class="o">=</span> <span class="n">Cartesian_product_with_context</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">GH</span> <span class="o">=</span> <span class="n">Cartesian_product_without_context</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">GH</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">edge_ring_from_graph</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+    <span class="n">Vg</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">random_edge</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Vg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">edge_ring_from_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">):</span>
+    <span class="n">Vg</span> <span class="o">=</span> <span class="n">DerG</span><span class="o">.</span><span class="n">random_edge</span><span class="p">()[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Vg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">weighted_laplacian_matrix</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+    <span class="n">verts</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">weighted_adjacency_matrix</span><span class="p">(</span><span class="n">verts</span><span class="p">)</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">diagonal_matrix</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">Q</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_trees</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">vdel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">vdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span> <span class="c1"># Note: vdel needs to be a list, such as [0] or [0,3,4], or None </span>
+    <span class="k">if</span> <span class="n">vdel</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vdel</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="n">vdel</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vdel</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vdel</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;vdel must be a list of vertices or integers&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">vdict</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+            <span class="n">vd</span> <span class="o">=</span> <span class="n">vdel</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vd</span> <span class="o">=</span> <span class="p">[</span> <span class="n">vdict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">vdel</span> <span class="p">]</span>
+        <span class="k">if</span> <span class="n">big</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+            <span class="n">Q0</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">delete_rows</span><span class="p">(</span><span class="n">vd</span><span class="p">)</span><span class="o">.</span><span class="n">delete_columns</span><span class="p">(</span><span class="n">vd</span><span class="p">)</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">det</span><span class="p">(</span><span class="n">Q0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="n">Q0</span><span class="o">.</span><span class="n">nrows</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="n">G</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">merge_vertices</span><span class="p">(</span><span class="n">vd</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">vd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+            <span class="c1"># Note: The next line is r=vd[0] because merge_vertices results</span>
+            <span class="c1"># in the new vertex is named after the first vertex in the merge list</span>
+            <span class="c1"># https://doc.sagemath.org/html/en/reference/graphs</span>
+            <span class="c1"># /sage/graphs/generic_graph.html#sage.graphs.generic_graph.GenericGraph.merge_vertices</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">remove_loops</span><span class="p">()</span>
+            <span class="n">VV</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span> <span class="c1"># the ring of edge labels </span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">VV</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">in_branching</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">in_branchings</span><span class="p">(</span><span class="n">r</span><span class="p">)):</span>
+                <span class="n">edge_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">edge_prod</span> <span class="o">=</span> <span class="n">VV</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">in_branching</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
+                    <span class="n">edge_str</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                    <span class="n">edge_prod</span> <span class="o">*=</span> <span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">t</span> <span class="o">+=</span> <span class="n">edge_prod</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="n">in_branching</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>\
+                                      <span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;: &#39;</span><span class="o">+</span><span class="n">edge_str</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For root/cycle&#39;</span><span class="p">,</span><span class="n">vdel</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">factor</span><span class="p">(),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">t</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">vdict</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">ncols</span><span class="p">()):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">my_trees</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">vdel</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="n">big</span><span class="p">)</span>
+                <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">vdict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">my_trees</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">vdel</span><span class="o">=</span><span class="p">[</span><span class="n">key</span><span class="p">],</span><span class="n">vdict</span><span class="o">=</span><span class="n">vdict</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="n">big</span><span class="p">)</span>
+                <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cycle_flux_analysis</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">nvG</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">();</span> <span class="n">neG</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">size</span><span class="p">();</span> <span class="n">betaG</span> <span class="o">=</span> <span class="n">neG</span><span class="o">-</span><span class="n">nvG</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">vG</span> <span class="o">=</span> <span class="p">[</span> <span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="p">]</span>
+    <span class="n">dict_vG</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">vG</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="n">nvG</span><span class="p">)));</span> 
+    <span class="n">inverted_dict_vG</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dict_vG</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">Q_G</span> <span class="o">=</span> <span class="n">weighted_laplacian_matrix</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">Q_G</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+    <span class="n">Tg</span> <span class="o">=</span> <span class="n">my_trees</span><span class="p">(</span><span class="n">Q_G</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="n">TG</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Tg</span><span class="p">)</span>
+    <span class="n">cycleG_p</span><span class="p">,</span> <span class="n">cycleG_m</span><span class="p">,</span> <span class="n">cycleG_2</span> <span class="o">=</span> <span class="n">simple_cycles</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">minsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">cycleG</span> <span class="o">=</span> <span class="n">cycleG_p</span> <span class="o">+</span> <span class="n">cycleG_m</span> <span class="o">+</span> <span class="n">cycleG_2</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="s1">&#39;cycles p:&#39;</span><span class="p">,</span><span class="n">cycleG_p</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="s1">&#39;cycles m:&#39;</span><span class="p">,</span><span class="n">cycleG_m</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="s1">&#39;cycles 2:&#39;</span><span class="p">,</span><span class="n">cycleG_2</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+    <span class="n">d_cycleG</span> <span class="o">=</span> <span class="p">{</span> <span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cycleG</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">inverted_d_cycleG</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">d_cycleG</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">Jg</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">cyc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cycleG</span><span class="p">):</span>
+        <span class="n">Pi</span> <span class="o">=</span> <span class="n">make_pi_one_way</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">cyc</span><span class="p">)</span>
+        <span class="n">Jg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Pi</span><span class="o">*</span><span class="n">my_trees</span><span class="p">(</span><span class="n">Q_G</span><span class="p">,</span><span class="n">cyc</span><span class="p">,</span><span class="n">vdict</span><span class="o">=</span><span class="n">dict_vG</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="s1">&#39;cycle flux&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">Jg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">factor</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">nvG</span><span class="p">,</span> <span class="n">neG</span><span class="p">,</span> <span class="n">betaG</span><span class="p">,</span> <span class="n">Tg</span><span class="p">,</span> <span class="n">TG</span><span class="p">,</span> <span class="n">cycleG_p</span><span class="p">,</span> <span class="n">cycleG_m</span><span class="p">,</span> <span class="n">cycleG_2</span><span class="p">,</span> <span class="n">cycleG</span><span class="p">,</span> <span class="n">Jg</span><span class="p">,</span> <span class="n">dict_vG</span><span class="p">,</span> <span class="n">inverted_dict_vG</span><span class="p">,</span> <span class="n">d_cycleG</span><span class="p">,</span> <span class="n">inverted_d_cycleG</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_cycles</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">minsize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="c1"># Note: this uses cyclic_shift() function</span>
+    <span class="n">cycles_p0</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">D</span><span class="o">.</span><span class="n">all_simple_cycles</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">&gt;</span><span class="nb">max</span><span class="p">(</span><span class="n">minsize</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">maxsize</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cycles_p0</span><span class="p">:</span>
+            <span class="n">cycles_p0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">cycles_p</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cycles_p0</span><span class="p">:</span>
+        <span class="n">cycles_p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cyclic_shift</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+    <span class="c1">#</span>
+    <span class="n">cycles_m</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cycles_p</span><span class="p">:</span>
+        <span class="n">cycles_m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
+        <span class="c1"># next line: this makes cp&lt;cm for each pair</span>
+        <span class="c1"># (cycle called positive is lexicographically smaller)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cycles_p</span><span class="p">)):</span>
+        <span class="n">cp</span> <span class="o">=</span> <span class="n">cycles_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">cycles_m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">cp</span><span class="o">&gt;</span><span class="n">cm</span><span class="p">:</span> <span class="c1"># want cp&lt;cm</span>
+            <span class="n">cycles_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">cm</span>
+            <span class="n">cycles_m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">cp</span>
+    <span class="n">cycles_p</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cycles_p</span><span class="p">]</span>
+    <span class="n">cycles_m</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cycles_m</span><span class="p">]</span>
+
+    <span class="c1"># two-cycles</span>
+    <span class="k">if</span> <span class="n">minsize</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">cycles_2_0</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">D</span><span class="o">.</span><span class="n">all_simple_cycles</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">==</span><span class="mi">3</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cycles_p0</span><span class="p">:</span>
+                <span class="n">cycles_2_0</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">cycles_2</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cycles_2_0</span><span class="p">:</span>
+            <span class="n">cycles_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cyclic_shift</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+        <span class="n">cycles_2</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cycles_2</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">cycles_p</span><span class="p">,</span> <span class="n">cycles_m</span><span class="p">,</span> <span class="n">cycles_2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cycles_p</span><span class="p">,</span> <span class="n">cycles_m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cyclic_shift</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">shift</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span> <span class="c1"># &#39;default&#39; shifts so that first element is minimal, presumes a simple cycle</span>
+    <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">shift</span><span class="o">==</span><span class="s1">&#39;default&#39;</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">+</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># i+1 is the starting index from which to search for min(c)</span>
+            <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">+</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">return</span> <span class="n">c</span><span class="p">[</span><span class="n">shift</span><span class="p">:</span><span class="n">shift</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; is not a cycle.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_pi_one_way</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">cyc</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cyc</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">*</span><span class="n">D</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">cyc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">cyc</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">):</span>
+    <span class="n">DerGrate</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
+    <span class="n">DerGcyc</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">DerGrate</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">DerGrate</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">DerG</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">DerGcyc</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">DerGcyc</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">DerG</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">DerGrate</span><span class="p">,</span> <span class="n">DerGcyc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">factor</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">DerGrate</span><span class="p">,</span> <span class="n">DerGcyc</span> <span class="o">=</span> <span class="n">split_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
+    <span class="n">vDerG</span> <span class="o">=</span> <span class="p">[</span> <span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">DerGcyc</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="p">]</span>
+    <span class="n">dict_vDerG</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">vDerG</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vDerG</span><span class="p">))))</span>
+    <span class="n">Q_DerG</span> <span class="o">=</span> <span class="n">weighted_laplacian_matrix</span><span class="p">(</span><span class="n">DerGrate</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">my_trees</span><span class="p">(</span><span class="n">Q_DerG</span><span class="p">,</span><span class="n">vdel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">vdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="n">big</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rooted spanning tree of derived graph T(0,0) =&#39;</span><span class="p">,</span><span class="nb">sum</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">factor</span><span class="p">(),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">Jg</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dict_Jg_lumped</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">DerGcyc</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">DerGcyc</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">dict_vDerG</span><span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]]]</span><span class="o">*</span><span class="n">DerGrate</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># Note: do not factor X (if you do, you can&#39;t +=X below)</span>
+            <span class="k">if</span> <span class="n">factor</span><span class="p">:</span>
+                <span class="n">Jg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">factor</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Jg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;J&#39;</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">Jg</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">cyc</span> <span class="o">=</span> <span class="n">cyclic_shift</span><span class="p">(</span><span class="n">DerGcyc</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">cyc</span> <span class="ow">in</span> <span class="n">dict_Jg_lumped</span><span class="p">:</span>
+                <span class="n">dict_Jg_lumped</span><span class="p">[</span><span class="n">cyc</span><span class="p">]</span> <span class="o">+=</span> <span class="n">X</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dict_Jg_lumped</span><span class="p">[</span><span class="n">cyc</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="k">if</span> <span class="n">factor</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_Jg_lumped</span><span class="p">:</span>
+            <span class="n">dict_Jg_lumped</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_Jg_lumped</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">factor</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">dict_Jg_lumped</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">graph_and_edge_ring_from_dict</span><span class="p">(</span><span class="n">dG</span><span class="p">):</span>
+    <span class="n">Gstr</span> <span class="o">=</span> <span class="n">DiGraph</span><span class="p">(</span><span class="n">dG</span><span class="p">)</span>
+    <span class="n">g_vars</span> <span class="o">=</span> <span class="p">[</span> <span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">Gstr</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="p">]</span>
+    <span class="n">Vg</span><span class="o">=</span><span class="n">PolynomialRing</span><span class="p">(</span><span class="n">ZZ</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">g_vars</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;invlex&#39;</span><span class="p">)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">Gstr</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">estr</span> <span class="ow">in</span> <span class="n">Gstr</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">estr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">estr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">Vg</span><span class="p">(</span><span class="n">estr</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">G</span><span class="p">,</span> <span class="n">Vg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">symmetrize</span><span class="p">(</span><span class="n">DerGH</span><span class="p">,</span><span class="n">rates</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">DerGH_merge</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">DerGH</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rates</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">DerGH_merge</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">DerGH_merge</span><span class="o">.</span><span class="n">neighbor_out_iterator</span><span class="p">(</span><span class="n">v</span><span class="p">)):</span>
+                    <span class="n">DerGH_merge</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">,(</span> <span class="mi">2</span><span class="o">*</span><span class="n">DerGH_merge</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>\
+                                                 <span class="n">DerGH_merge</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">DerGH_merge</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span> 
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">DerGH_merge</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">u</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">DerGH_merge</span><span class="o">.</span><span class="n">merge_vertices</span><span class="p">([</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">DerGH_merge</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dG_house</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;f&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;e&#39;</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;F&#39;</span><span class="p">}}</span>
+<span class="n">dG_c3_handle</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">}}</span>
+<span class="n">dG_c4_chord</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;e&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">}}</span>
+<span class="n">dG_c3_tail</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">}}</span>
+<span class="n">dG_p2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">}}</span>
+<span class="n">dG_p3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">}}</span>
+<span class="n">dG_p4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">}}</span>
+<span class="n">dG_c3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;C&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">}}</span>
+
+<span class="n">dG</span> <span class="o">=</span> <span class="n">dG_c3</span> <span class="c1"># choose graph here (dG may be used below)</span>
+
+<span class="n">G</span><span class="p">,</span> <span class="n">Vg</span> <span class="o">=</span> <span class="n">graph_and_edge_ring_from_dict</span><span class="p">(</span><span class="n">dG</span><span class="p">)</span>
+<span class="c1">#Vg.inject_variables()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nvG</span><span class="p">,</span> <span class="n">neG</span><span class="p">,</span> <span class="n">betaG</span><span class="p">,</span> <span class="n">Tg</span><span class="p">,</span> <span class="n">TG</span><span class="p">,</span> <span class="n">cycleG_p</span><span class="p">,</span> <span class="n">cycleG_m</span><span class="p">,</span> <span class="n">cycleG_2</span><span class="p">,</span> <span class="n">cycleG</span><span class="p">,</span> <span class="n">Jg</span><span class="p">,</span> <span class="n">dict_vG</span><span class="p">,</span> <span class="n">inverted_dict_vG</span><span class="p">,</span> <span class="n">d_cycleG</span><span class="p">,</span> <span class="n">inverted_d_cycleG</span> <span class="o">=</span>  <span class="n">cycle_flux_analysis</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;G&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<img alt="_images/5be4de3ccb7ee4ec5b8ad061bb406c5f4b71538bd211a964a89acf9e336e3b0a.png" src="_images/5be4de3ccb7ee4ec5b8ad061bb406c5f4b71538bd211a964a89acf9e336e3b0a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-C - a      a      C]
+[     A -b - A      b]
+[     c      B -B - c]
+
+For root/cycle [0] : A*B + b*c + A*c 
+
+For root/cycle [1] : C*B + a*B + a*c 
+
+For root/cycle [2] : C*b + a*b + C*A 
+
+G cycles p: [(0, 1, 2, 0)] 
+
+G cycles m: [(0, 2, 1, 0)] 
+
+G cycles 2: [(0, 1, 0), (0, 2, 0), (1, 2, 1)] 
+
+
+G cycle flux 0 : a * b * c
+
+G cycle flux 1 : C * A * B
+
+G cycle flux 2 : a * A * (B + c)
+
+G cycle flux 3 : C * (b + A) * c
+
+G cycle flux 4 : (C + a) * b * B
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dH_c5</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">}}</span>
+<span class="n">dH_c3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">}}</span>
+<span class="n">dH_p4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;z&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">}}</span>
+<span class="n">dH_p3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">}}</span>
+<span class="n">dH_p2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">}}</span>
+
+<span class="n">dH_p2_r2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">}}</span>
+<span class="n">dH_c3_r3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">5</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">}}</span>
+<span class="n">dH_p3_r3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">5</span><span class="p">:</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">}}</span>
+
+<span class="n">dH</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">dG</span><span class="p">);</span>
+<span class="c1">#dH = dH_p2_r2</span>
+
+<span class="n">H</span><span class="p">,</span> <span class="n">Vh</span> <span class="o">=</span> <span class="n">graph_and_edge_ring_from_dict</span><span class="p">(</span><span class="n">dH</span><span class="p">)</span>
+<span class="c1">#Vh.inject_variables()</span>
+<span class="n">nvH</span><span class="p">,</span> <span class="n">neH</span><span class="p">,</span> <span class="n">betaH</span><span class="p">,</span> <span class="n">Th</span><span class="p">,</span> <span class="n">TH</span><span class="p">,</span> <span class="n">cycleH_p</span><span class="p">,</span> <span class="n">cycleH_m</span><span class="p">,</span> <span class="n">cycleH_2</span><span class="p">,</span> <span class="n">cycleH</span><span class="p">,</span> <span class="n">Jh</span><span class="p">,</span> <span class="n">dict_vH</span><span class="p">,</span> <span class="n">inverted_dict_vH</span><span class="p">,</span> <span class="n">d_cycleH</span><span class="p">,</span> <span class="n">inverted_d_cycleH</span> <span class="o">=</span>  <span class="n">cycle_flux_analysis</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<img alt="_images/566194f158eac28e48cfe4a688334e236d277e5acfc27a8bb2b64a36ec3b51dd.png" src="_images/566194f158eac28e48cfe4a688334e236d277e5acfc27a8bb2b64a36ec3b51dd.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-C - a      a      C]
+[     A -b - A      b]
+[     c      B -B - c]
+
+For root/cycle [0] : A*B + b*c + A*c 
+
+For root/cycle [1] : C*B + a*B + a*c 
+
+For root/cycle [2] : C*b + a*b + C*A 
+
+H cycles p: [(0, 1, 2, 0)] 
+
+H cycles m: [(0, 2, 1, 0)] 
+
+H cycles 2: [(0, 1, 0), (0, 2, 0), (1, 2, 1)] 
+
+
+H cycle flux 0 : a * b * c
+
+H cycle flux 1 : C * A * B
+
+H cycle flux 2 : a * A * (B + c)
+
+H cycle flux 3 : C * (b + A) * c
+
+H cycle flux 4 : (C + a) * b * B
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">context</span> <span class="ow">in</span> <span class="p">[</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span> <span class="p">]:</span>
+    <span class="n">GH</span> <span class="o">=</span> <span class="n">Cartesian_product</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">edge_ring_from_graph</span><span class="p">(</span><span class="n">GH</span><span class="p">))</span>
+    <span class="n">GH</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>\
+           <span class="n">edge_colors</span><span class="o">=</span><span class="n">cartesian_edge_color</span><span class="p">(</span><span class="n">GH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>\
+            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;G box H, context = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">context</span><span class="p">))</span>
+
+<span class="n">GH0</span> <span class="o">=</span> <span class="n">GH</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
+<span class="n">GH0</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">vertex_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">edge_colors</span><span class="o">=</span><span class="n">cartesian_edge_color</span><span class="p">(</span><span class="n">GH0</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;G box H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multivariate Polynomial Ring in b, B, a, c, C, A over Integer Ring
+</pre></div>
+</div>
+<img alt="_images/4c8df132fea1e2692a631337ea7a208507cec00dfd7c7e52ce4337e3750f3860.png" src="_images/4c8df132fea1e2692a631337ea7a208507cec00dfd7c7e52ce4337e3750f3860.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multivariate Polynomial Ring in b1, c1, c2, B2, B0, C2, B1, a0, a1, a2, C1, A0, b0, A2, A1, b2, c0, C0 over Integer Ring
+</pre></div>
+</div>
+<img alt="_images/15203bbcbf6ba82a2771305d229a346c039b8e1c8c74d839eb8860704e0dcbb8.png" src="_images/15203bbcbf6ba82a2771305d229a346c039b8e1c8c74d839eb8860704e0dcbb8.png" />
+<img alt="_images/5c2a37982ca6d1b07506ee772d0fd2981617a4a7d1708cd7c285a6b9c08e29c5.png" src="_images/5c2a37982ca6d1b07506ee772d0fd2981617a4a7d1708cd7c285a6b9c08e29c5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DerG</span> <span class="o">=</span> <span class="n">derived_graph</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">DerG</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DerG&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2c586a8e6c0afdc936c76e296ec984d29b4dde41b613a540a2f442bf8f56abf1.png" src="_images/2c586a8e6c0afdc936c76e296ec984d29b4dde41b613a540a2f442bf8f56abf1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DerGrate</span><span class="p">,</span> <span class="n">DerGcyc</span> <span class="o">=</span> <span class="n">split_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
+<span class="n">DerGrate</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DerGrate&#39;</span><span class="p">)</span>
+<span class="n">DerGcyc</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DerGcyc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/80c2628b14e2b730a302d94ceeac895125031e2951c3484c854b98d6b63edcb7.png" src="_images/80c2628b14e2b730a302d94ceeac895125031e2951c3484c854b98d6b63edcb7.png" />
+<img alt="_images/4fbcd7e87c1d70f35107328f86ed2b32f953572db6dc7644d9c07dc82bb4670d.png" src="_images/4fbcd7e87c1d70f35107328f86ed2b32f953572db6dc7644d9c07dc82bb4670d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_Jg</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rooted spanning tree of derived graph T(0,0) = (A*B + b*c + A*c) * (A*B + C*B + a*B + b*c + A*c + a*c + C*b + a*b + C*A) 
+
+J (0, 1, 0) = a * A * (B + c) * (A*B + b*c + A*c) 
+
+J (0, 1, 2, 0) = a * b * c * (A*B + b*c + A*c) 
+
+J (1, 2, 1) = a * b * B * (A*B + b*c + A*c) 
+
+J (0, 2, 0) = C * (b + A) * c * (A*B + b*c + A*c) 
+
+J (0, 2, 1, 0) = C * A * B * (A*B + b*c + A*c) 
+
+J (2, 1, 2) = C * b * B * (A*B + b*c + A*c) 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DerH</span> <span class="o">=</span> <span class="n">derived_graph</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">DerH</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DerH&#39;</span><span class="p">)</span>
+<span class="n">DerHrate</span><span class="p">,</span> <span class="n">DerHcyc</span> <span class="o">=</span> <span class="n">split_derived_graph</span><span class="p">(</span><span class="n">DerH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c57acc77b4681fd3feca7e1468430a27335ce704c86e458d0f76bd09d24eeb3d.png" src="_images/c57acc77b4681fd3feca7e1468430a27335ce704c86e458d0f76bd09d24eeb3d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_Jh</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DerH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rooted spanning tree of derived graph T(0,0) = (A*B + b*c + A*c) * (A*B + C*B + a*B + b*c + A*c + a*c + C*b + a*b + C*A) 
+
+J (0, 1, 0) = a * A * (B + c) * (A*B + b*c + A*c) 
+
+J (0, 1, 2, 0) = a * b * c * (A*B + b*c + A*c) 
+
+J (1, 2, 1) = a * b * B * (A*B + b*c + A*c) 
+
+J (0, 2, 0) = C * (b + A) * c * (A*B + b*c + A*c) 
+
+J (0, 2, 1, 0) = C * A * B * (A*B + b*c + A*c) 
+
+J (2, 1, 2) = C * b * B * (A*B + b*c + A*c) 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">context</span> <span class="ow">in</span> <span class="p">[</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">reduce</span> <span class="ow">in</span> <span class="p">[</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*** context =&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">context</span><span class="p">),</span> <span class="s1">&#39;  reduce =&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">reduce</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***&#39;</span><span class="p">)</span>
+        <span class="n">DDerGH</span> <span class="o">=</span> <span class="n">double_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span><span class="n">reduce</span><span class="o">=</span><span class="n">reduce</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">edge_ring_from_derived_graph</span><span class="p">(</span><span class="n">DDerGH</span><span class="p">))</span>
+        <span class="n">DDerGH</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>\
+                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;DDerGH &#39;</span><span class="o">+</span><span class="s1">&#39;nv =&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">DDerGH</span><span class="o">.</span><span class="n">order</span><span class="p">())</span><span class="o">+</span><span class="s1">&#39;  ne = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">DDerGH</span><span class="o">.</span><span class="n">size</span><span class="p">()))</span>
+        <span class="n">DDerGH0</span> <span class="o">=</span> <span class="n">DDerGH</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">reduce</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+            <span class="n">edge_colors</span><span class="o">=</span><span class="n">cartesian_edge_color</span><span class="p">(</span><span class="n">DDerGH0</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">edge_colors</span><span class="o">=</span><span class="kc">None</span>
+        <span class="n">DDerGH0</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_colors</span><span class="o">=</span><span class="n">edge_colors</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>\
+                     <span class="n">vertex_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DDer G box H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
+*** context = False   reduce = False
+***
+Multivariate Polynomial Ring in b, B, a, c, C, A over Integer Ring
+</pre></div>
+</div>
+<img alt="_images/6f65e5e3dd49300b43dcb2855b78a51c94f19369b787e71c2fb18db2adba90ba.png" src="_images/6f65e5e3dd49300b43dcb2855b78a51c94f19369b787e71c2fb18db2adba90ba.png" />
+<img alt="_images/f679d28d8d855ed6198618f55ae9be1b536de90fe5cdad269e2c510c66052783.png" src="_images/f679d28d8d855ed6198618f55ae9be1b536de90fe5cdad269e2c510c66052783.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
+*** context = False   reduce = True
+***
+Multivariate Polynomial Ring in b, B, a, c, C, A over Integer Ring
+</pre></div>
+</div>
+<img alt="_images/d47b17bb29ad62eb5d9154e3c4e9afde475f68221226e04940037108e11bc6b8.png" src="_images/d47b17bb29ad62eb5d9154e3c4e9afde475f68221226e04940037108e11bc6b8.png" />
+<img alt="_images/383c313b69e909465962aea09d52be44820ad252302ece2820ce2437de211020.png" src="_images/383c313b69e909465962aea09d52be44820ad252302ece2820ce2437de211020.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
+*** context = True   reduce = False
+***
+Multivariate Polynomial Ring in b1, c1, c2, B2, B0, C2, B1, a0, a1, a2, C1, A0, b0, A2, A1, b2, c0, C0 over Integer Ring
+</pre></div>
+</div>
+<img alt="_images/c04cfe8e2412bfc0ac12745356ba6a81ba8c62ed5c6307c859ab5a4f7a7b5dbf.png" src="_images/c04cfe8e2412bfc0ac12745356ba6a81ba8c62ed5c6307c859ab5a4f7a7b5dbf.png" />
+<img alt="_images/6c7de7bede80fe1addfcb58a1fa190c39b5bb0d152f927deeff406f7cb1c6773.png" src="_images/6c7de7bede80fe1addfcb58a1fa190c39b5bb0d152f927deeff406f7cb1c6773.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
+*** context = True   reduce = True
+***
+Multivariate Polynomial Ring in b1, c1, c2, B2, B0, C2, B1, a0, a1, a2, C1, A0, b0, A2, A1, b2, c0, C0 over Integer Ring
+</pre></div>
+</div>
+<img alt="_images/346b45331c92b07ef1334be8d554211a78a3bb924d4dcb322383c59fbc7140be.png" src="_images/346b45331c92b07ef1334be8d554211a78a3bb924d4dcb322383c59fbc7140be.png" />
+<img alt="_images/6b14643b61df5ce92b22befe02ed525647fe81aab666441dbd09b873d98e68a2.png" src="_images/6b14643b61df5ce92b22befe02ed525647fe81aab666441dbd09b873d98e68a2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DDerGH</span> <span class="o">=</span> <span class="n">double_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">reduce</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dict_Jg_lumped_merge</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DDerGH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_Jg_lumped_merge</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">dict_Jg_lumped_merge</span><span class="p">[</span><span class="n">key</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 0) : 2^5 * A * a * (B + c) * (b + B + c + A) * (b + B + a + c + C + A) * (b*c + B*A + c*A)^2 * (b*a + B*a + b*c + a*c + b*C + B*C + B*A + c*A + C*A) * (2*b^3*a + 6*b^2*B*a + 6*b*B^2*a + 2*B^3*a + 2*b^2*a^2 + 4*b*B*a^2 + 2*B^2*a^2 + 4*b^3*c + 8*b^2*B*c + 4*b*B^2*c + 10*b^2*a*c + 16*b*B*a*c + 6*B^2*a*c + 5*b*a^2*c + 4*B*a^2*c + 8*b^2*c^2 + 8*b*B*c^2 + 10*b*a*c^2 + 6*B*a*c^2 + 2*a^2*c^2 + 4*b*c^3 + 2*a*c^3 + 2*b^3*C + 6*b^2*B*C + 6*b*B^2*C + 2*B^3*C + 4*b^2*a*C + 8*b*B*a*C + 4*B^2*a*C + 8*b^2*c*C + 12*b*B*c*C + 4*B^2*c*C + 7*b*a*c*C + 5*B*a*c*C + 6*b*c^2*C + 2*B*c^2*C + a*c^2*C + 2*b^2*C^2 + 4*b*B*C^2 + 2*B^2*C^2 + 2*b*c*C^2 + B*c*C^2 + 4*b^2*B*A + 8*b*B^2*A + 4*B^3*A + 4*b^2*a*A + 12*b*B*a*A + 8*B^2*a*A + b*a^2*A + 2*B*a^2*A + 12*b^2*c*A + 24*b*B*c*A + 12*B^2*c*A + 16*b*a*c*A + 16*B*a*c*A + 2*a^2*c*A + 16*b*c^2*A + 12*B*c^2*A + 8*a*c^2*A + 4*c^3*A + 6*b^2*C*A + 16*b*B*C*A + 10*B^2*C*A + 5*b*a*C*A + 7*B*a*C*A + 16*b*c*C*A + 16*B*c*C*A + 6*a*c*C*A + 6*c^2*C*A + 4*b*C^2*A + 5*B*C^2*A + 2*c*C^2*A + 8*b*B*A^2 + 8*B^2*A^2 + 2*b*a*A^2 + 6*B*a*A^2 + 12*b*c*A^2 + 16*B*c*A^2 + 6*a*c*A^2 + 8*c^2*A^2 + 6*b*C*A^2 + 10*B*C*A^2 + a*C*A^2 + 8*c*C*A^2 + 2*C^2*A^2 + 4*B*A^3 + 4*c*A^3 + 2*C*A^3) 
+
+(0, 1, 2, 0) : 2^5 * c * a * b * (b + B + c + A) * (b + B + a + c + C + A) * (b*c + B*A + c*A)^2 * (b*a + B*a + b*c + a*c + b*C + B*C + B*A + c*A + C*A) * (2*b^3*a + 6*b^2*B*a + 6*b*B^2*a + 2*B^3*a + 2*b^2*a^2 + 4*b*B*a^2 + 2*B^2*a^2 + 4*b^3*c + 8*b^2*B*c + 4*b*B^2*c + 10*b^2*a*c + 16*b*B*a*c + 6*B^2*a*c + 5*b*a^2*c + 4*B*a^2*c + 8*b^2*c^2 + 8*b*B*c^2 + 10*b*a*c^2 + 6*B*a*c^2 + 2*a^2*c^2 + 4*b*c^3 + 2*a*c^3 + 2*b^3*C + 6*b^2*B*C + 6*b*B^2*C + 2*B^3*C + 4*b^2*a*C + 8*b*B*a*C + 4*B^2*a*C + 8*b^2*c*C + 12*b*B*c*C + 4*B^2*c*C + 7*b*a*c*C + 5*B*a*c*C + 6*b*c^2*C + 2*B*c^2*C + a*c^2*C + 2*b^2*C^2 + 4*b*B*C^2 + 2*B^2*C^2 + 2*b*c*C^2 + B*c*C^2 + 4*b^2*B*A + 8*b*B^2*A + 4*B^3*A + 4*b^2*a*A + 12*b*B*a*A + 8*B^2*a*A + b*a^2*A + 2*B*a^2*A + 12*b^2*c*A + 24*b*B*c*A + 12*B^2*c*A + 16*b*a*c*A + 16*B*a*c*A + 2*a^2*c*A + 16*b*c^2*A + 12*B*c^2*A + 8*a*c^2*A + 4*c^3*A + 6*b^2*C*A + 16*b*B*C*A + 10*B^2*C*A + 5*b*a*C*A + 7*B*a*C*A + 16*b*c*C*A + 16*B*c*C*A + 6*a*c*C*A + 6*c^2*C*A + 4*b*C^2*A + 5*B*C^2*A + 2*c*C^2*A + 8*b*B*A^2 + 8*B^2*A^2 + 2*b*a*A^2 + 6*B*a*A^2 + 12*b*c*A^2 + 16*B*c*A^2 + 6*a*c*A^2 + 8*c^2*A^2 + 6*b*C*A^2 + 10*B*C*A^2 + a*C*A^2 + 8*c*C*A^2 + 2*C^2*A^2 + 4*B*A^3 + 4*c*A^3 + 2*C*A^3) 
+
+(1, 2, 1) : 2^5 * (a + C) * B * b * (b + B + c + A) * (b + B + a + c + C + A) * (b*c + B*A + c*A)^2 * (b*a + B*a + b*c + a*c + b*C + B*C + B*A + c*A + C*A) * (2*b^3*a + 6*b^2*B*a + 6*b*B^2*a + 2*B^3*a + 2*b^2*a^2 + 4*b*B*a^2 + 2*B^2*a^2 + 4*b^3*c + 8*b^2*B*c + 4*b*B^2*c + 10*b^2*a*c + 16*b*B*a*c + 6*B^2*a*c + 5*b*a^2*c + 4*B*a^2*c + 8*b^2*c^2 + 8*b*B*c^2 + 10*b*a*c^2 + 6*B*a*c^2 + 2*a^2*c^2 + 4*b*c^3 + 2*a*c^3 + 2*b^3*C + 6*b^2*B*C + 6*b*B^2*C + 2*B^3*C + 4*b^2*a*C + 8*b*B*a*C + 4*B^2*a*C + 8*b^2*c*C + 12*b*B*c*C + 4*B^2*c*C + 7*b*a*c*C + 5*B*a*c*C + 6*b*c^2*C + 2*B*c^2*C + a*c^2*C + 2*b^2*C^2 + 4*b*B*C^2 + 2*B^2*C^2 + 2*b*c*C^2 + B*c*C^2 + 4*b^2*B*A + 8*b*B^2*A + 4*B^3*A + 4*b^2*a*A + 12*b*B*a*A + 8*B^2*a*A + b*a^2*A + 2*B*a^2*A + 12*b^2*c*A + 24*b*B*c*A + 12*B^2*c*A + 16*b*a*c*A + 16*B*a*c*A + 2*a^2*c*A + 16*b*c^2*A + 12*B*c^2*A + 8*a*c^2*A + 4*c^3*A + 6*b^2*C*A + 16*b*B*C*A + 10*B^2*C*A + 5*b*a*C*A + 7*B*a*C*A + 16*b*c*C*A + 16*B*c*C*A + 6*a*c*C*A + 6*c^2*C*A + 4*b*C^2*A + 5*B*C^2*A + 2*c*C^2*A + 8*b*B*A^2 + 8*B^2*A^2 + 2*b*a*A^2 + 6*B*a*A^2 + 12*b*c*A^2 + 16*B*c*A^2 + 6*a*c*A^2 + 8*c^2*A^2 + 6*b*C*A^2 + 10*B*C*A^2 + a*C*A^2 + 8*c*C*A^2 + 2*C^2*A^2 + 4*B*A^3 + 4*c*A^3 + 2*C*A^3) 
+
+(0, 2, 0) : 2^5 * C * c * (b + A) * (b + B + c + A) * (b + B + a + c + C + A) * (b*c + B*A + c*A)^2 * (b*a + B*a + b*c + a*c + b*C + B*C + B*A + c*A + C*A) * (2*b^3*a + 6*b^2*B*a + 6*b*B^2*a + 2*B^3*a + 2*b^2*a^2 + 4*b*B*a^2 + 2*B^2*a^2 + 4*b^3*c + 8*b^2*B*c + 4*b*B^2*c + 10*b^2*a*c + 16*b*B*a*c + 6*B^2*a*c + 5*b*a^2*c + 4*B*a^2*c + 8*b^2*c^2 + 8*b*B*c^2 + 10*b*a*c^2 + 6*B*a*c^2 + 2*a^2*c^2 + 4*b*c^3 + 2*a*c^3 + 2*b^3*C + 6*b^2*B*C + 6*b*B^2*C + 2*B^3*C + 4*b^2*a*C + 8*b*B*a*C + 4*B^2*a*C + 8*b^2*c*C + 12*b*B*c*C + 4*B^2*c*C + 7*b*a*c*C + 5*B*a*c*C + 6*b*c^2*C + 2*B*c^2*C + a*c^2*C + 2*b^2*C^2 + 4*b*B*C^2 + 2*B^2*C^2 + 2*b*c*C^2 + B*c*C^2 + 4*b^2*B*A + 8*b*B^2*A + 4*B^3*A + 4*b^2*a*A + 12*b*B*a*A + 8*B^2*a*A + b*a^2*A + 2*B*a^2*A + 12*b^2*c*A + 24*b*B*c*A + 12*B^2*c*A + 16*b*a*c*A + 16*B*a*c*A + 2*a^2*c*A + 16*b*c^2*A + 12*B*c^2*A + 8*a*c^2*A + 4*c^3*A + 6*b^2*C*A + 16*b*B*C*A + 10*B^2*C*A + 5*b*a*C*A + 7*B*a*C*A + 16*b*c*C*A + 16*B*c*C*A + 6*a*c*C*A + 6*c^2*C*A + 4*b*C^2*A + 5*B*C^2*A + 2*c*C^2*A + 8*b*B*A^2 + 8*B^2*A^2 + 2*b*a*A^2 + 6*B*a*A^2 + 12*b*c*A^2 + 16*B*c*A^2 + 6*a*c*A^2 + 8*c^2*A^2 + 6*b*C*A^2 + 10*B*C*A^2 + a*C*A^2 + 8*c*C*A^2 + 2*C^2*A^2 + 4*B*A^3 + 4*c*A^3 + 2*C*A^3) 
+
+(0, 2, 1, 0) : 2^5 * A * C * B * (b + B + c + A) * (b + B + a + c + C + A) * (b*c + B*A + c*A)^2 * (b*a + B*a + b*c + a*c + b*C + B*C + B*A + c*A + C*A) * (2*b^3*a + 6*b^2*B*a + 6*b*B^2*a + 2*B^3*a + 2*b^2*a^2 + 4*b*B*a^2 + 2*B^2*a^2 + 4*b^3*c + 8*b^2*B*c + 4*b*B^2*c + 10*b^2*a*c + 16*b*B*a*c + 6*B^2*a*c + 5*b*a^2*c + 4*B*a^2*c + 8*b^2*c^2 + 8*b*B*c^2 + 10*b*a*c^2 + 6*B*a*c^2 + 2*a^2*c^2 + 4*b*c^3 + 2*a*c^3 + 2*b^3*C + 6*b^2*B*C + 6*b*B^2*C + 2*B^3*C + 4*b^2*a*C + 8*b*B*a*C + 4*B^2*a*C + 8*b^2*c*C + 12*b*B*c*C + 4*B^2*c*C + 7*b*a*c*C + 5*B*a*c*C + 6*b*c^2*C + 2*B*c^2*C + a*c^2*C + 2*b^2*C^2 + 4*b*B*C^2 + 2*B^2*C^2 + 2*b*c*C^2 + B*c*C^2 + 4*b^2*B*A + 8*b*B^2*A + 4*B^3*A + 4*b^2*a*A + 12*b*B*a*A + 8*B^2*a*A + b*a^2*A + 2*B*a^2*A + 12*b^2*c*A + 24*b*B*c*A + 12*B^2*c*A + 16*b*a*c*A + 16*B*a*c*A + 2*a^2*c*A + 16*b*c^2*A + 12*B*c^2*A + 8*a*c^2*A + 4*c^3*A + 6*b^2*C*A + 16*b*B*C*A + 10*B^2*C*A + 5*b*a*C*A + 7*B*a*C*A + 16*b*c*C*A + 16*B*c*C*A + 6*a*c*C*A + 6*c^2*C*A + 4*b*C^2*A + 5*B*C^2*A + 2*c*C^2*A + 8*b*B*A^2 + 8*B^2*A^2 + 2*b*a*A^2 + 6*B*a*A^2 + 12*b*c*A^2 + 16*B*c*A^2 + 6*a*c*A^2 + 8*c^2*A^2 + 6*b*C*A^2 + 10*B*C*A^2 + a*C*A^2 + 8*c*C*A^2 + 2*C^2*A^2 + 4*B*A^3 + 4*c*A^3 + 2*C*A^3) 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DDerGH</span> <span class="o">=</span> <span class="n">double_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">reduce</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dict_Jg_lumped_merge</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DDerGH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_Jg_lumped_merge</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">dict_Jg_lumped_merge</span><span class="p">[</span><span class="n">key</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 0) : 2^5 * A1 * a0 * (c2 + B2) * (b1 + c2 + B2 + A1) * (b1 + c2 + B2 + a0 + A1 + C0) * (b1*c2 + c2*A1 + B2*A1)^2 * (b1*c2 + b1*a0 + c2*a0 + B2*a0 + c2*A1 + B2*A1 + b1*C0 + B2*C0 + A1*C0) * (4*b1^3*c2 + 8*b1^2*c2^2 + 4*b1*c2^3 + 8*b1^2*c2*B2 + 8*b1*c2^2*B2 + 4*b1*c2*B2^2 + 2*b1^3*a0 + 10*b1^2*c2*a0 + 10*b1*c2^2*a0 + 2*c2^3*a0 + 6*b1^2*B2*a0 + 16*b1*c2*B2*a0 + 6*c2^2*B2*a0 + 6*b1*B2^2*a0 + 6*c2*B2^2*a0 + 2*B2^3*a0 + 2*b1^2*a0^2 + 5*b1*c2*a0^2 + 2*c2^2*a0^2 + 4*b1*B2*a0^2 + 4*c2*B2*a0^2 + 2*B2^2*a0^2 + 12*b1^2*c2*A1 + 16*b1*c2^2*A1 + 4*c2^3*A1 + 4*b1^2*B2*A1 + 24*b1*c2*B2*A1 + 12*c2^2*B2*A1 + 8*b1*B2^2*A1 + 12*c2*B2^2*A1 + 4*B2^3*A1 + 4*b1^2*a0*A1 + 16*b1*c2*a0*A1 + 8*c2^2*a0*A1 + 12*b1*B2*a0*A1 + 16*c2*B2*a0*A1 + 8*B2^2*a0*A1 + b1*a0^2*A1 + 2*c2*a0^2*A1 + 2*B2*a0^2*A1 + 12*b1*c2*A1^2 + 8*c2^2*A1^2 + 8*b1*B2*A1^2 + 16*c2*B2*A1^2 + 8*B2^2*A1^2 + 2*b1*a0*A1^2 + 6*c2*a0*A1^2 + 6*B2*a0*A1^2 + 4*c2*A1^3 + 4*B2*A1^3 + 2*b1^3*C0 + 8*b1^2*c2*C0 + 6*b1*c2^2*C0 + 6*b1^2*B2*C0 + 12*b1*c2*B2*C0 + 2*c2^2*B2*C0 + 6*b1*B2^2*C0 + 4*c2*B2^2*C0 + 2*B2^3*C0 + 4*b1^2*a0*C0 + 7*b1*c2*a0*C0 + c2^2*a0*C0 + 8*b1*B2*a0*C0 + 5*c2*B2*a0*C0 + 4*B2^2*a0*C0 + 6*b1^2*A1*C0 + 16*b1*c2*A1*C0 + 6*c2^2*A1*C0 + 16*b1*B2*A1*C0 + 16*c2*B2*A1*C0 + 10*B2^2*A1*C0 + 5*b1*a0*A1*C0 + 6*c2*a0*A1*C0 + 7*B2*a0*A1*C0 + 6*b1*A1^2*C0 + 8*c2*A1^2*C0 + 10*B2*A1^2*C0 + a0*A1^2*C0 + 2*A1^3*C0 + 2*b1^2*C0^2 + 2*b1*c2*C0^2 + 4*b1*B2*C0^2 + c2*B2*C0^2 + 2*B2^2*C0^2 + 4*b1*A1*C0^2 + 2*c2*A1*C0^2 + 5*B2*A1*C0^2 + 2*A1^2*C0^2) 
+
+(0, 1, 2, 0) : 2^5 * a0 * c2 * b1 * (b1 + c2 + B2 + A1) * (b1 + c2 + B2 + a0 + A1 + C0) * (b1*c2 + c2*A1 + B2*A1)^2 * (b1*c2 + b1*a0 + c2*a0 + B2*a0 + c2*A1 + B2*A1 + b1*C0 + B2*C0 + A1*C0) * (4*b1^3*c2 + 8*b1^2*c2^2 + 4*b1*c2^3 + 8*b1^2*c2*B2 + 8*b1*c2^2*B2 + 4*b1*c2*B2^2 + 2*b1^3*a0 + 10*b1^2*c2*a0 + 10*b1*c2^2*a0 + 2*c2^3*a0 + 6*b1^2*B2*a0 + 16*b1*c2*B2*a0 + 6*c2^2*B2*a0 + 6*b1*B2^2*a0 + 6*c2*B2^2*a0 + 2*B2^3*a0 + 2*b1^2*a0^2 + 5*b1*c2*a0^2 + 2*c2^2*a0^2 + 4*b1*B2*a0^2 + 4*c2*B2*a0^2 + 2*B2^2*a0^2 + 12*b1^2*c2*A1 + 16*b1*c2^2*A1 + 4*c2^3*A1 + 4*b1^2*B2*A1 + 24*b1*c2*B2*A1 + 12*c2^2*B2*A1 + 8*b1*B2^2*A1 + 12*c2*B2^2*A1 + 4*B2^3*A1 + 4*b1^2*a0*A1 + 16*b1*c2*a0*A1 + 8*c2^2*a0*A1 + 12*b1*B2*a0*A1 + 16*c2*B2*a0*A1 + 8*B2^2*a0*A1 + b1*a0^2*A1 + 2*c2*a0^2*A1 + 2*B2*a0^2*A1 + 12*b1*c2*A1^2 + 8*c2^2*A1^2 + 8*b1*B2*A1^2 + 16*c2*B2*A1^2 + 8*B2^2*A1^2 + 2*b1*a0*A1^2 + 6*c2*a0*A1^2 + 6*B2*a0*A1^2 + 4*c2*A1^3 + 4*B2*A1^3 + 2*b1^3*C0 + 8*b1^2*c2*C0 + 6*b1*c2^2*C0 + 6*b1^2*B2*C0 + 12*b1*c2*B2*C0 + 2*c2^2*B2*C0 + 6*b1*B2^2*C0 + 4*c2*B2^2*C0 + 2*B2^3*C0 + 4*b1^2*a0*C0 + 7*b1*c2*a0*C0 + c2^2*a0*C0 + 8*b1*B2*a0*C0 + 5*c2*B2*a0*C0 + 4*B2^2*a0*C0 + 6*b1^2*A1*C0 + 16*b1*c2*A1*C0 + 6*c2^2*A1*C0 + 16*b1*B2*A1*C0 + 16*c2*B2*A1*C0 + 10*B2^2*A1*C0 + 5*b1*a0*A1*C0 + 6*c2*a0*A1*C0 + 7*B2*a0*A1*C0 + 6*b1*A1^2*C0 + 8*c2*A1^2*C0 + 10*B2*A1^2*C0 + a0*A1^2*C0 + 2*A1^3*C0 + 2*b1^2*C0^2 + 2*b1*c2*C0^2 + 4*b1*B2*C0^2 + c2*B2*C0^2 + 2*B2^2*C0^2 + 4*b1*A1*C0^2 + 2*c2*A1*C0^2 + 5*B2*A1*C0^2 + 2*A1^2*C0^2) 
+
+(1, 2, 1) : 2^5 * (a0 + C0) * B2 * b1 * (b1 + c2 + B2 + A1) * (b1 + c2 + B2 + a0 + A1 + C0) * (b1*c2 + c2*A1 + B2*A1)^2 * (b1*c2 + b1*a0 + c2*a0 + B2*a0 + c2*A1 + B2*A1 + b1*C0 + B2*C0 + A1*C0) * (4*b1^3*c2 + 8*b1^2*c2^2 + 4*b1*c2^3 + 8*b1^2*c2*B2 + 8*b1*c2^2*B2 + 4*b1*c2*B2^2 + 2*b1^3*a0 + 10*b1^2*c2*a0 + 10*b1*c2^2*a0 + 2*c2^3*a0 + 6*b1^2*B2*a0 + 16*b1*c2*B2*a0 + 6*c2^2*B2*a0 + 6*b1*B2^2*a0 + 6*c2*B2^2*a0 + 2*B2^3*a0 + 2*b1^2*a0^2 + 5*b1*c2*a0^2 + 2*c2^2*a0^2 + 4*b1*B2*a0^2 + 4*c2*B2*a0^2 + 2*B2^2*a0^2 + 12*b1^2*c2*A1 + 16*b1*c2^2*A1 + 4*c2^3*A1 + 4*b1^2*B2*A1 + 24*b1*c2*B2*A1 + 12*c2^2*B2*A1 + 8*b1*B2^2*A1 + 12*c2*B2^2*A1 + 4*B2^3*A1 + 4*b1^2*a0*A1 + 16*b1*c2*a0*A1 + 8*c2^2*a0*A1 + 12*b1*B2*a0*A1 + 16*c2*B2*a0*A1 + 8*B2^2*a0*A1 + b1*a0^2*A1 + 2*c2*a0^2*A1 + 2*B2*a0^2*A1 + 12*b1*c2*A1^2 + 8*c2^2*A1^2 + 8*b1*B2*A1^2 + 16*c2*B2*A1^2 + 8*B2^2*A1^2 + 2*b1*a0*A1^2 + 6*c2*a0*A1^2 + 6*B2*a0*A1^2 + 4*c2*A1^3 + 4*B2*A1^3 + 2*b1^3*C0 + 8*b1^2*c2*C0 + 6*b1*c2^2*C0 + 6*b1^2*B2*C0 + 12*b1*c2*B2*C0 + 2*c2^2*B2*C0 + 6*b1*B2^2*C0 + 4*c2*B2^2*C0 + 2*B2^3*C0 + 4*b1^2*a0*C0 + 7*b1*c2*a0*C0 + c2^2*a0*C0 + 8*b1*B2*a0*C0 + 5*c2*B2*a0*C0 + 4*B2^2*a0*C0 + 6*b1^2*A1*C0 + 16*b1*c2*A1*C0 + 6*c2^2*A1*C0 + 16*b1*B2*A1*C0 + 16*c2*B2*A1*C0 + 10*B2^2*A1*C0 + 5*b1*a0*A1*C0 + 6*c2*a0*A1*C0 + 7*B2*a0*A1*C0 + 6*b1*A1^2*C0 + 8*c2*A1^2*C0 + 10*B2*A1^2*C0 + a0*A1^2*C0 + 2*A1^3*C0 + 2*b1^2*C0^2 + 2*b1*c2*C0^2 + 4*b1*B2*C0^2 + c2*B2*C0^2 + 2*B2^2*C0^2 + 4*b1*A1*C0^2 + 2*c2*A1*C0^2 + 5*B2*A1*C0^2 + 2*A1^2*C0^2) 
+
+(0, 2, 0) : 2^5 * C0 * c2 * (b1 + A1) * (b1 + c2 + B2 + A1) * (b1 + c2 + B2 + a0 + A1 + C0) * (b1*c2 + c2*A1 + B2*A1)^2 * (b1*c2 + b1*a0 + c2*a0 + B2*a0 + c2*A1 + B2*A1 + b1*C0 + B2*C0 + A1*C0) * (4*b1^3*c2 + 8*b1^2*c2^2 + 4*b1*c2^3 + 8*b1^2*c2*B2 + 8*b1*c2^2*B2 + 4*b1*c2*B2^2 + 2*b1^3*a0 + 10*b1^2*c2*a0 + 10*b1*c2^2*a0 + 2*c2^3*a0 + 6*b1^2*B2*a0 + 16*b1*c2*B2*a0 + 6*c2^2*B2*a0 + 6*b1*B2^2*a0 + 6*c2*B2^2*a0 + 2*B2^3*a0 + 2*b1^2*a0^2 + 5*b1*c2*a0^2 + 2*c2^2*a0^2 + 4*b1*B2*a0^2 + 4*c2*B2*a0^2 + 2*B2^2*a0^2 + 12*b1^2*c2*A1 + 16*b1*c2^2*A1 + 4*c2^3*A1 + 4*b1^2*B2*A1 + 24*b1*c2*B2*A1 + 12*c2^2*B2*A1 + 8*b1*B2^2*A1 + 12*c2*B2^2*A1 + 4*B2^3*A1 + 4*b1^2*a0*A1 + 16*b1*c2*a0*A1 + 8*c2^2*a0*A1 + 12*b1*B2*a0*A1 + 16*c2*B2*a0*A1 + 8*B2^2*a0*A1 + b1*a0^2*A1 + 2*c2*a0^2*A1 + 2*B2*a0^2*A1 + 12*b1*c2*A1^2 + 8*c2^2*A1^2 + 8*b1*B2*A1^2 + 16*c2*B2*A1^2 + 8*B2^2*A1^2 + 2*b1*a0*A1^2 + 6*c2*a0*A1^2 + 6*B2*a0*A1^2 + 4*c2*A1^3 + 4*B2*A1^3 + 2*b1^3*C0 + 8*b1^2*c2*C0 + 6*b1*c2^2*C0 + 6*b1^2*B2*C0 + 12*b1*c2*B2*C0 + 2*c2^2*B2*C0 + 6*b1*B2^2*C0 + 4*c2*B2^2*C0 + 2*B2^3*C0 + 4*b1^2*a0*C0 + 7*b1*c2*a0*C0 + c2^2*a0*C0 + 8*b1*B2*a0*C0 + 5*c2*B2*a0*C0 + 4*B2^2*a0*C0 + 6*b1^2*A1*C0 + 16*b1*c2*A1*C0 + 6*c2^2*A1*C0 + 16*b1*B2*A1*C0 + 16*c2*B2*A1*C0 + 10*B2^2*A1*C0 + 5*b1*a0*A1*C0 + 6*c2*a0*A1*C0 + 7*B2*a0*A1*C0 + 6*b1*A1^2*C0 + 8*c2*A1^2*C0 + 10*B2*A1^2*C0 + a0*A1^2*C0 + 2*A1^3*C0 + 2*b1^2*C0^2 + 2*b1*c2*C0^2 + 4*b1*B2*C0^2 + c2*B2*C0^2 + 2*B2^2*C0^2 + 4*b1*A1*C0^2 + 2*c2*A1*C0^2 + 5*B2*A1*C0^2 + 2*A1^2*C0^2) 
+
+(0, 2, 1, 0) : 2^5 * C0 * A1 * B2 * (b1 + c2 + B2 + A1) * (b1 + c2 + B2 + a0 + A1 + C0) * (b1*c2 + c2*A1 + B2*A1)^2 * (b1*c2 + b1*a0 + c2*a0 + B2*a0 + c2*A1 + B2*A1 + b1*C0 + B2*C0 + A1*C0) * (4*b1^3*c2 + 8*b1^2*c2^2 + 4*b1*c2^3 + 8*b1^2*c2*B2 + 8*b1*c2^2*B2 + 4*b1*c2*B2^2 + 2*b1^3*a0 + 10*b1^2*c2*a0 + 10*b1*c2^2*a0 + 2*c2^3*a0 + 6*b1^2*B2*a0 + 16*b1*c2*B2*a0 + 6*c2^2*B2*a0 + 6*b1*B2^2*a0 + 6*c2*B2^2*a0 + 2*B2^3*a0 + 2*b1^2*a0^2 + 5*b1*c2*a0^2 + 2*c2^2*a0^2 + 4*b1*B2*a0^2 + 4*c2*B2*a0^2 + 2*B2^2*a0^2 + 12*b1^2*c2*A1 + 16*b1*c2^2*A1 + 4*c2^3*A1 + 4*b1^2*B2*A1 + 24*b1*c2*B2*A1 + 12*c2^2*B2*A1 + 8*b1*B2^2*A1 + 12*c2*B2^2*A1 + 4*B2^3*A1 + 4*b1^2*a0*A1 + 16*b1*c2*a0*A1 + 8*c2^2*a0*A1 + 12*b1*B2*a0*A1 + 16*c2*B2*a0*A1 + 8*B2^2*a0*A1 + b1*a0^2*A1 + 2*c2*a0^2*A1 + 2*B2*a0^2*A1 + 12*b1*c2*A1^2 + 8*c2^2*A1^2 + 8*b1*B2*A1^2 + 16*c2*B2*A1^2 + 8*B2^2*A1^2 + 2*b1*a0*A1^2 + 6*c2*a0*A1^2 + 6*B2*a0*A1^2 + 4*c2*A1^3 + 4*B2*A1^3 + 2*b1^3*C0 + 8*b1^2*c2*C0 + 6*b1*c2^2*C0 + 6*b1^2*B2*C0 + 12*b1*c2*B2*C0 + 2*c2^2*B2*C0 + 6*b1*B2^2*C0 + 4*c2*B2^2*C0 + 2*B2^3*C0 + 4*b1^2*a0*C0 + 7*b1*c2*a0*C0 + c2^2*a0*C0 + 8*b1*B2*a0*C0 + 5*c2*B2*a0*C0 + 4*B2^2*a0*C0 + 6*b1^2*A1*C0 + 16*b1*c2*A1*C0 + 6*c2^2*A1*C0 + 16*b1*B2*A1*C0 + 16*c2*B2*A1*C0 + 10*B2^2*A1*C0 + 5*b1*a0*A1*C0 + 6*c2*a0*A1*C0 + 7*B2*a0*A1*C0 + 6*b1*A1^2*C0 + 8*c2*A1^2*C0 + 10*B2*A1^2*C0 + a0*A1^2*C0 + 2*A1^3*C0 + 2*b1^2*C0^2 + 2*b1*c2*C0^2 + 4*b1*B2*C0^2 + c2*B2*C0^2 + 2*B2^2*C0^2 + 4*b1*A1*C0^2 + 2*c2*A1*C0^2 + 5*B2*A1*C0^2 + 2*A1^2*C0^2) 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "sage-10.3"
+        },
+        kernelOptions: {
+            name: "sage-10.3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'sage-10.3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Greg Conradi Smith
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

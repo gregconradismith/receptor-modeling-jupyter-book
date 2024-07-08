@@ -181,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamic_constraints_and_allosteric_parameters.html">Thermodynamic constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
@@ -229,6 +230,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
 </ul>
 
     </div>
@@ -550,7 +552,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b87f71d861b8775dd2c4ccae9a958139aa521fb680c86a59191048abec169aba.png" src="_images/b87f71d861b8775dd2c4ccae9a958139aa521fb680c86a59191048abec169aba.png" />
+<img alt="_images/eebc3258d0b913976077243fa4dc3623f2656e75ecf7662db19eda8ae47c63ab.png" src="_images/eebc3258d0b913976077243fa4dc3623f2656e75ecf7662db19eda8ae47c63ab.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -561,7 +563,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eaba91d861d02473ebe317cdf64209328805b82498fd9760345416622cb99146.png" src="_images/eaba91d861d02473ebe317cdf64209328805b82498fd9760345416622cb99146.png" />
+<img alt="_images/4afc8da4fa3482c8d18cde1e537debd00567a3db651b3b23d2cfa561606b5d53.png" src="_images/4afc8da4fa3482c8d18cde1e537debd00567a3db651b3b23d2cfa561606b5d53.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -577,7 +579,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/681ac52c1357e35e81bcfd1aebb64ee1ba1713ad514ce4c7a0bb918572371b7e.png" src="_images/681ac52c1357e35e81bcfd1aebb64ee1ba1713ad514ce4c7a0bb918572371b7e.png" />
+<img alt="_images/5ee9b1ce4c948e978de2ede0b3c09f783b2d8691d9910345687b2bdf53dab4da.png" src="_images/5ee9b1ce4c948e978de2ede0b3c09f783b2d8691d9910345687b2bdf53dab4da.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[        a01 + a02              -a01              -a02                 0                 0                 0]
 [             -a01 2*a01 + a02 + a12              -a12              -a01              -a02                 0]
 [             -a02              -a12 a01 + 2*a02 + a12                 0              -a01              -a02]
@@ -605,7 +607,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ff8520c8a4e366ff9e839642be33cbd8c112ba449041fe549889e175a1c1b937.png" src="_images/ff8520c8a4e366ff9e839642be33cbd8c112ba449041fe549889e175a1c1b937.png" />
+<img alt="_images/bebc6bff259978ee0961af0584f64ef022ad2eb6d109bca0442c91f5a1227a66.png" src="_images/bebc6bff259978ee0961af0584f64ef022ad2eb6d109bca0442c91f5a1227a66.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[        2*a01 + 2*a02                -2*a01                -2*a02                     0                     0                     0]
 [                 -a10 a01 + a02 + a10 + a12                  -a12                  -a01                  -a02                     0]
 [                 -a20                  -a21 a01 + a02 + a20 + a21                     0                  -a01                  -a02]
@@ -634,7 +636,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 1187343891269694642309198417406636743388000595418407837505224529723117873425106862080000000000000000000000000000 spanning trees.  Here is one:
 </pre></div>
 </div>
-<img alt="_images/ada48cdd4569fd48970653f48b8d821d4912c373233e6e1db3f8ada74c6cb9fa.png" src="_images/ada48cdd4569fd48970653f48b8d821d4912c373233e6e1db3f8ada74c6cb9fa.png" />
+<img alt="_images/ce8ee814891a9b01c5b5f785cee99cd5d38b4a0921af1509e335562da74250ab.png" src="_images/ce8ee814891a9b01c5b5f785cee99cd5d38b4a0921af1509e335562da74250ab.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -648,7 +650,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1aad9aeaee5e2df0d685550783e4c3d380c21b1931152b04284133fb0fd420f8.png" src="_images/1aad9aeaee5e2df0d685550783e4c3d380c21b1931152b04284133fb0fd420f8.png" />
+<img alt="_images/03f283433bc72a17f7106f882382aae452f5d9389df725279fb302f842263220.png" src="_images/03f283433bc72a17f7106f882382aae452f5d9389df725279fb302f842263220.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36*(2*a01^2 + 4*a01*a02 + 2*a02^2 + 4*a01*a10 + 5*a02*a10 + 2*a10^2 + 5*a01*a12 + 5*a02*a12 + 4*a10*a12 + 2*a12^2 + 5*a01*a20 + 4*a02*a20 + 5*a10*a20 + 5*a12*a20 + 2*a20^2 + 5*a01*a21 + 5*a02*a21 + 5*a10*a21 + 4*a12*a21 + 4*a20*a21 + 2*a21^2)*(a10*a20 + a12*a20 + a10*a21)^3*(a01 + a02 + a10 + a12 + a20 + a21)
 </pre></div>
 </div>
@@ -669,8 +671,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1099f13218c7e74474ef7326f3d21cbe649c694d9a26c3d1e3ef139d32a55f79.png" src="_images/1099f13218c7e74474ef7326f3d21cbe649c694d9a26c3d1e3ef139d32a55f79.png" />
-<img alt="_images/e496fcaa2f89c61be1ee464d39eaa1954b94c785335d126f8f246b02067e450f.png" src="_images/e496fcaa2f89c61be1ee464d39eaa1954b94c785335d126f8f246b02067e450f.png" />
+<img alt="_images/e45c35c402cf29747282cce1aafce30141f666e29337cef7e12a6a07382948a1.png" src="_images/e45c35c402cf29747282cce1aafce30141f666e29337cef7e12a6a07382948a1.png" />
+<img alt="_images/6c8967f665c5bd806754444fbb68c907c0743f9897639a86c2f84c7736b466df.png" src="_images/6c8967f665c5bd806754444fbb68c907c0743f9897639a86c2f84c7736b466df.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8*(a01*a02*a10 + a02^2*a10 + a02*a10^2 + a01^2*a12 + 2*a01*a02*a12 + a02^2*a12 + a01*a10*a12 + 2*a02*a10*a12 + a01*a12^2 + a02*a12^2 + a01^2*a20 + a01*a02*a20 + 2*a01*a10*a20 + 2*a02*a10*a20 + a10^2*a20 + 3*a01*a12*a20 + 2*a02*a12*a20 + 2*a10*a12*a20 + a12^2*a20 + a01*a20^2 + a10*a20^2 + a12*a20^2 + a01^2*a21 + 2*a01*a02*a21 + a02^2*a21 + 2*a01*a10*a21 + 3*a02*a10*a21 + a10^2*a21 + 2*a01*a12*a21 + 2*a02*a12*a21 + a10*a12*a21 + 2*a01*a20*a21 + a02*a20*a21 + 2*a10*a20*a21 + a12*a20*a21 + a01*a21^2 + a02*a21^2 + a10*a21^2 + a01^2*a23 + 2*a01*a02*a23 + a02^2*a23 + 2*a01*a10*a23 + 2*a02*a10*a23 + a10^2*a23 + 2*a01*a12*a23 + 2*a02*a12*a23 + 2*a10*a12*a23 + a12^2*a23 + 2*a01*a20*a23 + a02*a20*a23 + 2*a10*a20*a23 + 2*a12*a20*a23 + 2*a01*a21*a23 + 2*a02*a21*a23 + 2*a10*a21*a23 + a12*a21*a23 + a01*a23^2 + a02*a23^2 + a10*a23^2 + a12*a23^2 + a01^2*a32 + 2*a01*a02*a32 + a02^2*a32 + 2*a01*a10*a32 + 2*a02*a10*a32 + a10^2*a32 + 2*a01*a12*a32 + 2*a02*a12*a32 + 2*a10*a12*a32 + a12^2*a32 + 2*a01*a20*a32 + 2*a02*a20*a32 + 2*a10*a20*a32 + 2*a12*a20*a32 + a20^2*a32 + 2*a01*a21*a32 + 2*a02*a21*a32 + 2*a10*a21*a32 + 2*a12*a21*a32 + 2*a20*a21*a32 + a21^2*a32 + 2*a01*a23*a32 + 2*a02*a23*a32 + 2*a10*a23*a32 + 2*a12*a23*a32 + a20*a23*a32 + a21*a23*a32 + a01*a32^2 + a02*a32^2 + a10*a32^2 + a12*a32^2 + a20*a32^2 + a21*a32^2)*(a10*a20 + a12*a20 + a10*a21)^2*a32^2
 </pre></div>
 </div>

@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamic_constraints_and_allosteric_parameters.html">Thermodynamic constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
@@ -230,6 +231,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
 </ul>
 
     </div>
@@ -672,8 +674,8 @@ In this case, each relative probability is a monomial with two factors.</p>
 </div>
 <p>This three-state receptor model has no cycles.  For this reason the steady-state probabilities will satisfy detailed balance. This  implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define equilibrium constants as <span class="math notranslate nohighlight">\(\kappa_{j}=a_{ij}/a_{ji}\)</span> for <span class="math notranslate nohighlight">\(i &lt; j\)</span> whenever vertex <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are adjacent.
 Dividing the numerator and denominator of each <span class="math notranslate nohighlight">\(p_i\)</span> by <span class="math notranslate nohighlight">\(a_{10}a_{21}\)</span> yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-93b02cd6-5bd0-4bd1-a658-f7faf0dee1ea">
-<span class="eqno">(5)<a class="headerlink" href="#equation-93b02cd6-5bd0-4bd1-a658-f7faf0dee1ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8ca498ac-9fb4-45e1-a7b7-ee6c6083f8d0">
+<span class="eqno">(5)<a class="headerlink" href="#equation-8ca498ac-9fb4-45e1-a7b7-ee6c6083f8d0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 p_0 = \frac{1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_1 = \frac{\kappa_1}{1+\kappa_1+\kappa_1\kappa_2} \quad p_2 = \frac{\kappa_1 \kappa_2}{1+\kappa_1+\kappa_1\kappa_2}
 \end{equation}\]</div>
 <p>This confirms that the steady-state probabilities of this three-state receptor model can be written in terms of equilibrium constants.</p>

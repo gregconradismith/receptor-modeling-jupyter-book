@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tools and Examples - Part 1" href="tools_and_examples_part1.html" />
-    <link rel="prev" title="Ligand binding" href="ligands.html" />
+    <link rel="prev" title="Thermodynamic constraints" href="thermodynamic_constraints_and_allosteric_parameters.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamic_constraints_and_allosteric_parameters.html">Thermodynamic constraints</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
@@ -230,6 +231,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
 </ul>
 
     </div>
@@ -546,18 +548,18 @@ document.write(`
 <div class="math notranslate nohighlight" id="equation-equilibrium-z">
 <span class="eqno">(1)<a class="headerlink" href="#equation-equilibrium-z" title="Link to this equation">#</a></span>\[z_a = 1 \quad z_b = \kappab = \kappabstar x \quad  z_c =\kappab \kappac = \kappabstar \kappacstar x^2 \, .\]</div>
 <p>That is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7aece80f-1c50-40ef-a54b-87a1d10f4674">
-<span class="eqno">(2)<a class="headerlink" href="#equation-7aece80f-1c50-40ef-a54b-87a1d10f4674" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6cd3a90e-3957-4889-a888-ff1131a8e56a">
+<span class="eqno">(2)<a class="headerlink" href="#equation-6cd3a90e-3957-4889-a888-ff1131a8e56a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \pi_a =  \frac{1}{1+ \kappabstar x  +  \kappabstar \kappacstar x^2} \, ,  \quad \pi_b =  \frac{\kappabstar x}{1+ \kappabstar x +  \kappabstar  \kappacstar x^2}   \quad \mbox{and}  \quad \pi_c = \frac{\kappabstar  \kappacstar x^2 }{1+ \kappabstar x +  \kappabstar \kappacstar x^2 }  \, .
 \end{equation}\]</div>
 <p>It is helpful to  present this set of rational functions using the following compact notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bdceb049-509a-4e94-8925-bccb5531e85d">
-<span class="eqno">(3)<a class="headerlink" href="#equation-bdceb049-509a-4e94-8925-bccb5531e85d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a356bbf0-d63e-46c0-bb62-32a0ad12e9a0">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a356bbf0-d63e-46c0-bb62-32a0ad12e9a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_a  :  \pi_b :  \pi_c ] = [1 :\kappab : \kappab \kappac ]  = [1 : \kappabstar x :\kappabstar \kappacstar x^2  ] \,  .
 \end{equation}\]</div>
 <p>In expressions of this kind,  it is understood that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f44f24a-5275-4c09-aa90-a2cbb8cb5688">
-<span class="eqno">(4)<a class="headerlink" href="#equation-7f44f24a-5275-4c09-aa90-a2cbb8cb5688" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b8212b3a-d632-4a4a-9cb9-eb811e5ce0e6">
+<span class="eqno">(4)<a class="headerlink" href="#equation-b8212b3a-d632-4a4a-9cb9-eb811e5ce0e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 [ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ] = [ \lambda z_1 \! : \! \lambda  z_2 : \! \cdots \! : \! \lambda  z_n ]
 \end{equation}\]</div>
 <p>for any <span class="math notranslate nohighlight">\(\lambda \neq 0\)</span>.  Furthermore, <span class="math notranslate nohighlight">\(\lambda = 1/\sum_i x_n\)</span> gives the probability distribution <span class="math notranslate nohighlight">\(\pi = (\pi_1, \pi_2, \ldots, \pi_n)\)</span> where <span class="math notranslate nohighlight">\(1=\sum_i \pi_i\)</span>.  Prior to normalization, we will refer to <span class="math notranslate nohighlight">\([ z_1 \! : \! z_2 : \! \cdots \! : \! z_n ]\)</span> as <em>relative probabilites</em> for each receptor state.</p>
@@ -642,7 +644,7 @@ p[1] = x/(x^2 + x + 1)
 p[2] = x^2/(x^2 + x + 1)
 </pre></div>
 </div>
-<img alt="_images/0c3a1da09e09716b1e317f906f81f1df9a5162ed2f115cf773aa2724ed2acf29.png" src="_images/0c3a1da09e09716b1e317f906f81f1df9a5162ed2f115cf773aa2724ed2acf29.png" />
+<img alt="_images/1a01f041dcd46e11e8863bdacb2acfb512bd7ac491ad03e5b8277acc0ef0cb76.png" src="_images/1a01f041dcd46e11e8863bdacb2acfb512bd7ac491ad03e5b8277acc0ef0cb76.png" />
 </div>
 </div>
 <p>The above plot can be compared to those in the previous section (<a class="reference internal" href="ligands.html"><span class="doc std std-doc">Ligand Binding</span></a>). The only distinction is the usage of the notation that is the focus of this section. This notation is especially helpful in the analysis of conformational coupling of <a class="reference internal" href="receptor_dimers_overview.html#receptor-dimers-overview"><span class="std std-ref">recepter dimers</span></a> and higher-order oligomers.</p>
@@ -690,12 +692,12 @@ p[2] = x^2/(x^2 + x + 1)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ligands.html"
+       href="thermodynamic_constraints_and_allosteric_parameters.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ligand binding</p>
+        <p class="prev-next-title">Thermodynamic constraints</p>
       </div>
     </a>
     <a class="right-next"

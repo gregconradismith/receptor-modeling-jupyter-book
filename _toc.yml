@@ -9,6 +9,7 @@ parts:
     - file: receptor_modeling_overview
     - file: states_and_transitions
     - file: ligands
+    - file: thermodynamic_constraints_and_allosteric_parameters
     - file: equilibrium
     - file: tools_and_examples_part1 
   - caption: Receptor Dimers
@@ -35,7 +36,7 @@ parts:
     - file: cycle_fluxes_overview
     - file: cycle_fluxes
     - file: tree_polynomials
-
+    - file: cycle_fluxes_derived_chains
     - file: further_reading
   - caption: Wang algebras
     chapters:
@@ -52,5 +53,6 @@ parts:
     - file: plotting-hypercubes
     - file: practicing-python
     - file: receptor_tools
+    - file: receptor_tools_cycle_fluxes
 
 

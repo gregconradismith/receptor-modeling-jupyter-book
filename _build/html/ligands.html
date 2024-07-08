@@ -61,7 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'ligands';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Equilibrium formalism" href="equilibrium.html" />
+    <link rel="next" title="Thermodynamic constraints" href="thermodynamic_constraints_and_allosteric_parameters.html" />
     <link rel="prev" title="States and transitions" href="states_and_transitions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamic_constraints_and_allosteric_parameters.html">Thermodynamic constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
@@ -230,6 +231,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
 </ul>
 
     </div>
@@ -567,7 +569,7 @@ RLL = L^2*kap*kbp/(L^2*kap*kbp + L*kap*kbm + kam*kbm)
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/27cdaeaa3d191789e6e3654022382725471d988335aa273de0c9311790399868.png" src="_images/27cdaeaa3d191789e6e3654022382725471d988335aa273de0c9311790399868.png" />
+<img alt="_images/8d204180e3ab699081cf8cf599fa331cb158196947eaf7ba35e0484b1b18879e.png" src="_images/8d204180e3ab699081cf8cf599fa331cb158196947eaf7ba35e0484b1b18879e.png" />
 </div>
 </div>
 <p>At low ligand concentration most receptors are in the unbound form (<code class="docutils literal notranslate"><span class="pre">R</span></code>, red). At high concentrations most receptors are in the doubly bound form (<code class="docutils literal notranslate"><span class="pre">RLL</span></code>, blue).</p>
@@ -655,7 +657,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R   = 1/(10*L^2 + L + 1)  RL  = L/(10*L^2 + L + 1)  RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/e2aa735ee26cfde4a5cfa50c196ed3e1d5c5735542d86ba62fedfbdebc4252d4.png" src="_images/e2aa735ee26cfde4a5cfa50c196ed3e1d5c5735542d86ba62fedfbdebc4252d4.png" />
+<img alt="_images/3213f1b07f13665301e3e26da62413cf0ab2eff96b11e075ac3db320e9420afd.png" src="_images/3213f1b07f13665301e3e26da62413cf0ab2eff96b11e075ac3db320e9420afd.png" />
 </div>
 </div>
 </section>
@@ -671,7 +673,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" src="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" />
+<img alt="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" src="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" />
 </div>
 </div>
 <p>In the arborescence shown above, the root is state <code class="docutils literal notranslate"><span class="pre">R</span></code>. The edge label <code class="docutils literal notranslate"><span class="pre">ka*L</span></code> is the product of an equilibrium association constant <code class="docutils literal notranslate"><span class="pre">ka</span></code> and ligand concentration <code class="docutils literal notranslate"><span class="pre">L</span></code>, and similarly for reaction <code class="docutils literal notranslate"><span class="pre">b</span></code>.  Comparing to the diagram above, we see that <code class="docutils literal notranslate"><span class="pre">kappa_a</span> <span class="pre">=</span> <span class="pre">ka*L</span></code> and <code class="docutils literal notranslate"><span class="pre">kappa_b</span> <span class="pre">=</span> <span class="pre">kb*L</span></code>.</p>
@@ -689,7 +691,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/143a04ddd6568fc73bc635323ba08e7929f7cd6dee2dbae70fa5f464a22c6674.png" src="_images/143a04ddd6568fc73bc635323ba08e7929f7cd6dee2dbae70fa5f464a22c6674.png" />
+<img alt="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" src="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" />
 </div>
 </div>
 <div class="tip admonition">
@@ -740,11 +742,11 @@ RLL = 10*L^2/(10*L^2 + L + 1)
       </div>
     </a>
     <a class="right-next"
-       href="equilibrium.html"
+       href="thermodynamic_constraints_and_allosteric_parameters.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Equilibrium formalism</p>
+        <p class="prev-next-title">Thermodynamic constraints</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

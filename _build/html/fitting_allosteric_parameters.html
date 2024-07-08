@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamic_constraints_and_allosteric_parameters.html">Thermodynamic constraints</a></li>
 <li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
 </ul>
@@ -230,6 +231,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
 </ul>
 
     </div>
@@ -543,13 +545,13 @@ document.write(`
 
 eta_list = [eta_bb, eta_bc, eta_cc, eta_bd, eta_cd, eta_dd]
 
-phi = [1.00, 0.00, 0.00, 0.00]
+phi = [0.00, 0.00, 0.50, 0.50]
 
 Phi = 
-      [2.00, 0.00, 0.00, 0.00]
       [0.00, 0.00, 0.00, 0.00]
       [0.00, 0.00, 0.00, 0.00]
-      [0.00, 0.00, 0.00, 0.00]
+      [0.00, 0.00, 0.50, 0.25]
+      [0.00, 0.00, 0.00, 0.50]
 </pre></div>
 </div>
 </div>
@@ -564,7 +566,7 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><html>\(\displaystyle \frac{2.0}{\kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 2.0 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 2.0 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 2.0 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 2.0 \kappa_{b} \kappa_{c} \kappa_{d} + \kappa_{b}^{2} \eta_{\mathit{bb}} + 2.0 \kappa_{b} \kappa_{c} + 2.0 \kappa_{b} + 1.0}\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>binding = 2.0/(kappa_b^2*kappa_c^2*kappa_d^2*eta_bb*eta_bc^2*eta_cc*eta_bd^2*eta_cd^2*eta_dd + 2.0*kappa_b^2*kappa_c^2*kappa_d*eta_bb*eta_bc^2*eta_cc*eta_bd*eta_cd + kappa_b^2*kappa_c^2*eta_bb*eta_bc^2*eta_cc + 2.0*kappa_b^2*kappa_c*kappa_d*eta_bb*eta_bc*eta_bd + 2.0*kappa_b^2*kappa_c*eta_bb*eta_bc + 2.0*kappa_b*kappa_c*kappa_d + kappa_b^2*eta_bb + 2.0*kappa_b*kappa_c + 2.0*kappa_b + 1.0)
+<div class="output text_html"><html>\(\displaystyle \frac{0.5 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.5 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + 0.5 \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}}}{\kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 2.0 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 2.0 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 2.0 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 2.0 \kappa_{b} \kappa_{c} \kappa_{d} + \kappa_{b}^{2} \eta_{\mathit{bb}} + 2.0 \kappa_{b} \kappa_{c} + 2.0 \kappa_{b} + 1.0}\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>binding = (0.5*kappa_b^2*kappa_c^2*kappa_d^2*eta_bb*eta_bc^2*eta_cc*eta_bd^2*eta_cd^2*eta_dd + 0.5*kappa_b^2*kappa_c^2*kappa_d*eta_bb*eta_bc^2*eta_cc*eta_bd*eta_cd + 0.5*kappa_b^2*kappa_c^2*eta_bb*eta_bc^2*eta_cc)/(kappa_b^2*kappa_c^2*kappa_d^2*eta_bb*eta_bc^2*eta_cc*eta_bd^2*eta_cd^2*eta_dd + 2.0*kappa_b^2*kappa_c^2*kappa_d*eta_bb*eta_bc^2*eta_cc*eta_bd*eta_cd + kappa_b^2*kappa_c^2*eta_bb*eta_bc^2*eta_cc + 2.0*kappa_b^2*kappa_c*kappa_d*eta_bb*eta_bc*eta_bd + 2.0*kappa_b^2*kappa_c*eta_bb*eta_bc + 2.0*kappa_b*kappa_c*kappa_d + kappa_b^2*eta_bb + 2.0*kappa_b*kappa_c + 2.0*kappa_b + 1.0)
 </pre></div>
 </div>
 </div>
@@ -598,10 +600,10 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{kappa_b: 0.18*X, kappa_c: 1.82*X, kappa_d: 0.0573*X}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{kappa_b: 0.648*X, kappa_c: 1.47, kappa_d: 0.749}
 </pre></div>
 </div>
-<div class="output text_html"><html>\(\displaystyle \frac{2.0}{0.00035236846139039994 \, X^{6} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.012299073696 \, X^{5} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 0.10732176 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.006757732799999999 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.117936 \, X^{3} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.03754296 \, X^{3} + 0.0324 \, X^{2} \eta_{\mathit{bb}} + 0.6552 \, X^{2} + 0.36 \, X + 1.0}\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>binding_x = 2.0/(0.00035236846139039994*X^6*eta_bb*eta_bc^2*eta_bd^2*eta_cc*eta_cd^2*eta_dd + 0.012299073696*X^5*eta_bb*eta_bc^2*eta_bd*eta_cc*eta_cd + 0.10732176*X^4*eta_bb*eta_bc^2*eta_cc + 0.006757732799999999*X^4*eta_bb*eta_bc*eta_bd + 0.117936*X^3*eta_bb*eta_bc + 0.03754296*X^3 + 0.0324*X^2*eta_bb + 0.6552*X^2 + 0.36*X + 1.0)
+<div class="output text_html"><html>\(\displaystyle \frac{0.2545178939700768 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.3398102723232 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 0.4536852768 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}}}{0.5090357879401536 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 1.3592410892928 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 0.9073705536 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.9246538022399999 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 1.23451776 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.419904 \, X^{2} \eta_{\mathit{bb}} + 4.62805488 \, X + 1.0}\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>binding_x = (0.2545178939700768*X^2*eta_bb*eta_bc^2*eta_bd^2*eta_cc*eta_cd^2*eta_dd + 0.3398102723232*X^2*eta_bb*eta_bc^2*eta_bd*eta_cc*eta_cd + 0.4536852768*X^2*eta_bb*eta_bc^2*eta_cc)/(0.5090357879401536*X^2*eta_bb*eta_bc^2*eta_bd^2*eta_cc*eta_cd^2*eta_dd + 1.3592410892928*X^2*eta_bb*eta_bc^2*eta_bd*eta_cc*eta_cd + 0.9073705536*X^2*eta_bb*eta_bc^2*eta_cc + 0.9246538022399999*X^2*eta_bb*eta_bc*eta_bd + 1.23451776*X^2*eta_bb*eta_bc + 0.419904*X^2*eta_bb + 4.62805488*X + 1.0)
 </pre></div>
 </div>
 </div>
@@ -653,7 +655,7 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2a422e2bcbdbaa0aaf01e9193381d1bc248cfb9047d7eefb590f900cdba4abad.png" src="_images/2a422e2bcbdbaa0aaf01e9193381d1bc248cfb9047d7eefb590f900cdba4abad.png" />
+<img alt="_images/ac361b4f7e1a8bf1d164b92ee34f6c754c8462a5f04ae7d33faeba5f365308de.png" src="_images/ac361b4f7e1a8bf1d164b92ee34f6c754c8462a5f04ae7d33faeba5f365308de.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -744,7 +746,7 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b27d8e3a8a2a38e2586d8a579a673409bbdfdf976d90efdf3dc65aaeb8880264.png" src="_images/b27d8e3a8a2a38e2586d8a579a673409bbdfdf976d90efdf3dc65aaeb8880264.png" />
+<img alt="_images/931b6a25f3f176573ca62091814b2510bc34c0dc8a4209e652f4319d8a135690.png" src="_images/931b6a25f3f176573ca62091814b2510bc34c0dc8a4209e652f4319d8a135690.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -783,122 +785,231 @@ Phi =
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 1.]
 </pre></div>
 </div>
-<img alt="_images/842217e45c5f3cf109ef8e8e5a94648af91f44362bb665321071ccbb82594f78.png" src="_images/842217e45c5f3cf109ef8e8e5a94648af91f44362bb665321071ccbb82594f78.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.45 1.   1.   1.   1.   1.  ]
+<img alt="_images/205f528a039f62d09ef969312062ac79d170ade4b8a0d582b250c83221111e05.png" src="_images/205f528a039f62d09ef969312062ac79d170ade4b8a0d582b250c83221111e05.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.56e-04 1.00e+00 1.00e+00 1.00e+00 1.00e+00 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/74e140be563aedd5b127c258e1bb2ab8831b9d9c577cc8e46f18a6c368c28b30.png" src="_images/74e140be563aedd5b127c258e1bb2ab8831b9d9c577cc8e46f18a6c368c28b30.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.26 1.   1.   1.   1.  ]
+<img alt="_images/204d3e94bde5b30fc447b0494c4203aced76792175540de7680e5148b0121ff7.png" src="_images/204d3e94bde5b30fc447b0494c4203aced76792175540de7680e5148b0121ff7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 0. 1. 1. 1. 1.]
 </pre></div>
 </div>
-<img alt="_images/84f4bf95bbb70a07c891bc1bb5e92335dad786f5ab8f72d38fb172e48fe15d40.png" src="_images/84f4bf95bbb70a07c891bc1bb5e92335dad786f5ab8f72d38fb172e48fe15d40.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.73 1.   1.   1.  ]
+<img alt="_images/28e74bff940cc517a5c1e6ba7b6a70f30bd5417fcf269ed190f3e5e82c74f234.png" src="_images/28e74bff940cc517a5c1e6ba7b6a70f30bd5417fcf269ed190f3e5e82c74f234.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.08 1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/8abefc8ee39a4288adb1f14c7a344c756c113525f91838d329dfbaa0db86a5ff.png" src="_images/8abefc8ee39a4288adb1f14c7a344c756c113525f91838d329dfbaa0db86a5ff.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   3.27 1.   1.  ]
+<img alt="_images/76ad5c258a297266cb41327121121b49da2d45953330524654a5b170ad02d519.png" src="_images/76ad5c258a297266cb41327121121b49da2d45953330524654a5b170ad02d519.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   0.08 1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/9f7f157430cb86d447a075113f70c11ab9838283495d0bede9fe97e52e54081c.png" src="_images/9f7f157430cb86d447a075113f70c11ab9838283495d0bede9fe97e52e54081c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   1.   3.47 1.  ]
+<img alt="_images/cf16f3cb879a358994a0097e27ae3e8284f2d308bb3b776327a7cc2a35f0e69a.png" src="_images/cf16f3cb879a358994a0097e27ae3e8284f2d308bb3b776327a7cc2a35f0e69a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 0. 1.]
 </pre></div>
 </div>
-<img alt="_images/ead48798fec2dc711b987a5108b8c8af7e2d2f1e4557389f9894860d98e595f7.png" src="_images/ead48798fec2dc711b987a5108b8c8af7e2d2f1e4557389f9894860d98e595f7.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 1.]
+<img alt="_images/47317fcf80989766e042effcb646ae734324f17a2447350778fd9cde9d26a36d.png" src="_images/47317fcf80989766e042effcb646ae734324f17a2447350778fd9cde9d26a36d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 0.]
 </pre></div>
 </div>
-<img alt="_images/6c1d2fe2751471aebc29b0543d79cd2a569d05f366fb5f06bf00d4d92ae563e7.png" src="_images/6c1d2fe2751471aebc29b0543d79cd2a569d05f366fb5f06bf00d4d92ae563e7.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4.48 0.38 1.   1.   1.   1.  ]
+<img alt="_images/aee29dbf80a3d321597529934708bf93b49cca4535b31e755715125bdf4a464f.png" src="_images/aee29dbf80a3d321597529934708bf93b49cca4535b31e755715125bdf4a464f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.97 0.   1.   1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/ae405b583cf4c9cbce2f007a4424f36f4289bf709fde8b2ae7657049915daf20.png" src="_images/ae405b583cf4c9cbce2f007a4424f36f4289bf709fde8b2ae7657049915daf20.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.71 1.   0.09 1.   1.   1.  ]
+<img alt="_images/a1f3ab0f1d286358382ea33012a6d231dde37517ab517c3d7f84f702effb75b4.png" src="_images/a1f3ab0f1d286358382ea33012a6d231dde37517ab517c3d7f84f702effb75b4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.74 1.   0.08 1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/caebbc53f9d0791f70bb7186afb9f770c407c1be9a1640ad857ab217fdb026f8.png" src="_images/caebbc53f9d0791f70bb7186afb9f770c407c1be9a1640ad857ab217fdb026f8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.62 1.   1.   0.   1.   1.  ]
+<img alt="_images/b26dd29f7c6f1064fedc7fae6ef7883d9663662a1c866e4cd5a50d2f2ccc74bc.png" src="_images/b26dd29f7c6f1064fedc7fae6ef7883d9663662a1c866e4cd5a50d2f2ccc74bc.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.35e-04 1.00e+00 1.00e+00 1.81e-01 1.00e+00 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/f2bb0a6341c5c5cc76190ec63c2f8a82e7d1887652abb28aadb518da3815c356.png" src="_images/f2bb0a6341c5c5cc76190ec63c2f8a82e7d1887652abb28aadb518da3815c356.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.57 1.   1.   1.   0.   1.  ]
+<img alt="_images/876774a7c3dc7c7aea0c51a3da362ed5f650345b53aced33ae87224dd2b48a47.png" src="_images/876774a7c3dc7c7aea0c51a3da362ed5f650345b53aced33ae87224dd2b48a47.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7.24e-04 1.00e+00 1.00e+00 1.00e+00 0.00e+00 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/c967e4fe1d9bdde5eb5d0a06d66c3e8bfc9e0e76a8c76f57535b4a2ab3661860.png" src="_images/c967e4fe1d9bdde5eb5d0a06d66c3e8bfc9e0e76a8c76f57535b4a2ab3661860.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.46 1.   1.   1.   1.   0.  ]
+<img alt="_images/fc89f8bf4652bc1e76acf39a78bbb1ce8652c668e986e444dd403761e393d637.png" src="_images/fc89f8bf4652bc1e76acf39a78bbb1ce8652c668e986e444dd403761e393d637.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.63e-04 1.00e+00 1.00e+00 1.00e+00 1.00e+00 0.00e+00]
 </pre></div>
 </div>
-<img alt="_images/7bcdb0348de7090b1f45d8cb35038c6876fad3488809cc2d3adf547da7ac4297.png" src="_images/7bcdb0348de7090b1f45d8cb35038c6876fad3488809cc2d3adf547da7ac4297.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 3.42e+00 1.81e-03 1.00e+00 1.00e+00 1.00e+00]
+<img alt="_images/88e44c03fbd3ee5e3b2a7886e9348c8b9cc24bfc237cda018ff45388d2a0450a.png" src="_images/88e44c03fbd3ee5e3b2a7886e9348c8b9cc24bfc237cda018ff45388d2a0450a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.69 0.12 1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/0d4e658f4a828ad533a88e02678f880fabef7d6f0fee47fbd891b7b266442d78.png" src="_images/0d4e658f4a828ad533a88e02678f880fabef7d6f0fee47fbd891b7b266442d78.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.37 1.   0.   1.   1.  ]
+<img alt="_images/18f98cb84aa2691742b1f16fde33c68a9460ff7ac24dfae33a8d1d02824cdc17.png" src="_images/18f98cb84aa2691742b1f16fde33c68a9460ff7ac24dfae33a8d1d02824cdc17.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.   1.   0.71 1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/2dae52f508cf433915c0c552d81a6eb4a93926543fe087c6c7c615fa9e51527c.png" src="_images/2dae52f508cf433915c0c552d81a6eb4a93926543fe087c6c7c615fa9e51527c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.35 1.   1.   0.   1.  ]
+<img alt="_images/8ff51bcdfaff63262958ad1102c3c23ce3a62dffe071700db0a8be62e0b9c0ed.png" src="_images/8ff51bcdfaff63262958ad1102c3c23ce3a62dffe071700db0a8be62e0b9c0ed.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.   1.   1.   0.58 1.  ]
 </pre></div>
 </div>
-<img alt="_images/e8345598e4e85577cf25b9cc448e37f8fa3e250eed04225c30ac3d40fef3bca6.png" src="_images/e8345598e4e85577cf25b9cc448e37f8fa3e250eed04225c30ac3d40fef3bca6.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.27 1.   1.   1.   0.  ]
+<img alt="_images/b66bd9b4513ef3bdb8947ae2f47f70d3e0c6fcc893e380c2d19ed1967f0f0536.png" src="_images/b66bd9b4513ef3bdb8947ae2f47f70d3e0c6fcc893e380c2d19ed1967f0f0536.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.   1.   1.   1.   0.86]
 </pre></div>
 </div>
-<img alt="_images/aeac513e3dd250e2e3c1a1e4b115d00db34210c93a44c21cd1946e4c816f351b.png" src="_images/aeac513e3dd250e2e3c1a1e4b115d00db34210c93a44c21cd1946e4c816f351b.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   2.12 0.   1.   1.  ]
+<img alt="_images/bdb66a376e267e247c3d6ebeffb6383b9b4543f823367fca80a8f79b0dbed232.png" src="_images/bdb66a376e267e247c3d6ebeffb6383b9b4543f823367fca80a8f79b0dbed232.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.09 0.56 1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/f169248134d2f450be557ea7f42c1511323cad9c8effd9ab833fe5665967e5ec.png" src="_images/f169248134d2f450be557ea7f42c1511323cad9c8effd9ab833fe5665967e5ec.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   2.06 1.   0.   1.  ]
+<img alt="_images/e4e8d953f1eb872107f0d1b3bfb80ca15bfc551da2689334c6b912a55c777ee6.png" src="_images/e4e8d953f1eb872107f0d1b3bfb80ca15bfc551da2689334c6b912a55c777ee6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.13 1.   0.35 1.  ]
 </pre></div>
 </div>
-<img alt="_images/28b13ff4c80f78fbf189cd9ec75f3a4c62260067961a8a49e315f5bd07029f13.png" src="_images/28b13ff4c80f78fbf189cd9ec75f3a4c62260067961a8a49e315f5bd07029f13.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.74 1.   1.   0.  ]
+<img alt="_images/b8df96f8ccd688b4177d84394c12bf82e502f0bad2a83f6b54fcb48c8454cba9.png" src="_images/b8df96f8ccd688b4177d84394c12bf82e502f0bad2a83f6b54fcb48c8454cba9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.08 1.   1.   0.82]
 </pre></div>
 </div>
-<img alt="_images/5e1632b4ce5d71d3ebfb78725a7e8d3c1dc340a407c2cf775232fc87b8286c29.png" src="_images/5e1632b4ce5d71d3ebfb78725a7e8d3c1dc340a407c2cf775232fc87b8286c29.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.    1.    1.   17.77  0.    1.  ]
+<img alt="_images/8f970a237eba71f8f00d56b584f5e373581124c6912c68f194b851885cb82ed5.png" src="_images/8f970a237eba71f8f00d56b584f5e373581124c6912c68f194b851885cb82ed5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.    1.    1.   16.64  0.    1.  ]
 </pre></div>
 </div>
-<img alt="_images/7ee99a503b56f695a78590afe6e0a0fc1edba4bf9c953408752c1fa32b36e7a0.png" src="_images/7ee99a503b56f695a78590afe6e0a0fc1edba4bf9c953408752c1fa32b36e7a0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 4. 1. 0.]
+<img alt="_images/00fe7ea60347a24e401789e6c96a22d59296f46a862520e210f26830d69bbcbf.png" src="_images/00fe7ea60347a24e401789e6c96a22d59296f46a862520e210f26830d69bbcbf.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   1.57 1.   0.  ]
 </pre></div>
 </div>
-<img alt="_images/aecd6719f6c4fc435c8b1884b68db3e83d6d15b01c3404c74c857056caae4022.png" src="_images/aecd6719f6c4fc435c8b1884b68db3e83d6d15b01c3404c74c857056caae4022.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   1.   4.59 0.  ]
+<img alt="_images/875a457c02d0edd6ff9e56c61fbfa7428dffc4584d48159ac7ae12467a99a99b.png" src="_images/875a457c02d0edd6ff9e56c61fbfa7428dffc4584d48159ac7ae12467a99a99b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   1.   0.   0.82]
 </pre></div>
 </div>
-<img alt="_images/51b939d09b668fc7a8156a739cdd01b7dcadd70df3ffa2efe5bd76f90a75560c.png" src="_images/51b939d09b668fc7a8156a739cdd01b7dcadd70df3ffa2efe5bd76f90a75560c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.64 1.93 0.02 1.   1.   1.  ]
+<img alt="_images/27eaaf3c6f3e514a744a3ded43f90ab04f3c838bd0c927379149895267a992b9.png" src="_images/27eaaf3c6f3e514a744a3ded43f90ab04f3c838bd0c927379149895267a992b9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.38 0.44 0.21 1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/07de4fb857d5c5c85b7ad3838d194dc7f1b3ecfb7c781d6f8c44584d2125ef82.png" src="_images/07de4fb857d5c5c85b7ad3838d194dc7f1b3ecfb7c781d6f8c44584d2125ef82.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.92 0.48 1.   0.   1.   1.  ]
+<img alt="_images/ec66cd2ceaf95a812f8d13b981626b1e46de492b48da13557cd6969da5cc4997.png" src="_images/ec66cd2ceaf95a812f8d13b981626b1e46de492b48da13557cd6969da5cc4997.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.94 0.   1.   0.7  1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/cb503d24f26f24e3cba009ce9493d15163d7d198818b4b8a1b950026c19420b0.png" src="_images/cb503d24f26f24e3cba009ce9493d15163d7d198818b4b8a1b950026c19420b0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4.05 0.45 1.   1.   0.   1.  ]
+<img alt="_images/27d9461a2ba14b9bb064b653cf564f273b84082ac5b8ee78f8ae61464ec62cd8.png" src="_images/27d9461a2ba14b9bb064b653cf564f273b84082ac5b8ee78f8ae61464ec62cd8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.94 0.   1.   1.   0.58 1.  ]
 </pre></div>
 </div>
-<img alt="_images/c0ca8f088ccdb4ac336214a5ea64b11e6988b2199224c30ac6ab088f869f311a.png" src="_images/c0ca8f088ccdb4ac336214a5ea64b11e6988b2199224c30ac6ab088f869f311a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4.48 0.39 1.   1.   1.   0.76]
+<img alt="_images/5408fa7d3c71614042edb000ef39dbbfc04b78f0eaa774126601858a4e8574f8.png" src="_images/5408fa7d3c71614042edb000ef39dbbfc04b78f0eaa774126601858a4e8574f8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.93 0.   1.   1.   1.   0.85]
 </pre></div>
 </div>
-<img alt="_images/998b25eca02a8417d1d0ee131d8cd1c15025882c7e27a89fd92c113428d16644.png" src="_images/998b25eca02a8417d1d0ee131d8cd1c15025882c7e27a89fd92c113428d16644.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.68 1.   0.16 0.32 1.   1.  ]
+<img alt="_images/b22711fc79ca8390d6a215d40ae9cbda5cec2d0ab46b77344629303542367c9c.png" src="_images/b22711fc79ca8390d6a215d40ae9cbda5cec2d0ab46b77344629303542367c9c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.88 1.   0.1  0.56 1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/d1a04cc1f7d0f7f71f5c746027d0ecd72ab0e3ac7cb22d9c23bc93cd5149da95.png" src="_images/d1a04cc1f7d0f7f71f5c746027d0ecd72ab0e3ac7cb22d9c23bc93cd5149da95.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.66 1.   0.13 1.   0.18 1.  ]
+<img alt="_images/2d3ea930528eebdca259f929cff1f7fee127e54a53eccfdf72dffa79bbdc0d5d.png" src="_images/2d3ea930528eebdca259f929cff1f7fee127e54a53eccfdf72dffa79bbdc0d5d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.75 1.   0.14 1.   0.35 1.  ]
 </pre></div>
 </div>
-<img alt="_images/8ea665490f8e45049d1317d83c628a02792aa928b61ff3cc967cedf56e2ee484.png" src="_images/8ea665490f8e45049d1317d83c628a02792aa928b61ff3cc967cedf56e2ee484.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.71 1.   0.09 1.   1.   0.93]
+<img alt="_images/a2d7b475a90a0e1427dbc33013e51f4bc350b741782c4e5657b52e1b6e737cc5.png" src="_images/a2d7b475a90a0e1427dbc33013e51f4bc350b741782c4e5657b52e1b6e737cc5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.74 1.   0.08 1.   1.   0.81]
 </pre></div>
 </div>
-<img alt="_images/518673fa180bb29a445ca943618046ae6bf5bbd65473d116a4fdd5ab0f5ae749.png" src="_images/518673fa180bb29a445ca943618046ae6bf5bbd65473d116a4fdd5ab0f5ae749.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.62 1.   1.   0.   0.15 1.  ]
+<img alt="_images/b9a0174130f3bda969b80710af9239b5d59014a342f27938adbd8dc3f5c893f2.png" src="_images/b9a0174130f3bda969b80710af9239b5d59014a342f27938adbd8dc3f5c893f2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.37e-02 1.00e+00 1.00e+00 1.50e+02 2.25e-02 1.00e+00]
 </pre></div>
 </div>
+<img alt="_images/6fc8e617f51df739c02ef0c42cf79250db4b2dfd237d9bfa5f956d8b13611440.png" src="_images/6fc8e617f51df739c02ef0c42cf79250db4b2dfd237d9bfa5f956d8b13611440.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.02e-04 1.00e+00 1.00e+00 2.79e-01 1.00e+00 5.65e-01]
+</pre></div>
+</div>
+<img alt="_images/0921664820fde306e30064b33ad4e56fe996b071337746c8714633f13d6a6a63.png" src="_images/0921664820fde306e30064b33ad4e56fe996b071337746c8714633f13d6a6a63.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7.24e-04 1.00e+00 1.00e+00 1.00e+00 0.00e+00 8.15e-01]
+</pre></div>
+</div>
+<img alt="_images/32902ac119ea963776abc143234d911efc3980c03b86c6040ed24b04a1aa1ce3.png" src="_images/32902ac119ea963776abc143234d911efc3980c03b86c6040ed24b04a1aa1ce3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.67 0.12 1.08 1.   1.  ]
+</pre></div>
+</div>
+<img alt="_images/00e58d065b3ea885ebb31ca549272f2ede1d985dcea01e245f33d198ed500306.png" src="_images/00e58d065b3ea885ebb31ca549272f2ede1d985dcea01e245f33d198ed500306.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.7  0.23 1.   0.23 1.  ]
+</pre></div>
+</div>
+<img alt="_images/08245cbca1a353786cb823f10c80c949f937ad12ada4e2947f2c1ca9b156b08c.png" src="_images/08245cbca1a353786cb823f10c80c949f937ad12ada4e2947f2c1ca9b156b08c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.69 0.13 1.   1.   0.7 ]
+</pre></div>
+</div>
+<img alt="_images/00fa9939cae28f15887f2a2ad4f564c30610cd358cfb72038146ff9c163623c8.png" src="_images/00fa9939cae28f15887f2a2ad4f564c30610cd358cfb72038146ff9c163623c8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.   1.   0.82 0.61 1.  ]
+</pre></div>
+</div>
+<img alt="_images/f9edb723be63377e7e031633b8d983ea4eb03dddc703a726ab4f0b1f82249b82.png" src="_images/f9edb723be63377e7e031633b8d983ea4eb03dddc703a726ab4f0b1f82249b82.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.   1.   0.71 1.   0.9 ]
+</pre></div>
+</div>
+<img alt="_images/8569dd486ca6a6890a3eac9ef0a27180c1c649866bdb247f538248ccd01fb6c3.png" src="_images/8569dd486ca6a6890a3eac9ef0a27180c1c649866bdb247f538248ccd01fb6c3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.   1.   1.   0.58 0.91]
+</pre></div>
+</div>
+<img alt="_images/fbffea5629ab4c2203e3d1340783624f0411dde03114b859251d1d9f9300321d.png" src="_images/fbffea5629ab4c2203e3d1340783624f0411dde03114b859251d1d9f9300321d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.12 0.8  0.44 1.  ]
+</pre></div>
+</div>
+<img alt="_images/3953ff579e6d571e2c5714e5bb502a2d9c024e85e299fc26955165e1eee0bc63.png" src="_images/3953ff579e6d571e2c5714e5bb502a2d9c024e85e299fc26955165e1eee0bc63.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.  1.  0.1 0.6 1.  0.8]
+</pre></div>
+</div>
+<img alt="_images/e83ce639f5e49457e5c45b241f1f21dd721ef6b4c2f56dac7e5485d28c64f505.png" src="_images/e83ce639f5e49457e5c45b241f1f21dd721ef6b4c2f56dac7e5485d28c64f505.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.13 1.   0.37 0.89]
+</pre></div>
+</div>
+<img alt="_images/bc7ab12e7d806ef59171965e348d3115b2f10452d73537eb578d170bc964a48b.png" src="_images/bc7ab12e7d806ef59171965e348d3115b2f10452d73537eb578d170bc964a48b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.    1.    1.   16.49  0.    0.  ]
+</pre></div>
+</div>
+<img alt="_images/7b15593ce70a0b3f030d06a3e828d0ee0d02a220fad91a3e759906ebe0949e3b.png" src="_images/7b15593ce70a0b3f030d06a3e828d0ee0d02a220fad91a3e759906ebe0949e3b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.46 0.44 0.24 0.86 1.   1.  ]
+</pre></div>
+</div>
+<img alt="_images/fb1bbe46b7ff3b9e2118c0a7ff25ae710adda8bfbd91c146542d8a80fb526466.png" src="_images/fb1bbe46b7ff3b9e2118c0a7ff25ae710adda8bfbd91c146542d8a80fb526466.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.51 0.39 0.36 1.   0.56 1.  ]
+</pre></div>
+</div>
+<img alt="_images/733e51b98f58186d371fc69b7a45b6a48de28e4b779e2f627ae0abe75ab93bc0.png" src="_images/733e51b98f58186d371fc69b7a45b6a48de28e4b779e2f627ae0abe75ab93bc0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.42 0.43 0.23 1.   1.   0.86]
+</pre></div>
+</div>
+<img alt="_images/76c16a831719378a66703652d6b5bebecb187f27a7e0f709ea6fc184321527ae.png" src="_images/76c16a831719378a66703652d6b5bebecb187f27a7e0f709ea6fc184321527ae.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.93 0.   1.   0.82 0.62 1.  ]
+</pre></div>
+</div>
+<img alt="_images/db57fdcc04e2347d260ef566c20670dcb4a5660d6dd5e1e7c0c71d7f46d39a01.png" src="_images/db57fdcc04e2347d260ef566c20670dcb4a5660d6dd5e1e7c0c71d7f46d39a01.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.93 0.   1.   0.72 1.   0.89]
+</pre></div>
+</div>
+<img alt="_images/5ec7edea6cdf3e0bebaad40db0b53a74947afe6944d7c846aab500520539c412.png" src="_images/5ec7edea6cdf3e0bebaad40db0b53a74947afe6944d7c846aab500520539c412.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.93 0.   1.   1.   0.58 0.91]
+</pre></div>
+</div>
+<img alt="_images/ea91173e191805e90d4bb99fa186eca22a07ce4467cd476a1574dea0fd91bfea.png" src="_images/ea91173e191805e90d4bb99fa186eca22a07ce4467cd476a1574dea0fd91bfea.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.81 1.   0.13 0.77 0.45 1.  ]
+</pre></div>
+</div>
+<img alt="_images/dd46b966a61a000be6e38d28b8e2207f248994d022c8d4564905666d7afc6791.png" src="_images/dd46b966a61a000be6e38d28b8e2207f248994d022c8d4564905666d7afc6791.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.87 1.   0.1  0.6  1.   0.8 ]
+</pre></div>
+</div>
+<img alt="_images/54021e539742dfd19864fb6c3345eb83027d510b75ae41a0e19a367469d80ab2.png" src="_images/54021e539742dfd19864fb6c3345eb83027d510b75ae41a0e19a367469d80ab2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.75 1.   0.13 1.   0.38 0.89]
+</pre></div>
+</div>
+<img alt="_images/eacf4514a2e23a51ca05806c1d1bc6ba254456e9067e2e76dd892208ff4dd915.png" src="_images/eacf4514a2e23a51ca05806c1d1bc6ba254456e9067e2e76dd892208ff4dd915.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.60e-02 1.00e+00 1.00e+00 1.30e+02 3.97e-03 4.74e+01]
+</pre></div>
+</div>
+<img alt="_images/cbd399dd5e4f4160321431ae447614a7b5a9a9a43d0ee6af3b291199b766f5b5.png" src="_images/cbd399dd5e4f4160321431ae447614a7b5a9a9a43d0ee6af3b291199b766f5b5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.63 0.22 1.23 0.4  1.  ]
+</pre></div>
+</div>
+<img alt="_images/5798626ca23952ee4d97d9a968a36fd55d98b2fa3b9fad730aaa372fd8db868b.png" src="_images/5798626ca23952ee4d97d9a968a36fd55d98b2fa3b9fad730aaa372fd8db868b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.68 0.13 1.03 1.   0.83]
+</pre></div>
+</div>
+<img alt="_images/fab91a1c507c1e6ef9ee5445bdef0944458c604a94c8324330740c0a03255a53.png" src="_images/fab91a1c507c1e6ef9ee5445bdef0944458c604a94c8324330740c0a03255a53.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.7  0.22 1.   0.27 0.8 ]
+</pre></div>
+</div>
+<img alt="_images/8bcfae62504fb4df4921d26c0824ee59df56ace298587b9f2afe99dd29c4ba91.png" src="_images/8bcfae62504fb4df4921d26c0824ee59df56ace298587b9f2afe99dd29c4ba91.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.   1.   0.82 0.62 0.9 ]
+</pre></div>
+</div>
+<img alt="_images/b13de970de3abf45e2309aad5b0229f27139ec11cf42c82a27e6aed5580bc2a4.png" src="_images/b13de970de3abf45e2309aad5b0229f27139ec11cf42c82a27e6aed5580bc2a4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.12 0.8  0.46 0.87]
+</pre></div>
+</div>
+<img alt="_images/01112793af518d3fac52fc6dc8169f7670c45ea3ec51877a3c687110e9383dd2.png" src="_images/01112793af518d3fac52fc6dc8169f7670c45ea3ec51877a3c687110e9383dd2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -908,7 +1019,7 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111111&#39;: &#39;-78.608&#39;, &#39;011111&#39;: &#39;-76.126&#39;, &#39;101111&#39;: &#39;-75.589&#39;, &#39;110111&#39;: &#39;-78.343&#39;, &#39;111011&#39;: &#39;-171.310&#39;, &#39;111101&#39;: &#39;-87.627&#39;, &#39;111110&#39;: &#39;-79.216&#39;, &#39;001111&#39;: &#39;-149.271&#39;, &#39;010111&#39;: &#39;-78.260&#39;, &#39;011011&#39;: &#39;-190.806&#39;, &#39;011101&#39;: &#39;-85.763&#39;, &#39;011110&#39;: &#39;-76.905&#39;, &#39;100111&#39;: &#39;-94.583&#39;, &#39;101011&#39;: &#39;-187.974&#39;, &#39;101101&#39;: &#39;-89.420&#39;, &#39;101110&#39;: &#39;-76.269&#39;, &#39;110011&#39;: &#39;-182.511&#39;, &#39;110101&#39;: &#39;-98.654&#39;, &#39;110110&#39;: &#39;-76.431&#39;, &#39;111001&#39;: &#39;-168.702&#39;, &#39;111010&#39;: &#39;-168.605&#39;, &#39;111100&#39;: &#39;-84.545&#39;, &#39;000111&#39;: &#39;-157.253&#39;, &#39;001011&#39;: &#39;-191.479&#39;, &#39;001101&#39;: &#39;-157.253&#39;, &#39;001110&#39;: &#39;-157.203&#39;, &#39;010011&#39;: &#39;-196.606&#39;, &#39;010101&#39;: &#39;-157.253&#39;, &#39;010110&#39;: &#39;-75.117&#39;, &#39;011001&#39;: &#39;-198.341&#39;, &#39;011010&#39;: &#39;-198.341&#39;, &#39;011100&#39;: &#39;-82.620&#39;, &#39;100011&#39;: &#39;-196.704&#39;, &#39;100101&#39;: &#39;-157.253&#39;, &#39;100110&#39;: &#39;-73.764&#39;, &#39;101001&#39;: &#39;-196.027&#39;, &#39;101010&#39;: &#39;-196.027&#39;, &#39;101100&#39;: &#39;-86.277&#39;, &#39;110001&#39;: &#39;-190.732&#39;, &#39;110010&#39;: &#39;-190.732&#39;, &#39;110100&#39;: &#39;-95.511&#39;, &#39;111000&#39;: &#39;-165.559&#39;, &#39;000011&#39;: &#39;-193.399&#39;, &#39;000101&#39;: &#39;-154.040&#39;, &#39;000110&#39;: &#39;-154.025&#39;, &#39;001001&#39;: &#39;-197.085&#39;, &#39;001010&#39;: &#39;-197.085&#39;, &#39;001100&#39;: &#39;-154.040&#39;, &#39;010001&#39;: &#39;-197.528&#39;, &#39;010010&#39;: &#39;-197.528&#39;, &#39;010100&#39;: &#39;-154.040&#39;, &#39;011000&#39;: &#39;-195.129&#39;, &#39;100001&#39;: &#39;-197.528&#39;, &#39;100010&#39;: &#39;-197.164&#39;, &#39;100100&#39;: &#39;-154.040&#39;, &#39;101000&#39;: &#39;-192.815&#39;, &#39;110000&#39;: &#39;-187.520&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111111&#39;: &#39;-83.991&#39;, &#39;011111&#39;: &#39;-162.093&#39;, &#39;101111&#39;: &#39;-152.646&#39;, &#39;110111&#39;: &#39;-212.952&#39;, &#39;111011&#39;: &#39;-88.545&#39;, &#39;111101&#39;: &#39;-102.332&#39;, &#39;111110&#39;: &#39;-89.721&#39;, &#39;001111&#39;: &#39;-149.564&#39;, &#39;010111&#39;: &#39;-210.652&#39;, &#39;011011&#39;: &#39;-159.147&#39;, &#39;011101&#39;: &#39;-159.642&#39;, &#39;011110&#39;: &#39;-159.239&#39;, &#39;100111&#39;: &#39;-210.652&#39;, &#39;101011&#39;: &#39;-149.564&#39;, &#39;101101&#39;: &#39;-149.564&#39;, &#39;101110&#39;: &#39;-149.564&#39;, &#39;110011&#39;: &#39;-210.511&#39;, &#39;110101&#39;: &#39;-209.910&#39;, &#39;110110&#39;: &#39;-209.866&#39;, &#39;111001&#39;: &#39;-192.320&#39;, &#39;111010&#39;: &#39;-86.722&#39;, &#39;111100&#39;: &#39;-99.251&#39;, &#39;000111&#39;: &#39;-207.509&#39;, &#39;001011&#39;: &#39;-146.421&#39;, &#39;001101&#39;: &#39;-146.421&#39;, &#39;001110&#39;: &#39;-146.421&#39;, &#39;010011&#39;: &#39;-207.509&#39;, &#39;010101&#39;: &#39;-207.509&#39;, &#39;010110&#39;: &#39;-207.509&#39;, &#39;011001&#39;: &#39;-207.509&#39;, &#39;011010&#39;: &#39;-156.013&#39;, &#39;011100&#39;: &#39;-156.499&#39;, &#39;100011&#39;: &#39;-207.509&#39;, &#39;100101&#39;: &#39;-207.509&#39;, &#39;100110&#39;: &#39;-207.509&#39;, &#39;101001&#39;: &#39;-146.421&#39;, &#39;101010&#39;: &#39;-146.421&#39;, &#39;101100&#39;: &#39;-146.421&#39;, &#39;110001&#39;: &#39;-207.090&#39;, &#39;110010&#39;: &#39;-207.330&#39;, &#39;110100&#39;: &#39;-206.764&#39;, &#39;111000&#39;: &#39;-189.163&#39;, &#39;000011&#39;: &#39;-204.297&#39;, &#39;000101&#39;: &#39;-204.297&#39;, &#39;000110&#39;: &#39;-204.297&#39;, &#39;001001&#39;: &#39;-143.209&#39;, &#39;001010&#39;: &#39;-143.209&#39;, &#39;001100&#39;: &#39;-143.209&#39;, &#39;010001&#39;: &#39;-204.297&#39;, &#39;010010&#39;: &#39;-204.296&#39;, &#39;010100&#39;: &#39;-204.297&#39;, &#39;011000&#39;: &#39;-204.297&#39;, &#39;100001&#39;: &#39;-204.297&#39;, &#39;100010&#39;: &#39;-204.297&#39;, &#39;100100&#39;: &#39;-204.297&#39;, &#39;101000&#39;: &#39;-143.209&#39;, &#39;110000&#39;: &#39;-203.877&#39;}
 </pre></div>
 </div>
 </div>
@@ -922,8 +1033,8 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/37cffa63d7acabf98da6984f54542aeed134cc6c69450558912bf2a47694b331.png" src="_images/37cffa63d7acabf98da6984f54542aeed134cc6c69450558912bf2a47694b331.png" />
-<img alt="_images/b72424e7bee5af2b918dc88c62fbddf8ebca7fdb53ed088c8861a757492205c0.png" src="_images/b72424e7bee5af2b918dc88c62fbddf8ebca7fdb53ed088c8861a757492205c0.png" />
+<img alt="_images/eac137e233a38d38af17af4a99c5209458173cf4e17905fe23a8844c162b8154.png" src="_images/eac137e233a38d38af17af4a99c5209458173cf4e17905fe23a8844c162b8154.png" />
+<img alt="_images/d7ff42685b9146987924fa08f3a8d9f422c1343f1fab52cfb12b214a6699fbba.png" src="_images/d7ff42685b9146987924fa08f3a8d9f422c1343f1fab52cfb12b214a6699fbba.png" />
 </div>
 </div>
 </section>

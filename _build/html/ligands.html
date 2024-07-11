@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -213,6 +213,11 @@
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part1.html">Derived Markov chains</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part2.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part3.html">Double Derived Markov chain w/ contexts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
@@ -231,7 +236,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Receptor Tools - Cycle Fluxes and Derived Markov chain</a></li>
 </ul>
 
     </div>
@@ -569,7 +574,7 @@ RLL = L^2*kap*kbp/(L^2*kap*kbp + L*kap*kbm + kam*kbm)
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/8d204180e3ab699081cf8cf599fa331cb158196947eaf7ba35e0484b1b18879e.png" src="_images/8d204180e3ab699081cf8cf599fa331cb158196947eaf7ba35e0484b1b18879e.png" />
+<img alt="_images/6234e6d37514910b89cdbf02d300dbd2ae0cc703fb292db33c45ffda308a3615.png" src="_images/6234e6d37514910b89cdbf02d300dbd2ae0cc703fb292db33c45ffda308a3615.png" />
 </div>
 </div>
 <p>At low ligand concentration most receptors are in the unbound form (<code class="docutils literal notranslate"><span class="pre">R</span></code>, red). At high concentrations most receptors are in the doubly bound form (<code class="docutils literal notranslate"><span class="pre">RLL</span></code>, blue).</p>
@@ -657,7 +662,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R   = 1/(10*L^2 + L + 1)  RL  = L/(10*L^2 + L + 1)  RLL = 10*L^2/(10*L^2 + L + 1)
 </pre></div>
 </div>
-<img alt="_images/3213f1b07f13665301e3e26da62413cf0ab2eff96b11e075ac3db320e9420afd.png" src="_images/3213f1b07f13665301e3e26da62413cf0ab2eff96b11e075ac3db320e9420afd.png" />
+<img alt="_images/d4c0d9b021af87d5d0aa9839c44865439652efb0a1532ebb23ebe782e0da4468.png" src="_images/d4c0d9b021af87d5d0aa9839c44865439652efb0a1532ebb23ebe782e0da4468.png" />
 </div>
 </div>
 </section>
@@ -673,7 +678,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" src="_images/20289dc8fe57645c31f8b13b63d43d50f3a933dfcad441c70d49ebbfea691615.png" />
+<img alt="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" src="_images/f8324ad5783785353c8966289625f55c777d050a8c55a38aa5173904ed9dba63.png" />
 </div>
 </div>
 <p>In the arborescence shown above, the root is state <code class="docutils literal notranslate"><span class="pre">R</span></code>. The edge label <code class="docutils literal notranslate"><span class="pre">ka*L</span></code> is the product of an equilibrium association constant <code class="docutils literal notranslate"><span class="pre">ka</span></code> and ligand concentration <code class="docutils literal notranslate"><span class="pre">L</span></code>, and similarly for reaction <code class="docutils literal notranslate"><span class="pre">b</span></code>.  Comparing to the diagram above, we see that <code class="docutils literal notranslate"><span class="pre">kappa_a</span> <span class="pre">=</span> <span class="pre">ka*L</span></code> and <code class="docutils literal notranslate"><span class="pre">kappa_b</span> <span class="pre">=</span> <span class="pre">kb*L</span></code>.</p>
@@ -691,7 +696,7 @@ RLL = 10*L^2/(10*L^2 + L + 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" src="_images/5221497b2f24df8b67ebc0ebd57abafd60c21da5456db3ae3e57da2288359df7.png" />
+<img alt="_images/143a04ddd6568fc73bc635323ba08e7929f7cd6dee2dbae70fa5f464a22c6674.png" src="_images/143a04ddd6568fc73bc635323ba08e7929f7cd6dee2dbae70fa5f464a22c6674.png" />
 </div>
 </div>
 <div class="tip admonition">

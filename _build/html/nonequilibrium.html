@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -213,6 +213,11 @@
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part1.html">Derived Markov chains</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part2.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part3.html">Double Derived Markov chain w/ contexts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
@@ -231,7 +236,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Receptor Tools - Cycle Fluxes and Derived Markov chain</a></li>
 </ul>
 
     </div>
@@ -553,8 +558,8 @@ a_{31} & a_{32} & -a_{31} - a_{32} - a_{34} & a_{34} \\
 <section id="the-probability-distribution-solves-a-linear-system-of-ordinary-differential-equations">
 <h2>The probability distribution solves a linear system of ordinary differential equations<a class="headerlink" href="#the-probability-distribution-solves-a-linear-system-of-ordinary-differential-equations" title="Link to this heading">#</a></h2>
 <p>The relationship between the adjacency matrix <span class="math notranslate nohighlight">\(A\)</span> and generator matrix <span class="math notranslate nohighlight">\(Q\)</span> can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d66a73a-2dc9-4a4a-bbb7-856dc38b4291">
-<span class="eqno">(6)<a class="headerlink" href="#equation-6d66a73a-2dc9-4a4a-bbb7-856dc38b4291" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e2c308fd-07d0-4751-aedd-cdcae9aa0b7e">
+<span class="eqno">(6)<a class="headerlink" href="#equation-e2c308fd-07d0-4751-aedd-cdcae9aa0b7e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q = A - \text{diag}(A\be)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\be\)</span> is a commensurate column vector of 1s. The following code confirms that <span class="math notranslate nohighlight">\(Q \be = \bzero\)</span>, i.e., each row of <span class="math notranslate nohighlight">\(Q\)</span> sums to zero.</p>
@@ -702,8 +707,8 @@ z_4 &amp; = a_{12} a_{23} a_{34} \, .
 <p>This distribution satisfies detailed balance, i.e., <span class="math notranslate nohighlight">\(a_{ij} \pi_i = a_{ji} \pi_j\)</span>.  As discussed previously, detailed balance implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define <span class="math notranslate nohighlight">\(\kappa_{j}=a_{ij}/a_{ji}\)</span> for <span class="math notranslate nohighlight">\(i &lt; j\)</span> whenever vertex <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> are adjacent.
 Dividing the numerator and denominator of each <span class="math notranslate nohighlight">\(\pi_i\)</span> by <span class="math notranslate nohighlight">\(a_{12}a_{23}a_{34}\)</span> yields the relative probabilities <span class="math notranslate nohighlight">\(z_1 = 1\)</span>,   <span class="math notranslate nohighlight">\(z_2 = \kappa_{2}\)</span>,  <span class="math notranslate nohighlight">\(z_3 = \kappa_{2}\kappa_{3}\)</span>, and <span class="math notranslate nohighlight">\(z_4 =  \kappa_{2} \kappa_{3} \kappa_{4}\)</span>.  Substituting these values into <a class="reference internal" href="#equation-eq-p1234">(8)</a> gives the solution in terms of the equilibrium constants <span class="math notranslate nohighlight">\(\kappa_{2}\)</span>, <span class="math notranslate nohighlight">\(\kappa_{3}\)</span>, and <span class="math notranslate nohighlight">\(\kappa_{4}\)</span>.</p>
 <p>In the notation of the <a class="reference internal" href="equilibrium.html"><span class="doc std std-doc">equilibrium formulation</span></a>, this probability distribution,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9bebfdcf-f2ce-40f3-8f2e-f04af033bcaa">
-<span class="eqno">(9)<a class="headerlink" href="#equation-9bebfdcf-f2ce-40f3-8f2e-f04af033bcaa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a5720da-d600-4676-b8c1-5b73b9c44fff">
+<span class="eqno">(9)<a class="headerlink" href="#equation-4a5720da-d600-4676-b8c1-5b73b9c44fff" title="Permalink to this equation">#</a></span>\[\begin{equation}
  [ \pi_1  :  \pi_2 :  \pi_3 :  \pi_4] = [1 :\kappa_{2} : \kappa_{2} \kappa_{3} :  \kappa_{2} \kappa_{3} \kappa_{4} ]  \, ,
 \end{equation}\]</div>
 <p>corresponds to the following spanning tree rooted in state 1.</p>

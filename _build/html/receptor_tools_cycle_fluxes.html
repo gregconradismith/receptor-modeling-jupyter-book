@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Double Derived Markov chain w/ contexts &#8212; Receptors</title>
+    <title>Receptor Tools - Cycle Fluxes and Derived Markov chain &#8212; Receptors</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -211,6 +211,11 @@
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part1.html">Derived Markov chains</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part2.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part3.html">Double Derived Markov chain w/ contexts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
@@ -229,7 +234,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Receptor Tools - Cycle Fluxes and Derived Markov chain</a></li>
 </ul>
 
     </div>
@@ -444,7 +449,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Double Derived Markov chain w/ contexts</h1>
+    <h1>Receptor Tools - Cycle Fluxes and Derived Markov chain</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -458,8 +463,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="double-derived-markov-chain-w-contexts">
-<h1>Double Derived Markov chain w/ contexts<a class="headerlink" href="#double-derived-markov-chain-w-contexts" title="Link to this heading">#</a></h1>
+  <section id="receptor-tools-cycle-fluxes-and-derived-markov-chain">
+<h1>Receptor Tools - Cycle Fluxes and Derived Markov chain<a class="headerlink" href="#receptor-tools-cycle-fluxes-and-derived-markov-chain" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_first_cycle</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span><span class="n">cycle_shift</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -563,17 +568,19 @@ document.write(`
         <span class="k">if</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
             <span class="n">hfr</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">hto</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># same as edge[1][0]</span>
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;h changed:&#39;</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">hfr</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">hto</span><span class="p">)</span>
-            <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">hfr</span><span class="p">,</span><span class="n">hto</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">hfr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;h changed:&#39;</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">hfr</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">hto</span><span class="p">,</span><span class="s1">&#39; in g context &#39;</span><span class="p">,</span> <span class="n">g</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">hfr</span><span class="p">,</span><span class="n">hto</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">g</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
             <span class="n">new_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">gh_var</span><span class="p">,</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">hfr</span><span class="p">,</span><span class="n">hto</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">DDerGH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">new_label</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
             <span class="n">gfr</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">gto</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># same as edge[1][1]</span>
             <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;g changed:&#39;</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">gfr</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">gto</span><span class="p">)</span>
-            <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">gfr</span><span class="p">,</span><span class="n">gto</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">gfr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;g changed:&#39;</span><span class="p">,</span><span class="n">edge</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">gfr</span><span class="p">,</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span><span class="n">gto</span><span class="p">,</span><span class="s1">&#39; in h context &#39;</span><span class="p">,</span> <span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">gh_var</span> <span class="o">=</span> <span class="n">Vgh</span><span class="p">(</span> <span class="nb">str</span><span class="p">(</span><span class="n">DerH</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">gfr</span><span class="p">,</span><span class="n">gto</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">h</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
             <span class="n">new_label</span> <span class="o">=</span> <span class="p">(</span> <span class="n">gh_var</span><span class="p">,</span> <span class="n">DerG</span><span class="o">.</span><span class="n">edge_label</span><span class="p">(</span><span class="n">gfr</span><span class="p">,</span><span class="n">gto</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">DDerGH</span><span class="o">.</span><span class="n">set_edge_label</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">new_label</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">DDerGH</span>
@@ -992,52 +999,6 @@ document.write(`
 <span class="n">dG_p3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">}}</span>
 <span class="n">dG_p4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;a&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">}}</span>
 <span class="n">dG_c3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;C&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;B&#39;</span><span class="p">}}</span>
-
-<span class="n">dG</span> <span class="o">=</span> <span class="n">dG_c3</span> <span class="c1"># choose graph here (dG may be used below)</span>
-
-<span class="n">G</span><span class="p">,</span> <span class="n">Vg</span> <span class="o">=</span> <span class="n">graph_and_edge_ring_from_dict</span><span class="p">(</span><span class="n">dG</span><span class="p">)</span>
-<span class="c1">#Vg.inject_variables()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nvG</span><span class="p">,</span> <span class="n">neG</span><span class="p">,</span> <span class="n">betaG</span><span class="p">,</span> <span class="n">Tg</span><span class="p">,</span> <span class="n">TG</span><span class="p">,</span> <span class="n">cycleG_p</span><span class="p">,</span> <span class="n">cycleG_m</span><span class="p">,</span> <span class="n">cycleG_2</span><span class="p">,</span> <span class="n">cycleG</span><span class="p">,</span> <span class="n">Jg</span><span class="p">,</span> <span class="n">dict_vG</span><span class="p">,</span> <span class="n">inverted_dict_vG</span><span class="p">,</span> <span class="n">d_cycleG</span><span class="p">,</span> <span class="n">inverted_d_cycleG</span> <span class="o">=</span>  <span class="n">cycle_flux_analysis</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;G&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<img alt="_images/92ab46fce0d904971050ae895eab60de1b30bf90c94b1df72a84c3312312f84a.png" src="_images/92ab46fce0d904971050ae895eab60de1b30bf90c94b1df72a84c3312312f84a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-C - a      a      C]
-[     A -b - A      b]
-[     c      B -B - c]
-
-For root/cycle [0] : A*B + b*c + A*c 
-
-For root/cycle [1] : C*B + a*B + a*c 
-
-For root/cycle [2] : C*b + a*b + C*A 
-
-G cycles p: [(0, 1, 2, 0)] 
-
-G cycles m: [(0, 2, 1, 0)] 
-
-G cycles 2: [(0, 1, 0), (0, 2, 0), (1, 2, 1)] 
-
-
-G cycle flux 0 : a * b * c
-
-G cycle flux 1 : C * A * B
-
-G cycle flux 2 : a * A * (B + c)
-
-G cycle flux 3 : C * (b + A) * c
-
-G cycle flux 4 : (C + a) * b * B
 </pre></div>
 </div>
 </div>
@@ -1049,263 +1010,9 @@ G cycle flux 4 : (C + a) * b * B
 <span class="n">dH_p4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;z&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">}}</span>
 <span class="n">dH_p3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">}}</span>
 <span class="n">dH_p2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">}}</span>
-
 <span class="n">dH_p2_r2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">}}</span>
 <span class="n">dH_c3_r3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;Z&#39;</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">5</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">}}</span>
 <span class="n">dH_p3_r3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">},</span> <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">},</span> <span class="mi">5</span><span class="p">:</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;Y&#39;</span><span class="p">}}</span>
-
-<span class="n">dH</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">dG</span><span class="p">);</span>
-<span class="c1">#dH = dH_p2_r2</span>
-
-<span class="n">H</span><span class="p">,</span> <span class="n">Vh</span> <span class="o">=</span> <span class="n">graph_and_edge_ring_from_dict</span><span class="p">(</span><span class="n">dH</span><span class="p">)</span>
-<span class="c1">#Vh.inject_variables()</span>
-<span class="n">nvH</span><span class="p">,</span> <span class="n">neH</span><span class="p">,</span> <span class="n">betaH</span><span class="p">,</span> <span class="n">Th</span><span class="p">,</span> <span class="n">TH</span><span class="p">,</span> <span class="n">cycleH_p</span><span class="p">,</span> <span class="n">cycleH_m</span><span class="p">,</span> <span class="n">cycleH_2</span><span class="p">,</span> <span class="n">cycleH</span><span class="p">,</span> <span class="n">Jh</span><span class="p">,</span> <span class="n">dict_vH</span><span class="p">,</span> <span class="n">inverted_dict_vH</span><span class="p">,</span> <span class="n">d_cycleH</span><span class="p">,</span> <span class="n">inverted_d_cycleH</span> <span class="o">=</span>  <span class="n">cycle_flux_analysis</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<img alt="_images/d7a8f05a8e4cb19be7713c8294536ed42f1d2a5042813d6e6f2298e1b977bc84.png" src="_images/d7a8f05a8e4cb19be7713c8294536ed42f1d2a5042813d6e6f2298e1b977bc84.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-C - a      a      C]
-[     A -b - A      b]
-[     c      B -B - c]
-
-For root/cycle [0] : A*B + b*c + A*c 
-
-For root/cycle [1] : C*B + a*B + a*c 
-
-For root/cycle [2] : C*b + a*b + C*A 
-
-H cycles p: [(0, 1, 2, 0)] 
-
-H cycles m: [(0, 2, 1, 0)] 
-
-H cycles 2: [(0, 1, 0), (0, 2, 0), (1, 2, 1)] 
-
-
-H cycle flux 0 : a * b * c
-
-H cycle flux 1 : C * A * B
-
-H cycle flux 2 : a * A * (B + c)
-
-H cycle flux 3 : C * (b + A) * c
-
-H cycle flux 4 : (C + a) * b * B
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">context</span> <span class="ow">in</span> <span class="p">[</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span> <span class="p">]:</span>
-    <span class="n">GH</span> <span class="o">=</span> <span class="n">Cartesian_product</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">edge_ring_from_graph</span><span class="p">(</span><span class="n">GH</span><span class="p">))</span>
-    <span class="n">GH</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>\
-           <span class="n">edge_colors</span><span class="o">=</span><span class="n">cartesian_edge_color</span><span class="p">(</span><span class="n">GH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>\
-            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;G box H, context = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">context</span><span class="p">))</span>
-
-<span class="n">GH0</span> <span class="o">=</span> <span class="n">GH</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
-<span class="n">GH0</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">vertex_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">edge_colors</span><span class="o">=</span><span class="n">cartesian_edge_color</span><span class="p">(</span><span class="n">GH0</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;G box H&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multivariate Polynomial Ring in B, c, A, b, a, C over Integer Ring
-</pre></div>
-</div>
-<img alt="_images/be4b082719a16d8790b57c6764eb588eb719807ce22af74e64d32b2ca0513f69.png" src="_images/be4b082719a16d8790b57c6764eb588eb719807ce22af74e64d32b2ca0513f69.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multivariate Polynomial Ring in a2, A1, b0, c2, b1, a0, A2, B0, C1, a1, A0, b2, c1, B2, c0, C2, B1, C0 over Integer Ring
-</pre></div>
-</div>
-<img alt="_images/f211ad43340ff0b11968026e45e94d5b84fba66118709e502796f12d75ac0f65.png" src="_images/f211ad43340ff0b11968026e45e94d5b84fba66118709e502796f12d75ac0f65.png" />
-<img alt="_images/3d7aa144ced7ba33aa00d4c3a8d4c974dc21c1b91984af8f48d072278edc52e4.png" src="_images/3d7aa144ced7ba33aa00d4c3a8d4c974dc21c1b91984af8f48d072278edc52e4.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DerG</span> <span class="o">=</span> <span class="n">derived_graph</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-<span class="n">DerG</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DerG&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/b6d108ffbac1ddc7c3f6917df79fade1f57eb7eb5a7a590dbdb708eae33ca5e1.png" src="_images/b6d108ffbac1ddc7c3f6917df79fade1f57eb7eb5a7a590dbdb708eae33ca5e1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DerGrate</span><span class="p">,</span> <span class="n">DerGcyc</span> <span class="o">=</span> <span class="n">split_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">)</span>
-<span class="n">DerGrate</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DerGrate&#39;</span><span class="p">)</span>
-<span class="n">DerGcyc</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DerGcyc&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/4aaa232583bae05fbf1666a41a2f314db6339f05189135c0b1d205babc102596.png" src="_images/4aaa232583bae05fbf1666a41a2f314db6339f05189135c0b1d205babc102596.png" />
-<img alt="_images/8d5f83f2eeeef5b6c828f8538c6ac1b237d7fee95f9e729893f756574199fc47.png" src="_images/8d5f83f2eeeef5b6c828f8538c6ac1b237d7fee95f9e729893f756574199fc47.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_Jg</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rooted spanning tree of derived graph T(0,0) = (A*B + b*c + A*c) * (A*B + C*B + a*B + b*c + A*c + a*c + C*b + a*b + C*A) 
-
-J (0, 1, 0) = a * A * (B + c) * (A*B + b*c + A*c) 
-
-J (0, 1, 2, 0) = a * b * c * (A*B + b*c + A*c) 
-
-J (1, 2, 1) = a * b * B * (A*B + b*c + A*c) 
-
-J (0, 2, 0) = C * (b + A) * c * (A*B + b*c + A*c) 
-
-J (0, 2, 1, 0) = C * A * B * (A*B + b*c + A*c) 
-
-J (2, 1, 2) = C * b * B * (A*B + b*c + A*c) 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DerH</span> <span class="o">=</span> <span class="n">derived_graph</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-<span class="n">DerH</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DerH&#39;</span><span class="p">)</span>
-<span class="n">DerHrate</span><span class="p">,</span> <span class="n">DerHcyc</span> <span class="o">=</span> <span class="n">split_derived_graph</span><span class="p">(</span><span class="n">DerH</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/87902123aabcf6e095c9e63bd23701d5b28d8bdb63cf686a032e219a4f8dcdd8.png" src="_images/87902123aabcf6e095c9e63bd23701d5b28d8bdb63cf686a032e219a4f8dcdd8.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_Jh</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DerH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rooted spanning tree of derived graph T(0,0) = (A*B + b*c + A*c) * (A*B + C*B + a*B + b*c + A*c + a*c + C*b + a*b + C*A) 
-
-J (0, 1, 0) = a * A * (B + c) * (A*B + b*c + A*c) 
-
-J (0, 1, 2, 0) = a * b * c * (A*B + b*c + A*c) 
-
-J (1, 2, 1) = a * b * B * (A*B + b*c + A*c) 
-
-J (0, 2, 0) = C * (b + A) * c * (A*B + b*c + A*c) 
-
-J (0, 2, 1, 0) = C * A * B * (A*B + b*c + A*c) 
-
-J (2, 1, 2) = C * b * B * (A*B + b*c + A*c) 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">context</span> <span class="ow">in</span> <span class="p">[</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]:</span>
-    <span class="k">for</span> <span class="n">reduce</span> <span class="ow">in</span> <span class="p">[</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*** context =&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">context</span><span class="p">),</span> <span class="s1">&#39;  reduce =&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">reduce</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***&#39;</span><span class="p">)</span>
-        <span class="n">DDerGH</span> <span class="o">=</span> <span class="n">double_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span><span class="n">reduce</span><span class="o">=</span><span class="n">reduce</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">edge_ring_from_derived_graph</span><span class="p">(</span><span class="n">DDerGH</span><span class="p">))</span>
-        <span class="n">DDerGH</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>\
-                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;DDerGH &#39;</span><span class="o">+</span><span class="s1">&#39;nv =&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">DDerGH</span><span class="o">.</span><span class="n">order</span><span class="p">())</span><span class="o">+</span><span class="s1">&#39;  ne = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">DDerGH</span><span class="o">.</span><span class="n">size</span><span class="p">()))</span>
-        <span class="n">DDerGH0</span> <span class="o">=</span> <span class="n">DDerGH</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">reduce</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
-            <span class="n">edge_colors</span><span class="o">=</span><span class="n">cartesian_edge_color</span><span class="p">(</span><span class="n">DDerGH0</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">edge_colors</span><span class="o">=</span><span class="kc">None</span>
-        <span class="n">DDerGH0</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_colors</span><span class="o">=</span><span class="n">edge_colors</span><span class="p">,</span><span class="n">vertex_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>\
-                     <span class="n">vertex_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">graph_border</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;DDer G box H&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
-*** context = False   reduce = False
-***
-Multivariate Polynomial Ring in B, c, A, b, a, C over Integer Ring
-</pre></div>
-</div>
-<img alt="_images/599b27bc93bb1f5d5480c1f69f357c474d96a2b6bcc9975b6c12b5fc58e0fd4b.png" src="_images/599b27bc93bb1f5d5480c1f69f357c474d96a2b6bcc9975b6c12b5fc58e0fd4b.png" />
-<img alt="_images/4fcc8318b11f613971058aeaae884cbdf106e3e575d9325744e7f1b13baed03c.png" src="_images/4fcc8318b11f613971058aeaae884cbdf106e3e575d9325744e7f1b13baed03c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
-*** context = False   reduce = True
-***
-Multivariate Polynomial Ring in B, c, A, b, a, C over Integer Ring
-</pre></div>
-</div>
-<img alt="_images/1994674958f4e925802eea68dcbdb0d3d8dedba893a400fdaf8ce8e6c4fbfa9d.png" src="_images/1994674958f4e925802eea68dcbdb0d3d8dedba893a400fdaf8ce8e6c4fbfa9d.png" />
-<img alt="_images/6c5e09eeca298fde9625f91fa884feed3d31bcd286cc193099f1188190169225.png" src="_images/6c5e09eeca298fde9625f91fa884feed3d31bcd286cc193099f1188190169225.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
-*** context = True   reduce = False
-***
-Multivariate Polynomial Ring in a2, A1, b0, c2, b1, a0, A2, B0, C1, a1, A0, b2, c1, B2, c0, C2, B1, C0 over Integer Ring
-</pre></div>
-</div>
-<img alt="_images/9abdd3050ba50b498d230c842e5f1cddf2ef55e4e9b89b1cfac88e5f257034a3.png" src="_images/9abdd3050ba50b498d230c842e5f1cddf2ef55e4e9b89b1cfac88e5f257034a3.png" />
-<img alt="_images/c3eb052a14d01c1377852a4dc67de1a353990f0d7b5d642ba4e665f16cd7198a.png" src="_images/c3eb052a14d01c1377852a4dc67de1a353990f0d7b5d642ba4e665f16cd7198a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
-*** context = True   reduce = True
-***
-Multivariate Polynomial Ring in a2, A1, b0, c2, b1, a0, A2, B0, C1, a1, A0, b2, c1, B2, c0, C2, B1, C0 over Integer Ring
-</pre></div>
-</div>
-<img alt="_images/7ec6b2b3e80da2b843db6f26f294007f851a1105ef648f0cc591dc8a35cac121.png" src="_images/7ec6b2b3e80da2b843db6f26f294007f851a1105ef648f0cc591dc8a35cac121.png" />
-<img alt="_images/51680c1eda183afbea839d91d6eb39c5efde5fe00d30e6919b121fd29f3d4f5d.png" src="_images/51680c1eda183afbea839d91d6eb39c5efde5fe00d30e6919b121fd29f3d4f5d.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DDerGH</span> <span class="o">=</span> <span class="n">double_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">reduce</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">dict_Jg_lumped_merge</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DDerGH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_Jg_lumped_merge</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">dict_Jg_lumped_merge</span><span class="p">[</span><span class="n">key</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 0) : 2^5 * a * A * (B + c) * (B + c + A + b) * (B + c + A + b + a + C) * (B*A + c*A + c*b)^2 * (B*A + c*A + c*b + B*a + c*a + b*a + B*C + A*C + b*C) * (4*B^3*A + 12*B^2*c*A + 12*B*c^2*A + 4*c^3*A + 8*B^2*A^2 + 16*B*c*A^2 + 8*c^2*A^2 + 4*B*A^3 + 4*c*A^3 + 4*B^2*c*b + 8*B*c^2*b + 4*c^3*b + 8*B^2*A*b + 24*B*c*A*b + 16*c^2*A*b + 8*B*A^2*b + 12*c*A^2*b + 8*B*c*b^2 + 8*c^2*b^2 + 4*B*A*b^2 + 12*c*A*b^2 + 4*c*b^3 + 2*B^3*a + 6*B^2*c*a + 6*B*c^2*a + 2*c^3*a + 8*B^2*A*a + 16*B*c*A*a + 8*c^2*A*a + 6*B*A^2*a + 6*c*A^2*a + 6*B^2*b*a + 16*B*c*b*a + 10*c^2*b*a + 12*B*A*b*a + 16*c*A*b*a + 2*A^2*b*a + 6*B*b^2*a + 10*c*b^2*a + 4*A*b^2*a + 2*b^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 2*B*A*a^2 + 2*c*A*a^2 + 4*B*b*a^2 + 5*c*b*a^2 + A*b*a^2 + 2*b^2*a^2 + 2*B^3*C + 4*B^2*c*C + 2*B*c^2*C + 10*B^2*A*C + 16*B*c*A*C + 6*c^2*A*C + 10*B*A^2*C + 8*c*A^2*C + 2*A^3*C + 6*B^2*b*C + 12*B*c*b*C + 6*c^2*b*C + 16*B*A*b*C + 16*c*A*b*C + 6*A^2*b*C + 6*B*b^2*C + 8*c*b^2*C + 6*A*b^2*C + 2*b^3*C + 4*B^2*a*C + 5*B*c*a*C + c^2*a*C + 7*B*A*a*C + 6*c*A*a*C + A^2*a*C + 8*B*b*a*C + 7*c*b*a*C + 5*A*b*a*C + 4*b^2*a*C + 2*B^2*C^2 + B*c*C^2 + 5*B*A*C^2 + 2*c*A*C^2 + 2*A^2*C^2 + 4*B*b*C^2 + 2*c*b*C^2 + 4*A*b*C^2 + 2*b^2*C^2) 
-
-(0, 1, 2, 0) : 2^5 * a * b * c * (B + c + A + b) * (B + c + A + b + a + C) * (B*A + c*A + c*b)^2 * (B*A + c*A + c*b + B*a + c*a + b*a + B*C + A*C + b*C) * (4*B^3*A + 12*B^2*c*A + 12*B*c^2*A + 4*c^3*A + 8*B^2*A^2 + 16*B*c*A^2 + 8*c^2*A^2 + 4*B*A^3 + 4*c*A^3 + 4*B^2*c*b + 8*B*c^2*b + 4*c^3*b + 8*B^2*A*b + 24*B*c*A*b + 16*c^2*A*b + 8*B*A^2*b + 12*c*A^2*b + 8*B*c*b^2 + 8*c^2*b^2 + 4*B*A*b^2 + 12*c*A*b^2 + 4*c*b^3 + 2*B^3*a + 6*B^2*c*a + 6*B*c^2*a + 2*c^3*a + 8*B^2*A*a + 16*B*c*A*a + 8*c^2*A*a + 6*B*A^2*a + 6*c*A^2*a + 6*B^2*b*a + 16*B*c*b*a + 10*c^2*b*a + 12*B*A*b*a + 16*c*A*b*a + 2*A^2*b*a + 6*B*b^2*a + 10*c*b^2*a + 4*A*b^2*a + 2*b^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 2*B*A*a^2 + 2*c*A*a^2 + 4*B*b*a^2 + 5*c*b*a^2 + A*b*a^2 + 2*b^2*a^2 + 2*B^3*C + 4*B^2*c*C + 2*B*c^2*C + 10*B^2*A*C + 16*B*c*A*C + 6*c^2*A*C + 10*B*A^2*C + 8*c*A^2*C + 2*A^3*C + 6*B^2*b*C + 12*B*c*b*C + 6*c^2*b*C + 16*B*A*b*C + 16*c*A*b*C + 6*A^2*b*C + 6*B*b^2*C + 8*c*b^2*C + 6*A*b^2*C + 2*b^3*C + 4*B^2*a*C + 5*B*c*a*C + c^2*a*C + 7*B*A*a*C + 6*c*A*a*C + A^2*a*C + 8*B*b*a*C + 7*c*b*a*C + 5*A*b*a*C + 4*b^2*a*C + 2*B^2*C^2 + B*c*C^2 + 5*B*A*C^2 + 2*c*A*C^2 + 2*A^2*C^2 + 4*B*b*C^2 + 2*c*b*C^2 + 4*A*b*C^2 + 2*b^2*C^2) 
-
-(1, 2, 1) : 2^5 * (a + C) * b * B * (B + c + A + b) * (B + c + A + b + a + C) * (B*A + c*A + c*b)^2 * (B*A + c*A + c*b + B*a + c*a + b*a + B*C + A*C + b*C) * (4*B^3*A + 12*B^2*c*A + 12*B*c^2*A + 4*c^3*A + 8*B^2*A^2 + 16*B*c*A^2 + 8*c^2*A^2 + 4*B*A^3 + 4*c*A^3 + 4*B^2*c*b + 8*B*c^2*b + 4*c^3*b + 8*B^2*A*b + 24*B*c*A*b + 16*c^2*A*b + 8*B*A^2*b + 12*c*A^2*b + 8*B*c*b^2 + 8*c^2*b^2 + 4*B*A*b^2 + 12*c*A*b^2 + 4*c*b^3 + 2*B^3*a + 6*B^2*c*a + 6*B*c^2*a + 2*c^3*a + 8*B^2*A*a + 16*B*c*A*a + 8*c^2*A*a + 6*B*A^2*a + 6*c*A^2*a + 6*B^2*b*a + 16*B*c*b*a + 10*c^2*b*a + 12*B*A*b*a + 16*c*A*b*a + 2*A^2*b*a + 6*B*b^2*a + 10*c*b^2*a + 4*A*b^2*a + 2*b^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 2*B*A*a^2 + 2*c*A*a^2 + 4*B*b*a^2 + 5*c*b*a^2 + A*b*a^2 + 2*b^2*a^2 + 2*B^3*C + 4*B^2*c*C + 2*B*c^2*C + 10*B^2*A*C + 16*B*c*A*C + 6*c^2*A*C + 10*B*A^2*C + 8*c*A^2*C + 2*A^3*C + 6*B^2*b*C + 12*B*c*b*C + 6*c^2*b*C + 16*B*A*b*C + 16*c*A*b*C + 6*A^2*b*C + 6*B*b^2*C + 8*c*b^2*C + 6*A*b^2*C + 2*b^3*C + 4*B^2*a*C + 5*B*c*a*C + c^2*a*C + 7*B*A*a*C + 6*c*A*a*C + A^2*a*C + 8*B*b*a*C + 7*c*b*a*C + 5*A*b*a*C + 4*b^2*a*C + 2*B^2*C^2 + B*c*C^2 + 5*B*A*C^2 + 2*c*A*C^2 + 2*A^2*C^2 + 4*B*b*C^2 + 2*c*b*C^2 + 4*A*b*C^2 + 2*b^2*C^2) 
-
-(0, 2, 0) : 2^5 * C * (A + b) * c * (B + c + A + b) * (B + c + A + b + a + C) * (B*A + c*A + c*b)^2 * (B*A + c*A + c*b + B*a + c*a + b*a + B*C + A*C + b*C) * (4*B^3*A + 12*B^2*c*A + 12*B*c^2*A + 4*c^3*A + 8*B^2*A^2 + 16*B*c*A^2 + 8*c^2*A^2 + 4*B*A^3 + 4*c*A^3 + 4*B^2*c*b + 8*B*c^2*b + 4*c^3*b + 8*B^2*A*b + 24*B*c*A*b + 16*c^2*A*b + 8*B*A^2*b + 12*c*A^2*b + 8*B*c*b^2 + 8*c^2*b^2 + 4*B*A*b^2 + 12*c*A*b^2 + 4*c*b^3 + 2*B^3*a + 6*B^2*c*a + 6*B*c^2*a + 2*c^3*a + 8*B^2*A*a + 16*B*c*A*a + 8*c^2*A*a + 6*B*A^2*a + 6*c*A^2*a + 6*B^2*b*a + 16*B*c*b*a + 10*c^2*b*a + 12*B*A*b*a + 16*c*A*b*a + 2*A^2*b*a + 6*B*b^2*a + 10*c*b^2*a + 4*A*b^2*a + 2*b^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 2*B*A*a^2 + 2*c*A*a^2 + 4*B*b*a^2 + 5*c*b*a^2 + A*b*a^2 + 2*b^2*a^2 + 2*B^3*C + 4*B^2*c*C + 2*B*c^2*C + 10*B^2*A*C + 16*B*c*A*C + 6*c^2*A*C + 10*B*A^2*C + 8*c*A^2*C + 2*A^3*C + 6*B^2*b*C + 12*B*c*b*C + 6*c^2*b*C + 16*B*A*b*C + 16*c*A*b*C + 6*A^2*b*C + 6*B*b^2*C + 8*c*b^2*C + 6*A*b^2*C + 2*b^3*C + 4*B^2*a*C + 5*B*c*a*C + c^2*a*C + 7*B*A*a*C + 6*c*A*a*C + A^2*a*C + 8*B*b*a*C + 7*c*b*a*C + 5*A*b*a*C + 4*b^2*a*C + 2*B^2*C^2 + B*c*C^2 + 5*B*A*C^2 + 2*c*A*C^2 + 2*A^2*C^2 + 4*B*b*C^2 + 2*c*b*C^2 + 4*A*b*C^2 + 2*b^2*C^2) 
-
-(0, 2, 1, 0) : 2^5 * C * A * B * (B + c + A + b) * (B + c + A + b + a + C) * (B*A + c*A + c*b)^2 * (B*A + c*A + c*b + B*a + c*a + b*a + B*C + A*C + b*C) * (4*B^3*A + 12*B^2*c*A + 12*B*c^2*A + 4*c^3*A + 8*B^2*A^2 + 16*B*c*A^2 + 8*c^2*A^2 + 4*B*A^3 + 4*c*A^3 + 4*B^2*c*b + 8*B*c^2*b + 4*c^3*b + 8*B^2*A*b + 24*B*c*A*b + 16*c^2*A*b + 8*B*A^2*b + 12*c*A^2*b + 8*B*c*b^2 + 8*c^2*b^2 + 4*B*A*b^2 + 12*c*A*b^2 + 4*c*b^3 + 2*B^3*a + 6*B^2*c*a + 6*B*c^2*a + 2*c^3*a + 8*B^2*A*a + 16*B*c*A*a + 8*c^2*A*a + 6*B*A^2*a + 6*c*A^2*a + 6*B^2*b*a + 16*B*c*b*a + 10*c^2*b*a + 12*B*A*b*a + 16*c*A*b*a + 2*A^2*b*a + 6*B*b^2*a + 10*c*b^2*a + 4*A*b^2*a + 2*b^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 2*B*A*a^2 + 2*c*A*a^2 + 4*B*b*a^2 + 5*c*b*a^2 + A*b*a^2 + 2*b^2*a^2 + 2*B^3*C + 4*B^2*c*C + 2*B*c^2*C + 10*B^2*A*C + 16*B*c*A*C + 6*c^2*A*C + 10*B*A^2*C + 8*c*A^2*C + 2*A^3*C + 6*B^2*b*C + 12*B*c*b*C + 6*c^2*b*C + 16*B*A*b*C + 16*c*A*b*C + 6*A^2*b*C + 6*B*b^2*C + 8*c*b^2*C + 6*A*b^2*C + 2*b^3*C + 4*B^2*a*C + 5*B*c*a*C + c^2*a*C + 7*B*A*a*C + 6*c*A*a*C + A^2*a*C + 8*B*b*a*C + 7*c*b*a*C + 5*A*b*a*C + 4*b^2*a*C + 2*B^2*C^2 + B*c*C^2 + 5*B*A*C^2 + 2*c*A*C^2 + 2*A^2*C^2 + 4*B*b*C^2 + 2*c*b*C^2 + 4*A*b*C^2 + 2*b^2*C^2) 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DDerGH</span> <span class="o">=</span> <span class="n">double_derived_graph</span><span class="p">(</span><span class="n">DerG</span><span class="p">,</span><span class="n">DerH</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">reduce</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">dict_Jg_lumped_merge</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DDerGH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_Jg_lumped_merge</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">dict_Jg_lumped_merge</span><span class="p">[</span><span class="n">key</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 0) : 2^5 * a0 * (c2 + B2) * A1 * (A1 + c2 + b1 + B2) * (A1 + c2 + b1 + a0 + B2 + C0) * (A1*c2 + c2*b1 + A1*B2)^2 * (A1*c2 + c2*b1 + c2*a0 + b1*a0 + A1*B2 + a0*B2 + A1*C0 + b1*C0 + B2*C0) * (4*A1^3*c2 + 8*A1^2*c2^2 + 4*A1*c2^3 + 12*A1^2*c2*b1 + 16*A1*c2^2*b1 + 4*c2^3*b1 + 12*A1*c2*b1^2 + 8*c2^2*b1^2 + 4*c2*b1^3 + 6*A1^2*c2*a0 + 8*A1*c2^2*a0 + 2*c2^3*a0 + 2*A1^2*b1*a0 + 16*A1*c2*b1*a0 + 10*c2^2*b1*a0 + 4*A1*b1^2*a0 + 10*c2*b1^2*a0 + 2*b1^3*a0 + 2*A1*c2*a0^2 + 2*c2^2*a0^2 + A1*b1*a0^2 + 5*c2*b1*a0^2 + 2*b1^2*a0^2 + 4*A1^3*B2 + 16*A1^2*c2*B2 + 12*A1*c2^2*B2 + 8*A1^2*b1*B2 + 24*A1*c2*b1*B2 + 8*c2^2*b1*B2 + 4*A1*b1^2*B2 + 8*c2*b1^2*B2 + 6*A1^2*a0*B2 + 16*A1*c2*a0*B2 + 6*c2^2*a0*B2 + 12*A1*b1*a0*B2 + 16*c2*b1*a0*B2 + 6*b1^2*a0*B2 + 2*A1*a0^2*B2 + 4*c2*a0^2*B2 + 4*b1*a0^2*B2 + 8*A1^2*B2^2 + 12*A1*c2*B2^2 + 8*A1*b1*B2^2 + 4*c2*b1*B2^2 + 8*A1*a0*B2^2 + 6*c2*a0*B2^2 + 6*b1*a0*B2^2 + 2*a0^2*B2^2 + 4*A1*B2^3 + 2*a0*B2^3 + 2*A1^3*C0 + 8*A1^2*c2*C0 + 6*A1*c2^2*C0 + 6*A1^2*b1*C0 + 16*A1*c2*b1*C0 + 6*c2^2*b1*C0 + 6*A1*b1^2*C0 + 8*c2*b1^2*C0 + 2*b1^3*C0 + A1^2*a0*C0 + 6*A1*c2*a0*C0 + c2^2*a0*C0 + 5*A1*b1*a0*C0 + 7*c2*b1*a0*C0 + 4*b1^2*a0*C0 + 10*A1^2*B2*C0 + 16*A1*c2*B2*C0 + 2*c2^2*B2*C0 + 16*A1*b1*B2*C0 + 12*c2*b1*B2*C0 + 6*b1^2*B2*C0 + 7*A1*a0*B2*C0 + 5*c2*a0*B2*C0 + 8*b1*a0*B2*C0 + 10*A1*B2^2*C0 + 4*c2*B2^2*C0 + 6*b1*B2^2*C0 + 4*a0*B2^2*C0 + 2*B2^3*C0 + 2*A1^2*C0^2 + 2*A1*c2*C0^2 + 4*A1*b1*C0^2 + 2*c2*b1*C0^2 + 2*b1^2*C0^2 + 5*A1*B2*C0^2 + c2*B2*C0^2 + 4*b1*B2*C0^2 + 2*B2^2*C0^2) 
-
-(0, 1, 2, 0) : 2^5 * a0 * b1 * c2 * (A1 + c2 + b1 + B2) * (A1 + c2 + b1 + a0 + B2 + C0) * (A1*c2 + c2*b1 + A1*B2)^2 * (A1*c2 + c2*b1 + c2*a0 + b1*a0 + A1*B2 + a0*B2 + A1*C0 + b1*C0 + B2*C0) * (4*A1^3*c2 + 8*A1^2*c2^2 + 4*A1*c2^3 + 12*A1^2*c2*b1 + 16*A1*c2^2*b1 + 4*c2^3*b1 + 12*A1*c2*b1^2 + 8*c2^2*b1^2 + 4*c2*b1^3 + 6*A1^2*c2*a0 + 8*A1*c2^2*a0 + 2*c2^3*a0 + 2*A1^2*b1*a0 + 16*A1*c2*b1*a0 + 10*c2^2*b1*a0 + 4*A1*b1^2*a0 + 10*c2*b1^2*a0 + 2*b1^3*a0 + 2*A1*c2*a0^2 + 2*c2^2*a0^2 + A1*b1*a0^2 + 5*c2*b1*a0^2 + 2*b1^2*a0^2 + 4*A1^3*B2 + 16*A1^2*c2*B2 + 12*A1*c2^2*B2 + 8*A1^2*b1*B2 + 24*A1*c2*b1*B2 + 8*c2^2*b1*B2 + 4*A1*b1^2*B2 + 8*c2*b1^2*B2 + 6*A1^2*a0*B2 + 16*A1*c2*a0*B2 + 6*c2^2*a0*B2 + 12*A1*b1*a0*B2 + 16*c2*b1*a0*B2 + 6*b1^2*a0*B2 + 2*A1*a0^2*B2 + 4*c2*a0^2*B2 + 4*b1*a0^2*B2 + 8*A1^2*B2^2 + 12*A1*c2*B2^2 + 8*A1*b1*B2^2 + 4*c2*b1*B2^2 + 8*A1*a0*B2^2 + 6*c2*a0*B2^2 + 6*b1*a0*B2^2 + 2*a0^2*B2^2 + 4*A1*B2^3 + 2*a0*B2^3 + 2*A1^3*C0 + 8*A1^2*c2*C0 + 6*A1*c2^2*C0 + 6*A1^2*b1*C0 + 16*A1*c2*b1*C0 + 6*c2^2*b1*C0 + 6*A1*b1^2*C0 + 8*c2*b1^2*C0 + 2*b1^3*C0 + A1^2*a0*C0 + 6*A1*c2*a0*C0 + c2^2*a0*C0 + 5*A1*b1*a0*C0 + 7*c2*b1*a0*C0 + 4*b1^2*a0*C0 + 10*A1^2*B2*C0 + 16*A1*c2*B2*C0 + 2*c2^2*B2*C0 + 16*A1*b1*B2*C0 + 12*c2*b1*B2*C0 + 6*b1^2*B2*C0 + 7*A1*a0*B2*C0 + 5*c2*a0*B2*C0 + 8*b1*a0*B2*C0 + 10*A1*B2^2*C0 + 4*c2*B2^2*C0 + 6*b1*B2^2*C0 + 4*a0*B2^2*C0 + 2*B2^3*C0 + 2*A1^2*C0^2 + 2*A1*c2*C0^2 + 4*A1*b1*C0^2 + 2*c2*b1*C0^2 + 2*b1^2*C0^2 + 5*A1*B2*C0^2 + c2*B2*C0^2 + 4*b1*B2*C0^2 + 2*B2^2*C0^2) 
-
-(1, 2, 1) : 2^5 * B2 * (a0 + C0) * b1 * (A1 + c2 + b1 + B2) * (A1 + c2 + b1 + a0 + B2 + C0) * (A1*c2 + c2*b1 + A1*B2)^2 * (A1*c2 + c2*b1 + c2*a0 + b1*a0 + A1*B2 + a0*B2 + A1*C0 + b1*C0 + B2*C0) * (4*A1^3*c2 + 8*A1^2*c2^2 + 4*A1*c2^3 + 12*A1^2*c2*b1 + 16*A1*c2^2*b1 + 4*c2^3*b1 + 12*A1*c2*b1^2 + 8*c2^2*b1^2 + 4*c2*b1^3 + 6*A1^2*c2*a0 + 8*A1*c2^2*a0 + 2*c2^3*a0 + 2*A1^2*b1*a0 + 16*A1*c2*b1*a0 + 10*c2^2*b1*a0 + 4*A1*b1^2*a0 + 10*c2*b1^2*a0 + 2*b1^3*a0 + 2*A1*c2*a0^2 + 2*c2^2*a0^2 + A1*b1*a0^2 + 5*c2*b1*a0^2 + 2*b1^2*a0^2 + 4*A1^3*B2 + 16*A1^2*c2*B2 + 12*A1*c2^2*B2 + 8*A1^2*b1*B2 + 24*A1*c2*b1*B2 + 8*c2^2*b1*B2 + 4*A1*b1^2*B2 + 8*c2*b1^2*B2 + 6*A1^2*a0*B2 + 16*A1*c2*a0*B2 + 6*c2^2*a0*B2 + 12*A1*b1*a0*B2 + 16*c2*b1*a0*B2 + 6*b1^2*a0*B2 + 2*A1*a0^2*B2 + 4*c2*a0^2*B2 + 4*b1*a0^2*B2 + 8*A1^2*B2^2 + 12*A1*c2*B2^2 + 8*A1*b1*B2^2 + 4*c2*b1*B2^2 + 8*A1*a0*B2^2 + 6*c2*a0*B2^2 + 6*b1*a0*B2^2 + 2*a0^2*B2^2 + 4*A1*B2^3 + 2*a0*B2^3 + 2*A1^3*C0 + 8*A1^2*c2*C0 + 6*A1*c2^2*C0 + 6*A1^2*b1*C0 + 16*A1*c2*b1*C0 + 6*c2^2*b1*C0 + 6*A1*b1^2*C0 + 8*c2*b1^2*C0 + 2*b1^3*C0 + A1^2*a0*C0 + 6*A1*c2*a0*C0 + c2^2*a0*C0 + 5*A1*b1*a0*C0 + 7*c2*b1*a0*C0 + 4*b1^2*a0*C0 + 10*A1^2*B2*C0 + 16*A1*c2*B2*C0 + 2*c2^2*B2*C0 + 16*A1*b1*B2*C0 + 12*c2*b1*B2*C0 + 6*b1^2*B2*C0 + 7*A1*a0*B2*C0 + 5*c2*a0*B2*C0 + 8*b1*a0*B2*C0 + 10*A1*B2^2*C0 + 4*c2*B2^2*C0 + 6*b1*B2^2*C0 + 4*a0*B2^2*C0 + 2*B2^3*C0 + 2*A1^2*C0^2 + 2*A1*c2*C0^2 + 4*A1*b1*C0^2 + 2*c2*b1*C0^2 + 2*b1^2*C0^2 + 5*A1*B2*C0^2 + c2*B2*C0^2 + 4*b1*B2*C0^2 + 2*B2^2*C0^2) 
-
-(0, 2, 0) : 2^5 * C0 * c2 * (A1 + b1) * (A1 + c2 + b1 + B2) * (A1 + c2 + b1 + a0 + B2 + C0) * (A1*c2 + c2*b1 + A1*B2)^2 * (A1*c2 + c2*b1 + c2*a0 + b1*a0 + A1*B2 + a0*B2 + A1*C0 + b1*C0 + B2*C0) * (4*A1^3*c2 + 8*A1^2*c2^2 + 4*A1*c2^3 + 12*A1^2*c2*b1 + 16*A1*c2^2*b1 + 4*c2^3*b1 + 12*A1*c2*b1^2 + 8*c2^2*b1^2 + 4*c2*b1^3 + 6*A1^2*c2*a0 + 8*A1*c2^2*a0 + 2*c2^3*a0 + 2*A1^2*b1*a0 + 16*A1*c2*b1*a0 + 10*c2^2*b1*a0 + 4*A1*b1^2*a0 + 10*c2*b1^2*a0 + 2*b1^3*a0 + 2*A1*c2*a0^2 + 2*c2^2*a0^2 + A1*b1*a0^2 + 5*c2*b1*a0^2 + 2*b1^2*a0^2 + 4*A1^3*B2 + 16*A1^2*c2*B2 + 12*A1*c2^2*B2 + 8*A1^2*b1*B2 + 24*A1*c2*b1*B2 + 8*c2^2*b1*B2 + 4*A1*b1^2*B2 + 8*c2*b1^2*B2 + 6*A1^2*a0*B2 + 16*A1*c2*a0*B2 + 6*c2^2*a0*B2 + 12*A1*b1*a0*B2 + 16*c2*b1*a0*B2 + 6*b1^2*a0*B2 + 2*A1*a0^2*B2 + 4*c2*a0^2*B2 + 4*b1*a0^2*B2 + 8*A1^2*B2^2 + 12*A1*c2*B2^2 + 8*A1*b1*B2^2 + 4*c2*b1*B2^2 + 8*A1*a0*B2^2 + 6*c2*a0*B2^2 + 6*b1*a0*B2^2 + 2*a0^2*B2^2 + 4*A1*B2^3 + 2*a0*B2^3 + 2*A1^3*C0 + 8*A1^2*c2*C0 + 6*A1*c2^2*C0 + 6*A1^2*b1*C0 + 16*A1*c2*b1*C0 + 6*c2^2*b1*C0 + 6*A1*b1^2*C0 + 8*c2*b1^2*C0 + 2*b1^3*C0 + A1^2*a0*C0 + 6*A1*c2*a0*C0 + c2^2*a0*C0 + 5*A1*b1*a0*C0 + 7*c2*b1*a0*C0 + 4*b1^2*a0*C0 + 10*A1^2*B2*C0 + 16*A1*c2*B2*C0 + 2*c2^2*B2*C0 + 16*A1*b1*B2*C0 + 12*c2*b1*B2*C0 + 6*b1^2*B2*C0 + 7*A1*a0*B2*C0 + 5*c2*a0*B2*C0 + 8*b1*a0*B2*C0 + 10*A1*B2^2*C0 + 4*c2*B2^2*C0 + 6*b1*B2^2*C0 + 4*a0*B2^2*C0 + 2*B2^3*C0 + 2*A1^2*C0^2 + 2*A1*c2*C0^2 + 4*A1*b1*C0^2 + 2*c2*b1*C0^2 + 2*b1^2*C0^2 + 5*A1*B2*C0^2 + c2*B2*C0^2 + 4*b1*B2*C0^2 + 2*B2^2*C0^2) 
-
-(0, 2, 1, 0) : 2^5 * C0 * B2 * A1 * (A1 + c2 + b1 + B2) * (A1 + c2 + b1 + a0 + B2 + C0) * (A1*c2 + c2*b1 + A1*B2)^2 * (A1*c2 + c2*b1 + c2*a0 + b1*a0 + A1*B2 + a0*B2 + A1*C0 + b1*C0 + B2*C0) * (4*A1^3*c2 + 8*A1^2*c2^2 + 4*A1*c2^3 + 12*A1^2*c2*b1 + 16*A1*c2^2*b1 + 4*c2^3*b1 + 12*A1*c2*b1^2 + 8*c2^2*b1^2 + 4*c2*b1^3 + 6*A1^2*c2*a0 + 8*A1*c2^2*a0 + 2*c2^3*a0 + 2*A1^2*b1*a0 + 16*A1*c2*b1*a0 + 10*c2^2*b1*a0 + 4*A1*b1^2*a0 + 10*c2*b1^2*a0 + 2*b1^3*a0 + 2*A1*c2*a0^2 + 2*c2^2*a0^2 + A1*b1*a0^2 + 5*c2*b1*a0^2 + 2*b1^2*a0^2 + 4*A1^3*B2 + 16*A1^2*c2*B2 + 12*A1*c2^2*B2 + 8*A1^2*b1*B2 + 24*A1*c2*b1*B2 + 8*c2^2*b1*B2 + 4*A1*b1^2*B2 + 8*c2*b1^2*B2 + 6*A1^2*a0*B2 + 16*A1*c2*a0*B2 + 6*c2^2*a0*B2 + 12*A1*b1*a0*B2 + 16*c2*b1*a0*B2 + 6*b1^2*a0*B2 + 2*A1*a0^2*B2 + 4*c2*a0^2*B2 + 4*b1*a0^2*B2 + 8*A1^2*B2^2 + 12*A1*c2*B2^2 + 8*A1*b1*B2^2 + 4*c2*b1*B2^2 + 8*A1*a0*B2^2 + 6*c2*a0*B2^2 + 6*b1*a0*B2^2 + 2*a0^2*B2^2 + 4*A1*B2^3 + 2*a0*B2^3 + 2*A1^3*C0 + 8*A1^2*c2*C0 + 6*A1*c2^2*C0 + 6*A1^2*b1*C0 + 16*A1*c2*b1*C0 + 6*c2^2*b1*C0 + 6*A1*b1^2*C0 + 8*c2*b1^2*C0 + 2*b1^3*C0 + A1^2*a0*C0 + 6*A1*c2*a0*C0 + c2^2*a0*C0 + 5*A1*b1*a0*C0 + 7*c2*b1*a0*C0 + 4*b1^2*a0*C0 + 10*A1^2*B2*C0 + 16*A1*c2*B2*C0 + 2*c2^2*B2*C0 + 16*A1*b1*B2*C0 + 12*c2*b1*B2*C0 + 6*b1^2*B2*C0 + 7*A1*a0*B2*C0 + 5*c2*a0*B2*C0 + 8*b1*a0*B2*C0 + 10*A1*B2^2*C0 + 4*c2*B2^2*C0 + 6*b1*B2^2*C0 + 4*a0*B2^2*C0 + 2*B2^3*C0 + 2*A1^2*C0^2 + 2*A1*c2*C0^2 + 4*A1*b1*C0^2 + 2*c2*b1*C0^2 + 2*b1^2*C0^2 + 5*A1*B2*C0^2 + c2*B2*C0^2 + 4*b1*B2*C0^2 + 2*B2^2*C0^2) 
 </pre></div>
 </div>
 </div>

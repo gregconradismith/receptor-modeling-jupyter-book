@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tree_polynomials';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Further Reading" href="further_reading.html" />
+    <link rel="next" title="Derived Markov chains" href="cycle_fluxes_derived_chain_part1.html" />
     <link rel="prev" title="Cycle fluxes in receptor models" href="cycle_fluxes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -212,6 +212,11 @@
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part1.html">Derived Markov chains</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part2.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part3.html">Double Derived Markov chain w/ contexts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
@@ -230,7 +235,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Receptor Tools - Cycle Fluxes and Derived Markov chain</a></li>
 </ul>
 
     </div>
@@ -552,7 +557,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/eebc3258d0b913976077243fa4dc3623f2656e75ecf7662db19eda8ae47c63ab.png" src="_images/eebc3258d0b913976077243fa4dc3623f2656e75ecf7662db19eda8ae47c63ab.png" />
+<img alt="_images/8b71e0f554aac8e1be30ef964c0b16e2831fbbb21067a98599bc7cb0a4d6543e.png" src="_images/8b71e0f554aac8e1be30ef964c0b16e2831fbbb21067a98599bc7cb0a4d6543e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -563,7 +568,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4afc8da4fa3482c8d18cde1e537debd00567a3db651b3b23d2cfa561606b5d53.png" src="_images/4afc8da4fa3482c8d18cde1e537debd00567a3db651b3b23d2cfa561606b5d53.png" />
+<img alt="_images/6123f7cc3644a73af701f2ec07ecfd1c879b7c4a97a0cea822db05346538cb06.png" src="_images/6123f7cc3644a73af701f2ec07ecfd1c879b7c4a97a0cea822db05346538cb06.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -579,7 +584,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5ee9b1ce4c948e978de2ede0b3c09f783b2d8691d9910345687b2bdf53dab4da.png" src="_images/5ee9b1ce4c948e978de2ede0b3c09f783b2d8691d9910345687b2bdf53dab4da.png" />
+<img alt="_images/f79425e29a1cd0258ad1dc7bd4b2f6ced6de36bf9bb5e0d97ae6f2765be2298f.png" src="_images/f79425e29a1cd0258ad1dc7bd4b2f6ced6de36bf9bb5e0d97ae6f2765be2298f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[        a01 + a02              -a01              -a02                 0                 0                 0]
 [             -a01 2*a01 + a02 + a12              -a12              -a01              -a02                 0]
 [             -a02              -a12 a01 + 2*a02 + a12                 0              -a01              -a02]
@@ -607,7 +612,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bebc6bff259978ee0961af0584f64ef022ad2eb6d109bca0442c91f5a1227a66.png" src="_images/bebc6bff259978ee0961af0584f64ef022ad2eb6d109bca0442c91f5a1227a66.png" />
+<img alt="_images/05ebcb8be5a2971627996790b4c420135218107ddd0bbbfa165b4a6e175c9044.png" src="_images/05ebcb8be5a2971627996790b4c420135218107ddd0bbbfa165b4a6e175c9044.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[        2*a01 + 2*a02                -2*a01                -2*a02                     0                     0                     0]
 [                 -a10 a01 + a02 + a10 + a12                  -a12                  -a01                  -a02                     0]
 [                 -a20                  -a21 a01 + a02 + a20 + a21                     0                  -a01                  -a02]
@@ -636,7 +641,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 1187343891269694642309198417406636743388000595418407837505224529723117873425106862080000000000000000000000000000 spanning trees.  Here is one:
 </pre></div>
 </div>
-<img alt="_images/ce8ee814891a9b01c5b5f785cee99cd5d38b4a0921af1509e335562da74250ab.png" src="_images/ce8ee814891a9b01c5b5f785cee99cd5d38b4a0921af1509e335562da74250ab.png" />
+<img alt="_images/fd6bd0dc9db676fe8cd16ad74bdb1bc5243d12c39acff4521a56bb76ee06e5ed.png" src="_images/fd6bd0dc9db676fe8cd16ad74bdb1bc5243d12c39acff4521a56bb76ee06e5ed.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -650,7 +655,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03f283433bc72a17f7106f882382aae452f5d9389df725279fb302f842263220.png" src="_images/03f283433bc72a17f7106f882382aae452f5d9389df725279fb302f842263220.png" />
+<img alt="_images/8008b2efffebb686bc742040e2ea8ad37a1049f0064206da513d9aabb100f033.png" src="_images/8008b2efffebb686bc742040e2ea8ad37a1049f0064206da513d9aabb100f033.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36*(2*a01^2 + 4*a01*a02 + 2*a02^2 + 4*a01*a10 + 5*a02*a10 + 2*a10^2 + 5*a01*a12 + 5*a02*a12 + 4*a10*a12 + 2*a12^2 + 5*a01*a20 + 4*a02*a20 + 5*a10*a20 + 5*a12*a20 + 2*a20^2 + 5*a01*a21 + 5*a02*a21 + 5*a10*a21 + 4*a12*a21 + 4*a20*a21 + 2*a21^2)*(a10*a20 + a12*a20 + a10*a21)^3*(a01 + a02 + a10 + a12 + a20 + a21)
 </pre></div>
 </div>
@@ -671,8 +676,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e45c35c402cf29747282cce1aafce30141f666e29337cef7e12a6a07382948a1.png" src="_images/e45c35c402cf29747282cce1aafce30141f666e29337cef7e12a6a07382948a1.png" />
-<img alt="_images/6c8967f665c5bd806754444fbb68c907c0743f9897639a86c2f84c7736b466df.png" src="_images/6c8967f665c5bd806754444fbb68c907c0743f9897639a86c2f84c7736b466df.png" />
+<img alt="_images/68504e99c9b866d9c39f2917299c524557508e9ba6a122104c0de314c57db3ba.png" src="_images/68504e99c9b866d9c39f2917299c524557508e9ba6a122104c0de314c57db3ba.png" />
+<img alt="_images/5097c625426143e33578a8b793bae35d366c80f465df1291dee6d1fab59b8e21.png" src="_images/5097c625426143e33578a8b793bae35d366c80f465df1291dee6d1fab59b8e21.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8*(a01*a02*a10 + a02^2*a10 + a02*a10^2 + a01^2*a12 + 2*a01*a02*a12 + a02^2*a12 + a01*a10*a12 + 2*a02*a10*a12 + a01*a12^2 + a02*a12^2 + a01^2*a20 + a01*a02*a20 + 2*a01*a10*a20 + 2*a02*a10*a20 + a10^2*a20 + 3*a01*a12*a20 + 2*a02*a12*a20 + 2*a10*a12*a20 + a12^2*a20 + a01*a20^2 + a10*a20^2 + a12*a20^2 + a01^2*a21 + 2*a01*a02*a21 + a02^2*a21 + 2*a01*a10*a21 + 3*a02*a10*a21 + a10^2*a21 + 2*a01*a12*a21 + 2*a02*a12*a21 + a10*a12*a21 + 2*a01*a20*a21 + a02*a20*a21 + 2*a10*a20*a21 + a12*a20*a21 + a01*a21^2 + a02*a21^2 + a10*a21^2 + a01^2*a23 + 2*a01*a02*a23 + a02^2*a23 + 2*a01*a10*a23 + 2*a02*a10*a23 + a10^2*a23 + 2*a01*a12*a23 + 2*a02*a12*a23 + 2*a10*a12*a23 + a12^2*a23 + 2*a01*a20*a23 + a02*a20*a23 + 2*a10*a20*a23 + 2*a12*a20*a23 + 2*a01*a21*a23 + 2*a02*a21*a23 + 2*a10*a21*a23 + a12*a21*a23 + a01*a23^2 + a02*a23^2 + a10*a23^2 + a12*a23^2 + a01^2*a32 + 2*a01*a02*a32 + a02^2*a32 + 2*a01*a10*a32 + 2*a02*a10*a32 + a10^2*a32 + 2*a01*a12*a32 + 2*a02*a12*a32 + 2*a10*a12*a32 + a12^2*a32 + 2*a01*a20*a32 + 2*a02*a20*a32 + 2*a10*a20*a32 + 2*a12*a20*a32 + a20^2*a32 + 2*a01*a21*a32 + 2*a02*a21*a32 + 2*a10*a21*a32 + 2*a12*a21*a32 + 2*a20*a21*a32 + a21^2*a32 + 2*a01*a23*a32 + 2*a02*a23*a32 + 2*a10*a23*a32 + 2*a12*a23*a32 + a20*a23*a32 + a21*a23*a32 + a01*a32^2 + a02*a32^2 + a10*a32^2 + a12*a32^2 + a20*a32^2 + a21*a32^2)*(a10*a20 + a12*a20 + a10*a21)^2*a32^2
 </pre></div>
 </div>
@@ -720,11 +725,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="further_reading.html"
+       href="cycle_fluxes_derived_chain_part1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Further Reading</p>
+        <p class="prev-next-title">Derived Markov chains</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

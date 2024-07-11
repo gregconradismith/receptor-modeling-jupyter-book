@@ -36,7 +36,9 @@ parts:
     - file: cycle_fluxes_overview
     - file: cycle_fluxes
     - file: tree_polynomials
-    - file: cycle_fluxes_derived_chains
+    - file: cycle_fluxes_derived_chain_part1
+    - file: cycle_fluxes_derived_chain_part2
+    - file: cycle_fluxes_derived_chain_part3
     - file: further_reading
   - caption: Wang algebras
     chapters:

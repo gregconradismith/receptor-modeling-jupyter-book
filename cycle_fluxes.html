@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -213,6 +213,11 @@
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Cycle fluxes in receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part1.html">Derived Markov chains</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part2.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part3.html">Double Derived Markov chain w/ contexts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
@@ -231,7 +236,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Receptor Tools - Cycle Fluxes and Derived Markov chain</a></li>
 </ul>
 
     </div>
@@ -568,7 +573,7 @@ z[4] = a04*a10*a20*a32 + a04*a12*a20*a32 + a04*a10*a21*a32 + a04*a10*a20*a34 + a
 Defining a, b, c, d, e, f, A, B, C, D, E, F
 </pre></div>
 </div>
-<img alt="_images/8165a5ff40a9c8d08b5d319db31d90f790ab3437482cb0bd8d1bed245041a291.png" src="_images/8165a5ff40a9c8d08b5d319db31d90f790ab3437482cb0bd8d1bed245041a291.png" />
+<img alt="_images/2649588b4374a19f371718cac21d528697fad66e7c4ead8fc2a0ef7b3d5fd437.png" src="_images/2649588b4374a19f371718cac21d528697fad66e7c4ead8fc2a0ef7b3d5fd437.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -768,44 +773,43 @@ T[4] =  a*b*d*e + b*c*d*e + b*d*e*f + c*d*e*A + d*e*f*A + e*f*A*B + b*e*f*C + e*
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total of 6 + 2 * 3 cycles.
+
+0 =&gt; [a0, a1, a2, a0] - [a0, a2, a1, a0] =&gt; [a, b, C] - [c, B, A] =&gt; (-1) * (-a*b*C + c*A*B) @ ( e*F + D*E + D*F )
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 =&gt; [a0, a1, a2, a0] - [a0, a2, a1, a0] =&gt; [a, b, C] - [c, B, A] =&gt; (-1) * (-a*b*C + c*A*B) @ ( e*F + D*E + D*F )
-</pre></div>
-</div>
-<img alt="_images/fd864013636ee97b98293298a3b951f4d85de72f23eb67874622cabac5bf6ac1.png" src="_images/fd864013636ee97b98293298a3b951f4d85de72f23eb67874622cabac5bf6ac1.png" />
+<img alt="_images/c613745f623d96488ff9505fbaa9b022eb2fc57198b364554440002f53ba5e5c.png" src="_images/c613745f623d96488ff9505fbaa9b022eb2fc57198b364554440002f53ba5e5c.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 =&gt; [a0, a2, a3, a4, a0] - [a0, a4, a3, a2, a0] =&gt; [c, d, e, F] - [f, E, D, C] =&gt; (-1) * (-c*d*e*F + f*C*D*E) @ ( b + A )
 </pre></div>
 </div>
-<img alt="_images/b8126177a976b0a6e225b88b47149a566841df07f9f3df434c0d16d67b7d7191.png" src="_images/b8126177a976b0a6e225b88b47149a566841df07f9f3df434c0d16d67b7d7191.png" />
+<img alt="_images/7a65cb4d46d41b51d19f59419aeb3c59dd3f7b3c93e82806a5e240a8d23f3f08.png" src="_images/7a65cb4d46d41b51d19f59419aeb3c59dd3f7b3c93e82806a5e240a8d23f3f08.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 =&gt; [a0, a1, a2, a3, a4, a0] - [a0, a4, a3, a2, a1, a0] =&gt; [a, b, d, e, F] - [f, E, D, B, A] =&gt; (-1) * (-a*b*d*e*F + f*A*B*D*E) @ ( 1 )
 </pre></div>
 </div>
-<img alt="_images/07d561f11e275aaae2516ca09e6e714de18765797ab2512055f756d59f918d14.png" src="_images/07d561f11e275aaae2516ca09e6e714de18765797ab2512055f756d59f918d14.png" />
+<img alt="_images/41afeeca8c1a66228e73d6e56852e695d8db83e94cfea5f23775e269d60e21b1.png" src="_images/41afeeca8c1a66228e73d6e56852e695d8db83e94cfea5f23775e269d60e21b1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 =&gt; [a0, a1, a0] - [a0, a1, a0] =&gt; [a, A] - [a, A] =&gt; 0 @ ( d*e*F + e*B*F + e*C*F + B*D*E + B*D*F + C*D*E + C*D*F )
 </pre></div>
 </div>
-<img alt="_images/dbc4faf90f6bb2a647458648f157c1a11ad0c71ea54261bbf61eb49850190825.png" src="_images/dbc4faf90f6bb2a647458648f157c1a11ad0c71ea54261bbf61eb49850190825.png" />
+<img alt="_images/81f1ffcdf3f8944a0d741bf3c0918f988ba7529c86f4c6902684499918af8abf.png" src="_images/81f1ffcdf3f8944a0d741bf3c0918f988ba7529c86f4c6902684499918af8abf.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 =&gt; [a0, a2, a0] - [a0, a2, a0] =&gt; [c, C] - [c, C] =&gt; 0 @ ( b*e*F + b*D*E + b*D*F + e*A*F + A*D*E + A*D*F )
 </pre></div>
 </div>
-<img alt="_images/32405c5f471454e3f3cede9be14eede769641f25d20a4c481112bdba47490c14.png" src="_images/32405c5f471454e3f3cede9be14eede769641f25d20a4c481112bdba47490c14.png" />
+<img alt="_images/abdeec0bb4205abd87112c2bfd5ac95fff8e5a10008c246a7914559d7e79070f.png" src="_images/abdeec0bb4205abd87112c2bfd5ac95fff8e5a10008c246a7914559d7e79070f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 =&gt; [a0, a4, a0] - [a0, a4, a0] =&gt; [f, F] - [f, F] =&gt; 0 @ ( b*d*e + b*e*C + b*C*D + d*e*A + e*A*B + e*A*C + A*B*D + A*C*D )
 </pre></div>
 </div>
-<img alt="_images/e52c1e9464fcaa5fc6829c68d2505db9c7db733931f276c5356082f04f0ff46e.png" src="_images/e52c1e9464fcaa5fc6829c68d2505db9c7db733931f276c5356082f04f0ff46e.png" />
+<img alt="_images/ea0a26807853b24a1b3b077c61098d517756847e074c1b7ed33987c9e6443e7e.png" src="_images/ea0a26807853b24a1b3b077c61098d517756847e074c1b7ed33987c9e6443e7e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 =&gt; [a1, a2, a1] - [a1, a2, a1] =&gt; [b, B] - [b, B] =&gt; 0 @ ( a*e*F + a*D*E + a*D*F + c*e*F + c*D*E + c*D*F + f*D*E )
 </pre></div>
 </div>
-<img alt="_images/c189681c42f1ac6fc399f700547e72881a8f343d0764b45c1d229cdb8f4b92d9.png" src="_images/c189681c42f1ac6fc399f700547e72881a8f343d0764b45c1d229cdb8f4b92d9.png" />
+<img alt="_images/6fac37687c1f8c20e8e5d64c8a36ba864227e1f803269652996c3f9e02c12762.png" src="_images/6fac37687c1f8c20e8e5d64c8a36ba864227e1f803269652996c3f9e02c12762.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 =&gt; [a2, a3, a2] - [a2, a3, a2] =&gt; [d, D] - [d, D] =&gt; 0 @ ( a*b*E + a*b*F + b*c*E + b*c*F + b*f*E + c*A*E + c*A*F + f*A*E )
 </pre></div>
 </div>
-<img alt="_images/62144f1990717352aef799c61f99e138091d2900ec436db3d1d4855c52085e7e.png" src="_images/62144f1990717352aef799c61f99e138091d2900ec436db3d1d4855c52085e7e.png" />
+<img alt="_images/e38a190f374f80cd4837568b2e494ed12abbdf027cc0574883382db695bd23b8.png" src="_images/e38a190f374f80cd4837568b2e494ed12abbdf027cc0574883382db695bd23b8.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 =&gt; [a3, a4, a3] - [a3, a4, a3] =&gt; [e, E] - [e, E] =&gt; 0 @ ( a*b*d + b*c*d + b*d*f + b*f*C + c*d*A + d*f*A + f*A*B + f*A*C )
 </pre></div>
 </div>
-<img alt="_images/917aea8b7c3ff0f2762c05d67b1023d8dbdaebc631edb3ad895db5a907cafbb9.png" src="_images/917aea8b7c3ff0f2762c05d67b1023d8dbdaebc631edb3ad895db5a907cafbb9.png" />
+<img alt="_images/71bbcde4a30c552ef3a5563fc260ee6bc098ce58c8d9891867efcc5c2c88b514.png" src="_images/71bbcde4a30c552ef3a5563fc260ee6bc098ce58c8d9891867efcc5c2c88b514.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>( a*b*C - c*A*B ) @ ( e*F + D*E + D*F )
 ( c*d*e*F - f*C*D*E ) @ ( b + A )
 ( a*b*d*e*F - f*A*B*D*E ) @ ( 1 )

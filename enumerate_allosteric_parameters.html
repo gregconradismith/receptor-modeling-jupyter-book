@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -213,6 +213,11 @@
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part1.html">Derived Markov chains</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part2.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part3.html">Double Derived Markov chain w/ contexts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
@@ -231,7 +236,7 @@
 <li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Receptor Tools - Cycle Fluxes and Derived Markov chain</a></li>
 </ul>
 
     </div>
@@ -627,7 +632,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4983d656cf0455cb872f70e2e3343df68dc0572a9e0b15e9b3f03de360d747d1.png" src="_images/4983d656cf0455cb872f70e2e3343df68dc0572a9e0b15e9b3f03de360d747d1.png" />
+<img alt="_images/de0fc309aae541e9a273ec9a75bbf4ef42d899dae44c17d89d6fe07d1cd94ea3.png" src="_images/de0fc309aae541e9a273ec9a75bbf4ef42d899dae44c17d89d6fe07d1cd94ea3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -638,7 +643,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b5986dba8ab15da97cc1aae9eee2ed8e3901d3ef6793c6123b9ab8a9f9cf352a.png" src="_images/b5986dba8ab15da97cc1aae9eee2ed8e3901d3ef6793c6123b9ab8a9f9cf352a.png" />
+<img alt="_images/4c18ea07cb3fd73c484d2b0cd8f0504cc9b07f7de6090db667125274ac7817a5.png" src="_images/4c18ea07cb3fd73c484d2b0cd8f0504cc9b07f7de6090db667125274ac7817a5.png" />
 </div>
 </div>
 <p>Using the cube <span class="math notranslate nohighlight">\(Q_3\)</span> as the topology of a receptor monomer,  <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> enumerates the allosteric parameters for the receptor dimer with topology <span class="math notranslate nohighlight">\(Q_3^{(2)}\)</span>. The argument <code class="docutils literal notranslate"><span class="pre">show=True</span></code> in <code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters()</span></code> causes the display of <code class="docutils literal notranslate"><span class="pre">H</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code>and <code class="docutils literal notranslate"><span class="pre">KappaEta</span></code>.</p>
@@ -649,8 +654,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02892ec0840e0542ba5a6b9d4f39b761a0495cba3059e2884e64c784434b6320.png" src="_images/02892ec0840e0542ba5a6b9d4f39b761a0495cba3059e2884e64c784434b6320.png" />
-<img alt="_images/9e3612abde22e163e86090d819de068348525a7f7cc8a79d89af288acd359c98.png" src="_images/9e3612abde22e163e86090d819de068348525a7f7cc8a79d89af288acd359c98.png" />
+<img alt="_images/37066cfdaca0ad14ca37ff9783e64a5f2ab3d30a4ff572977cfe108aa09cc699.png" src="_images/37066cfdaca0ad14ca37ff9783e64a5f2ab3d30a4ff572977cfe108aa09cc699.png" />
+<img alt="_images/d956c0a0ceef50eae932bb2d916360eca5b4adf9d83bb4d00be1c7957fdc38f5.png" src="_images/d956c0a0ceef50eae932bb2d916360eca5b4adf9d83bb4d00be1c7957fdc38f5.png" />
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>

@@ -1,0 +1,996 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Plot Binding Curves &#8212; Receptors</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'plot_binding_curves';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Doodle.png" class="logo__image only-light" alt="Receptors - Home"/>
+    <img src="_static/Doodle.png" class="logo__image only-dark pst-js-only" alt="Receptors - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Receptors
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_modeling_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="states_and_transitions.html">States and transitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ligands.html">Ligand binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermodynamic_constraints_and_allosteric_parameters.html">Thermodynamic constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equilibrium.html">Equilibrium formalism</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part1.html">Tools and Examples - Part 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Receptor Dimers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="receptor_dimers_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_graph_powers.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part2.html">Tools and Examples - Part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enumerate_allosteric_parameters.html">Enumerating allosteric parameters</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fitting Allosteric Parameters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fitting_allosteric_parameters.html">Fitting allosteric parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-lmfit.html">Example lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-minimize-linear-regression.html">example-minimize-linear-regression.ipynb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimize-receptor-model-pade.html">Minimize receptor model pade</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Nonequilibrium steady states</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markov_chains.html">Markov chain receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonequilibrium.html">Non-equilibrium steady states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hill_diagrammatic_method.html">Hill’s diagrammatic method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_and_examples_part3.html">Tools and Examples - Part 3</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Cycle Fluxes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes.html">Cycle fluxes in receptor models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tree_polynomials.html">Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part1.html">Derived Markov chains</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part2.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cycle_fluxes_derived_chain_part3.html">Double Derived Markov chain w/ contexts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="further_reading.html">Further Reading</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wang algebras</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra_overview.html">Wang algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra_undirected_graph.html">Wang algebra - undirected graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wang_algebra_directed_graph.html">Wang algebra - directed graph</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_graphs.html">Example graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_reduced_graph_powers.html">Example Reduced Graph Powers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bfs_spanning_tree.html">BFS Spanning Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstring_test.html">docstring test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="my_struggle_with_docstrings.html">My struggle with docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting-hypercubes.html">Plotting hypercube graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="practicing-python.html">practicing python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools.html">Receptor Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receptor_tools_cycle_fluxes.html">Receptor Tools - Cycle Fluxes and Derived Markov chain</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/plot_binding_curves.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gregconradismith/receptor-modeling-jupyter-book/issues/new?title=Issue%20on%20page%20%2Fplot_binding_curves.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/plot_binding_curves.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Plot Binding Curves</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="plot-binding-curves">
+<h1>Plot Binding Curves<a class="headerlink" href="#plot-binding-curves" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> receptor_tools.ipynb
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1">#G = graphs.HouseGraph()</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">graphs</span><span class="o">.</span><span class="n">PathGraph</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">KappaEta</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span> <span class="o">=</span> <span class="n">enumerate_allosteric_parameters</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">T</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">KappaEta</span><span class="p">))</span>
+<span class="n">show</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><strong><code class="docutils literal notranslate"><span class="pre">mydoc(myfun,</span> <span class="pre">method='both')</span></code></strong></p>
+<p>Display the <strong>signature</strong> of <code class="docutils literal notranslate"><span class="pre">myfun</span></code> followed by the <strong>docstring</strong> of <code class="docutils literal notranslate"><span class="pre">myfun</span></code>.
+Set <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">='signature'</span></code> or <code class="docutils literal notranslate"><span class="pre">'method</span> <span class="pre">=</span> <span class="pre">'docstring'</span></code> or <code class="docutils literal notranslate"><span class="pre">'method</span> <span class="pre">=</span> <span class="pre">'both'</span></code></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">print_graph(G)</span></code></strong></p>
+<p>Prints the vertices and edges of the graph <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">generator(A,</span> <span class="pre">rowsum=True)</span></code></strong></p>
+<p>Creates the generator matrix ‘Q’ from the adjacency matrix ‘A’. By default the sum along each row of ‘Q’ is zero (‘rowsum=True’).  For the sum along each column of ‘Q’ to be zero, set ‘rowsum=False’.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">hill_diagramatic_method(Q)</span></code></strong></p>
+<p>Returns the spanning tree polynomials rooted in each vertex.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_vertex_monomials(G=Graph</span> <span class="pre">on</span> <span class="pre">0</span> <span class="pre">vertices,</span> <span class="pre">method='integer',</span> <span class="pre">ring=False)</span></code></strong></p>
+<p>Add monomials to vertices of a graph.</p>
+<p>The add_vertex_monomials function takes a graph G, as well as optional parameters method and ring. The function creates a new graph H with vertices labeled by monomials. The monomials are chosen based on the number of vertices in G. If the method parameter is set to ‘alpha’ and the number of vertices in G is less than or equal to 10, the monomials are chosen as alphabetical letters (‘a’ to ‘k’). Otherwise, the monomials are chosen as strings of the form ‘a0’, ‘a1’, …, ‘an-1’, where n is the number of vertices in G. The function then adds the vertices from G to H using the monomials as labels, and adds the edges from G to H using the monomials as endpoints. If the ring parameter is set to True, the function also creates a polynomial ring V with the chosen monomials and ‘invlex’ order, and returns both H and V. Otherwise, it returns only H.</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as vertices</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_edge_monomials(G0,</span> <span class="pre">method='integer',</span> <span class="pre">edge_vars=['b',</span> <span class="pre">'c',</span> <span class="pre">'d',</span> <span class="pre">'e',</span> <span class="pre">'f',</span> <span class="pre">'g',</span> <span class="pre">'h',</span> <span class="pre">'i',</span> <span class="pre">'j',</span> <span class="pre">'k',</span> <span class="pre">'l',</span> <span class="pre">'m',</span> <span class="pre">'n',</span> <span class="pre">'o',</span> <span class="pre">'p',</span> <span class="pre">'q',</span> <span class="pre">'r',</span> <span class="pre">'s',</span> <span class="pre">'t',</span> <span class="pre">'u',</span> <span class="pre">'v',</span> <span class="pre">'w',</span> <span class="pre">'x',</span> <span class="pre">'y',</span> <span class="pre">'z'],</span> <span class="pre">ring=False,</span> <span class="pre">short_name=False)</span></code></strong></p>
+<p>Add monomials to edges of a graph.</p>
+<p>The add_edge_monomials function takes a graph G, as well as optional parameters method, edge_vars, ring, and short_name. If method is set to ‘integer’, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph. The edge variables can be represented either as ‘e’ followed by the first vertex label or the first and second vertex labels concatenated. If the vertex labels are integers and the short_name parameter is set to True, the edge variables are created using only the first vertex label. If method is set to ‘alpha’, the function creates a polynomial ring using the given edge variables and assigns variables to the edges of the graph in reverse order. The number of edge variables used is determined by the size of the graph. The ring parameter, if set to True, injects the polynomial variables into the global namespace and returns the graph and the polynomial ring. Otherwise, it simply returns the graph.</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as edges</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">add_edge_monomials_ver2(G,</span> <span class="pre">edge_labels='default',</span> <span class="pre">prefix='')</span></code></strong></p>
+<p>Add monomials to edges of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">enumerate_allosteric_parameters(G=House</span> <span class="pre">Graph:</span> <span class="pre">Graph</span> <span class="pre">on</span> <span class="pre">5</span> <span class="pre">vertices,</span> <span class="pre">**kwargs)</span></code></strong></p>
+<p>Enumerate allosteric parameters of a receptor model.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p>INPUT:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> – graph object (default: <code class="docutils literal notranslate"><span class="pre">Graph()</span></code>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code> – integer (default: <code class="docutils literal notranslate"><span class="pre">integer</span></code>);</p></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><p>The graph with monomials as vertices</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical')</span></code></strong></p>
+<p>Construct Cartesian power of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power(G,</span> <span class="pre">k=2,</span> <span class="pre">edge_labels='cannonical',</span> <span class="pre">prefix='',</span> <span class="pre">independent=False)</span></code></strong></p>
+<p>Construct reduced Cartesian power of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">reduced_cartesian_power_ver2(G,</span> <span class="pre">k,</span> <span class="pre">contexts=True,</span> <span class="pre">edge_labels=True)</span></code></strong></p>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;IPython.core.display.Markdown object&gt;
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">combinatorial_laplacian(G,</span> <span class="pre">combinatorial_coefficients=False)</span></code></strong></p>
+<p>Construct the combinatorial Laplacian of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">tree_polynomial(G,</span> <span class="pre">combinatorial_coefficients=False)</span></code></strong></p>
+<p>Construct the tree polynomial of a graph.</p>
+<p>[NEED TO WRITE DESCRIPTION]</p>
+<img alt="_images/40866f9f0d05d72e9a199012e19d6c26835eeabaac0c982c2a6cfa939681bf7a.png" src="_images/40866f9f0d05d72e9a199012e19d6c26835eeabaac0c982c2a6cfa939681bf7a.png" />
+<img alt="_images/8c24fe48f9717adce2cd26e4deaf21c28c2e0da7e64dbeb8c75744e3a942bf2d.png" src="_images/8c24fe48f9717adce2cd26e4deaf21c28c2e0da7e64dbeb8c75744e3a942bf2d.png" />
+<div class="output text_html"><div class="notruncate">
+<table  class="table_form">
+<tbody>
+<tr class ="row-a">
+<td style="text-align:left">\(1\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{c}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}} \kappa_{\mathit{c}} \kappa_{\mathit{d}}\)</td>
+</tr>
+<tr class ="row-b">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{b}}^{2} \eta_{\mathit{bb}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}}^{2} \kappa_{\mathit{c}} \eta_{\mathit{bb}} \eta_{\mathit{bc}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}}^{2} \kappa_{\mathit{c}} \kappa_{\mathit{d}} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}}\)</td>
+</tr>
+<tr class ="row-a">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{b}}^{2} \kappa_{\mathit{c}}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}}\)</td>
+<td style="text-align:left">\(2 \kappa_{\mathit{b}}^{2} \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}}\)</td>
+</tr>
+<tr class ="row-b">
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(0\)</td>
+<td style="text-align:left">\(\kappa_{\mathit{b}}^{2} \kappa_{\mathit{c}}^{2} \kappa_{\mathit{d}}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}}\)</td>
+</tr>
+</tbody>
+</table>
+</div></div><div class="output text_html"><html>\(\displaystyle \newcommand{\Bold}[1]{\mathbf{#1}}\Bold{Z}[\kappa_{\mathit{b}}, \kappa_{\mathit{c}}, \kappa_{\mathit{d}}, \eta_{\mathit{bb}}, \eta_{\mathit{bc}}, \eta_{\mathit{cc}}, \eta_{\mathit{bd}}, \eta_{\mathit{cd}}, \eta_{\mathit{dd}}]\)</html></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_states</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+<span class="n">n_kappa</span><span class="o">=</span><span class="n">n_states</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">n_kappa_plus_eta</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">ngens</span><span class="p">()</span>
+<span class="n">n_eta</span><span class="o">=</span><span class="n">n_kappa_plus_eta</span><span class="o">-</span><span class="n">n_kappa</span>
+<span class="n">kappa_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_kappa</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kappa_list = </span><span class="si">{</span><span class="n">kappa_list</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">eta_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_kappa</span><span class="p">,</span><span class="n">n_kappa_plus_eta</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;eta_list = </span><span class="si">{</span><span class="n">eta_list</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">phi</span><span class="o">=</span><span class="n">normalize</span><span class="p">(</span><span class="n">random_binary_array</span><span class="p">(</span><span class="n">n_states</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;phi = </span><span class="si">{</span><span class="n">phi</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">Phi</span> <span class="o">=</span> <span class="n">dimerize</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Phi = </span><span class="si">{</span><span class="n">Phi</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;KappaEta = </span><span class="si">{</span><span class="n">KappaEta</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kappa_list = [kappa_b, kappa_c, kappa_d]
+eta_list = [eta_bb, eta_bc, eta_cc, eta_bd, eta_cd, eta_dd]
+phi = [0.  0.5 0.5 0. ]
+Phi = [[np.float64(0.0), np.float64(0.0), np.float64(0.0), np.float64(0.0)], [0, np.float64(0.5), np.float64(0.25), np.float64(0.0)], [0, 0, np.float64(0.5), np.float64(0.0)], [0, 0, 0, np.float64(0.0)]]
+KappaEta = [[1, 2*kappa_b, 2*kappa_b*kappa_c, 2*kappa_b*kappa_c*kappa_d], [0, kappa_b^2*eta_bb, 2*kappa_b^2*kappa_c*eta_bb*eta_bc, 2*kappa_b^2*kappa_c*kappa_d*eta_bb*eta_bc*eta_bd], [0, 0, kappa_b^2*kappa_c^2*eta_bb*eta_bc^2*eta_cc, 2*kappa_b^2*kappa_c^2*kappa_d*eta_bb*eta_bc^2*eta_cc*eta_bd*eta_cd], [0, 0, 0, kappa_b^2*kappa_c^2*kappa_d^2*eta_bb*eta_bc^2*eta_cc*eta_bd^2*eta_cd^2*eta_dd]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the symbolic binding curve </span>
+<span class="n">FBindingKappaEta</span><span class="o">=</span><span class="n">make_symbolic_dimer_binding_curve</span><span class="p">(</span><span class="n">Phi</span><span class="p">,</span><span class="n">KappaEta</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">FBindingKappaEta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><html>\(\displaystyle \frac{0.5 \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.5 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.5 \kappa_{b}^{2} \eta_{\mathit{bb}}}{\kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 2.0 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 2.0 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 2.0 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 2.0 \kappa_{b} \kappa_{c} \kappa_{d} + \kappa_{b}^{2} \eta_{\mathit{bb}} + 2.0 \kappa_{b} \kappa_{c} + 2.0 \kappa_{b} + 1.0}\)</html></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add ligand dependencies randomly or manually</span>
+<span class="n">manual</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">var</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">manual</span><span class="p">:</span>
+    <span class="n">d_kappa_X</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="n">kappa_b</span><span class="p">:</span> <span class="n">kappa_b</span><span class="o">*</span><span class="n">X</span><span class="p">,</span> <span class="n">kappa_c</span><span class="p">:</span> <span class="n">kappa_c</span><span class="o">*</span><span class="n">X</span><span class="p">})</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Round_To_n</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">d_kappa_X</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+    <span class="n">num_X</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">num_X</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># make sure there is at least one ligand binding edge (kappa*X)</span>
+        <span class="k">for</span> <span class="n">kappa</span> <span class="ow">in</span> <span class="n">kappa_list</span><span class="p">:</span>
+            <span class="n">k</span><span class="o">=</span><span class="n">Round_To_n</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">ligand_prob</span> <span class="o">=</span> <span class="mf">0.4</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">ligand_prob</span><span class="p">:</span>
+                <span class="n">d_kappa_X</span><span class="p">[</span><span class="n">kappa</span><span class="p">]</span><span class="o">=</span><span class="n">k</span><span class="o">*</span><span class="n">X</span>
+                <span class="n">num_X</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">d_kappa_X</span><span class="p">[</span><span class="n">kappa</span><span class="p">]</span><span class="o">=</span><span class="n">k</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d_kappa_X</span><span class="p">)</span>
+<span class="n">FBindingEtaX</span><span class="o">=</span><span class="n">FBindingKappaEta</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">d_kappa_X</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">FBindingEtaX</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{kappa_b: 0.279, kappa_c: 0.222*X, kappa_d: 0.921*X}
+</pre></div>
+</div>
+<div class="output text_html"><html>\(\displaystyle \frac{0.0019181579220000006 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.008640351000000003 \, X \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.03892050000000001 \, \eta_{\mathit{bb}}}{0.0032541203878304046 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.007066493784648002 \, X^{3} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 0.0038363158440000013 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 0.031831053084000006 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.03456140400000001 \, X \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 0.11408979600000001 \, X^{2} + 0.12387600000000001 \, X + 0.07784100000000002 \, \eta_{\mathit{bb}} + 1.558}\)</html></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FastCallableFBindingEtaX</span> <span class="o">=</span> <span class="n">fast_callable</span><span class="p">(</span><span class="n">FBindingEtaX</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">eta_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># construct target function</span>
+<span class="c1"># xrange and values x for data, x0 for smooth plots</span>
+<span class="n">xlogmin</span><span class="o">=-</span><span class="mi">3</span>
+<span class="n">xlogmax</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">xlogmin</span><span class="p">,</span><span class="n">xlogmax</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">xlogmin</span><span class="p">,</span><span class="n">xlogmax</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+
+<span class="c1"># choose random eta&#39;s with 50% change of being 1 (unused)</span>
+<span class="n">eta_prob_one</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">n_eta</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_eta</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">eta_prob_one</span><span class="p">:</span>
+        <span class="n">eta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">FastCallableFBindingEtaX</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">eta</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span> <span class="c1"># w/ noise</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">FastCallableFBindingEtaX</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="o">*</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create hypercube and flip left/right</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">graphs</span><span class="o">.</span><span class="n">CubeGraph</span><span class="p">(</span><span class="n">n_eta</span><span class="p">,</span> <span class="n">embedding</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">get_pos</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">Q</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">xpos</span><span class="p">,</span><span class="n">ypos</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="c1"># do not use x,y here! These are needed below</span>
+    <span class="n">pos</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">n_eta</span><span class="o">-</span><span class="n">xpos</span><span class="p">,</span><span class="n">ypos</span><span class="p">)</span>
+    <span class="c1"># pos[v]=(ypos,xpos) this didn&#39;t look good </span>
+<span class="c1">#Q.show(figsize=6,edge_labels=False,vertex_labels=True, vertex_size=100,edge_thickness=0.5,vertex_colors=&#39;white&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span> <span class="o">*</span> <span class="n">n_eta</span>
+<span class="n">d_level</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_eta</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">Q</span><span class="o">.</span><span class="n">vertices</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="n">Q</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">root</span><span class="p">):</span>
+            <span class="n">d_level</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">=</span><span class="n">level</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d_level</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111111&#39;: 0, &#39;011111&#39;: 1, &#39;101111&#39;: 1, &#39;110111&#39;: 1, &#39;111011&#39;: 1, &#39;111101&#39;: 1, &#39;111110&#39;: 1, &#39;001111&#39;: 2, &#39;010111&#39;: 2, &#39;011011&#39;: 2, &#39;011101&#39;: 2, &#39;011110&#39;: 2, &#39;100111&#39;: 2, &#39;101011&#39;: 2, &#39;101101&#39;: 2, &#39;101110&#39;: 2, &#39;110011&#39;: 2, &#39;110101&#39;: 2, &#39;110110&#39;: 2, &#39;111001&#39;: 2, &#39;111010&#39;: 2, &#39;111100&#39;: 2, &#39;000111&#39;: 3, &#39;001011&#39;: 3, &#39;001101&#39;: 3, &#39;001110&#39;: 3, &#39;010011&#39;: 3, &#39;010101&#39;: 3, &#39;010110&#39;: 3, &#39;011001&#39;: 3, &#39;011010&#39;: 3, &#39;011100&#39;: 3, &#39;100011&#39;: 3, &#39;100101&#39;: 3, &#39;100110&#39;: 3, &#39;101001&#39;: 3, &#39;101010&#39;: 3, &#39;101100&#39;: 3, &#39;110001&#39;: 3, &#39;110010&#39;: 3, &#39;110100&#39;: 3, &#39;111000&#39;: 3, &#39;000011&#39;: 4, &#39;000101&#39;: 4, &#39;000110&#39;: 4, &#39;001001&#39;: 4, &#39;001010&#39;: 4, &#39;001100&#39;: 4, &#39;010001&#39;: 4, &#39;010010&#39;: 4, &#39;010100&#39;: 4, &#39;011000&#39;: 4, &#39;100001&#39;: 4, &#39;100010&#39;: 4, &#39;100100&#39;: 4, &#39;101000&#39;: 4, &#39;110000&#39;: 4, &#39;000001&#39;: 5, &#39;000010&#39;: 5, &#39;000100&#39;: 5, &#39;001000&#39;: 5, &#39;010000&#39;: 5, &#39;100000&#39;: 5, &#39;000000&#39;: 6}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_eta_fit</span><span class="p">(</span><span class="n">eta_list</span><span class="p">):</span>
+
+    <span class="c1"># Define the objective function</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">objective_function</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="n">residuals</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">FastCallableFBindingEtaX</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">eta</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Initial guess for parameters</span>
+    <span class="n">initial_guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_eta</span><span class="p">)</span>
+    <span class="c1"># this loop makes elements of the tuple bnds</span>
+    <span class="n">bnds</span> <span class="o">=</span> <span class="p">()</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># nparams</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_eta</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">eta_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mf">1.0</span><span class="p">:</span>
+            <span class="n">bnds</span> <span class="o">+=</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),)</span> <span class="c1"># eta = 1, not used</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bnds</span> <span class="o">+=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),)</span> <span class="c1"># eta non-negative</span>
+            <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># Perform optimization</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">objective_function</span><span class="p">,</span> <span class="n">initial_guess</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bnds</span><span class="p">)</span>
+
+    <span class="c1"># Extract and print optimized eta&#39;s</span>
+    <span class="n">optimal_eta</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">optimal_eta</span> <span class="p">)</span>
+    <span class="c1">#print(f&#39;{optimal_eta=}&#39;)</span>
+
+    <span class="c1"># Evaluate result</span>
+    <span class="n">y0_result</span> <span class="o">=</span> <span class="n">FastCallableFBindingEtaX</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="o">*</span><span class="n">optimal_eta</span><span class="p">)</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">FastCallableFBindingEtaX</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">optimal_eta</span><span class="p">)</span>
+    <span class="n">ssr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">aic</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ssr</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
+
+    <span class="c1"># Plot result</span>
+    <span class="n">plot_results</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">plot_results</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;sim data&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0_result</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit&#39;</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;aic=</span><span class="si">{</span><span class="n">aic</span><span class="si">=}</span><span class="s1">,</span><span class="se">\n</span><span class="s1">target eta=</span><span class="si">{</span><span class="n">eta</span><span class="si">}</span><span class="s1">,</span><span class="se">\n</span><span class="s1">optimal eta=</span><span class="si">{</span><span class="n">optimal_eta</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">aic</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make arcs point rightward to &quot;lower&quot; levels only (fewer parameters used, more 1&#39;s)</span>
+<span class="n">Q_directed</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">to_directed</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">Q_directed</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">d_level</span><span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">&lt;</span><span class="n">d_level</span><span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]]:</span>
+        <span class="n">Q_directed</span><span class="o">.</span><span class="n">delete_edge</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="c1">#show(Q_directed)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_depth</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">d_aic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">();</span>
+<span class="n">Q_aic</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">Q_directed</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_depth</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n_eta</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># delete levels not used</span>
+    <span class="c1">#print(f&#39;{max_depth=} so deleting {level=}&#39;)</span>
+    <span class="k">for</span> <span class="n">vert</span><span class="p">,</span> <span class="n">lev</span> <span class="ow">in</span> <span class="n">d_level</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">lev</span> <span class="o">==</span> <span class="n">level</span><span class="p">:</span>
+            <span class="n">Q_aic</span><span class="o">.</span><span class="n">delete_vertex</span><span class="p">(</span><span class="n">vert</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">max_depth</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">vert</span><span class="p">,</span> <span class="n">lev</span> <span class="ow">in</span> <span class="n">d_level</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">lev</span> <span class="o">==</span> <span class="n">level</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">Q_aic</span><span class="o">.</span><span class="n">has_vertex</span><span class="p">(</span><span class="n">vert</span><span class="p">):</span>
+                <span class="c1">#print(type(vert))</span>
+                <span class="n">aic</span> <span class="o">=</span> <span class="n">do_eta_fit</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vert</span><span class="p">])</span>
+                <span class="n">d_aic</span><span class="p">[</span><span class="n">vert</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">aic</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">Q_aic</span><span class="o">.</span><span class="n">set_vertex</span><span class="p">(</span><span class="n">vert</span><span class="p">,</span><span class="n">aic</span><span class="p">)</span>
+                <span class="c1">#print(f&quot;level {lev} : eta_mask={vert} {aic=:.2f}&quot;)</span>
+                <span class="n">hang</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">nv</span> <span class="ow">in</span> <span class="n">Q_aic</span><span class="o">.</span><span class="n">neighbors_out</span><span class="p">(</span><span class="n">vert</span><span class="p">):</span>
+                    <span class="c1">#print(f&#39;looking at vert {vert} --&gt; {nv}&#39;)</span>
+                    <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">d_aic</span><span class="p">[</span><span class="n">vert</span><span class="p">])</span><span class="o">&gt;=</span><span class="nb">float</span><span class="p">(</span><span class="n">d_aic</span><span class="p">[</span><span class="n">nv</span><span class="p">]):</span> <span class="c1"># float from str</span>
+                        <span class="c1">#print(f&#39;deleted edge {vert=} {d_aic[vert]=} -&gt; {nv=} {d_aic[nv]=}&#39;)</span>
+                        <span class="n">Q_aic</span><span class="o">.</span><span class="n">delete_edge</span><span class="p">(</span><span class="n">vert</span><span class="p">,</span><span class="n">nv</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">hang</span><span class="o">+=</span><span class="mi">1</span>
+                <span class="k">if</span> <span class="n">hang</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">vert</span> <span class="o">!=</span> <span class="n">root</span><span class="p">:</span>
+                    <span class="n">Q_aic</span><span class="o">.</span><span class="n">delete_vertex</span><span class="p">(</span><span class="n">vert</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 1.]
+[0.55 1.   1.   1.   1.   1.  ]
+[1. 0. 1. 1. 1. 1.]
+[1.   1.   0.03 1.   1.   1.  ]
+[1.   1.   1.   6.03 1.   1.  ]
+[1.   1.   1.   1.   7.38 1.  ]
+[1.   1.   1.   1.   1.   9.79]
+[0.57 0.63 1.   1.   1.   1.  ]
+[0.56 1.   0.13 1.   1.   1.  ]
+[0.55 1.   1.   1.01 1.   1.  ]
+[0.55 1.   1.   1.   1.01 1.  ]
+[0.55 1.   1.   1.   1.   1.  ]
+[1.   0.   1.02 1.   1.   1.  ]
+[1.   0.   1.   1.06 1.   1.  ]
+[1.   0.   1.   1.   0.99 1.  ]
+[1.   0.   1.   1.   1.   0.88]
+[1.00e+00 1.00e+00 3.77e-05 3.39e+01 1.00e+00 1.00e+00]
+[ 1.    1.    0.61  1.   11.28  1.  ]
+[1.   1.   0.07 1.   1.   1.43]
+[1.   1.   1.   2.97 2.74 1.  ]
+[1.   1.   1.   4.71 1.   3.08]
+[1.   1.   1.   1.   4.08 3.57]
+[0.57 0.65 0.9  1.   1.   1.  ]
+[0.57 0.63 1.   1.04 1.   1.  ]
+[0.57 0.63 1.   1.   1.01 1.  ]
+[0.57 0.63 1.   1.   1.   1.  ]
+[0.57 1.   0.04 1.84 1.   1.  ]
+[0.56 1.   0.08 1.   1.41 1.  ]
+[0.56 1.   0.15 1.   1.   1.13]
+[0.55 1.   1.   1.01 1.01 1.  ]
+[0.55 1.   1.   1.01 1.   1.  ]
+[0.55 1.   1.   1.   1.01 1.  ]
+[1.   0.   0.93 1.08 1.   1.  ]
+[1.   0.   0.93 1.   1.   1.  ]
+[1.   0.   0.98 1.   1.   0.93]
+[1.   0.   1.   1.11 1.05 1.  ]
+[1.   0.   1.   1.07 1.   1.01]
+[1.   0.   1.   1.   1.   1.01]
+[1.   1.   1.12 3.42 2.38 1.  ]
+[1.   1.   0.93 5.61 1.   1.99]
+[1.   1.   1.21 1.   4.62 3.29]
+[1.   1.   1.   2.65 2.45 1.86]
+[0.57 0.65 0.9  1.04 1.   1.  ]
+[0.57 0.65 0.9  1.   1.01 1.  ]
+[0.57 0.65 0.9  1.   1.   1.  ]
+[0.57 0.63 1.   1.04 1.   1.  ]
+[0.57 0.63 1.   1.04 1.   1.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.57 0.63 1.   1.   1.01 1.  ]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.57 1.   0.04 1.67 1.13 1.  ]
+[0.57 1.   0.04 1.83 1.   1.03]
+[0.56 1.   0.07 1.   1.43 1.13]
+[0.55 1.   1.   1.01 1.01 1.  ]
+[1.   0.   0.94 1.11 1.05 1.  ]
+[1.   0.   0.93 1.08 1.   1.02]
+[1.   0.   0.94 1.   0.96 1.  ]
+[1.   0.   1.   1.11 1.05 1.02]
+[1.   1.   1.22 2.96 2.34 1.56]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">d_aic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111111&#39;: &#39;-182.054&#39;, &#39;011111&#39;: &#39;-203.464&#39;, &#39;101111&#39;: &#39;-183.326&#39;, &#39;110111&#39;: &#39;-179.950&#39;, &#39;111011&#39;: &#39;-182.161&#39;, &#39;111101&#39;: &#39;-181.799&#39;, &#39;111110&#39;: &#39;-180.610&#39;, &#39;001111&#39;: &#39;-200.831&#39;, &#39;010111&#39;: &#39;-200.774&#39;, &#39;011011&#39;: &#39;-200.387&#39;, &#39;011101&#39;: &#39;-200.384&#39;, &#39;011110&#39;: &#39;-200.383&#39;, &#39;100111&#39;: &#39;-180.245&#39;, &#39;101011&#39;: &#39;-180.245&#39;, &#39;101101&#39;: &#39;-180.245&#39;, &#39;101110&#39;: &#39;-180.245&#39;, &#39;110011&#39;: &#39;-180.544&#39;, &#39;110101&#39;: &#39;-178.783&#39;, &#39;110110&#39;: &#39;-176.911&#39;, &#39;111001&#39;: &#39;-178.895&#39;, &#39;111010&#39;: &#39;-178.981&#39;, &#39;111100&#39;: &#39;-178.687&#39;, &#39;000111&#39;: &#39;-197.689&#39;, &#39;001011&#39;: &#39;-197.681&#39;, &#39;001101&#39;: &#39;-197.686&#39;, &#39;001110&#39;: &#39;-197.688&#39;, &#39;010011&#39;: &#39;-197.694&#39;, &#39;010101&#39;: &#39;-197.666&#39;, &#39;010110&#39;: &#39;-197.641&#39;, &#39;011001&#39;: &#39;-197.245&#39;, &#39;011010&#39;: &#39;-197.244&#39;, &#39;011100&#39;: &#39;-197.241&#39;, &#39;100011&#39;: &#39;-177.101&#39;, &#39;100101&#39;: &#39;-177.101&#39;, &#39;100110&#39;: &#39;-177.101&#39;, &#39;101001&#39;: &#39;-177.101&#39;, &#39;101010&#39;: &#39;-177.101&#39;, &#39;101100&#39;: &#39;-177.101&#39;, &#39;110001&#39;: &#39;-175.777&#39;, &#39;110010&#39;: &#39;-175.909&#39;, &#39;110100&#39;: &#39;-175.582&#39;, &#39;111000&#39;: &#39;-175.716&#39;, &#39;000011&#39;: &#39;-194.471&#39;, &#39;000101&#39;: &#39;-194.475&#39;, &#39;000110&#39;: &#39;-194.476&#39;, &#39;001001&#39;: &#39;-194.469&#39;, &#39;001010&#39;: &#39;-194.469&#39;, &#39;001100&#39;: &#39;-194.474&#39;, &#39;010001&#39;: &#39;-194.482&#39;, &#39;010010&#39;: &#39;-194.484&#39;, &#39;010100&#39;: &#39;-194.457&#39;, &#39;011000&#39;: &#39;-194.032&#39;, &#39;100001&#39;: &#39;-173.889&#39;, &#39;100010&#39;: &#39;-173.889&#39;, &#39;100100&#39;: &#39;-173.889&#39;, &#39;101000&#39;: &#39;-173.889&#39;, &#39;110000&#39;: &#39;-172.509&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q_aic_undirected</span> <span class="o">=</span> <span class="n">Q_aic</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">()</span>
+<span class="n">Q_aic_undirected</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">vertex_labels</span><span class="o">=</span><span class="n">d_aic</span><span class="p">,</span> <span class="n">vertex_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">edge_thickness</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">vertex_colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;AIC pruned&#39;</span><span class="p">)</span>
+<span class="n">Q_aic_undirected</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vertex_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">edge_thickness</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">vertex_colors</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;eta</span><span class="se">\&#39;</span><span class="s1">s used&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5b82ecb404e8042fce883dc16920b16f5215ba483385a614b36b3e733f547e03.png" src="_images/5b82ecb404e8042fce883dc16920b16f5215ba483385a614b36b3e733f547e03.png" />
+<img alt="_images/90400e3197b1d9711780ae3fc68d2cd0a8d13332f815ced4a97ae9fb64589ae8.png" src="_images/90400e3197b1d9711780ae3fc68d2cd0a8d13332f815ced4a97ae9fb64589ae8.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "sagemath"
+        },
+        kernelOptions: {
+            name: "sagemath",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'sagemath'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Greg Conradi Smith
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

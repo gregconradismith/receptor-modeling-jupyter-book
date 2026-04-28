@@ -8,9 +8,9 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: SageMath 10
+  display_name: SageMath
   language: sage
-  name: sage-10.0
+  name: sagemath
 ---
 # Hill's diagrammatic method
 

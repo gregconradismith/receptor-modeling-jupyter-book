@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Double Derived Markov chain w/ contexts &#8212; Receptors</title>
   
@@ -14,43 +14,46 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Double Derived Markov chain w/ contexts" href="cycle_fluxes_derived_chain_part2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -71,31 +75,16 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -103,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -111,10 +99,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -123,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -138,6 +132,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -151,21 +147,17 @@
     
     
     <img src="_static/Doodle.png" class="logo__image only-light" alt="Receptors - Home"/>
-    <script>document.write(`<img src="_static/Doodle.png" class="logo__image only-dark" alt="Receptors - Home"/>`);</script>
+    <img src="_static/Doodle.png" class="logo__image only-dark pst-js-only" alt="Receptors - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -244,14 +236,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -260,14 +257,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -292,14 +289,14 @@
       
       <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/cycle_fluxes_derived_chain_part3.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -407,7 +404,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -421,24 +418,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -502,7 +491,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<img alt="_images/f8df903411883bca12cf62102321648c4d28dbc7a125ef1ad0716958c4643476.png" src="_images/f8df903411883bca12cf62102321648c4d28dbc7a125ef1ad0716958c4643476.png" />
+<img alt="_images/c6d7849333426151770a367d16e3013bbc3f0c67bb5fee6d0faa47c39b2e68e1.png" src="_images/c6d7849333426151770a367d16e3013bbc3f0c67bb5fee6d0faa47c39b2e68e1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-C - a      a      C]
 [     A -b - A      b]
 [     c      B -B - c]
@@ -557,7 +546,7 @@ G cycle flux 4 : (C + a) * b * B
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<img alt="_images/ee050e840eb921c0da1d1d90ef7cda83957c3ca86e18728ee9e5de0294c54565.png" src="_images/ee050e840eb921c0da1d1d90ef7cda83957c3ca86e18728ee9e5de0294c54565.png" />
+<img alt="_images/3034d3f6e9564c02da951de5311fd5612da0e1700e5e9f5858bdc82cf4ec25d5.png" src="_images/3034d3f6e9564c02da951de5311fd5612da0e1700e5e9f5858bdc82cf4ec25d5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-C - a      a      C]
 [     A -b - A      b]
 [     c      B -B - c]
@@ -603,15 +592,15 @@ H cycle flux 4 : (C + a) * b * B
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multivariate Polynomial Ring in b, a, A, B, C, c over Integer Ring
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multivariate Polynomial Ring in B, C, c, a, A, b over Integer Ring
 </pre></div>
 </div>
-<img alt="_images/d8e9f4dda08e33fdc29954f02448cef1f12d47337400113fc06d77b63bd4f839.png" src="_images/d8e9f4dda08e33fdc29954f02448cef1f12d47337400113fc06d77b63bd4f839.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multivariate Polynomial Ring in B0, A0, b2, c0, A2, B1, B2, a0, c2, b1, A1, C1, b0, c1, C2, a1, a2, C0 over Integer Ring
+<img alt="_images/342fb4b0c22b83b3260ef973e07eb289ed20dbaae8a729be3fe5ec740304a67c.png" src="_images/342fb4b0c22b83b3260ef973e07eb289ed20dbaae8a729be3fe5ec740304a67c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multivariate Polynomial Ring in a2, b2, a0, A1, B0, A2, B2, a1, b1, b0, C1, C2, c0, c1, B1, A0, c2, C0 over Integer Ring
 </pre></div>
 </div>
-<img alt="_images/aacd066d38b0361a417b060e2ab6e93dd7be887192bcfbc371b32c4e05aa27b3.png" src="_images/aacd066d38b0361a417b060e2ab6e93dd7be887192bcfbc371b32c4e05aa27b3.png" />
-<img alt="_images/62688f5288d7dc93adaf1af480edc139d2204b687889b2e2d77c4c5fb5157057.png" src="_images/62688f5288d7dc93adaf1af480edc139d2204b687889b2e2d77c4c5fb5157057.png" />
+<img alt="_images/227690c84f4c0d7050207decb9afdd7416db64c4a8520ac032175a739fa3d7f0.png" src="_images/227690c84f4c0d7050207decb9afdd7416db64c4a8520ac032175a739fa3d7f0.png" />
+<img alt="_images/8f5e653f1335836d762babd14ded40a3a38f9e05b941e211dc3e962e3a88e5fb.png" src="_images/8f5e653f1335836d762babd14ded40a3a38f9e05b941e211dc3e962e3a88e5fb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -622,7 +611,7 @@ H cycle flux 4 : (C + a) * b * B
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/57479d3f5e014fae169ba6ce15b1477105e5bbb7bf91e7977c34ea720c7ae603.png" src="_images/57479d3f5e014fae169ba6ce15b1477105e5bbb7bf91e7977c34ea720c7ae603.png" />
+<img alt="_images/8a82b62c2eab15837a41f49a267350b27623b296027cfdde46097f20988d6dbc.png" src="_images/8a82b62c2eab15837a41f49a267350b27623b296027cfdde46097f20988d6dbc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -634,8 +623,8 @@ H cycle flux 4 : (C + a) * b * B
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/97b36d847ebe0cd54bc40b08f7def5b9b8eb3d28644bf5ac1e762646b4bcf8a9.png" src="_images/97b36d847ebe0cd54bc40b08f7def5b9b8eb3d28644bf5ac1e762646b4bcf8a9.png" />
-<img alt="_images/7a1ac0dd473ceea2c49129ea31e7c4edffc121373c5938b2db7663e817409084.png" src="_images/7a1ac0dd473ceea2c49129ea31e7c4edffc121373c5938b2db7663e817409084.png" />
+<img alt="_images/96fe94c25281945c0f7992fde763e51bb755550afee92791f5bcf2ff9522bbb5.png" src="_images/96fe94c25281945c0f7992fde763e51bb755550afee92791f5bcf2ff9522bbb5.png" />
+<img alt="_images/6b72d5e515ebd60a9317cd017fe1cf484816f2d1165a5ff6f79d33218a785806.png" src="_images/6b72d5e515ebd60a9317cd017fe1cf484816f2d1165a5ff6f79d33218a785806.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -671,7 +660,7 @@ J (2, 1, 2) = C * b * B * (A*B + b*c + A*c)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a7988274424eaf9fd3e83ae65951469f524d671edd8a1c1637a41aa116d54ef0.png" src="_images/a7988274424eaf9fd3e83ae65951469f524d671edd8a1c1637a41aa116d54ef0.png" />
+<img alt="_images/79ca6a402a6cba204dc34a4298c449b26768126fc2d4113d4d4d4424a358f56b.png" src="_images/79ca6a402a6cba204dc34a4298c449b26768126fc2d4113d4d4d4424a358f56b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -723,35 +712,35 @@ J (2, 1, 2) = C * b * B * (A*B + b*c + A*c)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
 *** context = False   reduce = False
 ***
-Multivariate Polynomial Ring in b, a, A, B, C, c over Integer Ring
+Multivariate Polynomial Ring in B, C, c, a, A, b over Integer Ring
 </pre></div>
 </div>
-<img alt="_images/736366bb1500c5eda077dfcfbbc19fd9413ae2bba80aa89e27d0c40e42397578.png" src="_images/736366bb1500c5eda077dfcfbbc19fd9413ae2bba80aa89e27d0c40e42397578.png" />
-<img alt="_images/0ef69b28bf580b86eb9374bba4aea4ce11fdee3e0be01dc648dd6b4053214112.png" src="_images/0ef69b28bf580b86eb9374bba4aea4ce11fdee3e0be01dc648dd6b4053214112.png" />
+<img alt="_images/99adc1f28b9c844d2a0b4400a3a531ebb7a0293cc7cab55c4f7688473480b663.png" src="_images/99adc1f28b9c844d2a0b4400a3a531ebb7a0293cc7cab55c4f7688473480b663.png" />
+<img alt="_images/b1f3ef578de331ff2bb457677c64feb4524b4ad6890cdf7e6e51f28898bfcb95.png" src="_images/b1f3ef578de331ff2bb457677c64feb4524b4ad6890cdf7e6e51f28898bfcb95.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
 *** context = False   reduce = True
 ***
-Multivariate Polynomial Ring in b, a, A, B, C, c over Integer Ring
+Multivariate Polynomial Ring in B, C, c, a, A, b over Integer Ring
 </pre></div>
 </div>
-<img alt="_images/3d3a0fbd17c848f2eec1480c3e16dd9c332bedca6d5d85e54102b4f9d5e14ceb.png" src="_images/3d3a0fbd17c848f2eec1480c3e16dd9c332bedca6d5d85e54102b4f9d5e14ceb.png" />
-<img alt="_images/d8dc04940371de6460518d248954cb5ef04c3bd65e408056d33acdcc987c5355.png" src="_images/d8dc04940371de6460518d248954cb5ef04c3bd65e408056d33acdcc987c5355.png" />
+<img alt="_images/60b771d948adccc62abb674cb4dcfdb699f8108cb91af7212dc2d30266831332.png" src="_images/60b771d948adccc62abb674cb4dcfdb699f8108cb91af7212dc2d30266831332.png" />
+<img alt="_images/95eb5dad02a9ab60e02e9bbf3c4509669e0ba0040e3d345b1f81ac789f572c5d.png" src="_images/95eb5dad02a9ab60e02e9bbf3c4509669e0ba0040e3d345b1f81ac789f572c5d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
 *** context = True   reduce = False
 ***
-Multivariate Polynomial Ring in B0, A0, b2, c0, A2, B1, B2, a0, c2, b1, A1, C1, b0, c1, C2, a1, a2, C0 over Integer Ring
+Multivariate Polynomial Ring in a2, b2, a0, A1, B0, A2, B2, a1, b1, b0, C1, C2, c0, c1, B1, A0, c2, C0 over Integer Ring
 </pre></div>
 </div>
-<img alt="_images/8581d7e24fd940cfa942fdbf09729aaaffbd4cb87a088660e218a357f7596b27.png" src="_images/8581d7e24fd940cfa942fdbf09729aaaffbd4cb87a088660e218a357f7596b27.png" />
-<img alt="_images/98ba160ffd62163befb86d04a7048e37dfe91473c76743d555c04b077022c4c8.png" src="_images/98ba160ffd62163befb86d04a7048e37dfe91473c76743d555c04b077022c4c8.png" />
+<img alt="_images/fb7bde40c06ae6afc7c13bb4863988b06833b284c8e0403629fdbb17838fd2bc.png" src="_images/fb7bde40c06ae6afc7c13bb4863988b06833b284c8e0403629fdbb17838fd2bc.png" />
+<img alt="_images/9e9860d6dbae70ffa0d08451ef7deb2576712d0138c01b0f15054667cbad94b9.png" src="_images/9e9860d6dbae70ffa0d08451ef7deb2576712d0138c01b0f15054667cbad94b9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>***
 *** context = True   reduce = True
 ***
-Multivariate Polynomial Ring in B0, A0, b2, c0, A2, B1, B2, a0, c2, b1, A1, C1, b0, c1, C2, a1, a2, C0 over Integer Ring
+Multivariate Polynomial Ring in a2, b2, a0, A1, B0, A2, B2, a1, b1, b0, C1, C2, c0, c1, B1, A0, c2, C0 over Integer Ring
 </pre></div>
 </div>
-<img alt="_images/c172634ebf5a9dca150e2e071a0c967cdfe9ca27054102e2ae9040a5a047ac31.png" src="_images/c172634ebf5a9dca150e2e071a0c967cdfe9ca27054102e2ae9040a5a047ac31.png" />
-<img alt="_images/69335f13100c3ef7b7e4fed423aefd66312815600756d5726395aae3b1df19ba.png" src="_images/69335f13100c3ef7b7e4fed423aefd66312815600756d5726395aae3b1df19ba.png" />
+<img alt="_images/a1a97c4a86aeb9b21adb2d51d680793b75c2f085487cd1e75122dfc37a13adb0.png" src="_images/a1a97c4a86aeb9b21adb2d51d680793b75c2f085487cd1e75122dfc37a13adb0.png" />
+<img alt="_images/460c14a14cc44e55dbc6e2c247d06d5dae6c901dc9903e053f4f453dc49c7496.png" src="_images/460c14a14cc44e55dbc6e2c247d06d5dae6c901dc9903e053f4f453dc49c7496.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -764,15 +753,15 @@ Multivariate Polynomial Ring in B0, A0, b2, c0, A2, B1, B2, a0, c2, b1, A1, C1, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 0) : 2^5 * (B + c) * A * a * (b + A + B + c) * (b + a + A + B + C + c) * (A*B + b*c + A*c)^2 * (b*a + a*B + A*B + b*C + A*C + B*C + b*c + a*c + A*c) * (2*b^3*a + 2*b^2*a^2 + 4*b^2*a*A + b*a^2*A + 2*b*a*A^2 + 6*b^2*a*B + 4*b*a^2*B + 4*b^2*A*B + 12*b*a*A*B + 2*a^2*A*B + 8*b*A^2*B + 6*a*A^2*B + 4*A^3*B + 6*b*a*B^2 + 2*a^2*B^2 + 8*b*A*B^2 + 8*a*A*B^2 + 8*A^2*B^2 + 2*a*B^3 + 4*A*B^3 + 2*b^3*C + 4*b^2*a*C + 6*b^2*A*C + 5*b*a*A*C + 6*b*A^2*C + a*A^2*C + 2*A^3*C + 6*b^2*B*C + 8*b*a*B*C + 16*b*A*B*C + 7*a*A*B*C + 10*A^2*B*C + 6*b*B^2*C + 4*a*B^2*C + 10*A*B^2*C + 2*B^3*C + 2*b^2*C^2 + 4*b*A*C^2 + 2*A^2*C^2 + 4*b*B*C^2 + 5*A*B*C^2 + 2*B^2*C^2 + 4*b^3*c + 10*b^2*a*c + 5*b*a^2*c + 12*b^2*A*c + 16*b*a*A*c + 2*a^2*A*c + 12*b*A^2*c + 6*a*A^2*c + 4*A^3*c + 8*b^2*B*c + 16*b*a*B*c + 4*a^2*B*c + 24*b*A*B*c + 16*a*A*B*c + 16*A^2*B*c + 4*b*B^2*c + 6*a*B^2*c + 12*A*B^2*c + 8*b^2*C*c + 7*b*a*C*c + 16*b*A*C*c + 6*a*A*C*c + 8*A^2*C*c + 12*b*B*C*c + 5*a*B*C*c + 16*A*B*C*c + 4*B^2*C*c + 2*b*C^2*c + 2*A*C^2*c + B*C^2*c + 8*b^2*c^2 + 10*b*a*c^2 + 2*a^2*c^2 + 16*b*A*c^2 + 8*a*A*c^2 + 8*A^2*c^2 + 8*b*B*c^2 + 6*a*B*c^2 + 12*A*B*c^2 + 6*b*C*c^2 + a*C*c^2 + 6*A*C*c^2 + 2*B*C*c^2 + 4*b*c^3 + 2*a*c^3 + 4*A*c^3) 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 0) : 2^5 * A * a * (B + c) * (B + c + A + b) * (B + C + c + a + A + b) * (B*A + c*A + c*b)^2 * (B*C + B*a + c*a + B*A + C*A + c*A + C*b + c*b + a*b) * (2*B^3*C + 2*B^2*C^2 + 4*B^2*C*c + B*C^2*c + 2*B*C*c^2 + 2*B^3*a + 4*B^2*C*a + 6*B^2*c*a + 5*B*C*c*a + 6*B*c^2*a + C*c^2*a + 2*c^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 4*B^3*A + 10*B^2*C*A + 5*B*C^2*A + 12*B^2*c*A + 16*B*C*c*A + 2*C^2*c*A + 12*B*c^2*A + 6*C*c^2*A + 4*c^3*A + 8*B^2*a*A + 7*B*C*a*A + 16*B*c*a*A + 6*C*c*a*A + 8*c^2*a*A + 2*B*a^2*A + 2*c*a^2*A + 8*B^2*A^2 + 10*B*C*A^2 + 2*C^2*A^2 + 16*B*c*A^2 + 8*C*c*A^2 + 8*c^2*A^2 + 6*B*a*A^2 + C*a*A^2 + 6*c*a*A^2 + 4*B*A^3 + 2*C*A^3 + 4*c*A^3 + 6*B^2*C*b + 4*B*C^2*b + 4*B^2*c*b + 12*B*C*c*b + 2*C^2*c*b + 8*B*c^2*b + 6*C*c^2*b + 4*c^3*b + 6*B^2*a*b + 8*B*C*a*b + 16*B*c*a*b + 7*C*c*a*b + 10*c^2*a*b + 4*B*a^2*b + 5*c*a^2*b + 8*B^2*A*b + 16*B*C*A*b + 4*C^2*A*b + 24*B*c*A*b + 16*C*c*A*b + 16*c^2*A*b + 12*B*a*A*b + 5*C*a*A*b + 16*c*a*A*b + a^2*A*b + 8*B*A^2*b + 6*C*A^2*b + 12*c*A^2*b + 2*a*A^2*b + 6*B*C*b^2 + 2*C^2*b^2 + 8*B*c*b^2 + 8*C*c*b^2 + 8*c^2*b^2 + 6*B*a*b^2 + 4*C*a*b^2 + 10*c*a*b^2 + 2*a^2*b^2 + 4*B*A*b^2 + 6*C*A*b^2 + 12*c*A*b^2 + 4*a*A*b^2 + 2*C*b^3 + 4*c*b^3 + 2*a*b^3) 
 
-(0, 1, 2, 0) : 2^5 * c * a * b * (b + A + B + c) * (b + a + A + B + C + c) * (A*B + b*c + A*c)^2 * (b*a + a*B + A*B + b*C + A*C + B*C + b*c + a*c + A*c) * (2*b^3*a + 2*b^2*a^2 + 4*b^2*a*A + b*a^2*A + 2*b*a*A^2 + 6*b^2*a*B + 4*b*a^2*B + 4*b^2*A*B + 12*b*a*A*B + 2*a^2*A*B + 8*b*A^2*B + 6*a*A^2*B + 4*A^3*B + 6*b*a*B^2 + 2*a^2*B^2 + 8*b*A*B^2 + 8*a*A*B^2 + 8*A^2*B^2 + 2*a*B^3 + 4*A*B^3 + 2*b^3*C + 4*b^2*a*C + 6*b^2*A*C + 5*b*a*A*C + 6*b*A^2*C + a*A^2*C + 2*A^3*C + 6*b^2*B*C + 8*b*a*B*C + 16*b*A*B*C + 7*a*A*B*C + 10*A^2*B*C + 6*b*B^2*C + 4*a*B^2*C + 10*A*B^2*C + 2*B^3*C + 2*b^2*C^2 + 4*b*A*C^2 + 2*A^2*C^2 + 4*b*B*C^2 + 5*A*B*C^2 + 2*B^2*C^2 + 4*b^3*c + 10*b^2*a*c + 5*b*a^2*c + 12*b^2*A*c + 16*b*a*A*c + 2*a^2*A*c + 12*b*A^2*c + 6*a*A^2*c + 4*A^3*c + 8*b^2*B*c + 16*b*a*B*c + 4*a^2*B*c + 24*b*A*B*c + 16*a*A*B*c + 16*A^2*B*c + 4*b*B^2*c + 6*a*B^2*c + 12*A*B^2*c + 8*b^2*C*c + 7*b*a*C*c + 16*b*A*C*c + 6*a*A*C*c + 8*A^2*C*c + 12*b*B*C*c + 5*a*B*C*c + 16*A*B*C*c + 4*B^2*C*c + 2*b*C^2*c + 2*A*C^2*c + B*C^2*c + 8*b^2*c^2 + 10*b*a*c^2 + 2*a^2*c^2 + 16*b*A*c^2 + 8*a*A*c^2 + 8*A^2*c^2 + 8*b*B*c^2 + 6*a*B*c^2 + 12*A*B*c^2 + 6*b*C*c^2 + a*C*c^2 + 6*A*C*c^2 + 2*B*C*c^2 + 4*b*c^3 + 2*a*c^3 + 4*A*c^3) 
+(0, 1, 2, 0) : 2^5 * b * a * c * (B + c + A + b) * (B + C + c + a + A + b) * (B*A + c*A + c*b)^2 * (B*C + B*a + c*a + B*A + C*A + c*A + C*b + c*b + a*b) * (2*B^3*C + 2*B^2*C^2 + 4*B^2*C*c + B*C^2*c + 2*B*C*c^2 + 2*B^3*a + 4*B^2*C*a + 6*B^2*c*a + 5*B*C*c*a + 6*B*c^2*a + C*c^2*a + 2*c^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 4*B^3*A + 10*B^2*C*A + 5*B*C^2*A + 12*B^2*c*A + 16*B*C*c*A + 2*C^2*c*A + 12*B*c^2*A + 6*C*c^2*A + 4*c^3*A + 8*B^2*a*A + 7*B*C*a*A + 16*B*c*a*A + 6*C*c*a*A + 8*c^2*a*A + 2*B*a^2*A + 2*c*a^2*A + 8*B^2*A^2 + 10*B*C*A^2 + 2*C^2*A^2 + 16*B*c*A^2 + 8*C*c*A^2 + 8*c^2*A^2 + 6*B*a*A^2 + C*a*A^2 + 6*c*a*A^2 + 4*B*A^3 + 2*C*A^3 + 4*c*A^3 + 6*B^2*C*b + 4*B*C^2*b + 4*B^2*c*b + 12*B*C*c*b + 2*C^2*c*b + 8*B*c^2*b + 6*C*c^2*b + 4*c^3*b + 6*B^2*a*b + 8*B*C*a*b + 16*B*c*a*b + 7*C*c*a*b + 10*c^2*a*b + 4*B*a^2*b + 5*c*a^2*b + 8*B^2*A*b + 16*B*C*A*b + 4*C^2*A*b + 24*B*c*A*b + 16*C*c*A*b + 16*c^2*A*b + 12*B*a*A*b + 5*C*a*A*b + 16*c*a*A*b + a^2*A*b + 8*B*A^2*b + 6*C*A^2*b + 12*c*A^2*b + 2*a*A^2*b + 6*B*C*b^2 + 2*C^2*b^2 + 8*B*c*b^2 + 8*C*c*b^2 + 8*c^2*b^2 + 6*B*a*b^2 + 4*C*a*b^2 + 10*c*a*b^2 + 2*a^2*b^2 + 4*B*A*b^2 + 6*C*A*b^2 + 12*c*A*b^2 + 4*a*A*b^2 + 2*C*b^3 + 4*c*b^3 + 2*a*b^3) 
 
-(1, 2, 1) : 2^5 * B * (a + C) * b * (b + A + B + c) * (b + a + A + B + C + c) * (A*B + b*c + A*c)^2 * (b*a + a*B + A*B + b*C + A*C + B*C + b*c + a*c + A*c) * (2*b^3*a + 2*b^2*a^2 + 4*b^2*a*A + b*a^2*A + 2*b*a*A^2 + 6*b^2*a*B + 4*b*a^2*B + 4*b^2*A*B + 12*b*a*A*B + 2*a^2*A*B + 8*b*A^2*B + 6*a*A^2*B + 4*A^3*B + 6*b*a*B^2 + 2*a^2*B^2 + 8*b*A*B^2 + 8*a*A*B^2 + 8*A^2*B^2 + 2*a*B^3 + 4*A*B^3 + 2*b^3*C + 4*b^2*a*C + 6*b^2*A*C + 5*b*a*A*C + 6*b*A^2*C + a*A^2*C + 2*A^3*C + 6*b^2*B*C + 8*b*a*B*C + 16*b*A*B*C + 7*a*A*B*C + 10*A^2*B*C + 6*b*B^2*C + 4*a*B^2*C + 10*A*B^2*C + 2*B^3*C + 2*b^2*C^2 + 4*b*A*C^2 + 2*A^2*C^2 + 4*b*B*C^2 + 5*A*B*C^2 + 2*B^2*C^2 + 4*b^3*c + 10*b^2*a*c + 5*b*a^2*c + 12*b^2*A*c + 16*b*a*A*c + 2*a^2*A*c + 12*b*A^2*c + 6*a*A^2*c + 4*A^3*c + 8*b^2*B*c + 16*b*a*B*c + 4*a^2*B*c + 24*b*A*B*c + 16*a*A*B*c + 16*A^2*B*c + 4*b*B^2*c + 6*a*B^2*c + 12*A*B^2*c + 8*b^2*C*c + 7*b*a*C*c + 16*b*A*C*c + 6*a*A*C*c + 8*A^2*C*c + 12*b*B*C*c + 5*a*B*C*c + 16*A*B*C*c + 4*B^2*C*c + 2*b*C^2*c + 2*A*C^2*c + B*C^2*c + 8*b^2*c^2 + 10*b*a*c^2 + 2*a^2*c^2 + 16*b*A*c^2 + 8*a*A*c^2 + 8*A^2*c^2 + 8*b*B*c^2 + 6*a*B*c^2 + 12*A*B*c^2 + 6*b*C*c^2 + a*C*c^2 + 6*A*C*c^2 + 2*B*C*c^2 + 4*b*c^3 + 2*a*c^3 + 4*A*c^3) 
+(1, 2, 1) : 2^5 * b * (C + a) * B * (B + c + A + b) * (B + C + c + a + A + b) * (B*A + c*A + c*b)^2 * (B*C + B*a + c*a + B*A + C*A + c*A + C*b + c*b + a*b) * (2*B^3*C + 2*B^2*C^2 + 4*B^2*C*c + B*C^2*c + 2*B*C*c^2 + 2*B^3*a + 4*B^2*C*a + 6*B^2*c*a + 5*B*C*c*a + 6*B*c^2*a + C*c^2*a + 2*c^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 4*B^3*A + 10*B^2*C*A + 5*B*C^2*A + 12*B^2*c*A + 16*B*C*c*A + 2*C^2*c*A + 12*B*c^2*A + 6*C*c^2*A + 4*c^3*A + 8*B^2*a*A + 7*B*C*a*A + 16*B*c*a*A + 6*C*c*a*A + 8*c^2*a*A + 2*B*a^2*A + 2*c*a^2*A + 8*B^2*A^2 + 10*B*C*A^2 + 2*C^2*A^2 + 16*B*c*A^2 + 8*C*c*A^2 + 8*c^2*A^2 + 6*B*a*A^2 + C*a*A^2 + 6*c*a*A^2 + 4*B*A^3 + 2*C*A^3 + 4*c*A^3 + 6*B^2*C*b + 4*B*C^2*b + 4*B^2*c*b + 12*B*C*c*b + 2*C^2*c*b + 8*B*c^2*b + 6*C*c^2*b + 4*c^3*b + 6*B^2*a*b + 8*B*C*a*b + 16*B*c*a*b + 7*C*c*a*b + 10*c^2*a*b + 4*B*a^2*b + 5*c*a^2*b + 8*B^2*A*b + 16*B*C*A*b + 4*C^2*A*b + 24*B*c*A*b + 16*C*c*A*b + 16*c^2*A*b + 12*B*a*A*b + 5*C*a*A*b + 16*c*a*A*b + a^2*A*b + 8*B*A^2*b + 6*C*A^2*b + 12*c*A^2*b + 2*a*A^2*b + 6*B*C*b^2 + 2*C^2*b^2 + 8*B*c*b^2 + 8*C*c*b^2 + 8*c^2*b^2 + 6*B*a*b^2 + 4*C*a*b^2 + 10*c*a*b^2 + 2*a^2*b^2 + 4*B*A*b^2 + 6*C*A*b^2 + 12*c*A*b^2 + 4*a*A*b^2 + 2*C*b^3 + 4*c*b^3 + 2*a*b^3) 
 
-(0, 2, 0) : 2^5 * c * C * (b + A) * (b + A + B + c) * (b + a + A + B + C + c) * (A*B + b*c + A*c)^2 * (b*a + a*B + A*B + b*C + A*C + B*C + b*c + a*c + A*c) * (2*b^3*a + 2*b^2*a^2 + 4*b^2*a*A + b*a^2*A + 2*b*a*A^2 + 6*b^2*a*B + 4*b*a^2*B + 4*b^2*A*B + 12*b*a*A*B + 2*a^2*A*B + 8*b*A^2*B + 6*a*A^2*B + 4*A^3*B + 6*b*a*B^2 + 2*a^2*B^2 + 8*b*A*B^2 + 8*a*A*B^2 + 8*A^2*B^2 + 2*a*B^3 + 4*A*B^3 + 2*b^3*C + 4*b^2*a*C + 6*b^2*A*C + 5*b*a*A*C + 6*b*A^2*C + a*A^2*C + 2*A^3*C + 6*b^2*B*C + 8*b*a*B*C + 16*b*A*B*C + 7*a*A*B*C + 10*A^2*B*C + 6*b*B^2*C + 4*a*B^2*C + 10*A*B^2*C + 2*B^3*C + 2*b^2*C^2 + 4*b*A*C^2 + 2*A^2*C^2 + 4*b*B*C^2 + 5*A*B*C^2 + 2*B^2*C^2 + 4*b^3*c + 10*b^2*a*c + 5*b*a^2*c + 12*b^2*A*c + 16*b*a*A*c + 2*a^2*A*c + 12*b*A^2*c + 6*a*A^2*c + 4*A^3*c + 8*b^2*B*c + 16*b*a*B*c + 4*a^2*B*c + 24*b*A*B*c + 16*a*A*B*c + 16*A^2*B*c + 4*b*B^2*c + 6*a*B^2*c + 12*A*B^2*c + 8*b^2*C*c + 7*b*a*C*c + 16*b*A*C*c + 6*a*A*C*c + 8*A^2*C*c + 12*b*B*C*c + 5*a*B*C*c + 16*A*B*C*c + 4*B^2*C*c + 2*b*C^2*c + 2*A*C^2*c + B*C^2*c + 8*b^2*c^2 + 10*b*a*c^2 + 2*a^2*c^2 + 16*b*A*c^2 + 8*a*A*c^2 + 8*A^2*c^2 + 8*b*B*c^2 + 6*a*B*c^2 + 12*A*B*c^2 + 6*b*C*c^2 + a*C*c^2 + 6*A*C*c^2 + 2*B*C*c^2 + 4*b*c^3 + 2*a*c^3 + 4*A*c^3) 
+(0, 2, 0) : 2^5 * (A + b) * c * C * (B + c + A + b) * (B + C + c + a + A + b) * (B*A + c*A + c*b)^2 * (B*C + B*a + c*a + B*A + C*A + c*A + C*b + c*b + a*b) * (2*B^3*C + 2*B^2*C^2 + 4*B^2*C*c + B*C^2*c + 2*B*C*c^2 + 2*B^3*a + 4*B^2*C*a + 6*B^2*c*a + 5*B*C*c*a + 6*B*c^2*a + C*c^2*a + 2*c^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 4*B^3*A + 10*B^2*C*A + 5*B*C^2*A + 12*B^2*c*A + 16*B*C*c*A + 2*C^2*c*A + 12*B*c^2*A + 6*C*c^2*A + 4*c^3*A + 8*B^2*a*A + 7*B*C*a*A + 16*B*c*a*A + 6*C*c*a*A + 8*c^2*a*A + 2*B*a^2*A + 2*c*a^2*A + 8*B^2*A^2 + 10*B*C*A^2 + 2*C^2*A^2 + 16*B*c*A^2 + 8*C*c*A^2 + 8*c^2*A^2 + 6*B*a*A^2 + C*a*A^2 + 6*c*a*A^2 + 4*B*A^3 + 2*C*A^3 + 4*c*A^3 + 6*B^2*C*b + 4*B*C^2*b + 4*B^2*c*b + 12*B*C*c*b + 2*C^2*c*b + 8*B*c^2*b + 6*C*c^2*b + 4*c^3*b + 6*B^2*a*b + 8*B*C*a*b + 16*B*c*a*b + 7*C*c*a*b + 10*c^2*a*b + 4*B*a^2*b + 5*c*a^2*b + 8*B^2*A*b + 16*B*C*A*b + 4*C^2*A*b + 24*B*c*A*b + 16*C*c*A*b + 16*c^2*A*b + 12*B*a*A*b + 5*C*a*A*b + 16*c*a*A*b + a^2*A*b + 8*B*A^2*b + 6*C*A^2*b + 12*c*A^2*b + 2*a*A^2*b + 6*B*C*b^2 + 2*C^2*b^2 + 8*B*c*b^2 + 8*C*c*b^2 + 8*c^2*b^2 + 6*B*a*b^2 + 4*C*a*b^2 + 10*c*a*b^2 + 2*a^2*b^2 + 4*B*A*b^2 + 6*C*A*b^2 + 12*c*A*b^2 + 4*a*A*b^2 + 2*C*b^3 + 4*c*b^3 + 2*a*b^3) 
 
-(0, 2, 1, 0) : 2^5 * C * B * A * (b + A + B + c) * (b + a + A + B + C + c) * (A*B + b*c + A*c)^2 * (b*a + a*B + A*B + b*C + A*C + B*C + b*c + a*c + A*c) * (2*b^3*a + 2*b^2*a^2 + 4*b^2*a*A + b*a^2*A + 2*b*a*A^2 + 6*b^2*a*B + 4*b*a^2*B + 4*b^2*A*B + 12*b*a*A*B + 2*a^2*A*B + 8*b*A^2*B + 6*a*A^2*B + 4*A^3*B + 6*b*a*B^2 + 2*a^2*B^2 + 8*b*A*B^2 + 8*a*A*B^2 + 8*A^2*B^2 + 2*a*B^3 + 4*A*B^3 + 2*b^3*C + 4*b^2*a*C + 6*b^2*A*C + 5*b*a*A*C + 6*b*A^2*C + a*A^2*C + 2*A^3*C + 6*b^2*B*C + 8*b*a*B*C + 16*b*A*B*C + 7*a*A*B*C + 10*A^2*B*C + 6*b*B^2*C + 4*a*B^2*C + 10*A*B^2*C + 2*B^3*C + 2*b^2*C^2 + 4*b*A*C^2 + 2*A^2*C^2 + 4*b*B*C^2 + 5*A*B*C^2 + 2*B^2*C^2 + 4*b^3*c + 10*b^2*a*c + 5*b*a^2*c + 12*b^2*A*c + 16*b*a*A*c + 2*a^2*A*c + 12*b*A^2*c + 6*a*A^2*c + 4*A^3*c + 8*b^2*B*c + 16*b*a*B*c + 4*a^2*B*c + 24*b*A*B*c + 16*a*A*B*c + 16*A^2*B*c + 4*b*B^2*c + 6*a*B^2*c + 12*A*B^2*c + 8*b^2*C*c + 7*b*a*C*c + 16*b*A*C*c + 6*a*A*C*c + 8*A^2*C*c + 12*b*B*C*c + 5*a*B*C*c + 16*A*B*C*c + 4*B^2*C*c + 2*b*C^2*c + 2*A*C^2*c + B*C^2*c + 8*b^2*c^2 + 10*b*a*c^2 + 2*a^2*c^2 + 16*b*A*c^2 + 8*a*A*c^2 + 8*A^2*c^2 + 8*b*B*c^2 + 6*a*B*c^2 + 12*A*B*c^2 + 6*b*C*c^2 + a*C*c^2 + 6*A*C*c^2 + 2*B*C*c^2 + 4*b*c^3 + 2*a*c^3 + 4*A*c^3) 
+(0, 2, 1, 0) : 2^5 * A * C * B * (B + c + A + b) * (B + C + c + a + A + b) * (B*A + c*A + c*b)^2 * (B*C + B*a + c*a + B*A + C*A + c*A + C*b + c*b + a*b) * (2*B^3*C + 2*B^2*C^2 + 4*B^2*C*c + B*C^2*c + 2*B*C*c^2 + 2*B^3*a + 4*B^2*C*a + 6*B^2*c*a + 5*B*C*c*a + 6*B*c^2*a + C*c^2*a + 2*c^3*a + 2*B^2*a^2 + 4*B*c*a^2 + 2*c^2*a^2 + 4*B^3*A + 10*B^2*C*A + 5*B*C^2*A + 12*B^2*c*A + 16*B*C*c*A + 2*C^2*c*A + 12*B*c^2*A + 6*C*c^2*A + 4*c^3*A + 8*B^2*a*A + 7*B*C*a*A + 16*B*c*a*A + 6*C*c*a*A + 8*c^2*a*A + 2*B*a^2*A + 2*c*a^2*A + 8*B^2*A^2 + 10*B*C*A^2 + 2*C^2*A^2 + 16*B*c*A^2 + 8*C*c*A^2 + 8*c^2*A^2 + 6*B*a*A^2 + C*a*A^2 + 6*c*a*A^2 + 4*B*A^3 + 2*C*A^3 + 4*c*A^3 + 6*B^2*C*b + 4*B*C^2*b + 4*B^2*c*b + 12*B*C*c*b + 2*C^2*c*b + 8*B*c^2*b + 6*C*c^2*b + 4*c^3*b + 6*B^2*a*b + 8*B*C*a*b + 16*B*c*a*b + 7*C*c*a*b + 10*c^2*a*b + 4*B*a^2*b + 5*c*a^2*b + 8*B^2*A*b + 16*B*C*A*b + 4*C^2*A*b + 24*B*c*A*b + 16*C*c*A*b + 16*c^2*A*b + 12*B*a*A*b + 5*C*a*A*b + 16*c*a*A*b + a^2*A*b + 8*B*A^2*b + 6*C*A^2*b + 12*c*A^2*b + 2*a*A^2*b + 6*B*C*b^2 + 2*C^2*b^2 + 8*B*c*b^2 + 8*C*c*b^2 + 8*c^2*b^2 + 6*B*a*b^2 + 4*C*a*b^2 + 10*c*a*b^2 + 2*a^2*b^2 + 4*B*A*b^2 + 6*C*A*b^2 + 12*c*A*b^2 + 4*a*A*b^2 + 2*C*b^3 + 4*c*b^3 + 2*a*b^3) 
 </pre></div>
 </div>
 </div>
@@ -783,6 +772,19 @@ Multivariate Polynomial Ring in B0, A0, b2, c0, A2, B1, B2, a0, c2, b1, A1, C1, 
 <span class="n">dict_Jg_lumped_merge</span> <span class="o">=</span> <span class="n">cycle_fluxes_from_derived_graph</span><span class="p">(</span><span class="n">DDerGH</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">big</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_Jg_lumped_merge</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">dict_Jg_lumped_merge</span><span class="p">[</span><span class="n">key</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 0) : 2^5 * (B2 + c2) * A1 * (A1 + B2 + b1 + c2) * a0 * (a0 + A1 + B2 + b1 + c2 + C0) * (A1*B2 + A1*c2 + b1*c2)^2 * (a0*B2 + A1*B2 + a0*b1 + a0*c2 + A1*c2 + b1*c2 + A1*C0 + B2*C0 + b1*C0) * (2*a0^2*A1*B2 + 6*a0*A1^2*B2 + 4*A1^3*B2 + 2*a0^2*B2^2 + 8*a0*A1*B2^2 + 8*A1^2*B2^2 + 2*a0*B2^3 + 4*A1*B2^3 + a0^2*A1*b1 + 2*a0*A1^2*b1 + 4*a0^2*B2*b1 + 12*a0*A1*B2*b1 + 8*A1^2*B2*b1 + 6*a0*B2^2*b1 + 8*A1*B2^2*b1 + 2*a0^2*b1^2 + 4*a0*A1*b1^2 + 6*a0*B2*b1^2 + 4*A1*B2*b1^2 + 2*a0*b1^3 + 2*a0^2*A1*c2 + 6*a0*A1^2*c2 + 4*A1^3*c2 + 4*a0^2*B2*c2 + 16*a0*A1*B2*c2 + 16*A1^2*B2*c2 + 6*a0*B2^2*c2 + 12*A1*B2^2*c2 + 5*a0^2*b1*c2 + 16*a0*A1*b1*c2 + 12*A1^2*b1*c2 + 16*a0*B2*b1*c2 + 24*A1*B2*b1*c2 + 4*B2^2*b1*c2 + 10*a0*b1^2*c2 + 12*A1*b1^2*c2 + 8*B2*b1^2*c2 + 4*b1^3*c2 + 2*a0^2*c2^2 + 8*a0*A1*c2^2 + 8*A1^2*c2^2 + 6*a0*B2*c2^2 + 12*A1*B2*c2^2 + 10*a0*b1*c2^2 + 16*A1*b1*c2^2 + 8*B2*b1*c2^2 + 8*b1^2*c2^2 + 2*a0*c2^3 + 4*A1*c2^3 + 4*b1*c2^3 + a0*A1^2*C0 + 2*A1^3*C0 + 7*a0*A1*B2*C0 + 10*A1^2*B2*C0 + 4*a0*B2^2*C0 + 10*A1*B2^2*C0 + 2*B2^3*C0 + 5*a0*A1*b1*C0 + 6*A1^2*b1*C0 + 8*a0*B2*b1*C0 + 16*A1*B2*b1*C0 + 6*B2^2*b1*C0 + 4*a0*b1^2*C0 + 6*A1*b1^2*C0 + 6*B2*b1^2*C0 + 2*b1^3*C0 + 6*a0*A1*c2*C0 + 8*A1^2*c2*C0 + 5*a0*B2*c2*C0 + 16*A1*B2*c2*C0 + 4*B2^2*c2*C0 + 7*a0*b1*c2*C0 + 16*A1*b1*c2*C0 + 12*B2*b1*c2*C0 + 8*b1^2*c2*C0 + a0*c2^2*C0 + 6*A1*c2^2*C0 + 2*B2*c2^2*C0 + 6*b1*c2^2*C0 + 2*A1^2*C0^2 + 5*A1*B2*C0^2 + 2*B2^2*C0^2 + 4*A1*b1*C0^2 + 4*B2*b1*C0^2 + 2*b1^2*C0^2 + 2*A1*c2*C0^2 + B2*c2*C0^2 + 2*b1*c2*C0^2) 
+
+(0, 1, 2, 0) : 2^5 * c2 * b1 * (A1 + B2 + b1 + c2) * a0 * (a0 + A1 + B2 + b1 + c2 + C0) * (A1*B2 + A1*c2 + b1*c2)^2 * (a0*B2 + A1*B2 + a0*b1 + a0*c2 + A1*c2 + b1*c2 + A1*C0 + B2*C0 + b1*C0) * (2*a0^2*A1*B2 + 6*a0*A1^2*B2 + 4*A1^3*B2 + 2*a0^2*B2^2 + 8*a0*A1*B2^2 + 8*A1^2*B2^2 + 2*a0*B2^3 + 4*A1*B2^3 + a0^2*A1*b1 + 2*a0*A1^2*b1 + 4*a0^2*B2*b1 + 12*a0*A1*B2*b1 + 8*A1^2*B2*b1 + 6*a0*B2^2*b1 + 8*A1*B2^2*b1 + 2*a0^2*b1^2 + 4*a0*A1*b1^2 + 6*a0*B2*b1^2 + 4*A1*B2*b1^2 + 2*a0*b1^3 + 2*a0^2*A1*c2 + 6*a0*A1^2*c2 + 4*A1^3*c2 + 4*a0^2*B2*c2 + 16*a0*A1*B2*c2 + 16*A1^2*B2*c2 + 6*a0*B2^2*c2 + 12*A1*B2^2*c2 + 5*a0^2*b1*c2 + 16*a0*A1*b1*c2 + 12*A1^2*b1*c2 + 16*a0*B2*b1*c2 + 24*A1*B2*b1*c2 + 4*B2^2*b1*c2 + 10*a0*b1^2*c2 + 12*A1*b1^2*c2 + 8*B2*b1^2*c2 + 4*b1^3*c2 + 2*a0^2*c2^2 + 8*a0*A1*c2^2 + 8*A1^2*c2^2 + 6*a0*B2*c2^2 + 12*A1*B2*c2^2 + 10*a0*b1*c2^2 + 16*A1*b1*c2^2 + 8*B2*b1*c2^2 + 8*b1^2*c2^2 + 2*a0*c2^3 + 4*A1*c2^3 + 4*b1*c2^3 + a0*A1^2*C0 + 2*A1^3*C0 + 7*a0*A1*B2*C0 + 10*A1^2*B2*C0 + 4*a0*B2^2*C0 + 10*A1*B2^2*C0 + 2*B2^3*C0 + 5*a0*A1*b1*C0 + 6*A1^2*b1*C0 + 8*a0*B2*b1*C0 + 16*A1*B2*b1*C0 + 6*B2^2*b1*C0 + 4*a0*b1^2*C0 + 6*A1*b1^2*C0 + 6*B2*b1^2*C0 + 2*b1^3*C0 + 6*a0*A1*c2*C0 + 8*A1^2*c2*C0 + 5*a0*B2*c2*C0 + 16*A1*B2*c2*C0 + 4*B2^2*c2*C0 + 7*a0*b1*c2*C0 + 16*A1*b1*c2*C0 + 12*B2*b1*c2*C0 + 8*b1^2*c2*C0 + a0*c2^2*C0 + 6*A1*c2^2*C0 + 2*B2*c2^2*C0 + 6*b1*c2^2*C0 + 2*A1^2*C0^2 + 5*A1*B2*C0^2 + 2*B2^2*C0^2 + 4*A1*b1*C0^2 + 4*B2*b1*C0^2 + 2*b1^2*C0^2 + 2*A1*c2*C0^2 + B2*c2*C0^2 + 2*b1*c2*C0^2) 
+
+(1, 2, 1) : 2^5 * b1 * B2 * (A1 + B2 + b1 + c2) * (a0 + C0) * (a0 + A1 + B2 + b1 + c2 + C0) * (A1*B2 + A1*c2 + b1*c2)^2 * (a0*B2 + A1*B2 + a0*b1 + a0*c2 + A1*c2 + b1*c2 + A1*C0 + B2*C0 + b1*C0) * (2*a0^2*A1*B2 + 6*a0*A1^2*B2 + 4*A1^3*B2 + 2*a0^2*B2^2 + 8*a0*A1*B2^2 + 8*A1^2*B2^2 + 2*a0*B2^3 + 4*A1*B2^3 + a0^2*A1*b1 + 2*a0*A1^2*b1 + 4*a0^2*B2*b1 + 12*a0*A1*B2*b1 + 8*A1^2*B2*b1 + 6*a0*B2^2*b1 + 8*A1*B2^2*b1 + 2*a0^2*b1^2 + 4*a0*A1*b1^2 + 6*a0*B2*b1^2 + 4*A1*B2*b1^2 + 2*a0*b1^3 + 2*a0^2*A1*c2 + 6*a0*A1^2*c2 + 4*A1^3*c2 + 4*a0^2*B2*c2 + 16*a0*A1*B2*c2 + 16*A1^2*B2*c2 + 6*a0*B2^2*c2 + 12*A1*B2^2*c2 + 5*a0^2*b1*c2 + 16*a0*A1*b1*c2 + 12*A1^2*b1*c2 + 16*a0*B2*b1*c2 + 24*A1*B2*b1*c2 + 4*B2^2*b1*c2 + 10*a0*b1^2*c2 + 12*A1*b1^2*c2 + 8*B2*b1^2*c2 + 4*b1^3*c2 + 2*a0^2*c2^2 + 8*a0*A1*c2^2 + 8*A1^2*c2^2 + 6*a0*B2*c2^2 + 12*A1*B2*c2^2 + 10*a0*b1*c2^2 + 16*A1*b1*c2^2 + 8*B2*b1*c2^2 + 8*b1^2*c2^2 + 2*a0*c2^3 + 4*A1*c2^3 + 4*b1*c2^3 + a0*A1^2*C0 + 2*A1^3*C0 + 7*a0*A1*B2*C0 + 10*A1^2*B2*C0 + 4*a0*B2^2*C0 + 10*A1*B2^2*C0 + 2*B2^3*C0 + 5*a0*A1*b1*C0 + 6*A1^2*b1*C0 + 8*a0*B2*b1*C0 + 16*A1*B2*b1*C0 + 6*B2^2*b1*C0 + 4*a0*b1^2*C0 + 6*A1*b1^2*C0 + 6*B2*b1^2*C0 + 2*b1^3*C0 + 6*a0*A1*c2*C0 + 8*A1^2*c2*C0 + 5*a0*B2*c2*C0 + 16*A1*B2*c2*C0 + 4*B2^2*c2*C0 + 7*a0*b1*c2*C0 + 16*A1*b1*c2*C0 + 12*B2*b1*c2*C0 + 8*b1^2*c2*C0 + a0*c2^2*C0 + 6*A1*c2^2*C0 + 2*B2*c2^2*C0 + 6*b1*c2^2*C0 + 2*A1^2*C0^2 + 5*A1*B2*C0^2 + 2*B2^2*C0^2 + 4*A1*b1*C0^2 + 4*B2*b1*C0^2 + 2*b1^2*C0^2 + 2*A1*c2*C0^2 + B2*c2*C0^2 + 2*b1*c2*C0^2) 
+
+(0, 2, 0) : 2^5 * C0 * c2 * (A1 + b1) * (A1 + B2 + b1 + c2) * (a0 + A1 + B2 + b1 + c2 + C0) * (A1*B2 + A1*c2 + b1*c2)^2 * (a0*B2 + A1*B2 + a0*b1 + a0*c2 + A1*c2 + b1*c2 + A1*C0 + B2*C0 + b1*C0) * (2*a0^2*A1*B2 + 6*a0*A1^2*B2 + 4*A1^3*B2 + 2*a0^2*B2^2 + 8*a0*A1*B2^2 + 8*A1^2*B2^2 + 2*a0*B2^3 + 4*A1*B2^3 + a0^2*A1*b1 + 2*a0*A1^2*b1 + 4*a0^2*B2*b1 + 12*a0*A1*B2*b1 + 8*A1^2*B2*b1 + 6*a0*B2^2*b1 + 8*A1*B2^2*b1 + 2*a0^2*b1^2 + 4*a0*A1*b1^2 + 6*a0*B2*b1^2 + 4*A1*B2*b1^2 + 2*a0*b1^3 + 2*a0^2*A1*c2 + 6*a0*A1^2*c2 + 4*A1^3*c2 + 4*a0^2*B2*c2 + 16*a0*A1*B2*c2 + 16*A1^2*B2*c2 + 6*a0*B2^2*c2 + 12*A1*B2^2*c2 + 5*a0^2*b1*c2 + 16*a0*A1*b1*c2 + 12*A1^2*b1*c2 + 16*a0*B2*b1*c2 + 24*A1*B2*b1*c2 + 4*B2^2*b1*c2 + 10*a0*b1^2*c2 + 12*A1*b1^2*c2 + 8*B2*b1^2*c2 + 4*b1^3*c2 + 2*a0^2*c2^2 + 8*a0*A1*c2^2 + 8*A1^2*c2^2 + 6*a0*B2*c2^2 + 12*A1*B2*c2^2 + 10*a0*b1*c2^2 + 16*A1*b1*c2^2 + 8*B2*b1*c2^2 + 8*b1^2*c2^2 + 2*a0*c2^3 + 4*A1*c2^3 + 4*b1*c2^3 + a0*A1^2*C0 + 2*A1^3*C0 + 7*a0*A1*B2*C0 + 10*A1^2*B2*C0 + 4*a0*B2^2*C0 + 10*A1*B2^2*C0 + 2*B2^3*C0 + 5*a0*A1*b1*C0 + 6*A1^2*b1*C0 + 8*a0*B2*b1*C0 + 16*A1*B2*b1*C0 + 6*B2^2*b1*C0 + 4*a0*b1^2*C0 + 6*A1*b1^2*C0 + 6*B2*b1^2*C0 + 2*b1^3*C0 + 6*a0*A1*c2*C0 + 8*A1^2*c2*C0 + 5*a0*B2*c2*C0 + 16*A1*B2*c2*C0 + 4*B2^2*c2*C0 + 7*a0*b1*c2*C0 + 16*A1*b1*c2*C0 + 12*B2*b1*c2*C0 + 8*b1^2*c2*C0 + a0*c2^2*C0 + 6*A1*c2^2*C0 + 2*B2*c2^2*C0 + 6*b1*c2^2*C0 + 2*A1^2*C0^2 + 5*A1*B2*C0^2 + 2*B2^2*C0^2 + 4*A1*b1*C0^2 + 4*B2*b1*C0^2 + 2*b1^2*C0^2 + 2*A1*c2*C0^2 + B2*c2*C0^2 + 2*b1*c2*C0^2) 
+
+(0, 2, 1, 0) : 2^5 * C0 * B2 * A1 * (A1 + B2 + b1 + c2) * (a0 + A1 + B2 + b1 + c2 + C0) * (A1*B2 + A1*c2 + b1*c2)^2 * (a0*B2 + A1*B2 + a0*b1 + a0*c2 + A1*c2 + b1*c2 + A1*C0 + B2*C0 + b1*C0) * (2*a0^2*A1*B2 + 6*a0*A1^2*B2 + 4*A1^3*B2 + 2*a0^2*B2^2 + 8*a0*A1*B2^2 + 8*A1^2*B2^2 + 2*a0*B2^3 + 4*A1*B2^3 + a0^2*A1*b1 + 2*a0*A1^2*b1 + 4*a0^2*B2*b1 + 12*a0*A1*B2*b1 + 8*A1^2*B2*b1 + 6*a0*B2^2*b1 + 8*A1*B2^2*b1 + 2*a0^2*b1^2 + 4*a0*A1*b1^2 + 6*a0*B2*b1^2 + 4*A1*B2*b1^2 + 2*a0*b1^3 + 2*a0^2*A1*c2 + 6*a0*A1^2*c2 + 4*A1^3*c2 + 4*a0^2*B2*c2 + 16*a0*A1*B2*c2 + 16*A1^2*B2*c2 + 6*a0*B2^2*c2 + 12*A1*B2^2*c2 + 5*a0^2*b1*c2 + 16*a0*A1*b1*c2 + 12*A1^2*b1*c2 + 16*a0*B2*b1*c2 + 24*A1*B2*b1*c2 + 4*B2^2*b1*c2 + 10*a0*b1^2*c2 + 12*A1*b1^2*c2 + 8*B2*b1^2*c2 + 4*b1^3*c2 + 2*a0^2*c2^2 + 8*a0*A1*c2^2 + 8*A1^2*c2^2 + 6*a0*B2*c2^2 + 12*A1*B2*c2^2 + 10*a0*b1*c2^2 + 16*A1*b1*c2^2 + 8*B2*b1*c2^2 + 8*b1^2*c2^2 + 2*a0*c2^3 + 4*A1*c2^3 + 4*b1*c2^3 + a0*A1^2*C0 + 2*A1^3*C0 + 7*a0*A1*B2*C0 + 10*A1^2*B2*C0 + 4*a0*B2^2*C0 + 10*A1*B2^2*C0 + 2*B2^3*C0 + 5*a0*A1*b1*C0 + 6*A1^2*b1*C0 + 8*a0*B2*b1*C0 + 16*A1*B2*b1*C0 + 6*B2^2*b1*C0 + 4*a0*b1^2*C0 + 6*A1*b1^2*C0 + 6*B2*b1^2*C0 + 2*b1^3*C0 + 6*a0*A1*c2*C0 + 8*A1^2*c2*C0 + 5*a0*B2*c2*C0 + 16*A1*B2*c2*C0 + 4*B2^2*c2*C0 + 7*a0*b1*c2*C0 + 16*A1*b1*c2*C0 + 12*B2*b1*c2*C0 + 8*b1^2*c2*C0 + a0*c2^2*C0 + 6*A1*c2^2*C0 + 2*B2*c2^2*C0 + 6*b1*c2^2*C0 + 2*A1^2*C0^2 + 5*A1*B2*C0^2 + 2*B2^2*C0^2 + 4*A1*b1*C0^2 + 4*B2*b1*C0^2 + 2*b1^2*C0^2 + 2*A1*c2*C0^2 + B2*c2*C0^2 + 2*b1*c2*C0^2) 
 </pre></div>
 </div>
 </div>
@@ -798,16 +800,16 @@ Multivariate Polynomial Ring in B0, A0, b2, c0, A2, B1, B2, a0, c2, b1, A1, C1, 
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "sage-10.3"
+            mode: "sagemath"
         },
         kernelOptions: {
-            name: "sage-10.3",
+            name: "sagemath",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'sage-10.3'</script>
+    <script>kernelName = 'sagemath'</script>
 
                 </article>
               
@@ -816,7 +818,7 @@ Multivariate Polynomial Ring in B0, A0, b2, c0, A2, B1, B2, a0, c2, b1, A1, C1, 
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -843,8 +845,6 @@ Multivariate Polynomial Ring in B0, A0, b2, c0, A2, B1, B2, a0, c2, b1, A1, C1, 
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -889,8 +889,8 @@ By Greg Conradi Smith
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

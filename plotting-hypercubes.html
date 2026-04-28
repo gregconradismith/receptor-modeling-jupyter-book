@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Plotting hypercube graphs &#8212; Receptors</title>
   
@@ -14,43 +14,46 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="My struggle with docstrings" href="my_struggle_with_docstrings.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -71,31 +75,16 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -103,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -111,10 +99,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -123,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -138,6 +132,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -151,21 +147,17 @@
     
     
     <img src="_static/Doodle.png" class="logo__image only-light" alt="Receptors - Home"/>
-    <script>document.write(`<img src="_static/Doodle.png" class="logo__image only-dark" alt="Receptors - Home"/>`);</script>
+    <img src="_static/Doodle.png" class="logo__image only-dark pst-js-only" alt="Receptors - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -244,14 +236,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -260,14 +257,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -292,14 +289,14 @@
       
       <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/plotting-hypercubes.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -407,7 +404,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -421,24 +418,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -475,7 +464,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/830b7b29592cf02906c17586f559aa73f9654821c936448bf9a4f1025df2fa31.png" src="_images/830b7b29592cf02906c17586f559aa73f9654821c936448bf9a4f1025df2fa31.png" />
+<img alt="_images/8ca2c7c7b060883791030f2803ae002ed74d2418e625a116026f67dacb890ba6.png" src="_images/8ca2c7c7b060883791030f2803ae002ed74d2418e625a116026f67dacb890ba6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -491,9 +480,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/19f1439ca58ced8cda805d4d96c45aab50baedd69fc4380fc87dc0d9d4a18454.png" src="_images/19f1439ca58ced8cda805d4d96c45aab50baedd69fc4380fc87dc0d9d4a18454.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;000000&#39;, &#39;010000&#39;, &#39;000100&#39;, &#39;001000&#39;, &#39;000010&#39;, &#39;000001&#39;, &#39;100000&#39;, &#39;010100&#39;, &#39;011000&#39;, &#39;010010&#39;, &#39;010001&#39;, &#39;110000&#39;, &#39;001100&#39;, &#39;000110&#39;, &#39;000101&#39;, &#39;100100&#39;, &#39;001010&#39;, &#39;001001&#39;, &#39;101000&#39;, &#39;000011&#39;, &#39;100010&#39;, &#39;100001&#39;, &#39;011100&#39;, &#39;010110&#39;, &#39;010101&#39;, &#39;110100&#39;, &#39;011010&#39;, &#39;011001&#39;, &#39;111000&#39;, &#39;010011&#39;, &#39;110010&#39;, &#39;110001&#39;, &#39;001110&#39;, &#39;001101&#39;, &#39;101100&#39;, &#39;000111&#39;, &#39;100110&#39;, &#39;100101&#39;, &#39;001011&#39;, &#39;101010&#39;, &#39;101001&#39;, &#39;100011&#39;, &#39;011110&#39;, &#39;011101&#39;, &#39;111100&#39;, &#39;010111&#39;, &#39;110110&#39;, &#39;110101&#39;, &#39;011011&#39;, &#39;111010&#39;, &#39;111001&#39;, &#39;110011&#39;, &#39;001111&#39;, &#39;101110&#39;, &#39;101101&#39;, &#39;100111&#39;, &#39;101011&#39;, &#39;011111&#39;, &#39;111110&#39;, &#39;111101&#39;, &#39;110111&#39;, &#39;111011&#39;, &#39;101111&#39;, &#39;111111&#39;]
-{&#39;000000&#39;: 0, &#39;010000&#39;: 1, &#39;000100&#39;: 2, &#39;001000&#39;: 3, &#39;000010&#39;: 4, &#39;000001&#39;: 5, &#39;100000&#39;: 6, &#39;010100&#39;: 7, &#39;011000&#39;: 8, &#39;010010&#39;: 9, &#39;010001&#39;: 10, &#39;110000&#39;: 11, &#39;001100&#39;: 12, &#39;000110&#39;: 13, &#39;000101&#39;: 14, &#39;100100&#39;: 15, &#39;001010&#39;: 16, &#39;001001&#39;: 17, &#39;101000&#39;: 18, &#39;000011&#39;: 19, &#39;100010&#39;: 20, &#39;100001&#39;: 21, &#39;011100&#39;: 22, &#39;010110&#39;: 23, &#39;010101&#39;: 24, &#39;110100&#39;: 25, &#39;011010&#39;: 26, &#39;011001&#39;: 27, &#39;111000&#39;: 28, &#39;010011&#39;: 29, &#39;110010&#39;: 30, &#39;110001&#39;: 31, &#39;001110&#39;: 32, &#39;001101&#39;: 33, &#39;101100&#39;: 34, &#39;000111&#39;: 35, &#39;100110&#39;: 36, &#39;100101&#39;: 37, &#39;001011&#39;: 38, &#39;101010&#39;: 39, &#39;101001&#39;: 40, &#39;100011&#39;: 41, &#39;011110&#39;: 42, &#39;011101&#39;: 43, &#39;111100&#39;: 44, &#39;010111&#39;: 45, &#39;110110&#39;: 46, &#39;110101&#39;: 47, &#39;011011&#39;: 48, &#39;111010&#39;: 49, &#39;111001&#39;: 50, &#39;110011&#39;: 51, &#39;001111&#39;: 52, &#39;101110&#39;: 53, &#39;101101&#39;: 54, &#39;100111&#39;: 55, &#39;101011&#39;: 56, &#39;011111&#39;: 57, &#39;111110&#39;: 58, &#39;111101&#39;: 59, &#39;110111&#39;: 60, &#39;111011&#39;: 61, &#39;101111&#39;: 62, &#39;111111&#39;: 63}
+<img alt="_images/aa793a621cc1c4f3f19c02562268fd3107f0bb155ba93a79831d1f676a8ce5a3.png" src="_images/aa793a621cc1c4f3f19c02562268fd3107f0bb155ba93a79831d1f676a8ce5a3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;000000&#39;, &#39;010000&#39;, &#39;100000&#39;, &#39;000001&#39;, &#39;000010&#39;, &#39;000100&#39;, &#39;001000&#39;, &#39;110000&#39;, &#39;010001&#39;, &#39;010010&#39;, &#39;010100&#39;, &#39;011000&#39;, &#39;100001&#39;, &#39;100010&#39;, &#39;100100&#39;, &#39;101000&#39;, &#39;000011&#39;, &#39;000101&#39;, &#39;001001&#39;, &#39;000110&#39;, &#39;001010&#39;, &#39;001100&#39;, &#39;110001&#39;, &#39;110010&#39;, &#39;110100&#39;, &#39;111000&#39;, &#39;010011&#39;, &#39;010101&#39;, &#39;011001&#39;, &#39;010110&#39;, &#39;011010&#39;, &#39;011100&#39;, &#39;100011&#39;, &#39;100101&#39;, &#39;101001&#39;, &#39;100110&#39;, &#39;101010&#39;, &#39;101100&#39;, &#39;000111&#39;, &#39;001011&#39;, &#39;001101&#39;, &#39;001110&#39;, &#39;110011&#39;, &#39;110101&#39;, &#39;111001&#39;, &#39;110110&#39;, &#39;111010&#39;, &#39;111100&#39;, &#39;010111&#39;, &#39;011011&#39;, &#39;011101&#39;, &#39;011110&#39;, &#39;100111&#39;, &#39;101011&#39;, &#39;101101&#39;, &#39;101110&#39;, &#39;001111&#39;, &#39;110111&#39;, &#39;111011&#39;, &#39;111101&#39;, &#39;111110&#39;, &#39;011111&#39;, &#39;101111&#39;, &#39;111111&#39;]
+{&#39;000000&#39;: 0, &#39;010000&#39;: 1, &#39;100000&#39;: 2, &#39;000001&#39;: 3, &#39;000010&#39;: 4, &#39;000100&#39;: 5, &#39;001000&#39;: 6, &#39;110000&#39;: 7, &#39;010001&#39;: 8, &#39;010010&#39;: 9, &#39;010100&#39;: 10, &#39;011000&#39;: 11, &#39;100001&#39;: 12, &#39;100010&#39;: 13, &#39;100100&#39;: 14, &#39;101000&#39;: 15, &#39;000011&#39;: 16, &#39;000101&#39;: 17, &#39;001001&#39;: 18, &#39;000110&#39;: 19, &#39;001010&#39;: 20, &#39;001100&#39;: 21, &#39;110001&#39;: 22, &#39;110010&#39;: 23, &#39;110100&#39;: 24, &#39;111000&#39;: 25, &#39;010011&#39;: 26, &#39;010101&#39;: 27, &#39;011001&#39;: 28, &#39;010110&#39;: 29, &#39;011010&#39;: 30, &#39;011100&#39;: 31, &#39;100011&#39;: 32, &#39;100101&#39;: 33, &#39;101001&#39;: 34, &#39;100110&#39;: 35, &#39;101010&#39;: 36, &#39;101100&#39;: 37, &#39;000111&#39;: 38, &#39;001011&#39;: 39, &#39;001101&#39;: 40, &#39;001110&#39;: 41, &#39;110011&#39;: 42, &#39;110101&#39;: 43, &#39;111001&#39;: 44, &#39;110110&#39;: 45, &#39;111010&#39;: 46, &#39;111100&#39;: 47, &#39;010111&#39;: 48, &#39;011011&#39;: 49, &#39;011101&#39;: 50, &#39;011110&#39;: 51, &#39;100111&#39;: 52, &#39;101011&#39;: 53, &#39;101101&#39;: 54, &#39;101110&#39;: 55, &#39;001111&#39;: 56, &#39;110111&#39;: 57, &#39;111011&#39;: 58, &#39;111101&#39;: 59, &#39;111110&#39;: 60, &#39;011111&#39;: 61, &#39;101111&#39;: 62, &#39;111111&#39;: 63}
 </pre></div>
 </div>
 </div>
@@ -523,16 +512,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "sage-10.0"
+            mode: "sagemath"
         },
         kernelOptions: {
-            name: "sage-10.0",
+            name: "sagemath",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'sage-10.0'</script>
+    <script>kernelName = 'sagemath'</script>
 
                 </article>
               
@@ -541,7 +530,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -568,8 +557,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -614,8 +601,8 @@ By Greg Conradi Smith
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

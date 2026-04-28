@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Fitting allosteric parameters &#8212; Receptors</title>
   
@@ -14,43 +14,46 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -65,6 +68,7 @@
     <link rel="prev" title="Overview" href="fitting_allosteric_parameters_overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -72,31 +76,16 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -104,7 +93,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -112,10 +100,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -124,7 +117,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -139,6 +133,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -152,21 +148,17 @@
     
     
     <img src="_static/Doodle.png" class="logo__image only-light" alt="Receptors - Home"/>
-    <script>document.write(`<img src="_static/Doodle.png" class="logo__image only-dark" alt="Receptors - Home"/>`);</script>
+    <img src="_static/Doodle.png" class="logo__image only-dark pst-js-only" alt="Receptors - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -245,14 +237,19 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -261,14 +258,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -293,14 +290,14 @@
       
       <li><a href="https://colab.research.google.com/github/gregconradismith/receptor-modeling-jupyter-book/blob/master/docs/fitting_allosteric_parameters.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -408,7 +405,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -422,24 +419,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -471,9 +460,9 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
 <span class="o">%</span><span class="n">run</span> <span class="n">receptor_tools</span><span class="o">.</span><span class="n">ipynb</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
@@ -488,8 +477,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aa6ceea5f5134d5c2d9879e6cdbb51ade5e93b6f3d9a16fbd13d0276afea214a.png" src="_images/aa6ceea5f5134d5c2d9879e6cdbb51ade5e93b6f3d9a16fbd13d0276afea214a.png" />
-<img alt="_images/6940342420e8554d0986637e79414b524ddb78bbdd804f61467b6696e810a2bd.png" src="_images/6940342420e8554d0986637e79414b524ddb78bbdd804f61467b6696e810a2bd.png" />
+<img alt="_images/023ae1b46ac676bf9d02127cd0de7ae692c95b38f36513d2a005c7a10542a681.png" src="_images/023ae1b46ac676bf9d02127cd0de7ae692c95b38f36513d2a005c7a10542a681.png" />
+<img alt="_images/5d147e7c5d713f4460f3c17c9de3121a2bf89466bb096c85bf633daca5346358.png" src="_images/5d147e7c5d713f4460f3c17c9de3121a2bf89466bb096c85bf633daca5346358.png" />
 <div class="output text_html"><div class="notruncate">
 <table  class="table_form">
 <tbody>
@@ -550,13 +539,13 @@ document.write(`
 
 eta_list = [eta_bb, eta_bc, eta_cc, eta_bd, eta_cd, eta_dd]
 
-phi = [1.00, 0.00, 0.00, 0.00]
+phi = [0.00, 0.50, 0.00, 0.50]
 
 Phi = 
-      [2.00, 0.00, 0.00, 0.00]
       [0.00, 0.00, 0.00, 0.00]
+      [0.00, 0.50, 0.00, 0.25]
       [0.00, 0.00, 0.00, 0.00]
-      [0.00, 0.00, 0.00, 0.00]
+      [0.00, 0.00, 0.00, 0.50]
 </pre></div>
 </div>
 </div>
@@ -571,7 +560,7 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><html>\(\displaystyle \frac{2.0}{\kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 2.0 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 2.0 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 2.0 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 2.0 \kappa_{b} \kappa_{c} \kappa_{d} + \kappa_{b}^{2} \eta_{\mathit{bb}} + 2.0 \kappa_{b} \kappa_{c} + 2.0 \kappa_{b} + 1.0}\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>binding = 2.0/(kappa_b^2*kappa_c^2*kappa_d^2*eta_bb*eta_bc^2*eta_cc*eta_bd^2*eta_cd^2*eta_dd + 2.0*kappa_b^2*kappa_c^2*kappa_d*eta_bb*eta_bc^2*eta_cc*eta_bd*eta_cd + kappa_b^2*kappa_c^2*eta_bb*eta_bc^2*eta_cc + 2.0*kappa_b^2*kappa_c*kappa_d*eta_bb*eta_bc*eta_bd + 2.0*kappa_b^2*kappa_c*eta_bb*eta_bc + 2.0*kappa_b*kappa_c*kappa_d + kappa_b^2*eta_bb + 2.0*kappa_b*kappa_c + 2.0*kappa_b + 1.0)
+<div class="output text_html"><html>\(\displaystyle \frac{0.5 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.5 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.5 \kappa_{b}^{2} \eta_{\mathit{bb}}}{\kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 2.0 \kappa_{b}^{2} \kappa_{c}^{2} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{bd}} \eta_{\mathit{cd}} + \kappa_{b}^{2} \kappa_{c}^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 2.0 \kappa_{b}^{2} \kappa_{c} \kappa_{d} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 2.0 \kappa_{b}^{2} \kappa_{c} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 2.0 \kappa_{b} \kappa_{c} \kappa_{d} + \kappa_{b}^{2} \eta_{\mathit{bb}} + 2.0 \kappa_{b} \kappa_{c} + 2.0 \kappa_{b} + 1.0}\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>binding = (0.5*kappa_b^2*kappa_c^2*kappa_d^2*eta_bb*eta_bc^2*eta_cc*eta_bd^2*eta_cd^2*eta_dd + 0.5*kappa_b^2*kappa_c*kappa_d*eta_bb*eta_bc*eta_bd + 0.5*kappa_b^2*eta_bb)/(kappa_b^2*kappa_c^2*kappa_d^2*eta_bb*eta_bc^2*eta_cc*eta_bd^2*eta_cd^2*eta_dd + 2.0*kappa_b^2*kappa_c^2*kappa_d*eta_bb*eta_bc^2*eta_cc*eta_bd*eta_cd + kappa_b^2*kappa_c^2*eta_bb*eta_bc^2*eta_cc + 2.0*kappa_b^2*kappa_c*kappa_d*eta_bb*eta_bc*eta_bd + 2.0*kappa_b^2*kappa_c*eta_bb*eta_bc + 2.0*kappa_b*kappa_c*kappa_d + kappa_b^2*eta_bb + 2.0*kappa_b*kappa_c + 2.0*kappa_b + 1.0)
 </pre></div>
 </div>
 </div>
@@ -584,7 +573,7 @@ Phi =
 <span class="k">if</span> <span class="n">manual</span><span class="p">:</span>
     <span class="n">d_kappa_X</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">({</span><span class="n">kappa_b</span><span class="p">:</span> <span class="n">kappa_b</span><span class="o">*</span><span class="n">X</span><span class="p">,</span> <span class="n">kappa_c</span><span class="p">:</span> <span class="n">kappa_c</span><span class="o">*</span><span class="n">X</span><span class="p">})</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">Round_To_n</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Round_To_n</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">d_kappa_X</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
     <span class="n">num_X</span> <span class="o">=</span> <span class="mi">0</span>
@@ -605,10 +594,10 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{kappa_b: 2.13*X, kappa_c: 0.354*X, kappa_d: 2.69}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{kappa_b: 0.677, kappa_c: 0.453*X, kappa_d: 2.59*X}
 </pre></div>
 </div>
-<div class="output text_html"><html>\(\displaystyle \frac{2.0}{4.114056871270439 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 3.058778342951999 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 0.5685461603999998 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 8.640616787999997 \, X^{3} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 3.212125199999999 \, X^{3} \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 4.536899999999999 \, X^{2} \eta_{\mathit{bb}} + 5.5646676 \, X^{2} + 4.26 \, X + 1.0}\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>binding_x = 2.0/(4.114056871270439*X^4*eta_bb*eta_bc^2*eta_bd^2*eta_cc*eta_cd^2*eta_dd + 3.058778342951999*X^4*eta_bb*eta_bc^2*eta_bd*eta_cc*eta_cd + 0.5685461603999998*X^4*eta_bb*eta_bc^2*eta_cc + 8.640616787999997*X^3*eta_bb*eta_bc*eta_bd + 3.212125199999999*X^3*eta_bb*eta_bc + 4.536899999999999*X^2*eta_bb + 5.5646676*X^2 + 4.26*X + 1.0)
+<div class="output text_html"><html>\(\displaystyle \frac{0.315459255404182 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.26887183291500005 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.22916450000000002 \, \eta_{\mathit{bb}}}{0.630918510808364 \, X^{4} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}}^{2} \eta_{\mathit{cc}} \eta_{\mathit{cd}}^{2} \eta_{\mathit{dd}} + 0.48719576124198 \, X^{3} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{bd}} \eta_{\mathit{cc}} \eta_{\mathit{cd}} + 0.09405323576100001 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}}^{2} \eta_{\mathit{cc}} + 1.0754873316600002 \, X^{2} \eta_{\mathit{bb}} \eta_{\mathit{bc}} \eta_{\mathit{bd}} + 0.4152460740000001 \, X \eta_{\mathit{bb}} \eta_{\mathit{bc}} + 1.5886075800000001 \, X^{2} + 0.6133620000000001 \, X + 0.45832900000000004 \, \eta_{\mathit{bb}} + 2.354}\)</html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>binding_x = (0.315459255404182*X^4*eta_bb*eta_bc^2*eta_bd^2*eta_cc*eta_cd^2*eta_dd + 0.26887183291500005*X^2*eta_bb*eta_bc*eta_bd + 0.22916450000000002*eta_bb)/(0.630918510808364*X^4*eta_bb*eta_bc^2*eta_bd^2*eta_cc*eta_cd^2*eta_dd + 0.48719576124198*X^3*eta_bb*eta_bc^2*eta_bd*eta_cc*eta_cd + 0.09405323576100001*X^2*eta_bb*eta_bc^2*eta_cc + 1.0754873316600002*X^2*eta_bb*eta_bc*eta_bd + 0.4152460740000001*X*eta_bb*eta_bc + 1.5886075800000001*X^2 + 0.6133620000000001*X + 0.45832900000000004*eta_bb + 2.354)
 </pre></div>
 </div>
 </div>
@@ -622,9 +611,9 @@ Phi =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="c1"># construct target function</span>
 <span class="c1"># xrange and values x for data, x0 for smooth plots</span>
@@ -660,7 +649,7 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4bcb886034037210a96fa178db7bc5845b9c4f0f89e44556592e1173bf373108.png" src="_images/4bcb886034037210a96fa178db7bc5845b9c4f0f89e44556592e1173bf373108.png" />
+<img alt="_images/2ad1bae7e79e3ff6e27d8842ee8dfdafd56ff3b7061a5e075528905f5b95fd5d.png" src="_images/2ad1bae7e79e3ff6e27d8842ee8dfdafd56ff3b7061a5e075528905f5b95fd5d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -683,10 +672,10 @@ Phi =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_eta_fit</span><span class="p">(</span><span class="n">eta_list</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_eta_fit</span><span class="p">(</span><span class="n">eta_list</span><span class="p">):</span>
 
     <span class="c1"># Define the objective function</span>
-    <span class="k">def</span> <span class="nf">objective_function</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">objective_function</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
         <span class="n">eta</span> <span class="o">=</span> <span class="n">params</span>
         <span class="n">residuals</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">FastCallableFBindingEtaX</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">eta</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
@@ -751,7 +740,7 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d7924b331f76bf0ed34e6e1c0a99ff438f0eb37b265a77b90ae08bbaa1cbe48a.png" src="_images/d7924b331f76bf0ed34e6e1c0a99ff438f0eb37b265a77b90ae08bbaa1cbe48a.png" />
+<img alt="_images/187d6b8c1b4dd58ec039cb9c4be4802b435fb17d9e89dcecd9828d3b2e71350f.png" src="_images/187d6b8c1b4dd58ec039cb9c4be4802b435fb17d9e89dcecd9828d3b2e71350f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -790,231 +779,231 @@ Phi =
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 1.]
 </pre></div>
 </div>
-<img alt="_images/eda2cd4aadb5907589ca42876f5c572814cf4cbc61ee09b5ebc1ee9f66dcd9de.png" src="_images/eda2cd4aadb5907589ca42876f5c572814cf4cbc61ee09b5ebc1ee9f66dcd9de.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.58 1.   1.   1.   1.   1.  ]
+<img alt="_images/6ddb6db0516e1ab7d88df22c9f55314c409c10ecaae7be15fbfb594ed97cfd77.png" src="_images/6ddb6db0516e1ab7d88df22c9f55314c409c10ecaae7be15fbfb594ed97cfd77.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.04 1.   1.   1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/351730fe21b70ffc059ab11284520b8585bdcf22a961de666d5acbffac212051.png" src="_images/351730fe21b70ffc059ab11284520b8585bdcf22a961de666d5acbffac212051.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.  0.3 1.  1.  1.  1. ]
+<img alt="_images/1a7e267ba9aa5f85a9261367dd0c2343bcef8ee90e13a27dd60a23e7812f1bcf.png" src="_images/1a7e267ba9aa5f85a9261367dd0c2343bcef8ee90e13a27dd60a23e7812f1bcf.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.  0.2 1.  1.  1.  1. ]
 </pre></div>
 </div>
-<img alt="_images/a86f071d09cd9b5603f44969f3edbeb54691a7d50003bfddb218279bd3572036.png" src="_images/a86f071d09cd9b5603f44969f3edbeb54691a7d50003bfddb218279bd3572036.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 0. 1. 1. 1.]
+<img alt="_images/7fb1448ba0de5e51d1c92ff2c580f10a52bca886453d0bcbeee8312a4559b7f5.png" src="_images/7fb1448ba0de5e51d1c92ff2c580f10a52bca886453d0bcbeee8312a4559b7f5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.04 1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/a3f8aa255568565eb934ea12d448eb18c16b898ea3c04d7dd8746bebc1761d02.png" src="_images/a3f8aa255568565eb934ea12d448eb18c16b898ea3c04d7dd8746bebc1761d02.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   0.04 1.   1.  ]
+<img alt="_images/4fc0028a2dbc25eaa1129a8a7cd881724c6e09022ab7bd8d0522d53c1a2b99a5.png" src="_images/4fc0028a2dbc25eaa1129a8a7cd881724c6e09022ab7bd8d0522d53c1a2b99a5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   0.25 1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/dc64ba110749965db2bd117b70c7e6319207391b65bb2c872b50f54fc122d866.png" src="_images/dc64ba110749965db2bd117b70c7e6319207391b65bb2c872b50f54fc122d866.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 0. 1.]
+<img alt="_images/598dd91b00a604ea139449c9618b91b8190f929110722603ce815a8c55b7f330.png" src="_images/598dd91b00a604ea139449c9618b91b8190f929110722603ce815a8c55b7f330.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   1.   0.24 1.  ]
 </pre></div>
 </div>
-<img alt="_images/eb2986695af908f3e950005bb6005d5563f4f393135486166bb6b29a3f1e4fdf.png" src="_images/eb2986695af908f3e950005bb6005d5563f4f393135486166bb6b29a3f1e4fdf.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 1. 1. 1. 0.]
+<img alt="_images/19fe088cd91793dda4924a3a18e0e197c4f14ae10679a2ae794db0b4eb4f46b0.png" src="_images/19fe088cd91793dda4924a3a18e0e197c4f14ae10679a2ae794db0b4eb4f46b0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   1.   1.   0.13]
 </pre></div>
 </div>
-<img alt="_images/e46619a1761fb0062b078d908aca7afa7af2c7b15804a1f532a5f68d089e87db.png" src="_images/e46619a1761fb0062b078d908aca7afa7af2c7b15804a1f532a5f68d089e87db.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.31 1.   1.   1.   1.  ]
+<img alt="_images/d92ae911b59bfe8ca4eb8c29569060fa38c7388a212ac306d518e566fc3fa313.png" src="_images/d92ae911b59bfe8ca4eb8c29569060fa38c7388a212ac306d518e566fc3fa313.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.21 0.45 1.   1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/7d7bdf6d198c332bee7492d8b3d06af0eaceaff650e9ff60d29e8f75cefde6d5.png" src="_images/7d7bdf6d198c332bee7492d8b3d06af0eaceaff650e9ff60d29e8f75cefde6d5.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.67 1.   0.   1.   1.   1.  ]
+<img alt="_images/c4aba2e66963e6c8f850996e09f39ef596c2cbefa7c043054a4b7366ab7c4278.png" src="_images/c4aba2e66963e6c8f850996e09f39ef596c2cbefa7c043054a4b7366ab7c4278.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.21 1.   0.19 1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/23a0719e2f7b724fb78d8c427066322ea5c8db0ad30e24c86c89d63a98588328.png" src="_images/23a0719e2f7b724fb78d8c427066322ea5c8db0ad30e24c86c89d63a98588328.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 1.   1.   0.06 1.   1.  ]
+<img alt="_images/5982aa3bf28ed08b11c6da86388c8db2a880168ddb772fd80edfd64d7150c1b8.png" src="_images/5982aa3bf28ed08b11c6da86388c8db2a880168ddb772fd80edfd64d7150c1b8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.22 1.   1.   0.46 1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/ca06e6509c4582a2c7ee3fb9796ccfdd32e9e236194a8cfa05dc5381869a6262.png" src="_images/ca06e6509c4582a2c7ee3fb9796ccfdd32e9e236194a8cfa05dc5381869a6262.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.66 1.   1.   1.   0.   1.  ]
+<img alt="_images/1437ba3e36d02f7dc6bac6a1496f3274922cbd4aa5953ebe8c27c23bf01e3a82.png" src="_images/1437ba3e36d02f7dc6bac6a1496f3274922cbd4aa5953ebe8c27c23bf01e3a82.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.22 1.   1.   1.   0.46 1.  ]
 </pre></div>
 </div>
-<img alt="_images/663c2e29d486cad15a7e262b86a115a312525f3349326b9a1d74bb5b76cb0fff.png" src="_images/663c2e29d486cad15a7e262b86a115a312525f3349326b9a1d74bb5b76cb0fff.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.62 1.   1.   1.   1.   0.  ]
+<img alt="_images/9e15da4519a5c4b12072ceccc8c7b63e328edb0f1ff5a9c34b70aae1d3c62f05.png" src="_images/9e15da4519a5c4b12072ceccc8c7b63e328edb0f1ff5a9c34b70aae1d3c62f05.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.21 1.   1.   1.   1.   0.27]
 </pre></div>
 </div>
-<img alt="_images/1331d7f0c7543d582ac336c0b9ea963e189aeb1630bfc352bae1492342bfb3fa.png" src="_images/1331d7f0c7543d582ac336c0b9ea963e189aeb1630bfc352bae1492342bfb3fa.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.3  0.97 1.   1.   1.  ]
+<img alt="_images/5136f8938cb0e7d28037f45d533c3f32720693a5d14517b519e89669f190bb14.png" src="_images/5136f8938cb0e7d28037f45d533c3f32720693a5d14517b519e89669f190bb14.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.14 2.08 1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/364d0f2dcfd0ef3b2a1905e71999bba6ba0ea1917c2d3a00afe4ff32054b5eeb.png" src="_images/364d0f2dcfd0ef3b2a1905e71999bba6ba0ea1917c2d3a00afe4ff32054b5eeb.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.39 1.   0.67 1.   1.  ]
+<img alt="_images/d56a6cd90e53561734fbcd7fc614493d2b9a4350c9fc202fe2f24e83c9c34047.png" src="_images/d56a6cd90e53561734fbcd7fc614493d2b9a4350c9fc202fe2f24e83c9c34047.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 5.78e+03 1.00e+00 1.12e-01 1.00e+00 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/225c062aaa5f954b657972ef5cff28a79bdbfdd8731dbcc70902288435c3655f.png" src="_images/225c062aaa5f954b657972ef5cff28a79bdbfdd8731dbcc70902288435c3655f.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.3  1.   1.   0.94 1.  ]
+<img alt="_images/3b2fd0e43eab940f78df4339652ff82c553db45f00553545670c3baf5d92810d.png" src="_images/3b2fd0e43eab940f78df4339652ff82c553db45f00553545670c3baf5d92810d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.31 1.   1.   0.65 1.  ]
 </pre></div>
 </div>
-<img alt="_images/d55aaf4a93935b14cc7f407e7d669998f5c56a654000f753dd0e205e847a0e43.png" src="_images/d55aaf4a93935b14cc7f407e7d669998f5c56a654000f753dd0e205e847a0e43.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.  0.3 1.  1.  1.  1. ]
+<img alt="_images/b7fa54c5be1a8718c95a125ae60915e322da7210ce8692ecb2ff82239aa56e57.png" src="_images/b7fa54c5be1a8718c95a125ae60915e322da7210ce8692ecb2ff82239aa56e57.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.35 1.   1.   1.   0.37]
 </pre></div>
 </div>
-<img alt="_images/da6d202c178928c8c170587fa5f9b245596e94813ab1b1594714cada0b20a037.png" src="_images/da6d202c178928c8c170587fa5f9b245596e94813ab1b1594714cada0b20a037.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.9  0.04 1.   1.  ]
+<img alt="_images/3abf130e4e8337f1c79d955abe58eb9c5c8d48694a614ddec46426c0da6793a4.png" src="_images/3abf130e4e8337f1c79d955abe58eb9c5c8d48694a614ddec46426c0da6793a4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.00e+00 2.23e+07 1.12e-01 1.00e+00 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/7cfa158ed6c6098bd1bc96fee0e83555f099f2e77a4a778aa647103c97f502f0.png" src="_images/7cfa158ed6c6098bd1bc96fee0e83555f099f2e77a4a778aa647103c97f502f0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 1. 0. 1. 0. 1.]
+<img alt="_images/d9510b06724c30a888a66f0f6302c22b7c09565aa14ba80e494de36c9e6dbc66.png" src="_images/d9510b06724c30a888a66f0f6302c22b7c09565aa14ba80e494de36c9e6dbc66.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.00e+00 1.28e+07 1.00e+00 1.12e-01 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/212ddca3e225232761b30ed3bc625c5fc14e6654520ab4f885811c795502a178.png" src="_images/212ddca3e225232761b30ed3bc625c5fc14e6654520ab4f885811c795502a178.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.   1.   1.   0.49]
+<img alt="_images/b85f046739cb98844086b4eeb7615361799cb42e4b11928e52539a41886e48b8.png" src="_images/b85f046739cb98844086b4eeb7615361799cb42e4b11928e52539a41886e48b8.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.23 1.   1.   0.24]
 </pre></div>
 </div>
-<img alt="_images/b593a09584143cae870911a5c95ca5b0a84f7ce4a1989044d0ce5cb343e31636.png" src="_images/b593a09584143cae870911a5c95ca5b0a84f7ce4a1989044d0ce5cb343e31636.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   0.04 0.89 1.  ]
+<img alt="_images/6254d2b0ca663e946b04308de0feb74a2b5894c186dd9aec4b98110341bb06fb.png" src="_images/6254d2b0ca663e946b04308de0feb74a2b5894c186dd9aec4b98110341bb06fb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.00e+00 1.00e+00 1.05e-03 2.42e+02 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/d49be23292685662f5c9ba81ce0c45910e6c5387b1dfa193294d3e54d73fa594.png" src="_images/d49be23292685662f5c9ba81ce0c45910e6c5387b1dfa193294d3e54d73fa594.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   0.04 1.   1.04]
+<img alt="_images/e235cacdd3813ff05122050e34e1a3f7ea1a8bd9ff246a2af1d04b2b1cacfbdb.png" src="_images/e235cacdd3813ff05122050e34e1a3f7ea1a8bd9ff246a2af1d04b2b1cacfbdb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   0.21 1.   1.36]
 </pre></div>
 </div>
-<img alt="_images/48a2bd4cab2b852df51594f7ec7095ba3117c7f16238721bb85fdd869ceeb970.png" src="_images/48a2bd4cab2b852df51594f7ec7095ba3117c7f16238721bb85fdd869ceeb970.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   1.   0.   0.89]
+<img alt="_images/07fe595739b6a953fe4ee5c4e7ee6eca98b25ab38bf87c01352c9c9397717563.png" src="_images/07fe595739b6a953fe4ee5c4e7ee6eca98b25ab38bf87c01352c9c9397717563.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   1.   0.22 1.15]
 </pre></div>
 </div>
-<img alt="_images/e60774a469c367309bb40893d7797a5295fef270d7d9f95ee3d4e6ece4dfb27f.png" src="_images/e60774a469c367309bb40893d7797a5295fef270d7d9f95ee3d4e6ece4dfb27f.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.33 0.81 1.   1.   1.  ]
+<img alt="_images/68076769c821745a5e8f7cc4fafd881e66e06db497c9cd5149780195d68ce071.png" src="_images/68076769c821745a5e8f7cc4fafd881e66e06db497c9cd5149780195d68ce071.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.17 2.34 0.04 1.   1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/43c4fe82aacd25f767890ea1cdb73c390bcfd47f36ee3b3696001720e19ee011.png" src="_images/43c4fe82aacd25f767890ea1cdb73c390bcfd47f36ee3b3696001720e19ee011.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.4  1.   0.7  1.   1.  ]
+<img alt="_images/d297d14adee278811e96ad722c7575d3ece3bd65b8cb964ce0fe6af599196856.png" src="_images/d297d14adee278811e96ad722c7575d3ece3bd65b8cb964ce0fe6af599196856.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.19 3.64 1.   0.19 1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/f0ed925b8d5ce6ca21df82d469054ebcbc7878f7a5a6760e9842fcb6f8779cdb.png" src="_images/f0ed925b8d5ce6ca21df82d469054ebcbc7878f7a5a6760e9842fcb6f8779cdb.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.33 1.   1.   0.85 1.  ]
+<img alt="_images/976f7bce2d92b0bed37e29def56d810cb59245e32ab1ec33d16439d9a894173f.png" src="_images/976f7bce2d92b0bed37e29def56d810cb59245e32ab1ec33d16439d9a894173f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.17 2.25 1.   1.   0.26 1.  ]
 </pre></div>
 </div>
-<img alt="_images/06e808d98ae24efc481276120dbbbe2377a475b01f9a2980db037861aa6e755f.png" src="_images/06e808d98ae24efc481276120dbbbe2377a475b01f9a2980db037861aa6e755f.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.32 1.   1.   1.   0.88]
+<img alt="_images/b9d567a57e776823f02d419fbf5b0b5e0202719a7c8684008777d7bbc882a572.png" src="_images/b9d567a57e776823f02d419fbf5b0b5e0202719a7c8684008777d7bbc882a572.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.18 1.35 1.   1.   1.   0.21]
 </pre></div>
 </div>
-<img alt="_images/64db1afe03ac3df3ac2e49513e9c266ed993da953e61c9751f0fa3a457efe594.png" src="_images/64db1afe03ac3df3ac2e49513e9c266ed993da953e61c9751f0fa3a457efe594.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.97 1.   0.52 0.1  1.   1.  ]
+<img alt="_images/92ec2f68e9d5563cfaad21a9c85a7c0b6099d17aef94b1bf3bfb52785649f5ea.png" src="_images/92ec2f68e9d5563cfaad21a9c85a7c0b6099d17aef94b1bf3bfb52785649f5ea.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.19  1.   15.23  0.18  1.    1.  ]
 </pre></div>
 </div>
-<img alt="_images/e8578a3f24568aece66bdf0b04531ac8a453bcfab2fb51a7662901a48b0c259a.png" src="_images/e8578a3f24568aece66bdf0b04531ac8a453bcfab2fb51a7662901a48b0c259a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.67 1.   0.   1.   0.   1.  ]
+<img alt="_images/1ab214ffa1b1651bc74a5f9c9d5c50454e0689852ba9179b80aac0fb413a395c.png" src="_images/1ab214ffa1b1651bc74a5f9c9d5c50454e0689852ba9179b80aac0fb413a395c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.18  1.   11.34  1.    0.2   1.  ]
 </pre></div>
 </div>
-<img alt="_images/0821f82ca5c3166096d66de3d93a4f853150ec27526b2d1a35013e774c5ba483.png" src="_images/0821f82ca5c3166096d66de3d93a4f853150ec27526b2d1a35013e774c5ba483.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.67 1.   0.   1.   1.   0.22]
+<img alt="_images/3eabb6db20e0da4aaa52e0e0d1999414b48268f2cad42dd3595b78722f341e85.png" src="_images/3eabb6db20e0da4aaa52e0e0d1999414b48268f2cad42dd3595b78722f341e85.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.18 1.   2.04 1.   1.   0.2 ]
 </pre></div>
 </div>
-<img alt="_images/7f7ec6a25689422b0f226b27102ccb90c82f7af7ac3094d1edb34e1da672edd8.png" src="_images/7f7ec6a25689422b0f226b27102ccb90c82f7af7ac3094d1edb34e1da672edd8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 1.   1.   0.08 0.32 1.  ]
+<img alt="_images/6ee74d4e6b79a377269d4e524576a640a0d6296c898ddee33a8acdc80209f1b9.png" src="_images/6ee74d4e6b79a377269d4e524576a640a0d6296c898ddee33a8acdc80209f1b9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.2  1.   1.   1.72 0.28 1.  ]
 </pre></div>
 </div>
-<img alt="_images/c6620a7cb12fc039f4a6678e85c4ab5ba5031292501a1a1181375df34ebe6b83.png" src="_images/c6620a7cb12fc039f4a6678e85c4ab5ba5031292501a1a1181375df34ebe6b83.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 1.   1.   0.06 1.   0.75]
+<img alt="_images/51a8696dca15e58de713ca223c2d6f2089fded6722de4375a4af9b147afea0ed.png" src="_images/51a8696dca15e58de713ca223c2d6f2089fded6722de4375a4af9b147afea0ed.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.18 1.   1.   1.52 1.   0.15]
 </pre></div>
 </div>
-<img alt="_images/408f275d63d4e4f1cceb4b13b81d277431fef5d89c295d93f917445b9e727d2e.png" src="_images/408f275d63d4e4f1cceb4b13b81d277431fef5d89c295d93f917445b9e727d2e.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.66 1.   1.   1.   0.   0.62]
+<img alt="_images/d93bf0b078a64220db59332ceaf710c55bbc02dbf88aff54873454e211f26aaf.png" src="_images/d93bf0b078a64220db59332ceaf710c55bbc02dbf88aff54873454e211f26aaf.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.18 1.   1.   1.   2.02 0.1 ]
 </pre></div>
 </div>
-<img alt="_images/a9e81030c551515a06c82f6aa2ddb5fb437e8418c68cd6f716716bcffb40b7c3.png" src="_images/a9e81030c551515a06c82f6aa2ddb5fb437e8418c68cd6f716716bcffb40b7c3.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.39 0.96 0.67 1.   1.  ]
+<img alt="_images/1fa86ac76a0d4fcb6d140cbadfeb3ab9d4356a15f2f01f381dba9976c468ebfd.png" src="_images/1fa86ac76a0d4fcb6d140cbadfeb3ab9d4356a15f2f01f381dba9976c468ebfd.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 4.94e+02 2.65e+02 1.12e-01 1.00e+00 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/a595d4ada300a060fd2db9bb423861073f2bec847dfd4a0f37bfc928d37f2cf8.png" src="_images/a595d4ada300a060fd2db9bb423861073f2bec847dfd4a0f37bfc928d37f2cf8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.3  0.95 1.   0.93 1.  ]
+<img alt="_images/3ad1be945925afcd13813771921efa73c8551dd381139f4f0029418d8720604b.png" src="_images/3ad1be945925afcd13813771921efa73c8551dd381139f4f0029418d8720604b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.24e-02 2.54e+04 1.00e+00 1.66e-01 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/f39806aca98066bef3d1eba3293995067f48af700f983d765d3aba83285b21d6.png" src="_images/f39806aca98066bef3d1eba3293995067f48af700f983d765d3aba83285b21d6.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.3  0.96 1.   1.   0.99]
+<img alt="_images/5ccaa9780a9661ad9ee999af408548d7812484d45ebc44994d2d6fe95e279a51.png" src="_images/5ccaa9780a9661ad9ee999af408548d7812484d45ebc44994d2d6fe95e279a51.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 8.35e-03 6.02e+03 1.00e+00 1.00e+00 1.87e-01]
 </pre></div>
 </div>
-<img alt="_images/acb561b456144d0d3abac844afcb2d4d25b65c2db98f7a65aeb29dda2b11e720.png" src="_images/acb561b456144d0d3abac844afcb2d4d25b65c2db98f7a65aeb29dda2b11e720.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.39 1.   0.67 0.96 1.  ]
+<img alt="_images/fd25680c9b9ea2d7a8a0e74d9abdfd7566fa8cbdfd6c8af2375f2f66d374ac8c.png" src="_images/fd25680c9b9ea2d7a8a0e74d9abdfd7566fa8cbdfd6c8af2375f2f66d374ac8c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 3.19e+03 1.00e+00 1.74e-04 6.43e+02 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/a556be0a277357771641b3ca9ade351c2192db9caa61db330271dbe05b66f425.png" src="_images/a556be0a277357771641b3ca9ade351c2192db9caa61db330271dbe05b66f425.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.39 1.   0.67 1.   0.99]
+<img alt="_images/5a12145a6eddfc0c03151daa730d61a5d70d39a92dd62cf0de8eaafc4ab51892.png" src="_images/5a12145a6eddfc0c03151daa730d61a5d70d39a92dd62cf0de8eaafc4ab51892.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 4.89e+03 1.00e+00 1.06e-03 1.00e+00 1.90e+03]
 </pre></div>
 </div>
-<img alt="_images/ad1688dd82f3498e624a695e609be4ca9db9bb8a37b82c0e687683aa063eda41.png" src="_images/ad1688dd82f3498e624a695e609be4ca9db9bb8a37b82c0e687683aa063eda41.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.3  1.   1.   0.93 0.99]
+<img alt="_images/a5b3dd6c8e295b01014b00d75981909702e549baafa1e8404238bad465afad4e.png" src="_images/a5b3dd6c8e295b01014b00d75981909702e549baafa1e8404238bad465afad4e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.98e-02 1.00e+00 1.00e+00 1.00e+03 1.91e-04]
 </pre></div>
 </div>
-<img alt="_images/82aeae25e084d5c1efc706a7c8317f66b463d160b229722255ff36d73f1ce721.png" src="_images/82aeae25e084d5c1efc706a7c8317f66b463d160b229722255ff36d73f1ce721.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.89 0.04 0.89 1.  ]
+<img alt="_images/b268aaacca1cae528c9ba61a439ab06fa900b7703a2b3651670d76e3e9993dd3.png" src="_images/b268aaacca1cae528c9ba61a439ab06fa900b7703a2b3651670d76e3e9993dd3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.00e+00 4.34e+00 1.22e-03 1.34e+02 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/2269ff96de9f48b4fa63c6af087bb17561573bde27bebecc4f332898182e3292.png" src="_images/2269ff96de9f48b4fa63c6af087bb17561573bde27bebecc4f332898182e3292.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.88 0.04 1.   1.02]
+<img alt="_images/7bc6e113f5741961ae68c66162ac7484c495be795a02cf0ad3328da987e1b7bb.png" src="_images/7bc6e113f5741961ae68c66162ac7484c495be795a02cf0ad3328da987e1b7bb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.00e+00 1.12e+04 6.45e-04 1.00e+00 5.06e+03]
 </pre></div>
 </div>
-<img alt="_images/efd9ad316faf16f1a8b005b645a14c7401d4eb5a17f73d2c3def9a35d38fb8f3.png" src="_images/efd9ad316faf16f1a8b005b645a14c7401d4eb5a17f73d2c3def9a35d38fb8f3.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.   1.   0.   0.99]
+<img alt="_images/83bfbae2ae6f73b156930a6ee15446bf1c50992b7a6833221e3a2a2aaefbdac6.png" src="_images/83bfbae2ae6f73b156930a6ee15446bf1c50992b7a6833221e3a2a2aaefbdac6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.00e+00 4.88e+03 1.00e+00 5.92e-04 5.99e+03]
 </pre></div>
 </div>
-<img alt="_images/c781cdfeadc3be33200a118898a9e66019d33e4bd512e38c9d3aa7261b43ed17.png" src="_images/c781cdfeadc3be33200a118898a9e66019d33e4bd512e38c9d3aa7261b43ed17.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   1.   0.04 0.88 1.  ]
+<img alt="_images/4a664da04c76cfe5568a0c2432caab85046643feb739a68b74f1e169b10094c5.png" src="_images/4a664da04c76cfe5568a0c2432caab85046643feb739a68b74f1e169b10094c5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.00e+00 1.00e+00 1.01e-03 4.60e+02 3.97e-01]
 </pre></div>
 </div>
-<img alt="_images/283b1639691ee322319593c62cebd60f5076fcfd980809747e8478090e9e7d95.png" src="_images/283b1639691ee322319593c62cebd60f5076fcfd980809747e8478090e9e7d95.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.41 0.9  0.7  1.   1.  ]
+<img alt="_images/dc5833e269014b85d54b21c764bfe8431735ed4c38c4d237e400ec31fab46cc3.png" src="_images/dc5833e269014b85d54b21c764bfe8431735ed4c38c4d237e400ec31fab46cc3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.19 2.95 1.57 0.19 1.   1.  ]
 </pre></div>
 </div>
-<img alt="_images/0bb4ce74b5043e90332165b6485fc842742eff8e914873b6fc152345cb8882df.png" src="_images/0bb4ce74b5043e90332165b6485fc842742eff8e914873b6fc152345cb8882df.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.97 0.34 0.86 1.   0.79 1.  ]
+<img alt="_images/76a2c2b0d25d663a6c941d2c73136f448485ba40e5530283b8b62abb185aaaf9.png" src="_images/76a2c2b0d25d663a6c941d2c73136f448485ba40e5530283b8b62abb185aaaf9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.19  0.84 16.57  1.    0.19  1.  ]
 </pre></div>
 </div>
-<img alt="_images/72fa3792ca3f0eb4585fe3323bd2d0a1baf326f74905aa032fecbb350ab47db8.png" src="_images/72fa3792ca3f0eb4585fe3323bd2d0a1baf326f74905aa032fecbb350ab47db8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.33 0.84 1.   1.   0.92]
+<img alt="_images/c7ba98a30302387e369d41b92d51aea4844377055734cc5a6a02b3338a1f3f0e.png" src="_images/c7ba98a30302387e369d41b92d51aea4844377055734cc5a6a02b3338a1f3f0e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.19 0.83 3.04 1.   1.   0.19]
 </pre></div>
 </div>
-<img alt="_images/e3ea6b25f6cd4b023b5dc8cade70aa6e08e0b251f81ff47ca2439675dc6922e2.png" src="_images/e3ea6b25f6cd4b023b5dc8cade70aa6e08e0b251f81ff47ca2439675dc6922e2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.42 1.   0.68 0.84 1.  ]
+<img alt="_images/bb5dc33918b06d17fbcd4c7b1ccd914e3a667302cb1b6928743e28d8bc75b4bd.png" src="_images/bb5dc33918b06d17fbcd4c7b1ccd914e3a667302cb1b6928743e28d8bc75b4bd.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.19 3.46 1.   0.27 0.72 1.  ]
 </pre></div>
 </div>
-<img alt="_images/31fea0410049a2328f7265461d8948407c63026a5b1ba08184ac500c3ba05d8f.png" src="_images/31fea0410049a2328f7265461d8948407c63026a5b1ba08184ac500c3ba05d8f.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 0.4  1.   0.7  1.   0.96]
+<img alt="_images/8566cac067252b689aa2bca9cd426857476a29825ca1b1bad0e59f69fe31bb7e.png" src="_images/8566cac067252b689aa2bca9cd426857476a29825ca1b1bad0e59f69fe31bb7e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.19 2.49 1.   0.35 1.   0.55]
 </pre></div>
 </div>
-<img alt="_images/2b3cf5ef0a41112f8a18d136a247e38063abed74a1e4e91460061023badeae8d.png" src="_images/2b3cf5ef0a41112f8a18d136a247e38063abed74a1e4e91460061023badeae8d.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.97 0.33 1.   1.   0.81 0.94]
+<img alt="_images/f9ee84d84174df21783317884a1515d79abecfa7c69d75e3454c83056bfe693e.png" src="_images/f9ee84d84174df21783317884a1515d79abecfa7c69d75e3454c83056bfe693e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.19 0.83 1.   1.   3.   0.06]
 </pre></div>
 </div>
-<img alt="_images/3198a148902ffe10bfe02365634fbe43afb422a20b1aa36de0b072f84f459633.png" src="_images/3198a148902ffe10bfe02365634fbe43afb422a20b1aa36de0b072f84f459633.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.96 1.   0.56 0.12 0.38 1.  ]
+<img alt="_images/3ab8ce84c6cd2aec69a0c813ac546df75736ff9c4ed5850fc6d4fda2aa6dff93.png" src="_images/3ab8ce84c6cd2aec69a0c813ac546df75736ff9c4ed5850fc6d4fda2aa6dff93.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.19  1.   11.81  0.85  0.23  1.  ]
 </pre></div>
 </div>
-<img alt="_images/b04142587ca076f7a06bf0f04e91b318680ac99d318bbe0b6a0c11c59cbc1bb4.png" src="_images/b04142587ca076f7a06bf0f04e91b318680ac99d318bbe0b6a0c11c59cbc1bb4.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.97 1.   0.52 0.11 1.   0.77]
+<img alt="_images/2af2995b14df35cb16e9aa420118b44d3d32fb1805a32affe9f9cae78a9b0f85.png" src="_images/2af2995b14df35cb16e9aa420118b44d3d32fb1805a32affe9f9cae78a9b0f85.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.19 1.   2.52 0.83 1.   0.23]
 </pre></div>
 </div>
-<img alt="_images/6235993505d9a7b512876276d9ea34c5bf81576776ae064683d050dc6d6a33a2.png" src="_images/6235993505d9a7b512876276d9ea34c5bf81576776ae064683d050dc6d6a33a2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.67 1.   0.   1.   0.   0.66]
+<img alt="_images/0b99ae1fb99a6c467d64ff9cb3240d85e01f8c57d109972096299bf46e0b152d.png" src="_images/0b99ae1fb99a6c467d64ff9cb3240d85e01f8c57d109972096299bf46e0b152d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.18 1.   1.62 1.   1.25 0.16]
 </pre></div>
 </div>
-<img alt="_images/dac52d96386c03be9c95068472ae6884850abbc8127c51701ebe78453b14df74.png" src="_images/dac52d96386c03be9c95068472ae6884850abbc8127c51701ebe78453b14df74.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.98 1.   1.   0.08 0.33 0.78]
+<img alt="_images/8c274c9695f5789e2388d18430072aebfa913adb6bf58b46b27b4e8936281696.png" src="_images/8c274c9695f5789e2388d18430072aebfa913adb6bf58b46b27b4e8936281696.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.19 1.   1.   0.83 2.49 0.09]
 </pre></div>
 </div>
-<img alt="_images/f0deb6cc7635bd4c0da7f8f11cac09ac0991c6cb6439b86e32bf79e8bb360bd1.png" src="_images/f0deb6cc7635bd4c0da7f8f11cac09ac0991c6cb6439b86e32bf79e8bb360bd1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.4  0.96 0.67 0.96 1.  ]
+<img alt="_images/dd61ee1415dd108e1e8153c195db15e3e03746ead269e11ccd2d3c695b928198.png" src="_images/dd61ee1415dd108e1e8153c195db15e3e03746ead269e11ccd2d3c695b928198.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 3.52e+02 5.28e+02 3.72e-04 3.01e+02 1.00e+00]
 </pre></div>
 </div>
-<img alt="_images/76389f891134ae04b16279d4a7e3883f8fe74db03b60b92f82d0d2fecc3d2cd1.png" src="_images/76389f891134ae04b16279d4a7e3883f8fe74db03b60b92f82d0d2fecc3d2cd1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.39 0.96 0.67 1.   0.99]
+<img alt="_images/2de90ceed133370a95dc75fd0048a07cd5bcd43be879b0501e9b68d61e4c5c1d.png" src="_images/2de90ceed133370a95dc75fd0048a07cd5bcd43be879b0501e9b68d61e4c5c1d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 3.28e+02 4.17e+02 3.88e-03 1.00e+00 1.62e+02]
 </pre></div>
 </div>
-<img alt="_images/577362e5cdf1695ef52452ac4816b702f76c28dde783c27ac801f2d5718ec7e9.png" src="_images/577362e5cdf1695ef52452ac4816b702f76c28dde783c27ac801f2d5718ec7e9.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.3  0.95 1.   0.93 0.99]
+<img alt="_images/a7ee0ff7c0c52ccce83700dc8a42f3ae776ed0d5de08a45a5d1c60511954321e.png" src="_images/a7ee0ff7c0c52ccce83700dc8a42f3ae776ed0d5de08a45a5d1c60511954321e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.49e-03 5.13e+02 1.00e+00 3.55e+02 5.29e-04]
 </pre></div>
 </div>
-<img alt="_images/3be64c49fc9ef36956b7a7ee0c2c655bd6baf63534bf78b52756845666f72a7d.png" src="_images/3be64c49fc9ef36956b7a7ee0c2c655bd6baf63534bf78b52756845666f72a7d.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   0.39 1.   0.67 0.96 0.99]
+<img alt="_images/6a3002a3dfcd9d03ba2a4968b1e4db3d0fd7bbb92031455251b99d5eb3344aa6.png" src="_images/6a3002a3dfcd9d03ba2a4968b1e4db3d0fd7bbb92031455251b99d5eb3344aa6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 4.68e+02 1.00e+00 1.93e-05 4.24e+02 4.31e+01]
 </pre></div>
 </div>
-<img alt="_images/8331726384a5be6a87b8c04a0da67f81f5a3cdfc1e521ff37f5ebb6861af0126.png" src="_images/8331726384a5be6a87b8c04a0da67f81f5a3cdfc1e521ff37f5ebb6861af0126.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.   1.   0.89 0.04 0.89 1.  ]
+<img alt="_images/45e600f27d9dda1d1ebda004c2765b7b4267e5e0cd9c9355dd01c12feaded28c.png" src="_images/45e600f27d9dda1d1ebda004c2765b7b4267e5e0cd9c9355dd01c12feaded28c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.00e+00 1.00e+00 2.91e+02 1.85e-05 2.60e+02 1.15e+02]
 </pre></div>
 </div>
-<img alt="_images/4a565f83c9385cf6c31cf369d7946e9d0fb968f8cb7565121f42c3ffe6176e6b.png" src="_images/4a565f83c9385cf6c31cf369d7946e9d0fb968f8cb7565121f42c3ffe6176e6b.png" />
+<img alt="_images/26ff518960fd82a08a117220bc36846c4e7790a66bfdd6cfc8cf8e5271c8eb97.png" src="_images/26ff518960fd82a08a117220bc36846c4e7790a66bfdd6cfc8cf8e5271c8eb97.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1024,7 +1013,7 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111111&#39;: &#39;-152.384&#39;, &#39;011111&#39;: &#39;-182.707&#39;, &#39;101111&#39;: &#39;-206.567&#39;, &#39;110111&#39;: &#39;-161.471&#39;, &#39;111011&#39;: &#39;-206.567&#39;, &#39;111101&#39;: &#39;-160.337&#39;, &#39;111110&#39;: &#39;-154.994&#39;, &#39;001111&#39;: &#39;-203.545&#39;, &#39;010111&#39;: &#39;-193.615&#39;, &#39;011011&#39;: &#39;-203.545&#39;, &#39;011101&#39;: &#39;-192.345&#39;, &#39;011110&#39;: &#39;-186.058&#39;, &#39;100111&#39;: &#39;-203.485&#39;, &#39;101011&#39;: &#39;-203.485&#39;, &#39;101101&#39;: &#39;-203.484&#39;, &#39;101110&#39;: &#39;-203.485&#39;, &#39;110011&#39;: &#39;-203.484&#39;, &#39;110101&#39;: &#39;-158.389&#39;, &#39;110110&#39;: &#39;-158.389&#39;, &#39;111001&#39;: &#39;-203.485&#39;, &#39;111010&#39;: &#39;-203.485&#39;, &#39;111100&#39;: &#39;-157.255&#39;, &#39;000111&#39;: &#39;-200.439&#39;, &#39;001011&#39;: &#39;-200.402&#39;, &#39;001101&#39;: &#39;-200.442&#39;, &#39;001110&#39;: &#39;-200.414&#39;, &#39;010011&#39;: &#39;-200.483&#39;, &#39;010101&#39;: &#39;-190.472&#39;, &#39;010110&#39;: &#39;-190.472&#39;, &#39;011001&#39;: &#39;-200.445&#39;, &#39;011010&#39;: &#39;-200.402&#39;, &#39;011100&#39;: &#39;-189.201&#39;, &#39;100011&#39;: &#39;-200.342&#39;, &#39;100101&#39;: &#39;-200.339&#39;, &#39;100110&#39;: &#39;-200.342&#39;, &#39;101001&#39;: &#39;-200.342&#39;, &#39;101010&#39;: &#39;-200.342&#39;, &#39;101100&#39;: &#39;-200.341&#39;, &#39;110001&#39;: &#39;-200.339&#39;, &#39;110010&#39;: &#39;-200.340&#39;, &#39;110100&#39;: &#39;-155.246&#39;, &#39;111000&#39;: &#39;-200.342&#39;, &#39;000011&#39;: &#39;-197.210&#39;, &#39;000101&#39;: &#39;-197.259&#39;, &#39;000110&#39;: &#39;-197.228&#39;, &#39;001001&#39;: &#39;-197.228&#39;, &#39;001010&#39;: &#39;-197.193&#39;, &#39;001100&#39;: &#39;-197.242&#39;, &#39;010001&#39;: &#39;-197.279&#39;, &#39;010010&#39;: &#39;-197.272&#39;, &#39;010100&#39;: &#39;-187.259&#39;, &#39;011000&#39;: &#39;-197.232&#39;, &#39;100001&#39;: &#39;-197.129&#39;, &#39;100010&#39;: &#39;-197.130&#39;, &#39;100100&#39;: &#39;-197.126&#39;, &#39;101000&#39;: &#39;-197.129&#39;, &#39;110000&#39;: &#39;-197.127&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;111111&#39;: &#39;-91.007&#39;, &#39;011111&#39;: &#39;-157.402&#39;, &#39;101111&#39;: &#39;-117.352&#39;, &#39;110111&#39;: &#39;-115.408&#39;, &#39;111011&#39;: &#39;-118.669&#39;, &#39;111101&#39;: &#39;-115.857&#39;, &#39;111110&#39;: &#39;-115.368&#39;, &#39;001111&#39;: &#39;-165.446&#39;, &#39;010111&#39;: &#39;-169.700&#39;, &#39;011011&#39;: &#39;-174.856&#39;, &#39;011101&#39;: &#39;-179.349&#39;, &#39;011110&#39;: &#39;-193.578&#39;, &#39;100111&#39;: &#39;-114.286&#39;, &#39;101011&#39;: &#39;-156.260&#39;, &#39;101101&#39;: &#39;-114.364&#39;, &#39;101110&#39;: &#39;-114.589&#39;, &#39;110011&#39;: &#39;-154.009&#39;, &#39;110101&#39;: &#39;-151.714&#39;, &#39;110110&#39;: &#39;-112.645&#39;, &#39;111001&#39;: &#39;-116.019&#39;, &#39;111010&#39;: &#39;-115.620&#39;, &#39;111100&#39;: &#39;-112.777&#39;, &#39;000111&#39;: &#39;-170.008&#39;, &#39;001011&#39;: &#39;-199.282&#39;, &#39;001101&#39;: &#39;-189.865&#39;, &#39;001110&#39;: &#39;-197.968&#39;, &#39;010011&#39;: &#39;-196.970&#39;, &#39;010101&#39;: &#39;-199.534&#39;, &#39;010110&#39;: &#39;-199.420&#39;, &#39;011001&#39;: &#39;-178.087&#39;, &#39;011010&#39;: &#39;-195.851&#39;, &#39;011100&#39;: &#39;-199.407&#39;, &#39;100011&#39;: &#39;-152.743&#39;, &#39;100101&#39;: &#39;-112.567&#39;, &#39;100110&#39;: &#39;-112.427&#39;, &#39;101001&#39;: &#39;-151.629&#39;, &#39;101010&#39;: &#39;-149.100&#39;, &#39;101100&#39;: &#39;-112.383&#39;, &#39;110001&#39;: &#39;-113.169&#39;, &#39;110010&#39;: &#39;-120.523&#39;, &#39;110100&#39;: &#39;-118.897&#39;, &#39;111000&#39;: &#39;-113.063&#39;, &#39;000011&#39;: &#39;-195.654&#39;, &#39;000101&#39;: &#39;-196.463&#39;, &#39;000110&#39;: &#39;-196.386&#39;, &#39;001001&#39;: &#39;-196.449&#39;, &#39;001010&#39;: &#39;-196.413&#39;, &#39;001100&#39;: &#39;-196.375&#39;, &#39;010001&#39;: &#39;-196.462&#39;, &#39;010010&#39;: &#39;-196.390&#39;, &#39;010100&#39;: &#39;-196.202&#39;, &#39;011000&#39;: &#39;-196.377&#39;, &#39;100001&#39;: &#39;-149.523&#39;, &#39;100010&#39;: &#39;-150.478&#39;, &#39;100100&#39;: &#39;-109.201&#39;, &#39;101000&#39;: &#39;-135.420&#39;, &#39;110000&#39;: &#39;-112.403&#39;}
 </pre></div>
 </div>
 </div>
@@ -1038,8 +1027,8 @@ Phi =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8eb3533ba84c2481bbdbfa863db837af838711ee652be67a8fb73ad623b41f59.png" src="_images/8eb3533ba84c2481bbdbfa863db837af838711ee652be67a8fb73ad623b41f59.png" />
-<img alt="_images/619b6c93d1695315061f318fb9d6a9a52d3fc5341bee119bf26bcdc94d0bdf63.png" src="_images/619b6c93d1695315061f318fb9d6a9a52d3fc5341bee119bf26bcdc94d0bdf63.png" />
+<img alt="_images/20bdcb91ff39113714ecc5549410e785aa720e5f0172a31401359973fd130dc2.png" src="_images/20bdcb91ff39113714ecc5549410e785aa720e5f0172a31401359973fd130dc2.png" />
+<img alt="_images/8916539bb6e153c97e600a4c1317bac652f52d53ab88fa4834f0c8f933b0beb8.png" src="_images/8916539bb6e153c97e600a4c1317bac652f52d53ab88fa4834f0c8f933b0beb8.png" />
 </div>
 </div>
 </section>
@@ -1053,16 +1042,16 @@ Phi =
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "sage-10.0"
+            mode: "sagemath"
         },
         kernelOptions: {
-            name: "sage-10.0",
+            name: "sagemath",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'sage-10.0'</script>
+    <script>kernelName = 'sagemath'</script>
 
                 </article>
               
@@ -1071,7 +1060,7 @@ Phi =
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1098,8 +1087,6 @@ Phi =
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -1144,8 +1131,8 @@ By Greg Conradi Smith
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

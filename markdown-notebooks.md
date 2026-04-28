@@ -9,7 +9,7 @@ jupytext:
 kernelspec:
   display_name: Sagemath 10
   language: sage
-  name: sage-10.0
+  name: sagemath
 ---
 
 # Notebooks with MyST Markdown

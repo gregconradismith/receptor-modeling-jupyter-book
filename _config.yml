@@ -6,13 +6,15 @@ author: Greg Conradi Smith
 copyright: "2024"
 logo: images/Doodle.png
 
-# Force re-execution of notebooks on each build.
+# Use cached notebook executions when available.
 # See https://jupyterbook.org/content/execute.html
-# auto force cache
 execute:
-  execute_notebooks: auto
-  timeout: 600
+  execute_notebooks: cache
+  timeout: 120
   allow_errors: true
+  exclude_patterns:
+    - cycle_fluxes_derived_chain_part2.ipynb
+    - cycle_fluxes_derived_chain_part3.ipynb
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -57,5 +59,3 @@ math:
 #sphinx:
 #  extra_extensions:
 #  - 'sphinx.ext.autodoc'
-
-

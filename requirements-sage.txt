@@ -1,0 +1,3 @@
+# Python packages imported from SageMath-backed notebooks.
+lmfit
+

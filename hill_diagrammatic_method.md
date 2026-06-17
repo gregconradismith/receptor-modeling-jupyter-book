@@ -14,10 +14,10 @@ kernelspec:
 ---
 # Hill's diagrammatic method
 
-As discusssed earlier [earlier](markov_chain_tree_theorem_intro), the [Markov chain tree theorem](https://en.wikipedia.org/wiki/Markov_chain_tree_theorem) (also called Hill's diagrammatic method) provides algebraic expressions for the steady-state probabilities of a receptor model.    The function `hill_diagramatic_method()` below takes a symbolic generator matrix for such a Markov chain as input and, using the Markov chain tree theorem, calculates the steady-state probability of each state.
+As discussed earlier in [Markov chain tree theorem](markov_chain_tree_theorem_intro), the [Markov chain tree theorem](https://en.wikipedia.org/wiki/Markov_chain_tree_theorem) (also called Hill's diagrammatic method) provides algebraic expressions for the steady-state probabilities of a receptor model.    The function `hill_diagrammatic_method()` below takes a symbolic generator matrix for such a Markov chain as input and, using the Markov chain tree theorem, calculates the steady-state probability of each state.
 
 ```{code-cell}
-def hill_diagramatic_method(Q):
+def hill_diagrammatic_method(Q):
     n = Q.nrows()
     if Q.ncols() != n:
         raise ValueError
@@ -30,12 +30,12 @@ def hill_diagramatic_method(Q):
 ```
 
 ```{note}
-The receptor models considered here have state-transition diagrams with the topology of a simple symmetric directed graph (connected, no loops). The Markov chain tree theorem always applies to receptor models with these properties.  However, there are Markov chains that can not be analyzed in this way (e.g., Markov chains with an infinite number of states).
+The receptor models considered here have state-transition diagrams with the topology of a simple symmetric directed graph (connected, no loops). The Markov chain tree theorem always applies to receptor models with these properties.  However, there are Markov chains that cannot be analyzed in this way (e.g., Markov chains with an infinite number of states).
 ```
 
 ## Receptor model with the topology of the cycle graph [{math}`C_3`](example_graphs:cycle_graph)
 
-To illustrate the function `hill_diagramatic_method()`, consider a three-state receptor model that has a [cycle](example_graphs:cycle_graph).
+To illustrate the function `hill_diagrammatic_method()`, consider a three-state receptor model that has a [cycle](example_graphs:cycle_graph).
 
 ```{code-cell}
 var('p0 p1 p2 a01 a10 a02 a20 a12 a21')
@@ -55,10 +55,10 @@ Q = generator(G.weighted_adjacency_matrix(sparse=False))
 show(Q)
 ```
 
-The relative probabilities according to `hill_diagramatic_method()` are:
+The relative probabilities according to `hill_diagrammatic_method()` are:
 
 ```{code-cell}
-z = hill_diagramatic_method(Q)
+z = hill_diagrammatic_method(Q)
 for i in range(3):
     print('z[%s] ='%i, f'{expand(z[i])}')
 ```
@@ -83,10 +83,9 @@ show(Q)
 ```
 
 ```{code-cell}
-z = hill_diagramatic_method(Q)
+z = hill_diagrammatic_method(Q)
 for i in range(5):
     print('z[%s] ='%i, f'{expand(z[i])}')
 ```
 
 In this case, each of the five relative probabilities is a multinomial with 10 terms because there are 10 rooted spanning trees associated to each state (vertex).  Each term has 4 factors because any spanning tree of the house graph has 4 edges.
-

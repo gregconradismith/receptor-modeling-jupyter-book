@@ -2,7 +2,7 @@
 (fitting_allosteric_parameters_overview)=
 # Overview
 
-After the allosteric parameters in a receptor dimer model are enumerated, the process of undestanding their effect on the properties of the dimer can begin.
+After the allosteric parameters in a receptor dimer model are enumerated, the process of understanding their effect on the properties of the dimer can begin.
 
 Several different questions and workflows come to mind.
 

@@ -45,7 +45,7 @@ show(Q)
 print('The rank of Q is',Q.rank())
 ```
 
-The generator of a Markov chain receptor model with {math}`n` states has rank {math}`n-1` due to conservation of probability. The four-state receptor model under consideration has a 4 states.  The {math}`4 \times 4` generator matrix {math}`Q` has rank {math}`4-1=3`.
+The generator of a Markov chain receptor model with {math}`n` states has rank {math}`n-1` due to conservation of probability. The four-state receptor model under consideration has 4 states.  The {math}`4 \times 4` generator matrix {math}`Q` has rank {math}`4-1=3`.
 
 ```{code-cell}
 print('The rank of Q is',Q.rank())
@@ -78,10 +78,10 @@ In the above expressions, the probability distribution {math}`\bpit` is a row ve
 Setting the left side of {eq}`mc_ode` to zero, it is evident that steady-state probability distribution {math}`\bpit` solves {math}`\bpit Q = \bzero` subject to {math}`\bpit \be = 1`.  This expression is equivalent to {math}`\sum_i \pi_i = 1` (conservation of probability).
 
 
-## Symbolic calcualtion of steady-state probability distribution
+## Symbolic calculation of steady-state probability distribution
 
 
-Using `Sagemath` we can symbolically solve {math}`\bpit Q = \bzero` subject to {math}`\bpit \be = 1`.  
+Using `SageMath` we can symbolically solve {math}`\bpit Q = \bzero` subject to {math}`\bpit \be = 1`.  
 
 To begin, we will unpack the four linear equations of {math}`\bpit Q = \bzero`, which is compact notation for four linear equations.
 
@@ -129,12 +129,12 @@ z_3 & = (a_{13} a_{21} + a_{12} a_{23} + a_{13} a_{23} ) a_{43}\\
 z_4 & = (a_{13} a_{21} + a_{12} a_{23} + a_{13} a_{23} ) a_{34} \, .
 \end{align*}
 
-In general, this probability distribution is a _non-equilibrium steady state_.  To see this, check to see if the distribution satisfies detailed balance, i.e., {math}`a_{ij} \pi_i = a_{ji} \pi_j`. Using the note above, we see that detailed balance implies {math}`a_{ij} z_i = a_{ji} z_j`, but {math}`a_{01} z_0 \neq a_{10} z_1` in general.
+In general, this probability distribution is a _non-equilibrium steady state_.  To see this, check to see if the distribution satisfies detailed balance, i.e., {math}`a_{ij} \pi_i = a_{ji} \pi_j`. Using the note above, we see that detailed balance implies {math}`a_{ij} z_i = a_{ji} z_j`, but {math}`a_{12} z_1 \neq a_{21} z_2` in general.
 
 
-## [Komolgorov's criterion](https://en.wikipedia.org/wiki/Kolmogorov%27s_criterion) and equilibrium
+## [Kolmogorov's criterion](https://en.wikipedia.org/wiki/Kolmogorov%27s_criterion) and equilibrium
 
-If the product of rate constants around the cycle is the same in both directions, i.e., `a12*a23*a31=a13*a32*a21` [Komolgorov's criterion](https://en.wikipedia.org/wiki/Kolmogorov%27s_criterion) is satisfied.  In this case, the steady-state probability distribution is guaranteed to satisfy detailed balance.  The code below usings this condition to repace `a12` by `a13*a32*a21/(a23*a31)`.
+If the product of rate constants around the cycle is the same in both directions, i.e., `a12*a23*a31=a13*a32*a21` [Kolmogorov's criterion](https://en.wikipedia.org/wiki/Kolmogorov%27s_criterion) is satisfied.  In this case, the steady-state probability distribution is guaranteed to satisfy detailed balance.  The code below uses this condition to replace `a12` by `a13*a32*a21/(a23*a31)`.
 
 ```{code-cell} ipython3
 :tags: ["hide-cell"]
@@ -150,7 +150,7 @@ def mysolve(p,Q):
         print('p%s' % (i+1),'=',f.expand().factor())
 ```
 
-The equilibrium steady-state probability distribution assuming the Komolgorov condition is
+The equilibrium steady-state probability distribution assuming the Kolmogorov condition is
 ```{code-cell}
 Q = Q.subs(a31=a13*a32*a21/(a12*a23))
 mysolve(p,Q)
@@ -178,5 +178,3 @@ G = DiGraph(d,weighted=True)
 vertex_positions = {1: (0, 0), 2: (1, 1.41), 3: (2, 0), 4: (4,0)}
 G.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
 ```
-
-

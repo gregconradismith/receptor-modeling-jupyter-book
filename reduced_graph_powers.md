@@ -15,7 +15,7 @@ kernelspec:
 
 # Reduced graph powers
 
-The Sagemath `Graph()` object will be used for the topology of receptor models.
+The SageMath `Graph()` object will be used for the topology of receptor models.
 
 ## Simple graphs
 
@@ -42,7 +42,7 @@ where {math}`v=|V(G)|`. The number of edges in the reduced graph power {math}`G^
 ```
 
 where {math}`e=|E(G)|`.
-When the graph {math}`G` is understood, will sometimes abbreviate the number of vertices and edges in its reduced graph power by {math}`v^{(k)} = |V(G^{(k)})|` and {math}`e^{(k)} = |E(G^{(k)})|`.
+When the graph {math}`G` is understood, we will sometimes abbreviate the number of vertices and edges in its reduced graph power by {math}`v^{(k)} = |V(G^{(k)})|` and {math}`e^{(k)} = |E(G^{(k)})|`.
 
 ## Common named graphs
 
@@ -72,12 +72,12 @@ Specializing to the case of a dimer ({math}`k=2`), we have {math}`|V(P_n^{(2)})|
 
 ### The cycle graph {math}`C_n`
 
-The  `cycle graph` {math}`C_n` is a graph whose {math}`n` vertices can be listed in the order {math}`0, 1, \ldots , n` such that the edges are {math}`(i, i+1)` for {math}`i = 0, 1, \ldots , n-2`, and also {math}`(0,n-1)`.  For example, {math}`C_5` is
+The  `cycle graph` {math}`C_n` is a graph whose {math}`n` vertices can be listed in the order {math}`0, 1, \ldots , n-1` such that the edges are {math}`(i, i+1)` for {math}`i = 0, 1, \ldots , n-2`, and also {math}`(0,n-1)`.  For example, {math}`C_5` is
 
 ```{code-cell}
 :tags: [hide-input]
 for n in [3,5,12]:
-    graphs.CycleGraph(n).show(figsize=3,title='K%s:' %(n))
+    graphs.CycleGraph(n).show(figsize=3,title='C%s:' %(n))
 ```
 
 For the cycle graph {math}`|E(C_n)|=n` and {math}`\beta(C_n)=1`.
@@ -104,12 +104,12 @@ For example, $K_5$ is
 :tags: [hide-input]
 
 for n in [2,4,7]:
-    graphs.CompleteGraph(n).show(figsize=3,title='C%s:' %(n))
+    graphs.CompleteGraph(n).show(figsize=3,title='K%s:' %(n))
 ```
 
 For the complete graph, {math}`\beta(K_n)=\binom{n-1}{2}=(n-1)(n-2)/2`.
 
-The number of vertices of the reduced graph power ${math}`K_n^{(k)}` is {math}`|V(K_n^{(k)})|=\binom{n+k-1}{k}`, the number of edges is {math}`|E(K_n^{(k)})|=\binom{n}{2}\binom{n+k-2}{k-1}`, and the Betti number is
+The number of vertices of the reduced graph power {math}`K_n^{(k)}` is {math}`|V(K_n^{(k)})|=\binom{n+k-1}{k}`, the number of edges is {math}`|E(K_n^{(k)})|=\binom{n}{2}\binom{n+k-2}{k-1}`, and the Betti number is
 
 ```{math}
 \beta(K_n^{(k)}) = \binom{n}{2}\binom{n+k-2}{k-1}-\binom{n+k-1}{k}+1 \, .
@@ -167,4 +167,3 @@ An excellent resource on hypergraphs is {cite}`Harary1988`
 ```{bibliography}
 :filter: docname in docnames
 ```
-

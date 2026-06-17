@@ -20,6 +20,7 @@ only_build_toc_files: true
 
 exclude_patterns:
   - reduced_graph_powers.md
+  - scraps/**
 
 # Define the name of the latex output file for PDF builds
 latex:

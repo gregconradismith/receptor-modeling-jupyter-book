@@ -17,32 +17,6 @@ kernelspec:
 
 The process of receptor modeling often begins by specifying the molecular conformations (states) to be considered and the transitions between these states.  
 
-
-```{code-cell}
-:tags: ["hide-input"]
-# This code block sets some default options for plotting graphs in SageMath.
-# It sets the default figure size, makes the plots transparent, displays 
-# edge labels, uses the spring layout algorithm for graph layouts, and sets
-# the background color for edge labels.
-#
-# See https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph_plot.html
-#
-
-import sage.graphs.graph_plot
-
-# Set the default figure size for plots
-sage.graphs.graph_plot.DEFAULT_PLOT_OPTIONS['figsize'] = [3,3]
-
-# Make the plots transparent
-sage.graphs.graph_plot.DEFAULT_PLOT_OPTIONS['transparent'] = True
-
-# Display edge labels in the plots
-sage.graphs.graph_plot.DEFAULT_PLOT_OPTIONS['edge_labels'] = False
-
-# Set the background color for edge labels to cyan
-sage.graphs.graph_plot.DEFAULT_PLOT_OPTIONS['edge_labels_background'] = 'cyan'
-```
-
 ## Undirected graphs as state-transition diagrams
 
 For example, the following graph may represent a receptor model that has four states:
@@ -53,13 +27,23 @@ vertex_positions = {1: (0, 0), 2: (1, 1.41), 3: (2, 0), 4: (4,0)}
 G_undirected.plot(figsize=8,pos=vertex_positions,graph_border=True)
 ```
 
+```{code-cell}
+G_undirected = Graph({1: [2, 3], 2: [3], 3: [4]})
+vertex_positions = {1: (0, 0), 2: (1, 1.41), 3: (2, 0), 4: (4,0)}
+G_undirected.plot(figsize=8,pos=vertex_positions,graph_border=True,talk=True)
+```
+
 The graph `G_undirected` is constructed by calling the SageMath command [`Graph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html#supported-formats) with a dictionary that associates neighbors to each vertex.  The vertices of the graph `G` are the integers 1, 2, 3, and 4.  The method `plot()` shows the graph `G_undirected` using a dictionary `vertex_positions` that specifies the locations of each vertex.
 
-The [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix) of this graph is
+The adjacency matrix of this graph is
 ```{code-cell}
 G_undirected.adjacency_matrix()
 ```
-The elements of the adjacency matrix indicate whether pairs of vertices are adjacent or not in the graph. The adjacency matrix of a graph should be distinguished from its [incidence matrix](https://en.wikipedia.org/wiki/Incidence_matrix) and its [degree matrix](https://en.wikipedia.org/wiki/Degree_matrix).
+
+The incidence matrix of this graph is
+```{code-cell}
+G_undirected.incidence_matrix()
+```
 
 ```{note}
 The graphs used here to represent receptor states and transitions will be both connected and simple.
@@ -76,10 +60,15 @@ G_directed = G_undirected.to_directed()
 G_directed.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
 ```
 
+```{code-cell}
+G_directed = G_undirected.to_directed()
+G_directed.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True,talk=True)
+```
+
 The method `to_directed()` produces `G_directed` as the _symmetric_ digraph associated to `G_undirected`, in which adjacent vertices are  connected in both directions.
 
 ```{note}
-Receptor state-transition diagrams  will always be symmetric directed graphs, that is, for every edge from vertex `i` to vertex `j`, there is also an edge from vertex `j` to vertex `i`.  Thus, the state-transition diagrams for a receptor model may, for simplicity, be illustrated as an undirected graph. We will refer to such undirected graphs as the _topology_ of the receptor model.
+Receptor state-transition diagrams  will always be symmetric directed graphs, that is, for every edge from vertex `i` to vertex `j`, there is also an edge from vertex `j` to vertex `i`.  Thus, the state-transition diagrams for a receptor model may, for simplicity, be illustrated as an undirected graph.
 ```
 
 ## Transition rate constants 
@@ -93,7 +82,7 @@ G = DiGraph(d,weighted=True)
 G.plot(figsize=8,edge_labels=True,pos=vertex_positions,graph_border=True)
 ```
 
-In the code above, a directed graph `G` is constructed by calling the `SageMath` command [`DiGraph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html#methods).  The input argument `d` is a [Python dictionary](https://doc.sagemath.org/html/en/thematic_tutorials/tutorial-programming-python.html) that assigns out-neighbors to each vertex and corresponding edge labels.
+In the code above, a directed graph `G` is constructed by calling the SageMath command [`DiGraph()`](https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html#methods).  The input argument `d` is a [Python dictionary](https://doc.sagemath.org/html/en/thematic_tutorials/tutorial-programming-python.html) that assigns out-neighbors to each vertex and corresponding edge labels.
 The edge labels are not _strings_, but _symbolic variables_ defined using SageMath's `var` command.
 For example, the symbolic variable `a12` stands for the rate of transition between state 1 and 2. 
 
@@ -109,8 +98,9 @@ One reason for using symbolic variables is that we can produce symbolic expressi
 G.weighted_adjacency_matrix()
 ```
 
-The [Laplacian matrix](https://en.wikipedia.org/wiki/Laplacian_matrix) of `G` is
+The Laplacian of `G` is
 ```{code-cell}
 G.laplacian_matrix()
 ```
 This matrix is sometimes referred to as the `combinatorial Laplacian matrix` of the weighted directed graph `G`.
+

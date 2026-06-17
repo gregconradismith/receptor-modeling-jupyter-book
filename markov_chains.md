@@ -29,7 +29,7 @@ G.set_edge_label(p2,p1,a21)
 G.show(figsize=4,edge_labels=True)
 ```
 
-We assign symbolic variables to the vertices and edges of {math}`G` because this allows us to produce symbolic expressions important quantities using methods available in `Sagemath`'s [module for graphs and digraphs](https://doc.sagemath.org/html/en/reference/graphs/index.html). For example, the weighted adjacency matrix associated with graph $G$ above is
+We assign symbolic variables to the vertices and edges of {math}`G` because this allows us to produce symbolic expressions for important quantities using methods available in `SageMath`'s [module for graphs and digraphs](https://doc.sagemath.org/html/en/reference/graphs/index.html). For example, the weighted adjacency matrix associated with graph $G$ above is
 
 ```{code-cell}
 A = G.weighted_adjacency_matrix()
@@ -43,7 +43,7 @@ show(L)
 ```
 
 ```{note}
-In the code block above, I prefer to write ```sum(A.T)``` rather than ```sum(A.columns())```, but these are equal.
+In the code block above, I prefer to write `sum(A.T)` rather than `sum(A.columns())`, but these are equal.
 ```
 
 ```{code-cell}
@@ -52,7 +52,7 @@ sum(A.T) == sum(A.columns())
 
 ## Generator matrix of Markov chain 
 
-The Markov chain with states and transistions of {math}`G` has a generator matrix {math}`Q` that is the opposite (additive inverse) of the Laplacian matrix ({math}`L`). That is, {math}`Q=-L=A-D`. We define a function that calculates the symbolic generator matrix $Q$ from the weighted adjacency matrix {math}`A`.
+The Markov chain with states and transitions of {math}`G` has a generator matrix {math}`Q` that is the opposite (additive inverse) of the Laplacian matrix ({math}`L`). That is, {math}`Q=-L=A-D`. We define a function that calculates the symbolic generator matrix $Q$ from the weighted adjacency matrix {math}`A`.
 
 ```{code-cell}
 def generator(A):
@@ -118,7 +118,7 @@ p2 = z2/zT
 show(table([[f'{p0=}'],[f'{p1=}'],[f'{p2=}']]))
 ```
 
-This three-state receptor model has no cycles.  For this reason the steady-state probabilities will satisfy detailed balance. This  implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define equilibrium constants as {math}`\kappa_{j}=a_{ij}/a_{ji}` for {math}`i < j` whenever vertex {math}`i` and {math}`j` are adjacent. 
+This three-state receptor model has no cycles.  For this reason the steady-state probabilities will satisfy detailed balance. This implies that the steady-state probability distribution can be written in terms of equilibrium constants (as opposed to rate constants).  Define equilibrium constants as {math}`\kappa_{j}=a_{ij}/a_{ji}` for {math}`i < j` whenever vertex {math}`i` and {math}`j` are adjacent. 
 Dividing the numerator and denominator of each {math}`p_i` by {math}`a_{10}a_{21}` yields
 
 \begin{equation}

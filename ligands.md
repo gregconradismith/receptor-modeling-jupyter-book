@@ -29,9 +29,9 @@ pos = {R: (0, 0), RL: (2, 0), RLL: (4, 0)}
 G.plot(figsize=8,edge_labels=True,pos=pos,graph_border=True,vertex_size=1000)
 ```
 
-The receptor model's state-transition diagram (above) has the topology of a symmetdfdic directed [path graph](example_graphs:path_graph) on 3 vertices. 
+The receptor model's state-transition diagram (above) has the topology of a symmetric directed [path graph](example_graphs:path_graph) on 3 vertices. 
 
-The transition `R` to `RL` occurs at rate `kap*L` where `L` is ligand concentration and `kap` is an association rate constant with physical dimensions of {math}`\mbox{time}^{-1} \mbox{conc}^{-1}` where {math}`\mbox{conc}` is concentration (i.e., number density, {math}`\mbox{amount}/\mbox{length}^3`). The transition `RL` to `L` that involes unbinding of ligand is unimolecular, i.e., physical dimensions of rate ({math}`\mbox{time}^{-1}`).  The interpretation of the edge weights `kbp*L` and `kbm` are similar. 
+The transition `R` to `RL` occurs at rate `kap*L` where `L` is ligand concentration and `kap` is an association rate constant with physical dimensions of {math}`\mbox{time}^{-1} \mbox{conc}^{-1}` where {math}`\mbox{conc}` is concentration (i.e., number density, {math}`\mbox{amount}/\mbox{length}^3`). The transition `RL` to `L` that involves unbinding of ligand is unimolecular, i.e., physical dimensions of rate ({math}`\mbox{time}^{-1}`).  The interpretation of the edge weights `kbp*L` and `kbm` are similar. 
 
 ```{note}
 The characters `kap` and `kam` stand for {math}`k_a^+` and {math}`k_a^-` (`p` for plus and `m` for minus). Similarly for `kbp` and `kbm`. The product of a bimolecular rate constant and ligand concentration `kap*L` stands for {math}`k_a^+ [{\rm L}]` where {math}`{\rm L}` is a chemical species and the brackets indicate the concentration (number density) of that species. 
@@ -77,7 +77,7 @@ The expressions being plotted above are
 :tags: ["hide-input"]
 print('R   =',R); print('RL  =',RL); print('RLL =',RLL)
 ```
-Note that for any given ligand concentration, the fraction of receptors in each of the three states sums to 1.  This can be shown by asking Sagemath to solve for the values of `L` that satisfy `R+RL+RLL == 1`, as follows:
+Note that for any given ligand concentration, the fraction of receptors in each of the three states sums to 1.  This can be shown by asking SageMath to solve for the values of `L` that satisfy `R+RL+RLL == 1`, as follows:
 
 ```{code-cell}
 solve(R+RL+RLL == 1,L)
@@ -89,7 +89,7 @@ The answer indicates that `R+RL+RLL == 1` whenever `[L == L]`, that is, for any 
 
 The receptor model presented above has the property that the fraction of receptors in each state satisfy detailed balance (i.e., for both reaction `a` and `b`, the forward and reverse rates balance.  As a consequence, the fraction of receptors in each state can be written in terms of the equilibrium association constants `ka=kap/kam` and `kb=kbp/kbm` which have physical dimensions of inverse concentration. 
 
-To see this, divide the numberator and denominator of the expressions for `R`, `RL`, `RLL` by `kam*kbm` to obtain
+To see this, divide the numerator and denominator of the expressions for `R`, `RL`, `RLL` by `kam*kbm` to obtain
 
 ```{code-cell}
 var('ka kb')
@@ -137,9 +137,9 @@ In the arborescence shown above, the root is state `R`. The edge label `ka*L` is
 (equilibrium_binding_curves_and_rooted_spanning_trees)=
 ## Equilibrium binding curves and rooted spanning trees
 
-An [arborescence](https://en.wikipedia.org/wiki/Arborescence_(graph_theory)) is a _rooted_ [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) of the state-transtion diagram with arrows reversed.
+An [arborescence](https://en.wikipedia.org/wiki/Arborescence_(graph_theory)) is a _rooted_ [spanning tree](https://en.wikipedia.org/wiki/Spanning_tree) of the state-transition diagram with arrows reversed.
 
-When specifying a receptor model and equilibrium binding curve as a rooted spanning tree, the orientation of the arcs specify the reverse direction of each tansition (reactant {math}`\leftarrow` product). 
+When specifying a receptor model and equilibrium binding curve as a rooted spanning tree, the orientation of the arcs specify the reverse direction of each transition (reactant {math}`\leftarrow` product). 
 
 ```{code-cell}
 T = DiGraph({'RL': {'R':ka*L}, 'RLL': {'RL':kb*L}})
@@ -150,8 +150,7 @@ T.plot(figsize=8,edge_labels=True,pos=pos,graph_border=True,vertex_size=1000)
 ```{admonition} arborescence vs. rooted spanning tree
 :class: tip
 
-A receptor model and its equilibrium binding curve can be specifed either as an arborescence or a rooted spanning tree. The two approaches are equivalent.
+A receptor model and its equilibrium binding curve can be specified either as an arborescence or a rooted spanning tree. The two approaches are equivalent.
 
 However, the rooted spanning tree formulation is helpful in the analysis of conformation coupling of receptors. For this reason, in the sections that follow, we will specify receptor models as rooted spanning trees.
 ```
-

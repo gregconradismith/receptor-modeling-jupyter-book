@@ -78,3 +78,7 @@ builds the book, and publishes `_build/html` to GitHub Pages.
 The workflow is useful as the canonical publication path. Local builds are still
 useful for rapid editing and for diagnosing notebook execution issues before
 pushing.
+
+## Codex Coordination
+
+Codex session state is tracked in `.codex/handoff.md`; durable decisions and task history may also appear in `.codex/` when useful.

@@ -1,55 +1,16 @@
 # Codex Handoff
 
-Date: 2026-06-20
+Date: 2026-06-21
 
 Repo: `receptor-modeling-jupyter-book`
 
 Branch: `main`
 
-Current Git status at handoff update:
+Current Git status after the 2026-06-21 migration readiness fetch and before this handoff edit:
 
 ```bash
 ## main...origin/main
- D scraps/dated-notebooks/2023-08-20-example-lmfit.ipynb
- D scraps/dated-notebooks/2023-08-21-practicing-python.ipynb
- D scraps/dated-notebooks/2023-08-24-example-minimize-linear-regression.ipynb
- D scraps/dated-notebooks/2023-08-24-example-minimize-receptor-model-pade.ipynb
- D scraps/dated-notebooks/2023-08-25-plotting-hypercubes.ipynb
- D scraps/dated-notebooks/README.md
- D scraps/jupyter-book-examples/README.md
- D scraps/jupyter-book-examples/markdown-notebooks.md
- D scraps/jupyter-book-examples/markdown.md
- D scraps/legacy-mytools/EnumerateAllostericParameters.ipynb
- D scraps/legacy-mytools/MyStruggleWithDocstrings.ipynb
- D scraps/legacy-mytools/MyTools.ipynb
- D scraps/legacy-mytools/MyToolsExamplesEnumerateAllostericParameters.ipynb
- D scraps/legacy-mytools/MyToolsExamplesVertexAndEdgeLabels.ipynb
- D scraps/legacy-mytools/PlotBindingCurves.ipynb
- D scraps/legacy-mytools/README.md
- D scraps/legacy-mytools/enumerate_allosteric_parameters-2.ipynb
- D scraps/legacy-overviews/README.md
- D scraps/legacy-overviews/allosteric_parameters_overview.md
- D scraps/legacy-overviews/overview.md
- D scraps/legacy-overviews/wang_algebra.md
- D scraps/legacy-receptor-modeling/README.md
- D scraps/legacy-receptor-modeling/receptor_modeling.md
- D scraps/legacy-receptor-modeling/receptor_modeling_equilibrium_formalism.md
- D scraps/legacy-receptor-modeling/receptor_modeling_ligands.md
- D scraps/legacy-receptor-modeling/receptor_modeling_nonequilibrium.md
- D scraps/legacy-receptor-modeling/receptor_modeling_states_and_transitions.md
- D scraps/legacy-tool-examples/README.md
- D scraps/legacy-tool-examples/ReducedFromCartesianPower.ipynb
- D scraps/legacy-tool-examples/cycle_flux_derived_chain.ipynb
- D scraps/legacy-tool-examples/my_tools_examples_enumerate_allosteric_parameters.ipynb
- D scraps/legacy-tool-examples/my_tools_examples_vertex_and_edge_labels.ipynb
- D scraps/legacy-tool-examples/plot_binding_curves.ipynb
- D scraps/receptor_modeling_scraps.md
- M CODEX-HANDOFF.md
-!! .DS_Store
 ```
-
-The `scraps/**` deletions were already present when this handoff was updated.
-Do not restore or commit them unless Greg confirms that is desired.
 
 ## Repository Role
 
@@ -73,7 +34,7 @@ Wang algebras.
   the book, and deploys `_build/html` to GitHub Pages.
 - A separate `upgrade` branch exists and contains an older `HANDOFF.md`; this
   root handoff was added directly on `main` per Greg's instruction to push
-  `AGENTS.md` / `CODEX-HANDOFF.md` changes to `main`.
+  `AGENTS.md` / `.codex/handoff.md` changes to `main`.
 
 ## Useful Commands
 
@@ -111,6 +72,18 @@ git status --short --branch
 git diff --check
 ```
 
+## Migration Readiness Snapshot
+
+- Checked on 2026-06-21 before moving computers.
+- Non-interactive `git fetch --all --prune` completed successfully.
+- Root `README.md` points to `.codex/handoff.md` when a root README exists.
+
+Pre-edit Git state after fetch:
+
+```bash
+## main...origin/main
+```
+
 ## Notes For The Next Codex
 
 - Preserve the `sagemath` kernel convention.
@@ -119,7 +92,7 @@ git diff --check
 - Avoid broad notebook-output churn.
 - Prefer editing Markdown overview pages for prose/navigation changes and
   notebooks only when executable content needs to change.
-- After adding or updating `AGENTS.md` / `CODEX-HANDOFF.md`, commit the scoped
+- After adding or updating `AGENTS.md` / `.codex/handoff.md`, commit the scoped
   change on `main` and push to `origin/main`.
 
 ## Review Notes From 2026-06-20

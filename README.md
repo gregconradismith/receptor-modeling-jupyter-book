@@ -2,6 +2,8 @@
 
 This repository contains a Jupyter Book about receptor modeling.
 
+HTML site: <https://gregconradismith.github.io/receptor-modeling-jupyter-book/>
+
 ## Build locally
 
 Install SageMath first. Most notebooks use the stable Jupyter kernel name
